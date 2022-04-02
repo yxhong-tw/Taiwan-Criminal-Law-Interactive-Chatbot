@@ -1,0 +1,6 @@
+{
+    "dataset_analysis_result_file_path": "./results/dataset_analysis_result.txt",
+    "files_analysis_result_file_path": "./results/files_analysis_result.txt",
+    "dataset_name": "Precedents of Taiwan Criminal Law",
+    "dataset_folder_path": "./dataset/"
+}
