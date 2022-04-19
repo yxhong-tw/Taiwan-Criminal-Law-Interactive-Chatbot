@@ -2,9 +2,9 @@ import torch
 
 from simple_IO.config_parser import create_config
 from simple_IO.tools.init_tool import init_all
-from simple_IO.tools.serve_tool import serve
+from simple_IO.tools.serve_tool import serve, serve_one
 
-def do_serve():
+def do_serve(message):
     args_config = 'simple_IO/bert.config'
     args_gpu = 'GPU-7444f9b3-c077-071d-8496-422656b95fe8'
     args_checkpoint = 'simple_IO/model/ljp/LJPBertExercise/checkpoint_9.pkl'
@@ -26,4 +26,6 @@ def do_serve():
 
     parameters = init_all(config, gpu_list, args_checkpoint)
 
-    serve(parameters, config, gpu_list)
+    # serve(parameters, config, gpu_list)
+
+    return serve_one(parameters, config, gpu_list, message)

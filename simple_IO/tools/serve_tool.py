@@ -1,7 +1,50 @@
 import torch
 from simple_IO.formatter.ljp.Bert import BertLJP
 
+def serve_one(parameters, config, gpu_list, message):
+    model = parameters["model"]
+    model.eval()
 
+    result = []
+    acc_result = None
+
+    charge_table, article_source_table, article_table = get_table(config, 'serve')
+
+    fact = encode_data(config, 'serve', message, 'fact')
+
+    result = model(fact, config, gpu_list, acc_result, 'serve')
+
+    # the size of charge_result = [number_of_class]
+    charge_result = torch.max(result['accuse'], 2)[1]
+
+    # TODO: the size of article_source_result = []
+    article_source_result = torch.max(result['article_source'], 2)[1]
+
+    # TODO: the size of article_result = []
+    article_result = torch.max(result['article'], 2)[1]
+
+    # === Get the accuse, article_source, article (output) ===
+    reply_text = ''
+    for key, value in charge_table.items():
+        if torch.equal(charge_result, value):
+            reply_text += f'The charge of this fact: {key}\n'
+            # print(f'The charge of this fact: {key}')
+            break
+
+    for key, value in article_source_table.items():
+        if torch.equal(article_source_result, value):
+            reply_text += f'The article_source of this fact: {key}\n'
+            # print(f'The article_source of this fact: {key}')
+            break
+
+    for key, value in article_table.items():
+        if torch.equal(article_result, value):
+            reply_text += f'The article of this fact: {key}'
+            # print(f'The article of this fact: {key}')
+            break
+    return reply_text
+
+    
 def serve(parameters, config, gpu_list):
     model = parameters['model']
     model.eval()

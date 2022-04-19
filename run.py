@@ -1,4 +1,4 @@
-from line_bot.simple_IO_example import line_bot
+from line_bot.app import run_app
 
 if __name__ == '__main__':
-    line_bot()
+    run_app()
