@@ -1,0 +1,4 @@
+flask
+line-bot-sdk
+torch
+pytorch_pretrained_bert

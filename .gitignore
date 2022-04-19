@@ -1,0 +1,3 @@
+venv/
+simple_IO/model/ljp/LJPBertExercise/checkpoint_9.pkl
+simple_IO/bert/pytorch_model.bin
