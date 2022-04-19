@@ -1,4 +1,4 @@
-# WIDM-UG-Project-Competition
+# Taiwan-Criminal-Law-Interactive-Chatbot
 
 ## Before running
 ### Download model and checkpoint
