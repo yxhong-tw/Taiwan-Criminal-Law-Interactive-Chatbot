@@ -13,7 +13,7 @@ Run `pip install -r requirements.txt` to install all needed modules.
 `simple_IO` is designed to use on WIDM Lab 110 undergraduate student competition.
 
 The project architecture is like:
-- WIDM-UG-Project-Competition
+- Taiwan-Criminal-Law-Interactive-Chatbot
     - line-bot
     - simple_IO
     - other function folders
