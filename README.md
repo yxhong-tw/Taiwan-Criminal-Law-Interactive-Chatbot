@@ -21,3 +21,10 @@ The project architecture is like:
 You can refer to `simple_IO_example.py` which is in `./line_bot/` to see how to import and use `simple_IO`.
 
 If you want to make the message received from Line-bot can be used as 'fact' and return the outputs (accuse, article_source, article), you can see `./simple_IO/tools/serve_tool.py` file.
+
+## How to run line-bot  
+1. move to root directory ```Taiwan-Criminal-Law-Interactive-Chatbot/```  
+2. run ngrok port 5000  
+```ngrok http 5000``` 
+3. open another screen and run ```run.py``` file  
+```python3 run.py```
