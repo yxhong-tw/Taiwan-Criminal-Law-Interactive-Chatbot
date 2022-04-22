@@ -1,5 +1,6 @@
 import torch
 from simple_IO.formatter.ljp.Bert import BertLJP
+import socket
 
 def serve_one(parameters, config, gpu_list, message):
     model = parameters["model"]
@@ -44,7 +45,6 @@ def serve_one(parameters, config, gpu_list, message):
             break
     return reply_text
 
-    
 def serve(parameters, config, gpu_list):
     model = parameters['model']
     model.eval()
@@ -95,7 +95,69 @@ def serve(parameters, config, gpu_list):
                 break
 
         print()
+        
+def serve_socket(parameters, config, gpu_list):
+    model = parameters['model']
+    model.eval()
 
+    result = []
+    acc_result = None
+
+    charge_table, article_source_table, article_table = get_table(config, 'serve')
+
+    # socket connection
+    
+    model_HOST, model_PORT = '172.17.0.3', 8000
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.bind((model_HOST, model_PORT))
+    server.listen(10)
+
+    while True:
+        conn, addr = server.accept()
+        clientMessage = str(conn.recv(1024), encoding='utf-8')
+        print(f'connected, clientMessage:{clientMessage}')
+        # === Get the fact (input) ===
+        fact = clientMessage
+
+        fact = encode_data(config, 'serve', fact, 'fact')
+
+        result = model(fact, config, gpu_list, acc_result, 'serve')
+
+        # the size of charge_result = [number_of_class]
+        charge_result = torch.max(result['accuse'], 2)[1]
+
+        # TODO: the size of article_source_result = []
+        article_source_result = torch.max(result['article_source'], 2)[1]
+
+        # TODO: the size of article_result = []
+        article_result = torch.max(result['article'], 2)[1]
+
+        # === Get the accuse, article_source, article (output) ===
+        # Add codes that can return the output back to Line-bot
+        # ========================================================
+        
+        reply_text = ''
+        for key, value in charge_table.items():
+            if torch.equal(charge_result, value):
+                reply_text += f'The charge of this fact: {key}\n'
+                # print(f'The charge of this fact: {key}')
+                break
+
+        for key, value in article_source_table.items():
+            if torch.equal(article_source_result, value):
+                reply_text += f'The article_source of this fact: {key}\n'
+                # print(f'The article_source of this fact: {key}')
+                break
+
+        for key, value in article_table.items():
+            if torch.equal(article_result, value):
+                reply_text += f'The article of this fact: {key}'
+                # print(f'The article of this fact: {key}')
+                break
+        
+        serverMessage = reply_text
+        conn.sendall(serverMessage.encode())
+        conn.close()
 
 def encode_data(config, mode, data, data_name, *args, **params):
     formatter = BertLJP(config, mode, *args, **params)
