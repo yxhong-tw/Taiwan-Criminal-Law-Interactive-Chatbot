@@ -7,7 +7,7 @@ from simple_IO.tools.serve_tool import serve_socket, serve_one
 def init_condition():
     args_config = 'simple_IO/bert.config'
     args_gpu = 'GPU-7444f9b3-c077-071d-8496-422656b95fe8'
-    args_checkpoint = 'simple_IO/model/ljp/LJPBertExercise/checkpoint_9.pkl'
+    args_checkpoint = 'simple_IO/model/ljp/LJPBertExercise/new_checkpoint_2.pkl'
 
     config = create_config(args_config)
 
