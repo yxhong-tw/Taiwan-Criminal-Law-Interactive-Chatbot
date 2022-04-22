@@ -4,7 +4,7 @@
 ### Download model and checkpoint
 Due to the size of model and checkpoint files are too large, you need to download these two files and put them into the correct folder, and the program can execute correctly.
 - [pytorch_model.bin](https://drive.google.com/file/d/1jkSh7_UOzY637J1VMWC8uGoWCBf_uoVK/view?usp=sharing): `./simple_IO/bert/`
-- [checkpoint_9.pkl](https://drive.google.com/file/d/1WgM6t02EvVF98F8Z1eyiBGvdwqC3Mmtr/view?usp=sharing): `./simple_IO/model/ljp/LJPBertExercise/`
+- [new_checkpoint_2.pkl](https://drive.google.com/file/d/1p2PUUKdfxK3H9ZwWZDhp_TDALoRpkuUp/view?usp=sharing): `./simple_IO/model/ljp/LJPBertExercise/`
 
 ### Install the modules
 Run `pip install -r requirements.txt` to install all needed modules.
