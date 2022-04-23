@@ -1,4 +1,5 @@
 venv/
 simple_IO/model/ljp/LJPBertExercise/new_checkpoint_2.pkl
 simple_IO/bert/pytorch_model.bin
+**/*.pkl
 **/__pycache__/
