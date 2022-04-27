@@ -3,14 +3,16 @@ import sys
 import argparse
 import configparser
 import torch
+import threading
 import time
 
-from multiprocessing import Process
+# from multiprocessing import Process, set_start_method
 
 from legal_judgment_prediction.tools.initialize import init_all
 from legal_judgment_prediction.tools.train import train
 from legal_judgment_prediction.tools.eval import eval
 from legal_judgment_prediction.tools.serve.serve import serve_simple_IO, serve_socket
+# from line_bot.app import run
 from line_bot.app import run_app
 
 
@@ -75,17 +77,14 @@ if __name__ == '__main__':
         open_socket = args.open_socket
 
         if open_socket == True:
-            ljp_process = Process(target=serve_socket, args=(parameters, config, gpu_list))
-            line_bot_process = Process(target=run_app, args=())
-            
-            ljp_process.start()
-            time.sleep(5)
-            line_bot_process.start()
+            ljp_thread = threading.Thread(target=serve_socket, args=(parameters, config, gpu_list))
+            line_bot_thread = threading.Thread(target=run_app, args=())
 
-            ljp_process.join()
-            line_bot_process.join()
+            ljp_thread.start()
+            line_bot_thread.start()
 
-            # serve_socket(parameters, config, gpu_list)
+            ljp_thread.join()
+            line_bot_thread.join()
         else:
             serve_simple_IO(parameters, config, gpu_list)
     elif mode == 'train':

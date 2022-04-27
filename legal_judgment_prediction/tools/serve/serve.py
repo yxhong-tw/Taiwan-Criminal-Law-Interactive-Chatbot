@@ -1,8 +1,9 @@
 import logging
 import torch
 import socket
+import time
 
-from legal_judgment_prediction.tools.serve.utils import get_table, encode_data
+from legal_judgment_prediction.tools.serve.utils import get_table, encode_data, Server_Thread
 
 
 logger = logging.getLogger(__name__)
@@ -52,57 +53,53 @@ def serve_simple_IO(parameters, config, gpu_list):
 
 
 def serve_socket(parameters, config, gpu_list):
-    model = parameters['model']
-    model.eval()
+    server_socket_IP, server_socket_port = '172.17.0.4', 8000
 
-    result = []
-
-    logger.info('Begin to get tables...')
-
-    charge_table, article_source_table, article_table = get_table(config, mode='serve')
-
-    logger.info('Get tables done...')
-
-    # socket server
-    model_HOST, model_PORT = '172.17.0.3', 8000
-
-    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server.bind((model_HOST, model_PORT))
-    server.listen(10)
+    counter = 0
 
     while True:
-        conn, addr = server.accept()
-        clientMessage = str(conn.recv(1024), encoding='utf-8')
+        try:
+            server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            server_socket.bind((server_socket_IP, server_socket_port))
+            server_socket.listen(5)
 
-        print(f'Connected. clientMessage: {clientMessage}')
+            information = 'Socket server launched.'
+            logger.info(information)
 
-        fact = clientMessage
-        fact = encode_data(config, mode='serve', data=fact, data_name='fact')
+            break
+        except:
+            error = 'Socket server launched failed.'
+            logger.error(error)
 
-        result = model(fact, config, gpu_list, acc_result=None, mode='serve')
+            if counter < 3:
+                counter += 1
+                time.sleep(3)
+            else:
+                raise error
 
-        # the size of charge_result = [number_of_class]
-        charge_result = torch.max(result['accuse'], 2)[1]
-        article_source_result = torch.max(result['article_source'], 2)[1]
-        article_result = torch.max(result['article'], 2)[1]
-        
-        reply_text = ''
+    server_thread = Server_Thread(server_socket=server_socket, parameters=parameters, config=config, gpu_list=gpu_list)
 
-        for key, value in charge_table.items():
-            if torch.equal(charge_result, value):
-                reply_text += (f'The charge of this fact: {key}' + '\n')
-                break
+    counter = 0
 
-        for key, value in article_source_table.items():
-            if torch.equal(article_source_result, value):
-                reply_text += (f'The article_source of this fact: {key}' + '\n')
-                break
+    while True:
+        try:
+            server_thread.start()
 
-        for key, value in article_table.items():
-            if torch.equal(article_result, value):
-                reply_text += (f'The article of this fact: {key}' + '\n')
-                break
-        
-        serverMessage = reply_text
-        conn.sendall(serverMessage.encode())
-        conn.close()
+            information = 'Server thread launched.'
+            logger.info(information)
+
+            break
+        except:
+            error = 'Server thread launched failed.'
+            logger.error(error)
+
+            if counter < 3:
+                counter += 1
+                time.sleep(3)
+            else:
+                raise error
+
+    server_thread.join()
+
+    information = 'Server socket closed.'
+    logger.info(information)

@@ -1,113 +1,98 @@
-from flask import Flask, request, abort
-
-from linebot import (
-    LineBotApi, WebhookHandler
-)
-from linebot.exceptions import (
-    InvalidSignatureError
-)
-from linebot.models import *
-
-
-#======這裡是呼叫的檔案內容=====
-from .message import *
-from .new import *
-from .Function import *
-# from simple_IO.serve_function import serve_one_fact
-from .law_scraper import get_law_detail
-#======這裡是呼叫的檔案內容=====
-
-#======python的函數庫==========
-import tempfile, os
-import datetime
-import time
 import socket
-import requests
+import time
+# import requests
 import re
-#======python的函數庫==========
+import os
+
+from flask import Flask, request, abort
+from linebot import LineBotApi, WebhookHandler
+from linebot.exceptions import InvalidSignatureError
+from linebot.models import *
+from waitress import serve
+
+from line_bot.message import *
+from line_bot.new import *
+from line_bot.Function import *
+from line_bot.law_scraper import get_law_detail
+
         
 def run_app():
+    server_socket_IP, server_socker_port = '172.17.0.4', 8000
+
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    while True:
+        try:
+            client_socket.connect((server_socket_IP, server_socker_port))
+
+            break
+        except:
+            time.sleep(3)
 
     app = Flask(__name__)
-    static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
+
     # Channel Access Token
-    LINE_CHANNEL_ACCESS_TOKEN = '***REMOVED***'
+    LINE_CHANNEL_ACCESS_TOKEN = 'uMOSIzxqIovJGiuL6OwZVDf8pxmourCkO1YRj8KiHNNx8HoOoQ6i7RRAAWQQn1eoVWjbZO4ccLQcQZXlr9PwRPRJOwqLktkkS70o4adjATIyvmodTOkqoJ3618Nk5DZQ9zQ0IcCFxcbXt8z1YiZFDgdB04t89/1O/w1cDnyilFU='
     line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
+
     # Channel Secret
-    handler = WebhookHandler('***REMOVED***')
+    CHANNEL_SECRET = '630b4d783ffc9d52ee94fbe3d6b40a29'
+    handler = WebhookHandler(CHANNEL_SECRET)
 
     # Add Rich menu
-    rich_menu_id = "richmenu-1c5c154f17b8ffd07484405776048588"
-    Authorization_token = "Bearer " + LINE_CHANNEL_ACCESS_TOKEN
-    headers = {"Authorization":Authorization_token, "Content-Type":"application/json"}
-    req = requests.request('POST', 'https://api.line.me/v2/bot/user/all/richmenu/'+ rich_menu_id,
-                       headers=headers)
-    print(req.text)
+    rich_menu_id = 'richmenu-1c5c154f17b8ffd07484405776048588'
+    authorization_token = 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
+    headers = {'Authorization': authorization_token, 'Content-Type': 'application/json'}
+
+    # req = requests.request('POST', 'https://api.line.me/v2/bot/user/all/richmenu/'+ rich_menu_id, headers=headers)
+    # print(req.text)
 
     rich_menu_list = line_bot_api.get_rich_menu_list()
-        
-    # 監聽所有來自 /callback 的 Post Request
+
+    # listen all POST request from /callback
     @app.route("/callback", methods=['POST'])
     def callback():
         # get X-Line-Signature header value
         signature = request.headers['X-Line-Signature']
+
         # get request body as text
         body = request.get_data(as_text=True)
-        app.logger.info("Request body: " + body)
+        app.logger.info('Request body: ' + body)
+
         # handle webhook body
         try:
             handler.handle(body, signature)
         except InvalidSignatureError:
             abort(400)
+
         return 'OK'
 
-    # 處理訊息
+
+    # process message
     @handler.add(MessageEvent, message=TextMessage)
     def handle_message(event):
         msg = event.message.text
-        # if '最新合作廠商' in msg:
-        #     message = imagemap_message()
-        #     line_bot_api.reply_message(event.reply_token, message)
-        # elif '最新活動訊息' in msg:
-        #     message = buttons_message()
-        #     line_bot_api.reply_message(event.reply_token, message)
-        # elif '註冊會員' in msg:
-        #     message = Confirm_Template()
-        #     line_bot_api.reply_message(event.reply_token, message)
-        # elif '旋轉木馬' in msg:
-        #     message = Carousel_Template()
-        #     line_bot_api.reply_message(event.reply_token, message)
-        # elif '圖片畫廊' in msg:
-        #     message = test()
-        #     line_bot_api.reply_message(event.reply_token, message)
-        # elif '功能列表' in msg:
-        #     message = function_list()
-        #     line_bot_api.reply_message(event.reply_token, message)
-        # else:
+
         if re.match('(\D*)第(\d+)條(之(\d)+)?', msg):
             law_detail = get_law_detail(msg)
             line_bot_api.reply_message(event.reply_token,
                 TextSendMessage(text=law_detail))
         else:
-            # message to legal classification model
-            
-            # Create socket channel to model script
-            model_HOST, model_PORT = '172.17.0.3', 8000
-            client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            client.connect((model_HOST, model_PORT))
-            
-            client.sendall(msg.encode())
+            client_socket.sendall(msg.encode())
 
-            serverMessage = str(client.recv(1024), encoding='utf-8')
-            client.close()
-            # reply_txt = do_serve(msg)
-            serverMessage = serverMessage
+            if msg == 'close socket':
+                client_socket.close()
+
+            serverMessage = str(client_socket.recv(1024), encoding='utf-8')
+
             line_bot_api.reply_message(event.reply_token,
                 TextSendMessage(text=serverMessage))
+
 
     @handler.add(PostbackEvent)
     def handle_message(event):
         print(event.postback.data)
+
 
     @handler.add(MemberJoinedEvent)
     def welcome(event):
@@ -118,8 +103,6 @@ def run_app():
         message = TextSendMessage(text=f'{name}歡迎加入')
         line_bot_api.reply_message(event.reply_token, message)
 
-    
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port,debug=True)
-if __name__== "__main__":
-    run_app()
+
+    serve(app, host='0.0.0.0', port=port)
