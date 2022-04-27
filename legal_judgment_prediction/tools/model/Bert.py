@@ -1,4 +1,5 @@
 import torch.nn as nn
+import torch
 
 from legal_judgment_prediction.tools.model.BertEncoder import BertEncoder
 from legal_judgment_prediction.tools.utils import MultiLabelSoftmaxLoss
@@ -31,18 +32,25 @@ class LJPBert(nn.Module):
 
 
     def forward(self, data, config, gpu_list, acc_result, mode):
-        x = data['text']
-        y = self.bert(x)
-        result = self.fc(y)
+        if mode == 'serve':
+            x = torch.unsqueeze(data, 0)
+            y = self.bert(x)
+            result = self.fc(y)
 
-        loss = 0
-        for name in ['accuse', 'article_source', 'article']:
-            loss += self.criterion[name](result[name], data[name])
+            return result
+        else:
+            x = data['text']
+            y = self.bert(x)
+            result = self.fc(y)
 
-        if acc_result is None:
-            acc_result = {'accuse': None, 'article_source': None, 'article': None}
+            loss = 0
+            for name in ['accuse', 'article_source', 'article']:
+                loss += self.criterion[name](result[name], data[name])
 
-        for name in ['accuse', 'article_source', 'article']:
-            acc_result[name] = self.accuracy_function[name](result[name], data[name], config, acc_result[name])
+            if acc_result is None:
+                acc_result = {'accuse': None, 'article_source': None, 'article': None}
 
-        return {'loss': loss, 'acc_result': acc_result, 'output': result}
+            for name in ['accuse', 'article_source', 'article']:
+                acc_result[name] = self.accuracy_function[name](result[name], data[name], config, acc_result[name])
+
+            return {'loss': loss, 'acc_result': acc_result, 'output': result}

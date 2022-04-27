@@ -1,6 +1,6 @@
 import logging
-import torch
 import torch.nn as nn
+import torch
 import numpy as np
 
 
@@ -51,15 +51,17 @@ def output_value(epoch, mode, step, time, loss, info, end, config):
     s = s.replace(' ', delimiter)
 
     if not (end is None):
-        logger.info(s + end)
+        information = s + end
+        logger.info(information)
     else:
-        logger.info(s)
-        print(s)
+        information = s
+        logger.info(information)
 
 
 class MultiLabelSoftmaxLoss(nn.Module):
     def __init__(self, config, task_num=0):
         super(MultiLabelSoftmaxLoss, self).__init__()
+        
         self.task_num = task_num
         self.criterion = []
 

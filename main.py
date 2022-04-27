@@ -3,11 +3,15 @@ import sys
 import argparse
 import configparser
 import torch
+import time
+
+from multiprocessing import Process
 
 from legal_judgment_prediction.tools.initialize import init_all
 from legal_judgment_prediction.tools.train import train
 from legal_judgment_prediction.tools.eval import eval
-from legal_judgment_prediction.tools.serve import serve_socket, serve_simple_IO
+from legal_judgment_prediction.tools.serve.serve import serve_simple_IO, serve_socket
+from line_bot.app import run_app
 
 
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -16,7 +20,7 @@ ch = logging.StreamHandler()
 ch.setLevel(logging.DEBUG)
 ch.setFormatter(formatter)
 
-fileHandler = logging.FileHandler('log/Bert.log', mode='a',encoding='utf-8')
+fileHandler = logging.FileHandler('legal_judgment_prediction/log/Bert.log', mode='a',encoding='utf-8')
 fileHandler.setFormatter(formatter)
 
 logger = logging.getLogger()
@@ -24,7 +28,8 @@ logger.setLevel(logging.DEBUG)
 logger.addHandler(ch)
 logger.addHandler(fileHandler)
 
-logger.info(' '.join(sys.argv))
+information = ' '.join(sys.argv)
+logger.info(information)
 
 
 if __name__ == '__main__':
@@ -69,8 +74,18 @@ if __name__ == '__main__':
     if mode == 'serve':
         open_socket = args.open_socket
 
-        if open_socket == 'True':
-            serve_socket(parameters, config, gpu_list)
+        if open_socket == True:
+            ljp_process = Process(target=serve_socket, args=(parameters, config, gpu_list))
+            line_bot_process = Process(target=run_app, args=())
+            
+            ljp_process.start()
+            time.sleep(5)
+            line_bot_process.start()
+
+            ljp_process.join()
+            line_bot_process.join()
+
+            # serve_socket(parameters, config, gpu_list)
         else:
             serve_simple_IO(parameters, config, gpu_list)
     elif mode == 'train':

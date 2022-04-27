@@ -17,23 +17,25 @@ logger = logging.getLogger(__name__)
 
 
 def train(parameters, config, gpu_list, do_test=False):
-    epoch = config.getint('train', 'epoch')
-
     output_time = config.getint('output', 'output_time')
     test_time = config.getint('output', 'test_time')
 
     output_path = os.path.join(config.get('output', 'model_path'), config.get('output', 'model_name'))
 
     if os.path.exists(output_path):
-        logger.warning('Output path exists. Check whether need to change the name of model.')
+        warning = 'Output path exists. Check whether need to change the name of model.'
+        logger.warning(warning)
 
     os.makedirs(output_path, exist_ok=True)
 
-    trained_epoch = parameters['trained_epoch'] + 1
     model = parameters['model']
     optimizer = parameters['optimizer']
     global_step = parameters['global_step']
     output_function = parameters['output_function']
+
+    epoch = config.getint('train', 'epoch')
+    trained_epoch = parameters['trained_epoch'] + 1
+
     train_dataset = parameters['train_dataset']
     valid_dataset = parameters['valid_dataset']
 
@@ -52,10 +54,12 @@ def train(parameters, config, gpu_list, do_test=False):
 
     step_size = config.getint('train', 'step_size')
     gamma = config.getfloat('train', 'lr_multiplier')
+
     exp_lr_scheduler = lr_scheduler.StepLR(optimizer, step_size=step_size, gamma=gamma)
     exp_lr_scheduler.step(trained_epoch)
 
-    logger.info('Training start....')
+
+    logger.info('Start to Train model.')
 
     logger.info('Epoch  Stage  Iterations  Time Usage    Loss    Output Information')
 
@@ -108,8 +112,8 @@ def train(parameters, config, gpu_list, do_test=False):
         output_value(current_epoch, 'train', '%d/%d' % (step + 1, total_len), '%s/%s' % (gen_time_str(delta_t), gen_time_str(delta_t * (total_len - step - 1) / (step + 1))), '%.3lf' % (total_loss / (step + 1)), output_info, None, config)
 
         if step == -1:
-            information = 'There is no data given to the model in this epoch.'
-            logger.error(information)
+            error = 'There is no data given to the model in this epoch.'
+            logger.error(error)
             raise NotImplementedError
 
         checkpoint(os.path.join(output_path, 'checkpoint_%d.pkl' % current_epoch), model, optimizer, current_epoch, config, global_step)
@@ -141,6 +145,6 @@ def checkpoint(file, model, optimizer, trained_epoch, config, global_step):
     try:
         torch.save(save_params, file)
     except Exception:
-        information = 'Cannot save models with error %s.' % str(Exception)
-        logger.error(information)
+        error = 'Cannot save models with error %s.' % str(Exception)
+        logger.error(error)
         raise Exception
