@@ -1,4 +1,0 @@
-torch
-numpy
-pytorch-pretrained-bert
-tensorboardX
