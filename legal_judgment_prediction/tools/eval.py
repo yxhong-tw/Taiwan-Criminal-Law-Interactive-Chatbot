@@ -4,7 +4,7 @@ import torch
 from timeit import default_timer as timer
 from torch.autograd import Variable
 
-from tools.utils import gen_time_str, output_value
+from legal_judgment_prediction.tools.utils import gen_time_str, output_value
 
 
 logger = logging.getLogger(__name__)

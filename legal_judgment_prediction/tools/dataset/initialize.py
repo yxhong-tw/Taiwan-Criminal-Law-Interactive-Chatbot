@@ -2,8 +2,8 @@ import logging
 
 from torch.utils.data import DataLoader
 
-from tools.dataset.JsonFromFiles import JsonFromFilesDataset
-from tools.formatter import init_formatter
+from legal_judgment_prediction.tools.dataset.JsonFromFiles import JsonFromFilesDataset
+from legal_judgment_prediction.tools.formatter import init_formatter
 
 
 logger = logging.getLogger(__name__)

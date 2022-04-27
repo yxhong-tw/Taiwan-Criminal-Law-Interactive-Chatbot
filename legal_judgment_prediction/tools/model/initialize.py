@@ -3,7 +3,7 @@ import torch.optim as optim
 
 from pytorch_pretrained_bert import BertAdam
 
-from tools.model.Bert import LJPBert
+from legal_judgment_prediction.tools.model.Bert import LJPBert
 
 
 logger = logging.getLogger(__name__)

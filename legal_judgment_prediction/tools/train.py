@@ -8,9 +8,9 @@ from torch.optim import lr_scheduler
 from timeit import default_timer as timer
 from torch.autograd import Variable
 
-from tools.initialize import init_dataset
-from tools.utils import gen_time_str, output_value
-from tools.eval import eval_one
+from legal_judgment_prediction.tools.initialize import init_dataset
+from legal_judgment_prediction.tools.utils import gen_time_str, output_value
+from legal_judgment_prediction.tools.eval import eval_one
 
 
 logger = logging.getLogger(__name__)

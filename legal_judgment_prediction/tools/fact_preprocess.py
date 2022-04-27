@@ -11,21 +11,21 @@ logger.addHandler(ch)
 def process(mode):
     data_list = []
 
-    with open(f'./data/{mode}_50.json', 'r', encoding='utf-8') as file:
+    with open(f'./legal_judgment_prediction/data/{mode}_50.json', 'r', encoding='utf-8') as file:
         for line in file:
             data_list.append(json.loads(line))
 
         file.close()
 
     for index in range(len(data_list)):
-        fact = delete_blanks(data_list[index]["fact"])
+        fact = delete_blanks(data_list[index]['fact'])
         fact = delete_parentheses(fact)
         fact_paragraph_list = separate_paragraphs(fact)
         result = delete_odd_chars(fact_paragraph_list)
 
-        data_list[index]["fact"] = result
+        data_list[index]['fact'] = result
 
-    with open(f'./data/{mode}_50_processed.json', 'w') as file:
+    with open(f'./legal_judgment_prediction/data/{mode}_50_processed.json', 'w') as file:
         for data in data_list:
             file.write(json.dumps(data, ensure_ascii=False).encode('utf-8').decode() + '\n')
 

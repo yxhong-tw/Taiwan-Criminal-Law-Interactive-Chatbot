@@ -1,6 +1,6 @@
 import logging
 
-from tools.output.functions import basic_output_function, null_output_function, ljp_output_function
+from legal_judgment_prediction.tools.output.functions import basic_output_function, null_output_function, ljp_output_function
 
 
 logger = logging.getLogger(__name__)

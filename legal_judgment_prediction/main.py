@@ -4,9 +4,10 @@ import argparse
 import configparser
 import torch
 
-from tools.initialize import init_all
-from tools.train import train
-from tools.eval import eval
+from legal_judgment_prediction.tools.initialize import init_all
+from legal_judgment_prediction.tools.train import train
+from legal_judgment_prediction.tools.eval import eval
+from legal_judgment_prediction.tools.serve import serve_socket, serve_simple_IO
 
 
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -33,7 +34,8 @@ if __name__ == '__main__':
     parser.add_argument('--gpu', '-g', help='the list of gpu IDs', required=True)
     parser.add_argument('--mode', '-m', help='train, eval or serve', required=True)
     parser.add_argument('--checkpoint', help='the path of checkpoint file (eval, serve required)')
-    parser.add_argument('--do_test', help='do test while training or not', action='store_true')
+    parser.add_argument('--do_test', help='do test while training or not (train required)', action='store_true')
+    parser.add_argument('--open_socket', help='open socket server or not (serve required)', action='store_true')
 
     args = parser.parse_args()
 
@@ -65,8 +67,12 @@ if __name__ == '__main__':
     parameters = init_all(config, gpu_list, args.checkpoint, mode)
 
     if mode == 'serve':
-        # TODO
-        print('Hello World')
+        open_socket = args.open_socket
+
+        if open_socket == 'True':
+            serve_socket(parameters, config, gpu_list)
+        else:
+            serve_simple_IO(parameters, config, gpu_list)
     elif mode == 'train':
         do_test = args.do_test
         train(parameters, config, gpu_list, do_test)

@@ -1,6 +1,6 @@
 import json
 
-from tools.accuracy import gen_micro_macro_result
+from legal_judgment_prediction.tools.accuracy import gen_micro_macro_result
 
 
 def null_output_function(data, config, *args, **params):

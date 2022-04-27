@@ -1,9 +1,9 @@
 import torch.nn as nn
 
-from tools.model.BertEncoder import BertEncoder
-from tools.utils import MultiLabelSoftmaxLoss
-from tools.model.Predictor import LJPPredictor
-from tools.accuracy import multi_label_accuracy
+from legal_judgment_prediction.tools.model.BertEncoder import BertEncoder
+from legal_judgment_prediction.tools.utils import MultiLabelSoftmaxLoss
+from legal_judgment_prediction.tools.model.Predictor import LJPPredictor
+from legal_judgment_prediction.tools.accuracy import multi_label_accuracy
 
 
 class LJPBert(nn.Module):

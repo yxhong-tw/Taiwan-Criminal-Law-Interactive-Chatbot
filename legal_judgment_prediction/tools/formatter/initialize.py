@@ -1,6 +1,6 @@
-from asyncio.log import logger
 import logging
-from tools.formatter.Bert import BertLJP
+
+from legal_judgment_prediction.tools.formatter.Bert import BertLJP
 
 
 logger = logging.getLogger(__name__)

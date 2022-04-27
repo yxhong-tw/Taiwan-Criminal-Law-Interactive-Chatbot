@@ -2,7 +2,7 @@ import torch
 import numpy as np
 from pytorch_pretrained_bert.tokenization import BertTokenizer
 
-from tools.formatter.Basic import BasicFormatter
+from legal_judgment_prediction.tools.formatter.Basic import BasicFormatter
 
 
 class BertLJP(BasicFormatter):
