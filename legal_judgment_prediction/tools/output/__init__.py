@@ -1,0 +1,1 @@
+from tools.output.initialize import init_output_function

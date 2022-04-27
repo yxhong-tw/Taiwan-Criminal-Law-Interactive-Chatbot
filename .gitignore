@@ -1,6 +1,7 @@
 venv/
 simple_IO/model/ljp/LJPBertExercise/new_checkpoint_2.pkl
 simple_IO/bert/pytorch_model.bin
-Legal_Judgment_Prediction/results/Bert
+legal_judgment_prediction/results/Bert
+legal_judgment_prediction/data/*.json
 **/*.pkl
 **/__pycache__/
