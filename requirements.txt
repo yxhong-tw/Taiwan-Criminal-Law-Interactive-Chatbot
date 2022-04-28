@@ -1,6 +1,8 @@
 flask
 line-bot-sdk
-torch
-pytorch_pretrained_bert
 requests
 bs4
+torch
+numpy
+pytorch_pretrained_bert
+tensorboardX

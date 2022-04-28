@@ -1,0 +1,1 @@
+from legal_judgment_prediction.tools.model.initialize import init_model, init_optimizer
