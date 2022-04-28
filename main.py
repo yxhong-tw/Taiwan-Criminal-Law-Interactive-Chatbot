@@ -4,17 +4,12 @@ import argparse
 import configparser
 import torch
 import threading
-import time
-
-# from multiprocessing import Process, set_start_method
 
 from legal_judgment_prediction.tools.initialize import init_all
 from legal_judgment_prediction.tools.train import train
 from legal_judgment_prediction.tools.eval import eval
 from legal_judgment_prediction.tools.serve.serve import serve_simple_IO, serve_socket
-# from line_bot.app import run
-from line_bot.app import run_app
-
+from line_bot.app import App_Thread
 
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
@@ -78,12 +73,14 @@ if __name__ == '__main__':
 
         if open_socket == True:
             ljp_thread = threading.Thread(target=serve_socket, args=(parameters, config, gpu_list))
-            line_bot_thread = threading.Thread(target=run_app, args=())
-
             ljp_thread.start()
+
+            line_bot_thread = App_Thread()
             line_bot_thread.start()
 
             ljp_thread.join()
+
+            line_bot_thread.shutdown()
             line_bot_thread.join()
         else:
             serve_simple_IO(parameters, config, gpu_list)

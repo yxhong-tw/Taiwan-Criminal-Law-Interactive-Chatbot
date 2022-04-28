@@ -22,7 +22,7 @@ def serve_simple_IO(parameters, config, gpu_list):
     while True:
         fact = input('Enter a fact: ')
 
-        if fact == 'exit':
+        if fact == 'shutdown':
             break
 
         fact = encode_data(config, mode='serve', data=fact, data_name='fact')

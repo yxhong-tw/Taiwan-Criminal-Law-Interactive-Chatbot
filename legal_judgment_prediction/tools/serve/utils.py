@@ -7,7 +7,7 @@ from legal_judgment_prediction.tools.formatter.Bert import BertLJP
 
 
 logger = logging.getLogger(__name__)
-close_socket = False
+is_shutdown = False
 
 
 def get_table(config, mode, *args, **params):
@@ -77,12 +77,12 @@ class Server_Thread(threading.Thread):
 
 
     def run(self):
-        global close_socket
+        global is_shutdown
 
         client_index = 0
         client_thread_list = []
 
-        while close_socket == False:
+        while is_shutdown == False:
             client_socket, client_address = self.server_socket.accept()
 
             client_thread = Client_Thread(self.server_socket, client_socket, client_address, client_index, self.parameters, self.config, self.gpu_list)
@@ -131,7 +131,7 @@ class Client_Thread(threading.Thread):
 
 
     def run(self):
-        global close_socket
+        global is_shutdown
         
         if self.client_index == 0:
             model = self.parameters['model']
@@ -145,7 +145,7 @@ class Client_Thread(threading.Thread):
 
             counter = 0
 
-            while close_socket == False:
+            while is_shutdown == False:
                 try:
                     client_message = str(self.client_socket.recv(1024), encoding='utf-8')
 
@@ -162,8 +162,8 @@ class Client_Thread(threading.Thread):
                     else:
                         raise error
                         
-                if client_message == 'close socket':
-                    close_socket = True
+                if client_message == 'shutdown':
+                    is_shutdown = True
                 else:
                     logger.info(client_message)
 

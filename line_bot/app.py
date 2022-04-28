@@ -2,107 +2,116 @@ import socket
 import time
 # import requests
 import re
-import os
+import threading
+import sys
 
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import *
-from waitress import serve
+from werkzeug.serving import make_server
 
 from line_bot.message import *
 from line_bot.new import *
 from line_bot.Function import *
 from line_bot.law_scraper import get_law_detail
 
-        
-def run_app():
-    server_socket_IP, server_socker_port = '172.17.0.4', 8000
 
-    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+class App_Thread(threading.Thread):
+    def __init__(self):
+        threading.Thread.__init__(self)
 
-    while True:
-        try:
-            client_socket.connect((server_socket_IP, server_socker_port))
+        app = Flask(__name__)
 
-            break
-        except:
-            time.sleep(3)
+        self.server = make_server('0.0.0.0', 5000, app)
+    
+        server_socket_IP, server_socker_port = '172.17.0.4', 8000
 
-    app = Flask(__name__)
+        client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    # Channel Access Token
-    LINE_CHANNEL_ACCESS_TOKEN = 'uMOSIzxqIovJGiuL6OwZVDf8pxmourCkO1YRj8KiHNNx8HoOoQ6i7RRAAWQQn1eoVWjbZO4ccLQcQZXlr9PwRPRJOwqLktkkS70o4adjATIyvmodTOkqoJ3618Nk5DZQ9zQ0IcCFxcbXt8z1YiZFDgdB04t89/1O/w1cDnyilFU='
-    line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
+        while True:
+            try:
+                client_socket.connect((server_socket_IP, server_socker_port))
 
-    # Channel Secret
-    CHANNEL_SECRET = '630b4d783ffc9d52ee94fbe3d6b40a29'
-    handler = WebhookHandler(CHANNEL_SECRET)
+                break
+            except:
+                time.sleep(3)
 
-    # Add Rich menu
-    rich_menu_id = 'richmenu-1c5c154f17b8ffd07484405776048588'
-    authorization_token = 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
-    headers = {'Authorization': authorization_token, 'Content-Type': 'application/json'}
+        # Channel Access Token
+        LINE_CHANNEL_ACCESS_TOKEN = 'uMOSIzxqIovJGiuL6OwZVDf8pxmourCkO1YRj8KiHNNx8HoOoQ6i7RRAAWQQn1eoVWjbZO4ccLQcQZXlr9PwRPRJOwqLktkkS70o4adjATIyvmodTOkqoJ3618Nk5DZQ9zQ0IcCFxcbXt8z1YiZFDgdB04t89/1O/w1cDnyilFU='
+        line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 
-    # req = requests.request('POST', 'https://api.line.me/v2/bot/user/all/richmenu/'+ rich_menu_id, headers=headers)
-    # print(req.text)
+        # Channel Secret
+        CHANNEL_SECRET = '630b4d783ffc9d52ee94fbe3d6b40a29'
+        handler = WebhookHandler(CHANNEL_SECRET)
 
-    rich_menu_list = line_bot_api.get_rich_menu_list()
+        # Add Rich menu
+        rich_menu_id = 'richmenu-1c5c154f17b8ffd07484405776048588'
+        authorization_token = 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
+        headers = {'Authorization': authorization_token, 'Content-Type': 'application/json'}
 
-    # listen all POST request from /callback
-    @app.route("/callback", methods=['POST'])
-    def callback():
-        # get X-Line-Signature header value
-        signature = request.headers['X-Line-Signature']
+        # req = requests.request('POST', 'https://api.line.me/v2/bot/user/all/richmenu/'+ rich_menu_id, headers=headers)
+        # print(req.text)
 
-        # get request body as text
-        body = request.get_data(as_text=True)
-        app.logger.info('Request body: ' + body)
+        rich_menu_list = line_bot_api.get_rich_menu_list()
 
-        # handle webhook body
-        try:
-            handler.handle(body, signature)
-        except InvalidSignatureError:
-            abort(400)
+        # listen all POST request from /callback
+        @app.route("/callback", methods=['POST'])
+        def callback():
+            # get X-Line-Signature header value
+            signature = request.headers['X-Line-Signature']
 
-        return 'OK'
+            # get request body as text
+            body = request.get_data(as_text=True)
+            app.logger.info('Request body: ' + body)
 
+            # handle webhook body
+            try:
+                handler.handle(body, signature)
+            except InvalidSignatureError:
+                abort(400)
 
-    # process message
-    @handler.add(MessageEvent, message=TextMessage)
-    def handle_message(event):
-        msg = event.message.text
-
-        if re.match('(\D*)第(\d+)條(之(\d)+)?', msg):
-            law_detail = get_law_detail(msg)
-            line_bot_api.reply_message(event.reply_token,
-                TextSendMessage(text=law_detail))
-        else:
-            client_socket.sendall(msg.encode())
-
-            if msg == 'close socket':
-                client_socket.close()
-
-            serverMessage = str(client_socket.recv(1024), encoding='utf-8')
-
-            line_bot_api.reply_message(event.reply_token,
-                TextSendMessage(text=serverMessage))
+            return 'OK'
 
 
-    @handler.add(PostbackEvent)
-    def handle_message(event):
-        print(event.postback.data)
+        # process message
+        @handler.add(MessageEvent, message=TextMessage)
+        def handle_message(event):
+            msg = event.message.text
+
+            if re.match('(\D*)第(\d+)條(之(\d)+)?', msg):
+                law_detail = get_law_detail(msg)
+                line_bot_api.reply_message(event.reply_token,
+                    TextSendMessage(text=law_detail))
+            else:
+                client_socket.sendall(msg.encode())
+
+                if msg == 'shutdown':
+                    client_socket.close()
+                else:
+                    serverMessage = str(client_socket.recv(1024), encoding='utf-8')
+
+                    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=serverMessage))
 
 
-    @handler.add(MemberJoinedEvent)
-    def welcome(event):
-        uid = event.joined.members[0].user_id
-        gid = event.source.group_id
-        profile = line_bot_api.get_group_member_profile(gid, uid)
-        name = profile.display_name
-        message = TextSendMessage(text=f'{name}歡迎加入')
-        line_bot_api.reply_message(event.reply_token, message)
+        @handler.add(PostbackEvent)
+        def handle_message(event):
+            print(event.postback.data)
 
-    port = int(os.environ.get('PORT', 5000))
 
-    serve(app, host='0.0.0.0', port=port)
+        @handler.add(MemberJoinedEvent)
+        def welcome(event):
+            uid = event.joined.members[0].user_id
+            gid = event.source.group_id
+            profile = line_bot_api.get_group_member_profile(gid, uid)
+            name = profile.display_name
+            message = TextSendMessage(text=f'{name}歡迎加入')
+            line_bot_api.reply_message(event.reply_token, message)
+
+
+    def run(self):
+        self.server.serve_forever()
+
+    
+    def shutdown(self):
+        self.server.shutdown()
