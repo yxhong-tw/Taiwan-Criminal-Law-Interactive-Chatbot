@@ -1,5 +1,5 @@
 # Taiwan-Criminal-Law-Interactive-Chatbot
-This project is made by WIDM Lab (Web Intelligence and Data Mining Laboratory) undergraduate students of CSIE dep. (Computer Science and Inforation Engineering department) of NCU (National Central University).
+This project is made by WIDM Lab. (Web Intelligence and Data Mining Laboratory) undergraduate students of CSIE dept. (Computer Science and Information Engineering department) of NCU (National Central University).
 
 ## Before running
 ### Download data, model and checkpoint
@@ -73,6 +73,8 @@ If you add `--open_server` into instruction, program will open Flask web server.
 ## Demo
 ### Serve (simple_IO)
 ![Demo_simple_IO](https://i.imgur.com/dqpDRgG.png)
+> Enter `shutdown` can terminate program.
 
 ### Serve (open_server)
 ![Demo_Line](https://i.imgur.com/TSQGmtH.png)
+> Enter `shutdown` in chatroom can close whole program safely.
