@@ -30,8 +30,8 @@ def init_all(config, gpu_list, checkpoint, mode, *args, **kwargs):
         result['train_dataset'] = init_dataset(config, task='train', mode='train', *args, **kwargs)
         result['valid_dataset'] = init_dataset(config, task='valid', mode='eval', *args, **kwargs)
 
-        optimizer = init_optimizer(model, config, *args, **kwargs)
         trained_epoch = -1
+        optimizer = init_optimizer(model, config, *args, **kwargs)
         global_step = 0
     elif mode == 'eval':
         result['test_dataset'] = init_dataset(config, task='test', mode='eval', *args, **kwargs)
@@ -60,12 +60,24 @@ def init_all(config, gpu_list, checkpoint, mode, *args, **kwargs):
         else:   # mode == 'train'
             logger.warning(error)
 
+    result['model'] = model
+
     if mode == 'train':
-        result['optimizer'] = optimizer
         result['trained_epoch'] = trained_epoch
+        result['optimizer'] = optimizer
         result['global_step'] = global_step
 
-    result['model'] = model
+    if mode == 'serve':
+        result['web_server_IP'] = config.get('server', 'web_server_IP')
+        result['web_server_port'] = config.getint('server', 'web_server_port')
+
+        result['server_socket_IP'] = config.get('server', 'server_socket_IP')
+        result['server_socker_port'] = config.getint('server', 'server_socker_port')
+
+        result['LINE_CHANNEL_ACCESS_TOKEN'] = config.get('server', 'LINE_CHANNEL_ACCESS_TOKEN')
+        result['CHANNEL_SECRET'] = config.get('server', 'CHANNEL_SECRET')
+        result['rich_menu_ID'] = config.get('server', 'rich_menu_ID')
+
     result['output_function'] = init_output_function(config)
 
     information = 'Initialize done.'

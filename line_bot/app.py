@@ -3,7 +3,6 @@ import time
 # import requests
 import re
 import threading
-import sys
 
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
@@ -18,39 +17,34 @@ from line_bot.law_scraper import get_law_detail
 
 
 class App_Thread(threading.Thread):
-    def __init__(self):
+    def __init__(self, config):
         threading.Thread.__init__(self)
 
         app = Flask(__name__)
 
-        self.server = make_server('0.0.0.0', 5000, app)
+        self.server = make_server(config['web_server_IP'], config['web_server_port'], app)
     
-        server_socket_IP, server_socker_port = '172.17.0.4', 8000
-
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         while True:
             try:
-                client_socket.connect((server_socket_IP, server_socker_port))
+                client_socket.connect((config['server_socket_IP'], config['server_socker_port']))
 
                 break
             except:
                 time.sleep(3)
 
         # Channel Access Token
-        LINE_CHANNEL_ACCESS_TOKEN = 'uMOSIzxqIovJGiuL6OwZVDf8pxmourCkO1YRj8KiHNNx8HoOoQ6i7RRAAWQQn1eoVWjbZO4ccLQcQZXlr9PwRPRJOwqLktkkS70o4adjATIyvmodTOkqoJ3618Nk5DZQ9zQ0IcCFxcbXt8z1YiZFDgdB04t89/1O/w1cDnyilFU='
-        line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
+        line_bot_api = LineBotApi(config['LINE_CHANNEL_ACCESS_TOKEN'])
 
         # Channel Secret
-        CHANNEL_SECRET = '630b4d783ffc9d52ee94fbe3d6b40a29'
-        handler = WebhookHandler(CHANNEL_SECRET)
+        handler = WebhookHandler(config['CHANNEL_SECRET'])
 
         # Add Rich menu
-        rich_menu_id = 'richmenu-1c5c154f17b8ffd07484405776048588'
-        authorization_token = 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
+        authorization_token = 'Bearer ' + config['LINE_CHANNEL_ACCESS_TOKEN']
         headers = {'Authorization': authorization_token, 'Content-Type': 'application/json'}
 
-        # req = requests.request('POST', 'https://api.line.me/v2/bot/user/all/richmenu/'+ rich_menu_id, headers=headers)
+        # req = requests.request('POST', 'https://api.line.me/v2/bot/user/all/richmenu/'+ config['rich_menu_ID'], headers=headers)
         # print(req.text)
 
         rich_menu_list = line_bot_api.get_rich_menu_list()

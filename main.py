@@ -37,7 +37,7 @@ if __name__ == '__main__':
     parser.add_argument('--mode', '-m', help='train, eval or serve', required=True)
     parser.add_argument('--checkpoint', help='the path of checkpoint file (eval, serve required)')
     parser.add_argument('--do_test', help='do test while training or not (train required)', action='store_true')
-    parser.add_argument('--open_socket', help='open socket server or not (serve required)', action='store_true')
+    parser.add_argument('--open_server', help='open web server or not (serve required)', action='store_true')
 
     args = parser.parse_args()
 
@@ -69,13 +69,13 @@ if __name__ == '__main__':
     parameters = init_all(config, gpu_list, args.checkpoint, mode)
 
     if mode == 'serve':
-        open_socket = args.open_socket
+        open_server = args.open_server
 
-        if open_socket == True:
+        if open_server == True:
             ljp_thread = threading.Thread(target=serve_socket, args=(parameters, config, gpu_list))
             ljp_thread.start()
 
-            line_bot_thread = App_Thread()
+            line_bot_thread = App_Thread(parameters)
             line_bot_thread.start()
 
             ljp_thread.join()
