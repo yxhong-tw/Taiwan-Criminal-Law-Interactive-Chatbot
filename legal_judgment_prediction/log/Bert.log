@@ -1356,3 +1356,353 @@
 2022-04-28 16:34:38,127 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
 2022-04-28 16:34:41,130 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
 2022-04-28 16:34:44,133 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-29 00:53:39,111 - root - INFO - main.py -c ./config.ini -g GPU-7444f9b3-c077-071d-8496-422656b95fe8 -m serve --checkpoint legal_judgment_prediction/results/Bert/checkpoint_3.pkl --open_server
+2022-04-29 00:53:39,124 - root - INFO - CUDA available: True
+2022-04-29 00:53:39,124 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-04-29 00:53:39,124 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-04-29 00:53:39,125 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-04-29 00:53:41,717 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-04-29 00:53:42,323 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-04-29 00:53:42,325 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-29 00:53:45,326 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-29 00:53:48,330 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-29 00:53:51,334 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-29 00:55:19,697 - root - INFO - main.py -c ./config.ini -g GPU-7444f9b3-c077-071d-8496-422656b95fe8 -m serve --checkpoint legal_judgment_prediction/results/Bert/checkpoint_3.pkl --open_server
+2022-04-29 00:55:19,710 - root - INFO - CUDA available: True
+2022-04-29 00:55:19,710 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-04-29 00:55:19,710 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-04-29 00:55:19,711 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-04-29 00:55:22,303 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-04-29 00:55:22,921 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-04-29 00:55:22,923 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-29 00:55:25,927 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-29 00:55:28,930 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-29 00:55:31,934 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-29 00:55:47,316 - root - INFO - main.py -c ./config.ini -g GPU-7444f9b3-c077-071d-8496-422656b95fe8 -m serve --checkpoint legal_judgment_prediction/results/Bert/checkpoint_3.pkl --open_server
+2022-04-29 00:55:47,329 - root - INFO - CUDA available: True
+2022-04-29 00:55:47,329 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-04-29 00:55:47,329 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-04-29 00:55:47,330 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-04-29 00:55:49,909 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-04-29 00:55:50,517 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-04-29 00:55:50,519 - legal_judgment_prediction.tools.serve.serve - INFO - Socket server launched.
+2022-04-29 00:55:50,519 - legal_judgment_prediction.tools.serve.serve - INFO - Server thread launched.
+2022-04-29 00:56:49,716 - root - INFO - main.py -c ./config.ini -g GPU-7444f9b3-c077-071d-8496-422656b95fe8 -m serve --checkpoint legal_judgment_prediction/results/Bert/checkpoint_3.pkl --open_server
+2022-04-29 00:56:49,729 - root - INFO - CUDA available: True
+2022-04-29 00:56:49,729 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-04-29 00:56:49,729 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-04-29 00:56:49,730 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-04-29 00:56:52,308 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-04-29 00:56:52,923 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-04-29 00:56:52,926 - legal_judgment_prediction.tools.serve.serve - INFO - Socket server launched.
+2022-04-29 00:56:52,926 - legal_judgment_prediction.tools.serve.serve - INFO - Server thread launched.
+2022-04-29 00:56:52,927 - legal_judgment_prediction.tools.serve.utils - INFO - Begin to get tables...
+2022-04-29 00:56:52,928 - legal_judgment_prediction.tools.serve.utils - INFO - Client thread launched.
+2022-04-29 00:56:52,928 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:52,945 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:52,960 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:52,975 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:52,989 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,004 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,019 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,034 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,049 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,063 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,078 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,093 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,108 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,123 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,138 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,153 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,168 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,183 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,198 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,212 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,228 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,243 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,258 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,272 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,288 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,302 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,317 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,332 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,347 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,362 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,377 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,392 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,407 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,421 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,437 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,452 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,467 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,481 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,496 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,511 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,526 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,541 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,556 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,571 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,586 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,600 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,615 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,630 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,645 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,660 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,675 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,690 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,705 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,719 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,734 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,749 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,764 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,779 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,794 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,808 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,823 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,838 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,853 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,868 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,883 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,898 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,913 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,928 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,943 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,958 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,972 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:53,987 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,002 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,016 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,031 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,046 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,061 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,076 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,091 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,106 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,120 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,135 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,150 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,164 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,179 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,194 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,209 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,224 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,239 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,253 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,268 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,283 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,298 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,312 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,327 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,342 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,357 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,371 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,387 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,402 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,416 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,431 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,446 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,461 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,476 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,490 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,505 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,519 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,534 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,548 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,563 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,577 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,592 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,606 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,620 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,635 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,650 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,665 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,679 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,694 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,709 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,723 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,740 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,756 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,772 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,787 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,803 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,818 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,833 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,847 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,862 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,876 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,891 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,905 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,920 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,935 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,949 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,963 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,978 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:54,992 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,007 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,021 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,035 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,050 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,064 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,078 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,093 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,107 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,122 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,136 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,150 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,164 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,179 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,193 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,207 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,222 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,236 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,250 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,264 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,279 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,293 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,307 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,321 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,336 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,350 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,364 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,379 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,393 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,407 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,421 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,436 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,450 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,465 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,479 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,494 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,508 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,522 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,536 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,551 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,565 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,579 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,593 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,607 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,621 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,636 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,650 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,664 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,678 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,693 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,707 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,721 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:56:55,735 - legal_judgment_prediction.tools.serve.utils - INFO - Get tables done...
+2022-04-29 00:57:08,227 - line_bot.app - INFO - Request body: {"destination":"Uf1f5c2b6c539c3dcf392168062c6289e","events":[{"type":"message","message":{"type":"text","id":"15996797331225","text":"123"},"webhookEventId":"01G1RHNQQTGFQ2CPWHSFMW6E24","deliveryContext":{"isRedelivery":false},"timestamp":1651165027581,"source":{"type":"user","userId":"Ua650b074415ad7687ecf7a325bc1917b"},"replyToken":"46c04836c0784ef19eba097b080cd188","mode":"active"}]}
+2022-04-29 00:57:08,231 - legal_judgment_prediction.tools.serve.utils - INFO - 123
+2022-04-29 00:57:08,231 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:57:08,278 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.line.me:443
+2022-04-29 00:57:08,552 - urllib3.connectionpool - DEBUG - https://api.line.me:443 "POST /v2/bot/message/reply HTTP/1.1" 200 2
+2022-04-29 00:57:08,557 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2022 00:57:08] "POST /callback HTTP/1.1" 200 -
+2022-04-29 00:57:23,424 - line_bot.app - INFO - Request body: {"destination":"Uf1f5c2b6c539c3dcf392168062c6289e","events":[{"type":"message","message":{"type":"text","id":"15996798048841","text":"小翔喝酒後開車。"},"webhookEventId":"01G1RHP6KMFAS2R3T4WV67CT2J","deliveryContext":{"isRedelivery":false},"timestamp":1651165042806,"source":{"type":"user","userId":"Ua650b074415ad7687ecf7a325bc1917b"},"replyToken":"42b20cf4b4fd491a9d0eb5e54a4ee240","mode":"active"}]}
+2022-04-29 00:57:23,425 - legal_judgment_prediction.tools.serve.utils - INFO - 小翔喝酒後開車。
+2022-04-29 00:57:23,425 - pytorch_pretrained_bert.tokenization - INFO - loading vocabulary file legal_judgment_prediction/bert/vocab.txt
+2022-04-29 00:57:23,500 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.line.me:443
+2022-04-29 00:57:23,781 - urllib3.connectionpool - DEBUG - https://api.line.me:443 "POST /v2/bot/message/reply HTTP/1.1" 200 2
+2022-04-29 00:57:23,786 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2022 00:57:23] "POST /callback HTTP/1.1" 200 -
+2022-04-29 00:57:28,617 - line_bot.app - INFO - Request body: {"destination":"Uf1f5c2b6c539c3dcf392168062c6289e","events":[{"type":"message","message":{"type":"text","id":"15996798290204","text":"shutdown"},"webhookEventId":"01G1RHPBNQT4DYWHK2WCDVY210","deliveryContext":{"isRedelivery":false},"timestamp":1651165047995,"source":{"type":"user","userId":"Ua650b074415ad7687ecf7a325bc1917b"},"replyToken":"324e50257b3b42938a6367a9daca67da","mode":"active"}]}
+2022-04-29 00:57:28,619 - werkzeug - INFO - 127.0.0.1 - - [29/Apr/2022 00:57:28] "POST /callback HTTP/1.1" 200 -
+2022-04-29 00:57:28,622 - legal_judgment_prediction.tools.serve.utils - INFO - All client sockets closed.
+2022-04-29 00:57:28,623 - legal_judgment_prediction.tools.serve.serve - INFO - Server socket closed.

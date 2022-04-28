@@ -72,7 +72,7 @@ def init_all(config, gpu_list, checkpoint, mode, *args, **kwargs):
         result['web_server_port'] = config.getint('server', 'web_server_port')
 
         result['server_socket_IP'] = config.get('server', 'server_socket_IP')
-        result['server_socker_port'] = config.getint('server', 'server_socker_port')
+        result['server_socket_port'] = config.getint('server', 'server_socket_port')
 
         result['LINE_CHANNEL_ACCESS_TOKEN'] = config.get('server', 'LINE_CHANNEL_ACCESS_TOKEN')
         result['CHANNEL_SECRET'] = config.get('server', 'CHANNEL_SECRET')

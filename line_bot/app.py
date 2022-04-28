@@ -29,7 +29,7 @@ class App_Thread(threading.Thread):
 
         while True:
             try:
-                client_socket.connect((config['server_socket_IP'], config['server_socker_port']))
+                client_socket.connect((config['server_socket_IP'], config['server_socket_port']))
 
                 break
             except:
