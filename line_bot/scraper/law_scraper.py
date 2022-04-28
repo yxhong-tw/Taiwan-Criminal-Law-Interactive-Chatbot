@@ -14,9 +14,13 @@ def get_law_detail(article_of_fact):
 			'L0020001', 'I0050021']
 
 	# Convert fact to url
-	re_string = '(\D*)第(\d+)條(之(\d)+)?'
+	re_string = '^([\u4e00-\u9fa5]*)第(\d+)條(之(\d)+)?$'
 	match = re.findall(re_string, article_of_fact)[0]
-	pcode = pcodes[laws.index(match[0])]
+	try:
+		pcode = pcodes[laws.index(match[0])]
+	except:
+		return '不存在此法條！請重新查詢'
+
 	fino = match[1] + '-' + match[3] if match[3] != '' else match[1]
 	url = f'https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode={pcode}&flno={fino}'
 
@@ -25,8 +29,8 @@ def get_law_detail(article_of_fact):
 	soup = BeautifulSoup(response.text, "html.parser")
 
 	# get law-article content
-	content = soup.find('div', class_='law-article')
 	law_detail = ''
+	content = soup.find('div', class_='law-article')
 	for idx, a in enumerate(content):
 		if idx == 0: continue
 		law_detail += f'{idx}. {a.text}'

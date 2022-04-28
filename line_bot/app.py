@@ -13,7 +13,8 @@ from werkzeug.serving import make_server
 from line_bot.message import *
 from line_bot.new import *
 from line_bot.Function import *
-from line_bot.law_scraper import get_law_detail
+from line_bot.scraper.law_scraper import get_law_detail
+from line_bot.scraper.today_news_scraper import get_today_news
 
 
 class App_Thread(threading.Thread):
@@ -40,14 +41,14 @@ class App_Thread(threading.Thread):
         # Channel Secret
         handler = WebhookHandler(config['CHANNEL_SECRET'])
 
-        # Add Rich menu
-        authorization_token = 'Bearer ' + config['LINE_CHANNEL_ACCESS_TOKEN']
-        headers = {'Authorization': authorization_token, 'Content-Type': 'application/json'}
+        # Add Rich menu # @shuyu: incomplete
+        # authorization_token = 'Bearer ' + config[LINE_CHANNEL_ACCESS_TOKEN]
+        # headers = {'Authorization': authorization_token, 'Content-Type': 'application/json'}
 
         # req = requests.request('POST', 'https://api.line.me/v2/bot/user/all/richmenu/'+ config['rich_menu_ID'], headers=headers)
         # print(req.text)
 
-        rich_menu_list = line_bot_api.get_rich_menu_list()
+        # rich_menu_list = line_bot_api.get_rich_menu_list()
 
         # listen all POST request from /callback
         @app.route("/callback", methods=['POST'])
@@ -73,10 +74,24 @@ class App_Thread(threading.Thread):
         def handle_message(event):
             msg = event.message.text
 
-            if re.match('(\D*)第(\d+)條(之(\d)+)?', msg):
+            if re.match('^([\u4e00-\u9fa5]*)第(\d+)條(之(\d)+)?$', msg): # 法條搜尋
                 law_detail = get_law_detail(msg)
                 line_bot_api.reply_message(event.reply_token,
                     TextSendMessage(text=law_detail))
+
+            elif re.match('\s*今日新聞\s*', msg):
+                urls, titles = get_today_news(news_count=3)
+                today_news_message = ''
+                for idx, (url, title) in enumerate(zip(urls, titles)):
+                    today_news_message += f'{title}\n{url}\n' if idx != len(url) - 1 else f'{title}\n{url}'
+                
+                line_bot_api.reply_message(event.reply_token,
+                    TextSendMessage(text=today_news_message))
+
+            elif re.match('\s*如何使用\s*', msg):
+                usage_message = '1.今日新聞 2.法條 3.任意字串->預測刑法 4.如何使用\n'
+                line_bot_api.reply_message(event.reply_token,
+                    TextSendMessage(text=usage_message))
             else:
                 client_socket.sendall(msg.encode())
 
@@ -99,7 +114,8 @@ class App_Thread(threading.Thread):
             gid = event.source.group_id
             profile = line_bot_api.get_group_member_profile(gid, uid)
             name = profile.display_name
-            message = TextSendMessage(text=f'{name}歡迎加入')
+            message = TextSendMessage(text=f'{name}歡迎加入台灣刑法聊天機器人\n\
+                                                功能：1.今日新聞 2.法條 3.任意字串->預測刑法 4. 如何使用\n')
             line_bot_api.reply_message(event.reply_token, message)
 
 

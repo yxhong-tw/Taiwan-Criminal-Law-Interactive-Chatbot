@@ -1210,3 +1210,149 @@
 2022-04-28 22:39:09,225 - werkzeug - INFO - 127.0.0.1 - - [28/Apr/2022 22:39:09] "POST /callback HTTP/1.1" 200 -
 2022-04-28 22:39:09,228 - legal_judgment_prediction.tools.serve.utils - INFO - All client sockets closed.
 2022-04-28 22:39:09,229 - legal_judgment_prediction.tools.serve.serve - INFO - Server socket closed.
+2022-04-28 15:16:48,625 - root - INFO - main.py --mode serve --checkpoint ./legal_judgment_prediction/results/Bert/checkpoint_2.pkl --open_server
+2022-04-28 15:22:04,257 - root - INFO - main.py --config ./config.ini --mode serve --checkpoint ./legal_judgment_prediction/results/Bert/checkpoint_2.pkl --open_server
+2022-04-28 15:22:45,914 - root - INFO - main.py --config ./config.ini --mode serve --checkpoint ./legal_judgment_prediction/results/Bert/checkpoint_2.pkl --open_server --gpu GPU-7444f9b3-c077-071d-8496-422656b95fe8
+2022-04-28 15:22:45,927 - root - INFO - CUDA available: True
+2022-04-28 15:22:45,927 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-04-28 15:22:45,927 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-04-28 15:22:45,928 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-04-28 15:22:48,833 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-04-28 15:22:49,263 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-04-28 15:22:49,266 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-28 15:22:52,269 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-28 15:22:55,273 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-28 15:22:58,277 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-28 15:27:27,667 - root - INFO - main.py --config ./config.ini --mode serve --checkpoint ./legal_judgment_prediction/results/Bert/checkpoint_2.pkl --open_server --gpu GPU-7444f9b3-c077-071d-8496-422656b95fe8
+2022-04-28 15:27:27,686 - root - INFO - CUDA available: True
+2022-04-28 15:27:27,686 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-04-28 15:27:27,686 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-04-28 15:27:27,687 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-04-28 15:27:30,603 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-04-28 15:27:31,064 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-04-28 15:27:31,066 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-28 15:27:34,070 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-28 15:27:37,074 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-28 15:27:40,077 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-28 16:24:59,826 - root - INFO - main.py --config ./config.ini --mode serve --checkpoint ./legal_judgment_prediction/results/Bert/checkpoint_2.pkl --open_server --gpu GPU-7444f9b3-c077-071d-8496-422656b95fe8
+2022-04-28 16:24:59,839 - root - INFO - CUDA available: True
+2022-04-28 16:24:59,839 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-04-28 16:24:59,840 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-04-28 16:24:59,840 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-04-28 16:25:02,748 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-04-28 16:25:03,188 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-04-28 16:25:03,191 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-28 16:25:06,194 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-28 16:25:09,198 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-28 16:25:12,202 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-28 16:34:31,757 - root - INFO - main.py --config ./config.ini --mode serve --checkpoint ./legal_judgment_prediction/results/Bert/checkpoint_2.pkl --open_server --gpu GPU-7444f9b3-c077-071d-8496-422656b95fe8
+2022-04-28 16:34:31,771 - root - INFO - CUDA available: True
+2022-04-28 16:34:31,771 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-04-28 16:34:31,771 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-04-28 16:34:31,771 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-04-28 16:34:34,687 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-04-28 16:34:35,121 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-04-28 16:34:35,124 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-28 16:34:38,127 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-28 16:34:41,130 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.
+2022-04-28 16:34:44,133 - legal_judgment_prediction.tools.serve.serve - ERROR - Socket server launched failed.

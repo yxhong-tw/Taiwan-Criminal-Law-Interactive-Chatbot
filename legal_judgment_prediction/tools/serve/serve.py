@@ -53,14 +53,13 @@ def serve_simple_IO(parameters, config, gpu_list):
 
 
 def serve_socket(parameters, config, gpu_list):
-    server_socket_IP, server_socket_port = '172.17.0.4', 8000
 
     counter = 0
 
     while True:
         try:
             server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            server_socket.bind((server_socket_IP, server_socket_port))
+            server_socket.bind((config['server_socket_IP'], config['server_socket_port']))
             server_socket.listen(5)
 
             information = 'Socket server launched.'
