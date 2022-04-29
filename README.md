@@ -6,7 +6,7 @@ This project is made by WIDM Lab. (Web Intelligence and Data Mining Laboratory) 
 Due to the size of data, model and checkpoint files are too large, you need to download those files and put them into the correct paths, and the program can execute correctly.
 - [data](https://drive.google.com/drive/folders/1HY0_Zdik-cggjVFoG5K9ts7KmC-7-dfw?usp=sharing): put all files into `./legal_judgment_prediction/data`
 - [pytorch_model.bin](https://drive.google.com/file/d/1jkSh7_UOzY637J1VMWC8uGoWCBf_uoVK/view?usp=sharing): put file into `./legal_judgment_prediction/bert/`
-- [checkpoint_2.pkl](https://drive.google.com/file/d/1bzBt_8XDbS389g5_xF0uoohaofKVt9YL/view?usp=sharing): put file into `./legal_judgment_prediction/results/Bert`
+- [checkpoint_3.pkl](https://drive.google.com/file/d/1ysyxRdBwqo-UVnDciAb70Jg7A5-oLe3D/view?usp=sharing): put file into `./legal_judgment_prediction/results/Bert`
 
 ### Install the modules
 Run `pip install -r requirements.txt` to install all needed modules.
@@ -18,7 +18,8 @@ All execution messages are saved in `legal_judgment_prediction/log/Bert.log`.
 
 ### Usage
 ```
-python main.py --config [config_file_path] --gpu [gpu IDs] --mode [mode] [--checkpoint] [checkpoint_file_path] [--do_test] [--open_server]
+python main.py --config [config_file_path] --gpu [gpu IDs] --mode [mode] \
+[--checkpoint] [checkpoint_file_path] [--do_test] [--open_server]
 ```
 
 ### Detail of parameters
@@ -32,7 +33,8 @@ python main.py --config [config_file_path] --gpu [gpu IDs] --mode [mode] [--chec
 ### Train
 #### Basic usage
 ```
-python main.py --config [config_file_path] --gpu [gpu_IDs] --mode train [--checkpoint] [checkpoint_file_path] [--do_test]
+python main.py --config [config_file_path] --gpu [gpu_IDs] --mode train \
+[--checkpoint] [checkpoint_file_path] [--do_test]
 ```
 
 In this mode, program will train new checkpoints.
@@ -44,7 +46,8 @@ If you want to do test when training, add `--do_test` into instruction.
 ### Eval
 #### Basic usage
 ```
-python main.py --config [config_file_path] --gpu [gpu_IDs] --mode eval --checkpoint [checkpoint_file_path]
+python main.py --config [config_file_path] --gpu [gpu_IDs] --mode eval \
+--checkpoint [checkpoint_file_path]
 ```
 
 In this mode, program will evalute test data.
@@ -52,7 +55,8 @@ In this mode, program will evalute test data.
 ### Serve
 #### Basic usage
 ```
-python main.py --config [config_file_path] --gpu [gpu_IDs] --mode serve --checkpoint [checkpoint_file_path] [--open_server]
+python main.py --config [config_file_path] --gpu [gpu_IDs] --mode serve \
+--checkpoint [checkpoint_file_path] [--open_server]
 ```
 
 In this mode, program can predict the accuse, article and article_source of inputting string.
@@ -73,8 +77,8 @@ If you add `--open_server` into instruction, program will open Flask web server.
 ## Demo
 ### Serve (simple_IO)
 ![Demo_simple_IO](https://i.imgur.com/dqpDRgG.png)
-> Enter `shutdown` can terminate program.
+> Enter `shutdown` to terminate program.
 
 ### Serve (open_server)
 ![Demo_Line](https://i.imgur.com/TSQGmtH.png)
-> Enter `shutdown` in chatroom can close whole program safely.
+> Enter `shutdown` in chatroom to close whole program safely.
