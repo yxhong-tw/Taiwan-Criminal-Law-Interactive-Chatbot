@@ -106,7 +106,7 @@ class App_Thread(threading.Thread):
                     else:
                         serverMessage = str(client_socket.recv(1024), encoding='utf-8')
 
-                        if serverMessage == 'The article_source of this fact: 刑法\n':
+                        if serverMessage == '可能觸犯的法源: 刑法\n':
                             line_bot_api.reply_message(event.reply_token, TextSendMessage(text='查不到對應的資料，請以更完整的敘述再試一次！'))
                         else:
                             msg = f'情境「{msg}」\n' + serverMessage
