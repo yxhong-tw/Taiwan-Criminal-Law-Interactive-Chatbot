@@ -81,26 +81,36 @@ class App_Thread(threading.Thread):
 
             elif re.match('\s*今日新聞\s*', msg):
                 urls, titles = get_today_news(news_count=3)
-                today_news_message = ''
+                today_news_message = '熱騰騰的新聞來囉！' + '\n'
                 for idx, (url, title) in enumerate(zip(urls, titles)):
-                    today_news_message += f'{title}\n{url}\n' if idx != len(url) - 1 else f'{title}\n{url}'
+                    today_news_message += f'．{title} ({url})' + '\n' if idx != len(url) - 1 else f'．{title} ({url})'
                 
                 line_bot_api.reply_message(event.reply_token,
                     TextSendMessage(text=today_news_message))
 
             elif re.match('\s*如何使用\s*', msg):
-                usage_message = '1.今日新聞 2.法條 3.任意字串->預測刑法 4.如何使用\n'
+                usage_message = '歡迎使用臺灣刑法互動聊天機器人！' + '\n' + \
+                    '．輸入「今日新聞」可以查看今日和法律相關的新聞' + '\n' + \
+                    '．輸入法條（例如「刑法第185條之3」）可以得到法條的詳細內容' + '\n' + \
+                    '．輸入一個事件（例如「小翔喝酒後開車。」）可以得到事件可能被起訴的罪名'
                 line_bot_api.reply_message(event.reply_token,
                     TextSendMessage(text=usage_message))
             else:
-                client_socket.sendall(msg.encode())
-
-                if msg == 'shutdown':
-                    client_socket.close()
+                if len(msg) < 8:
+                    line_bot_api.reply_message(event.reply_token, TextSendMessage(text='請輸入更長的敘述！'))
                 else:
-                    serverMessage = str(client_socket.recv(1024), encoding='utf-8')
+                    client_socket.sendall(msg.encode())
 
-                    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=serverMessage))
+                    if msg == 'shutdown':
+                        client_socket.close()
+                    else:
+                        serverMessage = str(client_socket.recv(1024), encoding='utf-8')
+
+                        if serverMessage == 'The article_source of this fact: 刑法\n':
+                            line_bot_api.reply_message(event.reply_token, TextSendMessage(text='查不到對應的資料，請以更完整的敘述再試一次！'))
+                        else:
+                            msg = f'情境「{msg}」\n' + serverMessage
+                            line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
 
 
         @handler.add(PostbackEvent)
@@ -114,8 +124,10 @@ class App_Thread(threading.Thread):
             gid = event.source.group_id
             profile = line_bot_api.get_group_member_profile(gid, uid)
             name = profile.display_name
-            message = TextSendMessage(text=f'{name}歡迎加入台灣刑法聊天機器人\n\
-                                                功能：1.今日新聞 2.法條 3.任意字串->預測刑法 4. 如何使用\n')
+            message = TextSendMessage(text=f'{name}，歡迎使用臺灣刑法互動聊天機器人！' + '\n' + \
+                    '．輸入「今日新聞」可以查看今日和法律相關的新聞' + '\n' + \
+                    '．輸入法條（例如「刑法第185條之3」）可以得到法條的詳細內容' + '\n' + \
+                    '．輸入一個事件（例如「小翔喝酒後開車。」）可以得到事件可能被起訴的罪名')
             line_bot_api.reply_message(event.reply_token, message)
 
 

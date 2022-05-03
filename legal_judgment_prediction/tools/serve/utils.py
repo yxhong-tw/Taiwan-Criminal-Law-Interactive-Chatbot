@@ -180,17 +180,18 @@ class Client_Thread(threading.Thread):
 
                     for key, value in charge_table.items():
                         if torch.equal(charge_result, value):
-                            reply_text += (f'The charge of this fact: {key}' + '\n')
+                            # reply_text += (f'The charge of this fact: {key}' + '\n')
+                            reply_text += (f'可能被起訴罪名: {key}')
                             break
 
                     for key, value in article_source_table.items():
                         if torch.equal(article_source_result, value):
-                            reply_text += (f'The article_source of this fact: {key}' + '\n')
+                            reply_text += '\n' + (f'可能觸犯的法源: {key}')
                             break
 
                     for key, value in article_table.items():
                         if torch.equal(article_result, value):
-                            reply_text += (f'The article of this fact: {key}' + '\n')
+                            reply_text += '\n' + (f'可能觸犯的法條: {key}')
                             break
             
                     self.client_socket.sendall(reply_text.encode())

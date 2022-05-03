@@ -19,7 +19,7 @@ def get_law_detail(article_of_fact):
 	try:
 		pcode = pcodes[laws.index(match[0])]
 	except:
-		return '不存在此法條！請重新查詢'
+		return '不存在此法條！請重新查詢。'
 
 	fino = match[1] + '-' + match[3] if match[3] != '' else match[1]
 	url = f'https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode={pcode}&flno={fino}'
@@ -28,13 +28,31 @@ def get_law_detail(article_of_fact):
 	response = requests.get(url)
 	soup = BeautifulSoup(response.text, "html.parser")
 
+	chinese_number = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十']
+
 	# get law-article content
-	law_detail = ''
+	law_detail = f'{article_of_fact}的詳細內容如下：' + '\n'
 	content = soup.find('div', class_='law-article')
+
+	true_idx = 1
 	for idx, a in enumerate(content):
 		if idx == 0: continue
-		law_detail += f'{idx}. {a.text}'
-		law_detail += '\n' if idx != len(content) - 1 else ''
+
+		if a.text[0] in chinese_number:
+			for temp_idx in range(0, len(a.text)):
+				if a.text[temp_idx] == '、':
+					law_detail += '  ' + a.text
+					law_detail += '\n' if idx != len(content) - 1 else ''
+					break
+				elif a.text[temp_idx] not in chinese_number:
+					law_detail += f'{idx}. {a.text}'
+					law_detail += '\n' if idx != len(content) - 1 else ''
+					break
+		else:
+			law_detail += f'{true_idx}. {a.text}'
+			law_detail += '\n' if idx != len(content) - 1 else ''
+			true_idx += 1
+
 	# print(law_detail)
 	return law_detail
 
