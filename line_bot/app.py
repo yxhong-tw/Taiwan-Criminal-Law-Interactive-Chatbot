@@ -26,6 +26,7 @@ class App_Thread(threading.Thread):
         self.server = make_server(config['web_server_IP'], config['web_server_port'], app)
     
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client_socket.settimeout(10)
 
         while True:
             try:
@@ -104,9 +105,12 @@ class App_Thread(threading.Thread):
                     if msg == 'shutdown':
                         client_socket.close()
                     else:
-                        serverMessage = str(client_socket.recv(1024), encoding='utf-8')
+                        try:
+                            serverMessage = str(client_socket.recv(1024), encoding='utf-8')
+                        except socket.timeout:
+                            serverMessage = '請求資料超時，請再試一次！'
 
-                        if serverMessage == '可能觸犯的法源: 刑法\n':
+                        if serverMessage == '\n可能觸犯的法源: 刑法':
                             line_bot_api.reply_message(event.reply_token, TextSendMessage(text='查不到對應的資料，請以更完整的敘述再試一次！'))
                         else:
                             msg = f'情境「{msg}」\n' + serverMessage

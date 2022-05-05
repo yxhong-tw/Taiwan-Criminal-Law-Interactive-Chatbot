@@ -193,8 +193,11 @@ class Client_Thread(threading.Thread):
                         if torch.equal(article_result, value):
                             reply_text += '\n' + (f'可能觸犯的法條: {key}')
                             break
-            
-                    self.client_socket.sendall(reply_text.encode())
+                    
+                    if reply_text == '':
+                        reply_text = '查不到對應的資料，請檢查標點符號或以更完整的敘述再試一次！'
+                    else:
+                        self.client_socket.sendall(reply_text.encode())
 
             self.client_socket.close()
         else:

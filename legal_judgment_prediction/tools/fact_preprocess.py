@@ -17,16 +17,22 @@ def process(mode):
 
         file.close()
 
+    new_data_list = []
+
     for index in range(len(data_list)):
         fact = delete_blanks(data_list[index]['fact'])
         fact = delete_parentheses(fact)
         fact_paragraph_list = separate_paragraphs(fact)
         result = delete_odd_chars(fact_paragraph_list)
 
-        data_list[index]['fact'] = result
+        if result == '':
+            continue
+        
+        new_data_list.append(data_list[index])
+        new_data_list[-1]['fact'] = result
 
-    with open(f'./legal_judgment_prediction/data/{mode}_50_processed.json', 'w') as file:
-        for data in data_list:
+    with open(f'./legal_judgment_prediction/data/new_{mode}_50_processed.json', 'w') as file:
+        for data in new_data_list:
             file.write(json.dumps(data, ensure_ascii=False).encode('utf-8').decode() + '\n')
 
         file.close()
@@ -165,13 +171,13 @@ def check_odd_chars(string):
 
 
 if __name__ == '__main__':
-    logger.info('Begin to process train data.')
-    process('train')
-    logger.info('train data processing is complete.')
+    # logger.info('Begin to process train data.')
+    # process('train')
+    # logger.info('train data processing is complete.')
 
-    logger.info('Begin to process valid data.')
-    process('valid')
-    logger.info('valid data processing is complete.')
+    # logger.info('Begin to process valid data.')
+    # process('valid')
+    # logger.info('valid data processing is complete.')
 
     logger.info('Begin to process test data.')
     process('test')
