@@ -4,9 +4,9 @@ This project is made by WIDM Lab. (Web Intelligence and Data Mining Laboratory) 
 ## Before running
 ### Download data, model and checkpoint
 Due to the size of data, model and checkpoint files are too large, you need to download those files and put them into the correct paths, and the program can execute correctly.
-- [data](https://drive.google.com/drive/folders/1HY0_Zdik-cggjVFoG5K9ts7KmC-7-dfw?usp=sharing): put all files into `./legal_judgment_prediction/data`
-- [pytorch_model.bin](https://drive.google.com/file/d/1jkSh7_UOzY637J1VMWC8uGoWCBf_uoVK/view?usp=sharing): put file into `./legal_judgment_prediction/bert/`
-- [checkpoint_3.pkl](https://drive.google.com/file/d/1ysyxRdBwqo-UVnDciAb70Jg7A5-oLe3D/view?usp=sharing): put file into `./legal_judgment_prediction/results/Bert`
+- [data](https://drive.google.com/drive/folders/1YJBfh5gQGuS58Gqrz4M4BqX1vaThK4kj?usp=sharing): put all files into `./legal_judgment_prediction/data`
+- [pytorch_model.bin](https://drive.google.com/file/d/1LcY1eFmhTcYDHm_7_9s4DOyPgGyQ5QOy/view?usp=sharing): put file into `./legal_judgment_prediction/bert/`
+- [checkpoints](https://drive.google.com/drive/folders/1RVYQWsdZHHymqGQ87SEXDnv-c92ECIFc?usp=sharing): download the checkpoint you want and put the file into `./legal_judgment_prediction/results/Bert`
 
 ### Install the modules
 Run `pip install -r requirements.txt` to install all needed modules.
