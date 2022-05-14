@@ -1,5 +1,6 @@
 venv/
 
+legal_judgment_prediction/data/*.txt
 legal_judgment_prediction/data/*.json
 legal_judgment_prediction/bert/pytorch_model.bin
 legal_judgment_prediction/results/Bert/*.pkl

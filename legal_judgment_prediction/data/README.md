@@ -1,0 +1,2 @@
+# Data
+All data files (article_50.txt, article_source_50.txt, charge_50.txt, train_50.json, valid_50.json, test_50.json, train_50_processed.json, valid_50_processed.json and test_50_processed.json) should be put in this folder.
