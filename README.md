@@ -77,20 +77,20 @@ If you add `--open_server` into instruction, program will open Flask web server.
 ## Demo
 ### Serve (simple_IO)
 #### Event Prediction
-![Demo_simple_IO](https://i.imgur.com/dqpDRgG.png)
+![Demo_simple_IO](https://drive.google.com/uc?export=view&id=1MbOXoALHHaV2n3TMUku2jXzTaCReyY11)
 > Enter `shutdown` in chatroom to close whole system safely.
 
 ### Serve (open_server)
 #### How to Use
-![Demo_Line_Bot_How_to_Use](https://i.imgur.com/OhtaE9B.jpg)
+![Demo_Line_Bot_How_to_Use](https://drive.google.com/uc?export=view&id=1KrvaAUrKeorUjc3FDBEFCBDD_t3lPzl3)
 
 #### Today News
-![Demo_Line_Bot_Today_News](https://i.imgur.com/4I8p5WQ.jpg)
+![Demo_Line_Bot_Today_News](https://drive.google.com/uc?export=view&id=1Ks7zFX44TGoBl5j8PH5cHQaKNVWkWJRK)
 
 #### Event Prediction
-![Demo_Line_Bot_Event_Prediction](https://i.imgur.com/Ot5kN6L.jpg)
+![Demo_Line_Bot_Event_Prediction](https://drive.google.com/uc?export=view&id=1KsUZ1RQ7u-3mcSBSprOb6IQF7sSdRIkZ)
 
 #### Law Search
-![Demo_Line_Bot_Law_Search](https://i.imgur.com/rUYGlT7.jpg)
+![Demo_Line_Bot_Law_Search](https://drive.google.com/uc?export=view&id=1KsZpXjaUE6RXAJnzQikLlSNRXlLEt2Uk)
 
 > Enter `shutdown` in chatroom to close whole system safely (Same as Serve (simple_IO)).
