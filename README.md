@@ -76,9 +76,21 @@ If you add `--open_server` into instruction, program will open Flask web server.
 
 ## Demo
 ### Serve (simple_IO)
+#### Event Prediction
 ![Demo_simple_IO](https://i.imgur.com/dqpDRgG.png)
-> Enter `shutdown` to terminate program.
+> Enter `shutdown` in chatroom to close whole system safely.
 
 ### Serve (open_server)
-![Demo_Line](https://i.imgur.com/TSQGmtH.png)
-> Enter `shutdown` in chatroom to close whole program safely.
+#### How to Use
+![Demo_Line_Bot_How_to_Use](https://i.imgur.com/OhtaE9B.jpg)
+
+#### Today News
+![Demo_Line_Bot_Today_News](https://i.imgur.com/4I8p5WQ.jpg)
+
+#### Event Prediction
+![Demo_Line_Bot_Event_Prediction](https://i.imgur.com/Ot5kN6L.jpg)
+
+#### Law Search
+![Demo_Line_Bot_Law_Search](https://i.imgur.com/rUYGlT7.jpg)
+
+> Enter `shutdown` in chatroom to close whole system safely (Same as Serve (simple_IO)).
