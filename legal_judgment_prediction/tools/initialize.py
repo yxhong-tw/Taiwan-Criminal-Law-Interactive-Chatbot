@@ -1,86 +1,92 @@
 import logging
 import torch
 
-from legal_judgment_prediction.tools.dataset import init_dataset
-from legal_judgment_prediction.tools.model import init_model, init_optimizer
-from legal_judgment_prediction.tools.output import init_output_function
+from legal_judgment_prediction.tools.dataset import initialize_dataloader
+from legal_judgment_prediction.tools.model import initialize_model, initialize_optimizer
+from legal_judgment_prediction.tools.output import initialize_output_function
 
 
 logger = logging.getLogger(__name__)
 
 
-def init_all(config, gpu_list, checkpoint, mode, *args, **kwargs):
-    result = {}
+def initialize_all(config, gpu_list, mode, use_checkpoint, *args, **kwargs):
+    results = {}
 
-    information = 'Begin to initialize model.'
-    logger.info(information)
+    # information = 'Begin to initialize model.'
+    logger.info('Begin to initialize model.')
 
-    model = init_model(config.get('model', 'model_name'))(config, gpu_list, *args, **kwargs).cuda()
+    model_name = config.get('model', 'model_name')
+    model = initialize_model(model_name, *args, **kwargs)(config, *args, **kwargs).cuda()
 
     try:
-        model.init_multi_gpu(gpu_list, config, *args, **kwargs)
+        model.initialize_multiple_gpus(gpu_list, *args, **kwargs)
     except Exception:
-        warning = 'No init_multi_gpu implemented in the model, use single gpu instead.'
-        logger.warning(warning)
+        # warning = 'No initialize_multiple_gpus implemented in the model, use single gpu instead.'
+        logger.warning('No initialize_multiple_gpus implemented in the model, use single gpu instead.')
 
-    information = 'Begin to initialize dataset.'
-    logger.info(information)
+    # information = 'Begin to initialize dataset.'
+    logger.info('Begin to initialize dataset.')
 
     if mode == 'train':
-        result['train_dataset'] = init_dataset(config, task='train', mode='train', *args, **kwargs)
-        result['valid_dataset'] = init_dataset(config, task='valid', mode='eval', *args, **kwargs)
+        results['train_dataset'] = initialize_dataloader(config, task='train', mode='train', *args, **kwargs)
+        results['valid_dataset'] = initialize_dataloader(config, task='valid', mode='eval', *args, **kwargs)
 
         trained_epoch = -1
-        optimizer = init_optimizer(model, config, *args, **kwargs)
+        optimizer = initialize_optimizer(config, model, *args, **kwargs)
         global_step = 0
     elif mode == 'eval':
-        result['test_dataset'] = init_dataset(config, task='test', mode='eval', *args, **kwargs)
+        results['test_dataset'] = initialize_dataloader(config, task='test', mode='eval', *args, **kwargs)
 
-    try:
-        parameters = torch.load(checkpoint)
-        model.load_state_dict(parameters['model'])
+    if use_checkpoint == True:
+        checkpoint_path = config.get('model', 'checkpoint_path')
 
-        if mode == 'train':
-            trained_epoch = parameters['trained_epoch']
+        try:
+            parameters = torch.load(checkpoint_path)
+            model.load_state_dict(parameters['model'])
 
-            if config.get('train', 'optimizer') == parameters['optimizer_name']:
-                optimizer.load_state_dict(parameters['optimizer'])
-            else:
-                warning = 'Optimizer has been changed. Use new optimizer to train model.'
-                logger.warning(warning)
+            if mode == 'train':
+                trained_epoch = parameters['trained_epoch']
 
-            if 'global_step' in parameters:
-                global_step = parameters['global_step']
-    except Exception:
-        error = 'Can not load checkpoint file with error %s' % str(Exception)
+                if config.get('train', 'optimizer') == parameters['optimizer_name']:
+                    optimizer.load_state_dict(parameters['optimizer'])
+                else:
+                    warning = 'Optimizer has been changed. Use new optimizer to train model.'
+                    logger.warning(warning)
 
-        if mode != 'train':
-            logger.error(error)
-            raise Exception
-        else:   # mode == 'train'
-            logger.warning(error)
+                if 'global_step' in parameters:
+                    global_step = parameters['global_step']
+        except Exception:
+            # error = 'Can not load checkpoint file with error %s' % str(Exception)
+            message = f'Can not load checkpoint file with error {Exception}.'
 
-    result['model'] = model
+            if mode != 'train':
+                logger.error(message)
+                raise Exception(message)
+            else:   # mode == 'train'
+                logger.warning(message)
+
+    results['model_name'] = model_name
+    results['model'] = model
 
     if mode == 'train':
-        result['trained_epoch'] = trained_epoch
-        result['optimizer'] = optimizer
-        result['global_step'] = global_step
+        results['trained_epoch'] = trained_epoch
+        results['optimizer'] = optimizer
+        results['global_step'] = global_step
 
     if mode == 'serve':
-        result['web_server_IP'] = config.get('server', 'web_server_IP')
-        result['web_server_port'] = config.getint('server', 'web_server_port')
+        results['web_server_IP'] = config.get('server', 'web_server_IP')
+        results['web_server_port'] = config.getint('server', 'web_server_port')
 
-        result['server_socket_IP'] = config.get('server', 'server_socket_IP')
-        result['server_socket_port'] = config.getint('server', 'server_socket_port')
+        results['server_socket_IP'] = config.get('server', 'server_socket_IP')
+        results['server_socket_port'] = config.getint('server', 'server_socket_port')
 
-        result['LINE_CHANNEL_ACCESS_TOKEN'] = config.get('server', 'LINE_CHANNEL_ACCESS_TOKEN')
-        result['CHANNEL_SECRET'] = config.get('server', 'CHANNEL_SECRET')
-        result['rich_menu_ID'] = config.get('server', 'rich_menu_ID')
+        results['LINE_CHANNEL_ACCESS_TOKEN'] = config.get('server', 'LINE_CHANNEL_ACCESS_TOKEN')
+        results['CHANNEL_SECRET'] = config.get('server', 'CHANNEL_SECRET')
+        results['rich_menu_ID'] = config.get('server', 'rich_menu_ID')
 
-    result['output_function'] = init_output_function(config)
+    results['output_function'] = initialize_output_function(config)
 
     information = 'Initialize done.'
     logger.info(information)
 
-    return result
+    return results

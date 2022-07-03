@@ -11,7 +11,7 @@ logger.addHandler(ch)
 def process(mode):
     data_list = []
 
-    with open(f'./legal_judgment_prediction/data/{mode}_50.json', 'r', encoding='utf-8') as file:
+    with open(f'./legal_judgment_prediction/data/{mode}_50.json', 'r', encoding='UTF-8') as file:
         for line in file:
             data_list.append(json.loads(line))
 
@@ -33,7 +33,7 @@ def process(mode):
 
     with open(f'./legal_judgment_prediction/data/{mode}_50_processed.json', 'w') as file:
         for data in new_data_list:
-            file.write(json.dumps(data, ensure_ascii=False).encode('utf-8').decode() + '\n')
+            file.write(json.dumps(data, ensure_ascii=False).encode('UTF-8').decode() + '\n')
 
         file.close()
 

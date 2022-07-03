@@ -2,9 +2,11 @@ venv/
 
 legal_judgment_prediction/data/*.txt
 legal_judgment_prediction/data/*.json
+legal_judgment_prediction/bart/pytorch_model.bin
 legal_judgment_prediction/bert/pytorch_model.bin
+legal_judgment_prediction/results/
 legal_judgment_prediction/results/Bert/*.pkl
 
-# ngrok
-
 **/__pycache__/
+
+Taiwan-Criminal-Law-Interactive-Chatbot.code-workspace

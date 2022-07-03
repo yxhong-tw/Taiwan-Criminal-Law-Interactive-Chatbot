@@ -1,14 +1,12 @@
 import logging
 import os
-import shutil
 import torch
 
-from tensorboardX import SummaryWriter
 from torch.optim import lr_scheduler
 from timeit import default_timer as timer
 from torch.autograd import Variable
 
-from legal_judgment_prediction.tools.initialize import init_dataset
+from legal_judgment_prediction.tools.initialize import initialize_dataloader
 from legal_judgment_prediction.tools.utils import gen_time_str, output_value
 from legal_judgment_prediction.tools.eval import eval_one
 
@@ -28,6 +26,7 @@ def train(parameters, config, gpu_list, do_test=False):
 
     os.makedirs(output_path, exist_ok=True)
 
+    model_name = parameters['model_name']
     model = parameters['model']
     optimizer = parameters['optimizer']
     global_step = parameters['global_step']
@@ -40,17 +39,7 @@ def train(parameters, config, gpu_list, do_test=False):
     valid_dataset = parameters['valid_dataset']
 
     if do_test:
-        test_dataset = init_dataset(config, task='test', mode='eval')
-
-    # tensorboardX
-    # -----
-    if trained_epoch == 0:
-        shutil.rmtree(os.path.join(config.get('output', 'tensorboard_path'), config.get('output', 'model_name')), True)
-
-    os.makedirs(os.path.join(config.get('output', 'tensorboard_path'), config.get('output', 'model_name')), exist_ok=True)
-
-    writer = SummaryWriter(os.path.join(config.get('output', 'tensorboard_path'), config.get('output', 'model_name')), config.get('output', 'model_name'))
-    # -----
+        test_dataset = initialize_dataloader(config, task='test', mode='eval')
 
     step_size = config.getint('train', 'step_size')
     gamma = config.getfloat('train', 'lr_multiplier')
@@ -87,48 +76,42 @@ def train(parameters, config, gpu_list, do_test=False):
 
             optimizer.zero_grad()
 
-            results = model(data, config, gpu_list, acc_result, 'train')
+            results = model(config, data, 'train', acc_result)
 
-            loss, acc_result = results['loss'], results['acc_result']
+            if model_name == 'LJPBert':
+                acc_result = results['acc_result']
+
+            loss = results['loss']
             total_loss += float(loss)
 
             loss.backward()
             optimizer.step()
 
             if step % output_time == 0:
-                output_info = output_function(acc_result, config)
+                output_info = output_function(config, acc_result)
 
                 delta_t = timer() - start_time
 
                 output_value(current_epoch, 'train', '%d/%d' % (step + 1, total_len), '%s/%s' % (gen_time_str(delta_t), gen_time_str(delta_t * (total_len - step - 1) / (step + 1))), '%.3lf' % (total_loss / (step + 1)), output_info, '\r', config)
 
-            global_step += 1
+                print(total_loss/(step+1))
 
-            # tensorboardX
-            # -----
-            writer.add_scalar(config.get('output', 'model_name') + '_train_iter', float(loss), global_step)
-            # -----
+            global_step += 1
 
         output_value(current_epoch, 'train', '%d/%d' % (step + 1, total_len), '%s/%s' % (gen_time_str(delta_t), gen_time_str(delta_t * (total_len - step - 1) / (step + 1))), '%.3lf' % (total_loss / (step + 1)), output_info, None, config)
 
         if step == -1:
-            error = 'There is no data given to the model in this epoch.'
-            logger.error(error)
-            raise NotImplementedError
+            logger.error('There is no data given to the model in this epoch.')
+            raise Exception('There is no data given to the model in this epoch.')
 
-        checkpoint(os.path.join(output_path, 'checkpoint_%d.pkl' % current_epoch), model, optimizer, current_epoch, config, global_step)
-
-        # tensorboardX
-        # -----
-        writer.add_scalar(config.get('output', 'model_name') + '_train_epoch', float(total_loss) / (step + 1), current_epoch)
-        # -----
+        checkpoint(os.path.join(output_path, f'checkpoint_{current_epoch}.pkl'), model, optimizer, current_epoch, config, global_step)
 
         if current_epoch % test_time == 0:
             with torch.no_grad():
-                eval_one(model, valid_dataset, current_epoch, writer, config, gpu_list, output_function, task='valid')
+                eval_one(model, valid_dataset, current_epoch, config, gpu_list, output_function, task='valid')
 
                 if do_test:
-                    eval_one(model, test_dataset, current_epoch, writer, config, gpu_list, output_function, task='test')
+                    eval_one(model, test_dataset, current_epoch, config, gpu_list, output_function, task='test')
 
 
 def checkpoint(file, model, optimizer, trained_epoch, config, global_step):
@@ -145,6 +128,5 @@ def checkpoint(file, model, optimizer, trained_epoch, config, global_step):
     try:
         torch.save(save_params, file)
     except Exception:
-        error = 'Cannot save models with error %s.' % str(Exception)
-        logger.error(error)
+        logger.error('Cannot save models with error %s.' % str(Exception))
         raise Exception

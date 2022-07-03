@@ -1,1 +1,1 @@
-from legal_judgment_prediction.tools.dataset.initialize import init_dataset
+from legal_judgment_prediction.tools.dataset.initialize import initialize_dataloader

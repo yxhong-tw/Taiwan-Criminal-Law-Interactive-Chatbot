@@ -1,19 +1,17 @@
+import random
 import os
 import json
+
 from torch.utils.data import Dataset
-import random
 
 
-class JsonFromFilesDataset(Dataset):
-    def __init__(self, config, task, encoding='utf8', *args, **params):
+class JsonFromFiles(Dataset):
+    def __init__(self, config, task, encoding='UTF-8', *args, **kwargs):
         self.config = config
-        self.task = task
-        self.encoding = encoding
-        self.file = os.path.join(config.get('data', '%s_file_path' % task), config.get('data', '%s_file_name' % task))
-
+        self.file = os.path.join(config.get('data', f'{task}_file_path'), config.get('data', f'{task}_file_name'))
         self.data = []
 
-        with open(self.file, 'r', encoding=self.encoding) as file:
+        with open(self.file, 'r', encoding=encoding) as file:
             for line in file:
                 self.data.append(json.loads(line))
 

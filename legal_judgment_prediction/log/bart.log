@@ -1,0 +1,528 @@
+2022-07-04 02:59:05,385 - root - INFO - .\main.py
+2022-07-04 02:59:59,225 - root - INFO - .\main.py
+2022-07-04 03:00:28,943 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:00:30,062 - root - INFO - CUDA available: True
+2022-07-04 03:01:16,374 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:01:17,230 - root - INFO - CUDA available: True
+2022-07-04 03:01:27,432 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:01:28,246 - root - INFO - CUDA available: True
+2022-07-04 03:01:56,895 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:01:57,720 - root - INFO - CUDA available: True
+2022-07-04 03:01:57,720 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:03:37,092 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:03:37,926 - root - INFO - CUDA available: True
+2022-07-04 03:03:37,926 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:03:37,927 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-07-04 03:03:37,932 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-07-04 03:06:32,319 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:06:33,161 - root - INFO - CUDA available: True
+2022-07-04 03:06:33,161 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:06:33,162 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-07-04 03:06:33,162 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-07-04 03:06:37,366 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 03:08:47,303 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:08:48,127 - root - INFO - CUDA available: True
+2022-07-04 03:08:48,128 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:08:48,128 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-07-04 03:08:48,128 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-07-04 03:08:49,855 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 03:08:56,487 - pytorch_pretrained_bert.optimization - WARNING - t_total value of -1 results in schedule not being applied
+2022-07-04 03:08:56,488 - legal_judgment_prediction.tools.output.initialize - ERROR - There is no model called LJP.
+2022-07-04 03:10:46,661 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:10:47,481 - root - INFO - CUDA available: True
+2022-07-04 03:10:47,481 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:10:47,481 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-07-04 03:10:47,482 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-07-04 03:10:49,211 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 03:10:55,141 - pytorch_pretrained_bert.optimization - WARNING - t_total value of -1 results in schedule not being applied
+2022-07-04 03:10:55,144 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-07-04 03:10:55,144 - legal_judgment_prediction.tools.train - WARNING - Output path exists. Check whether need to change the name of model.
+2022-07-04 03:10:55,157 - legal_judgment_prediction.tools.train - INFO - Start to Train model.
+2022-07-04 03:10:55,157 - legal_judgment_prediction.tools.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-07-04 03:12:00,082 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:12:00,907 - root - INFO - CUDA available: True
+2022-07-04 03:12:00,907 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:12:00,907 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-07-04 03:12:00,908 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-07-04 03:12:02,640 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 03:12:08,458 - pytorch_pretrained_bert.optimization - WARNING - t_total value of -1 results in schedule not being applied
+2022-07-04 03:12:08,460 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-07-04 03:12:08,460 - legal_judgment_prediction.tools.train - WARNING - Output path exists. Check whether need to change the name of model.
+2022-07-04 03:12:08,461 - legal_judgment_prediction.tools.train - INFO - Start to Train model.
+2022-07-04 03:12:08,461 - legal_judgment_prediction.tools.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-07-04 03:12:23,661 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:12:24,492 - root - INFO - CUDA available: True
+2022-07-04 03:12:24,492 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:12:24,492 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-07-04 03:12:24,493 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-07-04 03:12:26,221 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 03:12:31,999 - pytorch_pretrained_bert.optimization - WARNING - t_total value of -1 results in schedule not being applied
+2022-07-04 03:12:32,000 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-07-04 03:12:32,000 - legal_judgment_prediction.tools.train - WARNING - Output path exists. Check whether need to change the name of model.
+2022-07-04 03:12:32,002 - legal_judgment_prediction.tools.train - INFO - Start to Train model.
+2022-07-04 03:12:32,002 - legal_judgment_prediction.tools.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-07-04 03:13:00,714 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:13:01,543 - root - INFO - CUDA available: True
+2022-07-04 03:13:01,543 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:13:01,543 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-07-04 03:13:01,544 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-07-04 03:13:03,254 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 03:13:09,089 - pytorch_pretrained_bert.optimization - WARNING - t_total value of -1 results in schedule not being applied
+2022-07-04 03:13:09,090 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-07-04 03:13:09,091 - legal_judgment_prediction.tools.train - WARNING - Output path exists. Check whether need to change the name of model.
+2022-07-04 03:13:09,092 - legal_judgment_prediction.tools.train - INFO - Start to Train model.
+2022-07-04 03:13:09,092 - legal_judgment_prediction.tools.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-07-04 03:14:59,480 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:15:00,299 - root - INFO - CUDA available: True
+2022-07-04 03:15:00,300 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:15:00,300 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-07-04 03:15:00,301 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-07-04 03:15:02,011 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 03:15:07,910 - pytorch_pretrained_bert.optimization - WARNING - t_total value of -1 results in schedule not being applied
+2022-07-04 03:15:07,912 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-07-04 03:15:07,912 - legal_judgment_prediction.tools.train - WARNING - Output path exists. Check whether need to change the name of model.
+2022-07-04 03:15:07,913 - legal_judgment_prediction.tools.train - INFO - Start to Train model.
+2022-07-04 03:15:07,913 - legal_judgment_prediction.tools.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-07-04 03:22:21,549 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:22:22,367 - root - INFO - CUDA available: True
+2022-07-04 03:22:22,367 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:22:22,368 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-07-04 03:22:22,368 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-07-04 03:22:24,115 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 03:33:49,309 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:33:50,127 - root - INFO - CUDA available: True
+2022-07-04 03:33:50,128 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:33:50,128 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-07-04 03:33:50,128 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-07-04 03:33:51,876 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 03:35:24,662 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:35:25,495 - root - INFO - CUDA available: True
+2022-07-04 03:35:25,588 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:35:25,589 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-07-04 03:35:25,589 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-07-04 03:35:27,328 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 03:37:04,603 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:37:05,419 - root - INFO - CUDA available: True
+2022-07-04 03:37:05,419 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:37:05,419 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-07-04 03:37:05,420 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-07-04 03:37:07,142 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 03:38:44,711 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:38:45,531 - root - INFO - CUDA available: True
+2022-07-04 03:38:45,531 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:38:45,532 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-07-04 03:38:45,532 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-07-04 03:38:47,296 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 03:38:52,953 - pytorch_pretrained_bert.optimization - WARNING - t_total value of -1 results in schedule not being applied
+2022-07-04 03:38:52,954 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-07-04 03:38:52,955 - legal_judgment_prediction.tools.train - WARNING - Output path exists. Check whether need to change the name of model.
+2022-07-04 03:38:52,956 - legal_judgment_prediction.tools.train - INFO - Start to Train model.
+2022-07-04 03:38:52,956 - legal_judgment_prediction.tools.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-07-04 03:39:48,111 - root - INFO - .\main.py --config .\bert_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:39:48,944 - root - INFO - CUDA available: True
+2022-07-04 03:39:48,945 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:39:48,945 - pytorch_pretrained_bert.modeling - INFO - loading archive file legal_judgment_prediction/bert
+2022-07-04 03:39:48,946 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-07-04 03:39:50,663 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 03:39:56,573 - pytorch_pretrained_bert.optimization - WARNING - t_total value of -1 results in schedule not being applied
+2022-07-04 03:39:56,574 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-07-04 03:39:56,574 - legal_judgment_prediction.tools.train - WARNING - Output path exists. Check whether need to change the name of model.
+2022-07-04 03:39:56,575 - legal_judgment_prediction.tools.train - INFO - Start to Train model.
+2022-07-04 03:39:56,575 - legal_judgment_prediction.tools.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-07-04 03:39:59,210 - legal_judgment_prediction.tools.utils - INFO - 0      train  1/244246    0:02/10723:01 138.735 {"article": [0.026, 1.0, 0.05, 0.578, 0.578, 0.578], "article_source": [0.083, 1.0, 0.154, 0.476, 0.476, 0.476], "charge": [0.026, 1.0, 0.05, 0.525, 0.525, 0.525]}
+2022-07-04 03:40:05,999 - legal_judgment_prediction.tools.utils - INFO - 0      train  11/244246   0:09/3487:06  112.080 {"article": [0.022, 0.545, 0.042, 0.2, 0.225, 0.205], "article_source": [0.12, 0.818, 0.209, 0.245, 0.276, 0.25], "charge": [0.019, 0.455, 0.036, 0.121, 0.147, 0.126]}
+2022-07-04 03:40:12,647 - legal_judgment_prediction.tools.utils - INFO - 0      train  21/244246   0:16/3115:04  89.907  {"article": [0.024, 0.381, 0.045, 0.199, 0.22, 0.203], "article_source": [0.149, 0.667, 0.243, 0.233, 0.24, 0.236], "charge": [0.017, 0.238, 0.032, 0.107, 0.123, 0.11]}
+2022-07-04 03:40:19,249 - legal_judgment_prediction.tools.utils - INFO - 0      train  31/244246   0:22/2976:57  72.914  {"article": [0.024, 0.258, 0.043, 0.199, 0.215, 0.202], "article_source": [0.202, 0.677, 0.311, 0.233, 0.239, 0.235], "charge": [0.017, 0.161, 0.031, 0.107, 0.119, 0.109]}
+2022-07-04 03:40:25,855 - legal_judgment_prediction.tools.utils - INFO - 0      train  41/244246   0:29/2906:33  60.635  {"article": [0.024, 0.195, 0.042, 0.199, 0.214, 0.202], "article_source": [0.237, 0.659, 0.348, 0.232, 0.238, 0.233], "charge": [0.017, 0.122, 0.03, 0.095, 0.104, 0.095]}
+2022-07-04 03:40:32,695 - legal_judgment_prediction.tools.utils - INFO - 0      train  51/244246   0:36/2882:20  51.890  {"article": [0.024, 0.157, 0.041, 0.199, 0.213, 0.201], "article_source": [0.274, 0.667, 0.389, 0.232, 0.239, 0.233], "charge": [0.017, 0.098, 0.029, 0.095, 0.103, 0.095]}
+2022-07-04 03:40:39,532 - legal_judgment_prediction.tools.utils - INFO - 0      train  61/244246   0:42/2865:53  45.663  {"article": [0.024, 0.131, 0.04, 0.177, 0.189, 0.179], "article_source": [0.313, 0.689, 0.431, 0.233, 0.239, 0.233], "charge": [0.017, 0.082, 0.028, 0.095, 0.103, 0.094]}
+2022-07-04 03:40:46,498 - legal_judgment_prediction.tools.utils - INFO - 0      train  71/244246   0:49/2861:26  40.772  {"article": [0.024, 0.113, 0.039, 0.177, 0.186, 0.178], "article_source": [0.354, 0.718, 0.474, 0.235, 0.239, 0.234], "charge": [0.017, 0.07, 0.028, 0.095, 0.103, 0.094]}
+2022-07-04 03:40:53,356 - legal_judgment_prediction.tools.utils - INFO - 0      train  81/244246   0:56/2852:38  37.099  {"article": [0.024, 0.099, 0.038, 0.177, 0.185, 0.178], "article_source": [0.37, 0.704, 0.485, 0.234, 0.239, 0.233], "charge": [0.017, 0.062, 0.027, 0.095, 0.102, 0.093]}
+2022-07-04 03:41:00,467 - legal_judgment_prediction.tools.utils - INFO - 0      train  91/244246   1:03/2857:01  34.183  {"article": [0.029, 0.11, 0.046, 0.18, 0.186, 0.179], "article_source": [0.384, 0.692, 0.494, 0.233, 0.239, 0.233], "charge": [0.021, 0.066, 0.031, 0.096, 0.102, 0.094]}
+2022-07-04 03:41:07,756 - legal_judgment_prediction.tools.utils - INFO - 0      train  101/244246  1:11/2867:41  31.622  {"article": [0.043, 0.149, 0.067, 0.181, 0.187, 0.181], "article_source": [0.402, 0.693, 0.509, 0.233, 0.239, 0.232], "charge": [0.037, 0.109, 0.055, 0.097, 0.104, 0.095]}
+2022-07-04 03:41:15,100 - legal_judgment_prediction.tools.utils - INFO - 0      train  111/244246  1:18/2878:28  29.434  {"article": [0.054, 0.171, 0.082, 0.182, 0.187, 0.181], "article_source": [0.418, 0.694, 0.522, 0.233, 0.239, 0.232], "charge": [0.049, 0.135, 0.072, 0.098, 0.105, 0.096]}
+2022-07-04 03:41:22,959 - legal_judgment_prediction.tools.utils - INFO - 0      train  121/244246  1:26/2904:41  27.547  {"article": [0.069, 0.207, 0.104, 0.185, 0.188, 0.183], "article_source": [0.433, 0.694, 0.533, 0.233, 0.239, 0.232], "charge": [0.065, 0.165, 0.093, 0.099, 0.105, 0.097]}
+2022-07-04 03:41:41,621 - root - INFO - .\main.py --config .\bart_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:41:42,469 - root - INFO - CUDA available: True
+2022-07-04 03:41:42,469 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:49:21,772 - root - INFO - .\main.py --config .\bart_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:49:22,601 - root - INFO - CUDA available: True
+2022-07-04 03:49:22,601 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:49:24,339 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 03:49:29,949 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-07-04 03:49:29,950 - legal_judgment_prediction.tools.train - WARNING - Output path exists. Check whether need to change the name of model.
+2022-07-04 03:49:29,952 - legal_judgment_prediction.tools.train - INFO - Start to Train model.
+2022-07-04 03:49:29,952 - legal_judgment_prediction.tools.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-07-04 03:49:34,545 - legal_judgment_prediction.tools.utils - INFO - 0      train  1/61061     0:04/4673:29  13.364  
+2022-07-04 03:50:19,015 - root - INFO - .\main.py --config .\bart_config.ini --gpu GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --mode train
+2022-07-04 03:50:19,842 - root - INFO - CUDA available: True
+2022-07-04 03:50:19,843 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 03:50:21,573 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 03:50:27,644 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-07-04 03:50:27,645 - legal_judgment_prediction.tools.train - WARNING - Output path exists. Check whether need to change the name of model.
+2022-07-04 03:50:27,647 - legal_judgment_prediction.tools.train - INFO - Start to Train model.
+2022-07-04 03:50:27,647 - legal_judgment_prediction.tools.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-07-04 03:50:30,443 - legal_judgment_prediction.tools.utils - INFO - 0      train  1/244246    0:02/11381:30 13.489  
+2022-07-04 03:50:38,334 - legal_judgment_prediction.tools.utils - INFO - 0      train  11/244246   0:10/3954:49  7.832   
+2022-07-04 03:50:46,151 - legal_judgment_prediction.tools.utils - INFO - 0      train  21/244246   0:18/3586:39  4.937   
+2022-07-04 03:50:53,945 - legal_judgment_prediction.tools.utils - INFO - 0      train  31/244246   0:26/3452:53  3.472   
+2022-07-04 03:51:01,739 - legal_judgment_prediction.tools.utils - INFO - 0      train  41/244246   0:34/3384:20  2.857   
+2022-07-04 03:51:09,573 - legal_judgment_prediction.tools.utils - INFO - 0      train  51/244246   0:41/3345:48  2.410   
+2022-07-04 03:51:17,619 - legal_judgment_prediction.tools.utils - INFO - 0      train  61/244246   0:49/3334:00  2.032   
+2022-07-04 03:51:25,923 - legal_judgment_prediction.tools.utils - INFO - 0      train  71/244246   0:58/3340:17  1.792   
+2022-07-04 03:51:34,347 - legal_judgment_prediction.tools.utils - INFO - 0      train  81/244246   1:06/3350:59  1.590   
+2022-07-04 03:51:42,235 - legal_judgment_prediction.tools.utils - INFO - 0      train  91/244246   1:14/3335:21  1.427   
+2022-07-04 03:51:50,326 - legal_judgment_prediction.tools.utils - INFO - 0      train  101/244246  1:22/3330:58  1.292   
+2022-07-04 03:51:58,362 - legal_judgment_prediction.tools.utils - INFO - 0      train  111/244246  1:30/3325:20  1.181   
+2022-07-04 03:52:06,338 - legal_judgment_prediction.tools.utils - INFO - 0      train  121/244246  1:38/3318:34  1.087   
+2022-07-04 03:52:25,487 - root - INFO - .\main.py

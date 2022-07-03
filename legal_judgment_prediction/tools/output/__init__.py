@@ -1,1 +1,1 @@
-from legal_judgment_prediction.tools.output.initialize import init_output_function
+from legal_judgment_prediction.tools.output.initialize import initialize_output_function

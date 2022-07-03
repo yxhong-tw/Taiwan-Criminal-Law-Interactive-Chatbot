@@ -13,43 +13,65 @@ def serve_simple_IO(parameters, config, gpu_list):
     model = parameters['model']
     model.eval()
 
-    logger.info('Begin to get tables...')
+    model_name = parameters['model_name']
 
-    charge_table, article_source_table, article_table = get_table(config, mode='serve')
+    if model_name == 'LJPBart':
+        while True:
+            fact = input('Enter a fact: ')
 
-    logger.info('Get tables done...')
-
-    while True:
-        fact = input('Enter a fact: ')
-
-        if fact == 'shutdown':
-            break
-
-        fact = encode_data(config, mode='serve', data=fact, data_name='fact')
-
-        result = model(fact, config, gpu_list, acc_result=None, mode='serve')
-
-        # the size of charge_result = [number_of_class]
-        charge_result = torch.max(result['accuse'], 2)[1]
-        article_source_result = torch.max(result['article_source'], 2)[1]
-        article_result = torch.max(result['article'], 2)[1]
-
-        for key, value in charge_table.items():
-            if torch.equal(charge_result, value):
-                print(f'The charge of this fact: {key}')
+            if fact == 'shutdown':
                 break
 
-        for key, value in article_source_table.items():
-            if torch.equal(article_source_result, value):
-                print(f'The article_source of this fact: {key}')
+            fact = encode_data(config, data={'fact': fact}, mode='serve', model_name=model_name)
+            # fact = encode_data(config, mode='serve', data=fact, data_name='fact')
+
+            result = model(config, fact, mode='serve', acc_result=None)
+
+            print(f'The article of this fact: {result}')
+
+            print()
+    elif model_name == 'LJPBert':
+        logger.info('Begin to get tables...')
+
+        charge_table, article_source_table, article_table = get_table(config, mode='serve', model_name=model_name)
+
+        logger.info('Get tables done...')
+
+        while True:
+            fact = input('Enter a fact: ')
+
+            if fact == 'shutdown':
                 break
 
-        for key, value in article_table.items():
-            if torch.equal(article_result, value):
-                print(f'The article of this fact: {key}')
-                break
+            fact = encode_data(config, data={'fact': fact}, mode='serve', model_name=model_name)
+            # fact = encode_data(config, mode='serve', data=fact, data_name='fact')
 
-        print()
+            result = model(config, fact, mode='serve', acc_result=None)
+
+            # the size of charge_result = [number_of_class]
+            charge_result = torch.max(result['charge'], 2)[1]
+            article_source_result = torch.max(result['article_source'], 2)[1]
+            article_result = torch.max(result['article'], 2)[1]
+
+            for key, value in charge_table.items():
+                if torch.equal(charge_result, value):
+                    print(f'The charge of this fact: {key}')
+                    break
+
+            for key, value in article_source_table.items():
+                if torch.equal(article_source_result, value):
+                    print(f'The article_source of this fact: {key}')
+                    break
+
+            for key, value in article_table.items():
+                if torch.equal(article_result, value):
+                    print(f'The article of this fact: {key}')
+                    break
+
+            print()
+    else:
+        logger.error(f'There is no model_name named {model_name}.')
+        raise Exception(f'There is no model_name named {model_name}.')
 
 
 def serve_socket(parameters, config, gpu_list):

@@ -11,23 +11,22 @@ logger = logging.getLogger(__name__)
 
 
 def eval(parameters, config, gpu_list):
+    model_name = parameters['model_name']
     model = parameters['model']
     output_function = parameters['output_function']
     test_dataset = parameters['test_dataset']
 
-    eval_one(model, test_dataset, 0, None, config, gpu_list, output_function, task='test')
+    eval_one(model_name, model, test_dataset, 0, config, gpu_list, output_function, task='test')
 
 
-def eval_one(model, dataset, epoch, writer, config, gpu_list, output_function, task):
+def eval_one(model_name, model, dataset, epoch, config, gpu_list, output_function, task):
     model.eval()
 
     acc_result = None
     total_loss = 0
-    cnt = 0
     total_len = len(dataset)
     start_time = timer()
     output_info = ''
-
     output_time = config.getint('output', 'output_time')
     step = -1
 
@@ -39,11 +38,13 @@ def eval_one(model, dataset, epoch, writer, config, gpu_list, output_function, t
                 else:
                     data[key] = Variable(data[key])
 
-        results = model(data, config, gpu_list, acc_result, 'valid')
+        results = model(config, data, 'eval', acc_result)
 
-        loss, acc_result = results['loss'], results['acc_result']
+        if model_name == 'LJPBert':
+            acc_result = results['acc_result']
+
+        loss = results['loss']
         total_loss += float(loss)
-        cnt += 1
 
         if step % output_time == 0:
             delta_t = timer() - start_time
@@ -52,9 +53,8 @@ def eval_one(model, dataset, epoch, writer, config, gpu_list, output_function, t
 
 
     if step == -1:
-        information = 'There is no data given to the model in this epoch, check your data.'
-        logger.error(information)
-        raise NotImplementedError
+        logger.error('There is no data given to the model in this epoch, check your data.')
+        raise Exception('There is no data given to the model in this epoch, check your data.')
 
     delta_t = timer() - start_time
     output_info = output_function(acc_result, config)
@@ -63,5 +63,4 @@ def eval_one(model, dataset, epoch, writer, config, gpu_list, output_function, t
 
 
     if task == 'valid':
-        writer.add_scalar(config.get('output', 'model_name') + '_eval_epoch', float(total_loss) / (step + 1), epoch)
         model.train()

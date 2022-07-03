@@ -3,6 +3,6 @@ line-bot-sdk
 requests
 bs4
 torch
-numpy
+transformers
 pytorch_pretrained_bert
 tensorboardX
