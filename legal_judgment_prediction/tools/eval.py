@@ -47,20 +47,27 @@ def eval_one(model_name, model, dataset, epoch, config, gpu_list, output_functio
         total_loss += float(loss)
 
         if step % output_time == 0:
+            if model_name == 'LJPBart':
+                output_info = output_function(config, total_loss, step)
+            elif model_name == 'LJPBert':
+                output_info = output_function(config, acc_result)
+
             delta_t = timer() - start_time
 
             output_value(epoch, task, '%d/%d' % (step + 1, total_len), '%s/%s' % (gen_time_str(delta_t), gen_time_str(delta_t * (total_len - step - 1) / (step + 1))), '%.3lf' % (total_loss / (step + 1)), output_info, '\r', config)
-
 
     if step == -1:
         logger.error('There is no data given to the model in this epoch, check your data.')
         raise Exception('There is no data given to the model in this epoch, check your data.')
 
+    if model_name == 'LJPBart':
+        output_info = output_function(config, total_loss, step)
+    elif model_name == 'LJPBert':
+        output_info = output_function(config, acc_result)
+
     delta_t = timer() - start_time
-    output_info = output_function(acc_result, config)
 
     output_value(epoch, task, '%d/%d' % (step + 1, total_len), '%s/%s' % (gen_time_str(delta_t), gen_time_str(delta_t * (total_len - step - 1) / (step + 1))), '%.3lf' % (total_loss / (step + 1)), output_info, None, config)
-
 
     if task == 'valid':
         model.train()

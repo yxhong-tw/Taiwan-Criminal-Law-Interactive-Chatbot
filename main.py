@@ -19,7 +19,7 @@ sh.setLevel(logging.DEBUG)
 sh.setFormatter(formatter)
 
 # bart.log or bert.log
-fh = logging.FileHandler('legal_judgment_prediction/log/bart.log', mode='a', encoding='UTF-8')
+fh = logging.FileHandler('legal_judgment_prediction/logs/bart.log', mode='a', encoding='UTF-8')
 fh.setLevel(logging.DEBUG)
 fh.setFormatter(formatter)
 
@@ -36,11 +36,10 @@ def main(*args, **kwargs):
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', '-c', help='The path of config file', required=True)
     parser.add_argument('--gpu', '-g', help='The list of gpu IDs', required=True)
-    parser.add_argument('--mode', help='Train, eval or serve', required=True)
-    # parser.add_argument('--checkpoint', help='the path of checkpoint file (eval, serve required)')
-    parser.add_argument('--use_checkpoint', help='Use checkpoint (Ignore if do not use checkpoint)')
-    parser.add_argument('--do_test', help='Do test while training (Ignore if do not test while training)')
-    parser.add_argument('--open_server', help='Open web server while serving (Ignore if do not open web server while serving')
+    parser.add_argument('--mode', '-m', help='Train, eval or serve', required=True)
+    parser.add_argument('--use_checkpoint', help='Use checkpoint (Ignore if do not use checkpoint)', action='store_true')
+    parser.add_argument('--do_test', help='Do test while training (Ignore if do not test while training)', action='store_true')
+    parser.add_argument('--open_server', help='Open web server while serving (Ignore if do not open web server while serving', action='store_true')
 
     args = parser.parse_args()
 
@@ -56,11 +55,9 @@ def main(*args, **kwargs):
 
     cuda_available = torch.cuda.is_available()
 
-    # information = 'CUDA available: %s' % str(cuda_available)
     logger.info(f'CUDA available: {str(cuda_available)}')
 
     if not cuda_available and len(gpu_list) > 0:
-        # information = 'CUDA is not available but gpu_list is not empty.'
         logger.error('CUDA is not available but gpu_list is not empty.')
         raise Exception('CUDA is not available but gpu_list is not empty.')
 
@@ -72,7 +69,7 @@ def main(*args, **kwargs):
         eval(parameters, config, gpu_list)
     elif args.mode == 'serve':
         if args.open_server == True:
-            ljp_thread = threading.Thread(target=serve_socket, args=(parameters, config, gpu_list))
+            ljp_thread = threading.Thread(target=serve_socket, args=(parameters, config))
             ljp_thread.start()
 
             line_bot_thread = App_Thread(parameters)
@@ -83,7 +80,7 @@ def main(*args, **kwargs):
             line_bot_thread.shutdown()
             line_bot_thread.join()
         else:
-            serve_simple_IO(parameters, config, gpu_list)
+            serve_simple_IO(parameters, config)
     else:
         logger.error('Invalid mode, please check again.')
         raise Exception('Invalid mode, please check again.')

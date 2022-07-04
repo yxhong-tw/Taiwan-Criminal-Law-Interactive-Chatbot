@@ -14,7 +14,7 @@ from legal_judgment_prediction.tools.eval import eval_one
 logger = logging.getLogger(__name__)
 
 
-def train(parameters, config, gpu_list, do_test=False):
+def train(parameters, config, gpu_list, do_test):
     output_time = config.getint('output', 'output_time')
     test_time = config.getint('output', 'test_time')
 
@@ -38,7 +38,7 @@ def train(parameters, config, gpu_list, do_test=False):
     train_dataset = parameters['train_dataset']
     valid_dataset = parameters['valid_dataset']
 
-    if do_test:
+    if do_test == True:
         test_dataset = initialize_dataloader(config, task='test', mode='eval')
 
     step_size = config.getint('train', 'step_size')
@@ -88,13 +88,14 @@ def train(parameters, config, gpu_list, do_test=False):
             optimizer.step()
 
             if step % output_time == 0:
-                output_info = output_function(config, acc_result)
+                if model_name == 'LJPBart':
+                    output_info = output_function(config, total_loss, step)
+                elif model_name == 'LJPBert':
+                    output_info = output_function(config, acc_result)
 
                 delta_t = timer() - start_time
 
                 output_value(current_epoch, 'train', '%d/%d' % (step + 1, total_len), '%s/%s' % (gen_time_str(delta_t), gen_time_str(delta_t * (total_len - step - 1) / (step + 1))), '%.3lf' % (total_loss / (step + 1)), output_info, '\r', config)
-
-                print(total_loss/(step+1))
 
             global_step += 1
 
@@ -108,10 +109,10 @@ def train(parameters, config, gpu_list, do_test=False):
 
         if current_epoch % test_time == 0:
             with torch.no_grad():
-                eval_one(model, valid_dataset, current_epoch, config, gpu_list, output_function, task='valid')
+                eval_one(model_name, model, valid_dataset, current_epoch, config, gpu_list, output_function, task='valid')
 
                 if do_test:
-                    eval_one(model, test_dataset, current_epoch, config, gpu_list, output_function, task='test')
+                    eval_one(model_name, model, test_dataset, current_epoch, config, gpu_list, output_function, task='test')
 
 
 def checkpoint(file, model, optimizer, trained_epoch, config, global_step):

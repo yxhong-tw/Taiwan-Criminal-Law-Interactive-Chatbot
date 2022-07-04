@@ -2,8 +2,8 @@ import logging
 import threading
 import time
 import torch
-from legal_judgment_prediction.tools.formatter.Bart import BartLJP
 
+from legal_judgment_prediction.tools.formatter.Bart import BartLJP
 from legal_judgment_prediction.tools.formatter.Bert import BertLJP
 
 
@@ -63,14 +63,14 @@ def get_table(config, mode, model_name, *args, **kwargs):
 
 def encode_data(config, data, mode, model_name, *args, **kwargs):
     if model_name == 'LJPBart':
-        formatter = BartLJP(config, *args, **kwargs)
+        formatter = BartLJP(config, mode, *args, **kwargs)
     elif model_name == 'LJPBert':
-        formatter = BertLJP(config, *args, **kwargs)
+        formatter = BertLJP(config, mode, *args, **kwargs)
     else:
         logger.error(f'There is no model_name named {model_name}.')
         raise Exception(f'There is no model_name named {model_name}.')
 
-    return formatter.process(data, mode)
+    return formatter.process(data)
 
 
 class Server_Thread(threading.Thread):
@@ -161,7 +161,7 @@ class Client_Thread(threading.Thread):
                     if client_message == 'shutdown':
                         is_shutdown = True
                     else:
-                        logger.info(client_message)
+                        logger.info(f'The received message: {client_message}')
 
                         fact = encode_data(self.config, data={'fact': client_message}, mode='serve', model_name=model_name)
 
@@ -173,8 +173,10 @@ class Client_Thread(threading.Thread):
                         
                         if reply_text == '':
                             reply_text = '查不到對應的資料，請檢查標點符號或以更完整的敘述再試一次！'
-                        else:
-                            self.client_socket.sendall(reply_text.encode())
+
+                        logger.info(f'The return message: {reply_text}')
+                        
+                        self.client_socket.sendall(reply_text.encode())
             elif model_name == 'LJPBert':
                 logger.info('Begin to get tables...')
 
@@ -203,7 +205,7 @@ class Client_Thread(threading.Thread):
                     if client_message == 'shutdown':
                         is_shutdown = True
                     else:
-                        logger.info(client_message)
+                        logger.info(f'The received message: {client_message}')
 
                         fact = encode_data(self.config, data={'fact': client_message}, mode='serve', model_name=model_name)
 
@@ -234,8 +236,10 @@ class Client_Thread(threading.Thread):
                         
                         if reply_text == '':
                             reply_text = '查不到對應的資料，請檢查標點符號或以更完整的敘述再試一次！'
-                        else:
-                            self.client_socket.sendall(reply_text.encode())
+
+                        logger.info(f'The return message: {reply_text}')
+
+                        self.client_socket.sendall(reply_text.encode())
             else:
                 logger.error(f'There is no model_name named {model_name}.')
                 raise Exception(f'There is no model_name named {model_name}.')

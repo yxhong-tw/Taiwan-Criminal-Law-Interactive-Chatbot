@@ -1,6 +1,6 @@
 import logging
 
-from legal_judgment_prediction.tools.output.functions import basic_output_function, null_output_function, bert_output_function
+from legal_judgment_prediction.tools.output.functions import null_output_function, basic_output_function, bart_output_function, bert_output_function
 
 
 logger = logging.getLogger(__name__)
@@ -10,6 +10,7 @@ def initialize_output_function(config, *args, **kwargs):
     output_function_dict = {
         'null': null_output_function,
         'basic': basic_output_function,
+        'bart': bart_output_function,
         'bert': bert_output_function
     }
 

@@ -18,6 +18,13 @@ def basic_output_function(config, data, *args, **kwargs):
     return json.dumps(result, sort_keys=True)
 
 
+def bart_output_function(config, total_loss, step, *args, **kwargs):
+    result = {}
+    result['average_loss'] = str(total_loss / (step+1))
+
+    return json.dumps(result, sort_keys=True)
+
+
 def bert_output_function(config, data, *args, **kwargs):
     temp = {}
     temp['charge'] = get_micro_macro_prf(data['charge'])

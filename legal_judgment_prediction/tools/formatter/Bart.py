@@ -21,7 +21,7 @@ class BartLJP(BasicFormatter):
     def process(self, datas, *args, **kwargs):
         if self.mode == 'serve':
             if 'fact' in datas:
-                one_fact = data['fact']    
+                one_fact = datas['fact']    
                 one_fact = self.tokenizer.tokenize(one_fact)
                 
                 while len(one_fact) < self.max_len:
