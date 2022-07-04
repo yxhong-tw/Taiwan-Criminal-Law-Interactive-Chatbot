@@ -1,6 +1,7 @@
 import logging
 import os
 import torch
+import gc
 
 from torch.optim import lr_scheduler
 from timeit import default_timer as timer
@@ -106,6 +107,9 @@ def train(parameters, config, gpu_list, do_test):
             raise Exception('There is no data given to the model in this epoch.')
 
         checkpoint(os.path.join(output_path, f'checkpoint_{current_epoch}.pkl'), model, optimizer, current_epoch, config, global_step)
+
+        gc.collect()
+        torch.cuda.empty_cache()
 
         if current_epoch % test_time == 0:
             with torch.no_grad():

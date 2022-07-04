@@ -2,44 +2,49 @@
 This project is made by WIDM Lab. (Web Intelligence and Data Mining Laboratory) undergraduate students of CSIE dept. (Computer Science and Information Engineering department) of NCU (National Central University).
 
 ## Before running
-### Download data, model and checkpoint
-Due to the size of data, model and checkpoint files are too large, you need to download those files and put them into the correct paths, and the program can execute correctly.
+### Download data, model and checkpoints
+Due to the size of data, model and checkpoints are too large, you need to download those files and put them into the correct path respectively.
+
 - [data](https://drive.google.com/drive/folders/1YJBfh5gQGuS58Gqrz4M4BqX1vaThK4kj?usp=sharing): put all files into `./legal_judgment_prediction/data`
-- [pytorch_model.bin](https://drive.google.com/file/d/1LcY1eFmhTcYDHm_7_9s4DOyPgGyQ5QOy/view?usp=sharing): put file into `./legal_judgment_prediction/bert/`
-- [checkpoints](https://drive.google.com/drive/folders/1RVYQWsdZHHymqGQ87SEXDnv-c92ECIFc?usp=sharing): download the checkpoint you want and put the file into `./legal_judgment_prediction/results/Bert`
+- [bart_pytorch_model](https://drive.google.com/drive/folders/1Q39SVlJR2VuVVsnp3-iGY8J3LyJoJoxg?usp=sharing): put file into `./legal_judgment_prediction/bart/`
+- [bert_pytorch_model](https://drive.google.com/drive/folders/1Q32kBQhizZ_7Zcwrw0qAFPxww9I6SsTG?usp=sharing): put file into `./legal_judgment_prediction/bert/`
+- [bart_checkpoints](https://drive.google.com/drive/folders/1--R6VyusbBtMbUOcfk1xDKzEMEcn5olg?usp=sharing): download the checkpoint you want and put the file into `./legal_judgment_prediction/results/bart`
+- [bert_checkpoints](https://drive.google.com/drive/folders/1CPgo7xCGPNT3pk3vIzWpYbBPCdjiPn1C?usp=sharing): download the checkpoint you want and put the file into `./legal_judgment_prediction/results/bert`
 
 ### Install the modules
-Run `pip install -r requirements.txt` to install all needed modules.
+This program needs `torch` module. However, the version of `torch` will vary depending on the operating system and GPU. So, it is recommended that you install `torch` module according to the instruction on this website ([Start Locally | PyTorch](https://pytorch.org/get-started/locally/)).
+
+After installing `torch` module, run `pip install -r requirements.txt` to install the rest of modules.
 
 ## How to run LJP model
-This program has three mode: train, eval, serve.
+This program has three mode: `train`, `eval` and `serve`.
 
-All execution messages are saved in `legal_judgment_prediction/log/Bert.log`.
+All execution messages are saved in `legal_judgment_prediction/logs/bart.log` and `legal_judgment_prediction/logs/bert.log`.
 
 ### Usage
 ```
 python main.py --config [config_file_path] --gpu [gpu IDs] --mode [mode] \
-[--checkpoint] [checkpoint_file_path] [--do_test] [--open_server]
+[--use_checkpoint] [--do_test] [--open_server]
 ```
 
 ### Detail of parameters
-- --config, -c [config_file_path]: The path of config file. You can use default config `./config.ini`
-- --gpu, -g [gpu_IDs]: The list of gpu ID. You can find gpu IDs with command `nvidia-smi -L`
-- --mode, -m [mode]: There are three mode: train, eval or serve.
-- --checkpoint: The path of checkpoint. (eval, serve mode required)
-- --do_test: If you want to do test when training, add this parameter into instruction.
-- --open_server: If you want to run this service on Line-Bot, Add this parameter into instruction.
+- `--config`, `-c` `[config_file_path]`: The path of config file. There are two config files: `bart_config.ini`, `bert_config.ini`.
+- `--gpu`, `-g` `[gpu_IDs]`: The list of GPU ID. You can find GPU ID(s) with instruction `nvidia-smi -L`. If you want to run this program with multiple GPUs, enter all GPU IDs there and separated GPU IDs by `,`.
+- `--mode`, `-m` `[mode]`: There are three modes: `train`, `eval` and `serve`. Choose one mode and enter the mode there.
+- `--use_checkpoint`: If you want to use checkpoint, add this parameter into instruction.
+- `--do_test`: If you want to do test when training, add this parameter into instruction.
+- `--open_server`: If you want to run the service on Line-Bot, Add this parameter into instruction.
 
 ### Train
 #### Basic usage
 ```
 python main.py --config [config_file_path] --gpu [gpu_IDs] --mode train \
-[--checkpoint] [checkpoint_file_path] [--do_test]
+[--use_checkpoint] [--do_test]
 ```
 
-In this mode, program will train new checkpoints.
+In this mode, program will train new checkpoint(s).
 
-If you add `--checkpoint [checkpoint_file_path]` into instruction, program will train new checkpoints based [checkpoint_file_path].
+If you add `--use_checkpoint` into instruction, program will train new checkpoints based on `checkpoint_path` which is in config file.
 
 If you want to do test when training, add `--do_test` into instruction.
 
@@ -47,29 +52,38 @@ If you want to do test when training, add `--do_test` into instruction.
 #### Basic usage
 ```
 python main.py --config [config_file_path] --gpu [gpu_IDs] --mode eval \
---checkpoint [checkpoint_file_path]
+[--use_checkpoint]
 ```
 
 In this mode, program will evalute test data.
+
+It is recommended that you add `--use_checkpoint` into instruction, otherwise the program will use the model which does not be fine-tuned to evalute test data.
 
 ### Serve
 #### Basic usage
 ```
 python main.py --config [config_file_path] --gpu [gpu_IDs] --mode serve \
---checkpoint [checkpoint_file_path] [--open_server]
+[--use_checkpoint] [--open_server]
 ```
 
-In this mode, program can predict the accuse, article and article_source of inputting string.
+In this mode, program can predict
 
-If you add `--open_server` into instruction, program will open Flask web server. You can use this mode with Line-Bot.
+- the article: BART model
+- the accuse, article and article_source: BERT model
+
+of input string.
+
+Same as Eval part, it is recommended that you add `--use_checkpoint` into instruction, otherwise the program will use the model which does not be fine-tuned to predict result(s).
+
+If you add `--open_server` into instruction, program will open Flask web server. Then you can run the service on Line-Bot.
 
 ## How to run Line-Bot  
-1. Move to root directory `Taiwan-Criminal-Law-Interactive-Chatbot`
-2. Revise below settings in ./config.ini
+1. Move to root directory (`Taiwan-Criminal-Law-Interactive-Chatbot`)
+2. Revise below settings in `./{model_name}_config.ini`
     - [server]
-      - server_socket_IP: This can be found with command `ifconfig`.
-      - LINE_CHANNEL_ACCESS_TOKEN: This can be found in your channel on LINE Developers.
-      - CHANNEL_SECRET: This can be found in your channel on LINE Developers.
+      - `server_socket_IP`: It can be found with instruction `ifconfig` (Linux) or `ipconfig`(Windows).
+      - `LINE_CHANNEL_ACCESS_TOKEN`: It can be found in your channel on LINE Developers.
+      - `CHANNEL_SECRET`: It can be found in your channel on LINE Developers.
 3. Run ngrok with instruction `ngrok http 5000`
 4. Edit `Webhook URL` in your channel on LINE Developers with the link generated by ngrok
 5. Run `main.py` with `serve` mode and add `--open_server` parameter into instruction
@@ -77,8 +91,15 @@ If you add `--open_server` into instruction, program will open Flask web server.
 ## Demo
 ### Serve (simple_IO)
 #### Event Prediction
-![Demo_simple_IO](https://drive.google.com/uc?export=view&id=1MbOXoALHHaV2n3TMUku2jXzTaCReyY11)
-> Enter `shutdown` in chatroom to close whole system safely.
+##### BART model
+![Demo_simple_IO_BERT](https://drive.google.com/uc?export=view&id=1RA6Id1zOb413FU7v6taLgGnEZalb-Jwr)
+
+> Enter `shutdown` in terminal to close program safely.
+
+##### BERT model
+![Demo_simple_IO_BERT](https://drive.google.com/uc?export=view&id=1MbOXoALHHaV2n3TMUku2jXzTaCReyY11)
+
+> Same as BART model part, enter `shutdown` in terminal to close program safely.
 
 ### Serve (open_server)
 #### How to Use
@@ -88,9 +109,13 @@ If you add `--open_server` into instruction, program will open Flask web server.
 ![Demo_Line_Bot_Today_News](https://drive.google.com/uc?export=view&id=1Ks7zFX44TGoBl5j8PH5cHQaKNVWkWJRK)
 
 #### Event Prediction
-![Demo_Line_Bot_Event_Prediction](https://drive.google.com/uc?export=view&id=1KsUZ1RQ7u-3mcSBSprOb6IQF7sSdRIkZ)
+##### BART model
+![Demo_Line_Bot_Event_Prediction_BART](https://drive.google.com/uc?export=view&id=1R9dlADGrh57Ag_wkDJa2iPDwC5774F_j)
+
+##### BERT model
+![Demo_Line_Bot_Event_Prediction_BERT](https://drive.google.com/uc?export=view&id=1KsUZ1RQ7u-3mcSBSprOb6IQF7sSdRIkZ)
 
 #### Law Search
 ![Demo_Line_Bot_Law_Search](https://drive.google.com/uc?export=view&id=1KsZpXjaUE6RXAJnzQikLlSNRXlLEt2Uk)
 
-> Enter `shutdown` in chatroom to close whole system safely (Same as Serve (simple_IO)).
+> Enter `shutdown` in chatroom to close program safely.

@@ -1,0 +1,66 @@
+2022-07-04 04:37:43,768 - root - INFO - main.py --config bart_config.ini --gpu GPU-7444f9b3-c077-071d-8496-422656b95fe8 --mode train
+2022-07-04 04:37:43,770 - root - INFO - CUDA available: True
+2022-07-04 04:37:43,770 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 04:37:47,348 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 04:37:51,873 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-07-04 04:37:51,874 - legal_judgment_prediction.tools.train - WARNING - Output path exists. Check whether need to change the name of model.
+2022-07-04 04:37:51,874 - legal_judgment_prediction.tools.train - INFO - Start to Train model.
+2022-07-04 04:37:51,874 - legal_judgment_prediction.tools.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-07-04 04:37:52,697 - legal_judgment_prediction.tools.utils - INFO - 0      train  1/40707     0:00/558:24   13.278  
+2022-07-04 05:00:23,386 - legal_judgment_prediction.tools.utils - INFO - 0      train  2001/40707 22:31/435:42   0.062   
+2022-07-04 05:22:56,998 - legal_judgment_prediction.tools.utils - INFO - 0      train  4001/40707 45:05/413:37   0.032   
+2022-07-04 05:45:31,796 - legal_judgment_prediction.tools.utils - INFO - 0      train  6001/40707 67:39/391:20   0.022   
+2022-07-04 06:07:44,743 - legal_judgment_prediction.tools.utils - INFO - 0      train  8001/40707 89:52/367:24   0.016   
+2022-07-04 06:29:41,710 - legal_judgment_prediction.tools.utils - INFO - 0      train  10001/40707 111:49/343:21 0.013   
+2022-07-04 06:51:40,532 - legal_judgment_prediction.tools.utils - INFO - 0      train  12001/40707 133:48/320:04 0.011   
+2022-07-04 07:13:39,062 - legal_judgment_prediction.tools.utils - INFO - 0      train  14001/40707 155:47/297:09 0.010   
+2022-07-04 07:35:38,079 - legal_judgment_prediction.tools.utils - INFO - 0      train  16001/40707 177:46/274:28 0.008   
+2022-07-04 07:57:37,353 - legal_judgment_prediction.tools.utils - INFO - 0      train  18001/40707 199:45/251:58 0.008   
+2022-07-04 08:19:37,530 - legal_judgment_prediction.tools.utils - INFO - 0      train  20001/40707 221:45/229:34 0.007   
+2022-07-04 08:41:35,989 - legal_judgment_prediction.tools.utils - INFO - 0      train  22001/40707 243:44/207:13 0.006   
+2022-07-04 09:03:34,937 - legal_judgment_prediction.tools.utils - INFO - 0      train  24001/40707 265:43/184:57 0.006   
+2022-07-04 09:25:34,538 - legal_judgment_prediction.tools.utils - INFO - 0      train  26001/40707 287:42/162:43 0.005   
+2022-07-04 09:47:33,933 - legal_judgment_prediction.tools.utils - INFO - 0      train  28001/40707 309:42/140:31 0.005   
+2022-07-04 10:09:33,445 - legal_judgment_prediction.tools.utils - INFO - 0      train  30001/40707 331:41/118:21 0.005   
+2022-07-04 10:31:33,721 - legal_judgment_prediction.tools.utils - INFO - 0      train  32001/40707 353:41/96:13  0.004   
+2022-07-04 10:53:33,177 - legal_judgment_prediction.tools.utils - INFO - 0      train  34001/40707 375:41/74:05  0.004   
+2022-07-04 11:15:33,932 - legal_judgment_prediction.tools.utils - INFO - 0      train  36001/40707 397:42/51:59  0.004   
+2022-07-04 11:37:33,789 - legal_judgment_prediction.tools.utils - INFO - 0      train  38001/40707 419:41/29:53  0.004   
+2022-07-04 11:59:34,607 - legal_judgment_prediction.tools.utils - INFO - 0      train  40001/40707 441:42/ 7:47  0.004   
+2022-07-04 12:07:20,129 - legal_judgment_prediction.tools.utils - INFO - 0      train  40707/40707 441:42/ 0:00  0.004   
+2022-07-04 17:19:42,785 - root - INFO - main.py
+2022-07-04 17:20:16,080 - root - INFO - main.py
+2022-07-04 17:21:08,841 - root - INFO - main.py -c bart_config.ini -g GPU-7444f9b3-c077-071d-8496-422656b95fe8 -m train --use_checkpoint
+2022-07-04 17:21:08,843 - root - INFO - CUDA available: True
+2022-07-04 17:21:08,843 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-04 17:21:12,822 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-04 17:21:18,045 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-07-04 17:21:18,047 - legal_judgment_prediction.tools.train - WARNING - Output path exists. Check whether need to change the name of model.
+2022-07-04 17:21:18,049 - legal_judgment_prediction.tools.train - INFO - Start to Train model.
+2022-07-04 17:21:18,049 - legal_judgment_prediction.tools.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-07-04 17:21:18,822 - legal_judgment_prediction.tools.utils - INFO - 1      train  1/40707     0:00/524:31   0.000   {"average_loss": "1.0165805178985465e-05"}
+2022-07-04 17:43:58,931 - legal_judgment_prediction.tools.utils - INFO - 1      train  2001/40707 22:40/438:43   0.000   {"average_loss": "0.0002541374983297408"}
+2022-07-04 18:06:30,585 - legal_judgment_prediction.tools.utils - INFO - 1      train  4001/40707 45:12/414:45   0.000   {"average_loss": "0.00024386133082534062"}
+2022-07-04 18:29:03,193 - legal_judgment_prediction.tools.utils - INFO - 1      train  6001/40707 67:45/391:50   0.000   {"average_loss": "0.0002442455996080181"}
+2022-07-04 18:51:34,765 - legal_judgment_prediction.tools.utils - INFO - 1      train  8001/40707 90:16/369:02   0.000   {"average_loss": "0.00023965784402448106"}
+2022-07-04 19:14:01,592 - legal_judgment_prediction.tools.utils - INFO - 1      train  10001/40707 112:43/346:06 0.000   {"average_loss": "0.00023873605507359705"}
+2022-07-04 19:36:30,151 - legal_judgment_prediction.tools.utils - INFO - 1      train  12001/40707 135:12/323:23 0.000   {"average_loss": "0.00023999420784057298"}
+2022-07-04 19:59:01,389 - legal_judgment_prediction.tools.utils - INFO - 1      train  14001/40707 157:43/300:50 0.000   {"average_loss": "0.0002379908932762769"}
+2022-07-04 20:21:29,907 - legal_judgment_prediction.tools.utils - INFO - 1      train  16001/40707 180:11/278:13 0.000   {"average_loss": "0.00023861569476036428"}
+2022-07-04 20:43:59,568 - legal_judgment_prediction.tools.utils - INFO - 1      train  18001/40707 202:41/255:40 0.000   {"average_loss": "0.00023739183586050352"}
+2022-07-04 21:06:29,995 - legal_judgment_prediction.tools.utils - INFO - 1      train  20001/40707 225:11/233:08 0.000   {"average_loss": "0.00023921805269513265"}
+2022-07-04 21:29:04,533 - legal_judgment_prediction.tools.utils - INFO - 1      train  22001/40707 247:46/210:39 0.000   {"average_loss": "0.00023727899888252287"}
+2022-07-04 21:51:41,004 - legal_judgment_prediction.tools.utils - INFO - 1      train  24001/40707 270:22/188:12 0.000   {"average_loss": "0.0002377864648314596"}
+2022-07-04 22:14:12,121 - legal_judgment_prediction.tools.utils - INFO - 1      train  26001/40707 292:54/165:39 0.000   {"average_loss": "0.00023798018936483113"}
+2022-07-04 22:36:42,347 - legal_judgment_prediction.tools.utils - INFO - 1      train  28001/40707 315:24/143:07 0.000   {"average_loss": "0.00023804324339398616"}
+2022-07-04 22:59:12,581 - legal_judgment_prediction.tools.utils - INFO - 1      train  30001/40707 337:54/120:35 0.000   {"average_loss": "0.0002373780199743481"}
+2022-07-04 23:21:45,030 - legal_judgment_prediction.tools.utils - INFO - 1      train  32001/40707 360:26/98:03  0.000   {"average_loss": "0.00023751380457245113"}
+2022-07-04 23:44:18,987 - legal_judgment_prediction.tools.utils - INFO - 1      train  34001/40707 383:00/75:32  0.000   {"average_loss": "0.0002360449463920641"}
+2022-07-05 00:06:54,199 - legal_judgment_prediction.tools.utils - INFO - 1      train  36001/40707 405:36/53:01  0.000   {"average_loss": "0.00023627957062255845"}
+2022-07-05 00:29:30,338 - legal_judgment_prediction.tools.utils - INFO - 1      train  38001/40707 428:12/30:29  0.000   {"average_loss": "0.00023684562595851805"}
+2022-07-05 00:52:07,905 - legal_judgment_prediction.tools.utils - INFO - 1      train  40001/40707 450:49/ 7:57  0.000   {"average_loss": "0.0002355827569982209"}
+2022-07-05 01:00:06,427 - legal_judgment_prediction.tools.utils - INFO - 1      train  40707/40707 450:49/ 0:00  0.000   {"average_loss": "0.0002355827569982209"}
+2022-07-05 01:00:08,559 - legal_judgment_prediction.tools.utils - INFO - 1      valid  1/5055      0:00/35:07    0.001   {"average_loss": "0.0005464493879117072"}
+2022-07-05 01:13:51,385 - legal_judgment_prediction.tools.utils - INFO - 1      valid  2001/5055  13:43/20:56    0.000   {"average_loss": "0.0002101327955913362"}
+2022-07-05 01:27:37,289 - legal_judgment_prediction.tools.utils - INFO - 1      valid  4001/5055  27:29/ 7:14    0.000   {"average_loss": "0.00020367406015506554"}
+2022-07-05 01:34:51,504 - legal_judgment_prediction.tools.utils - INFO - 1      valid  5055/5055  34:43/ 0:00    0.000   {"average_loss": "0.00020427588408280178"}

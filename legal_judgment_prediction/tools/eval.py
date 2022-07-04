@@ -1,5 +1,6 @@
 import logging
 import torch
+import gc
 
 from timeit import default_timer as timer
 from torch.autograd import Variable
@@ -71,3 +72,6 @@ def eval_one(model_name, model, dataset, epoch, config, gpu_list, output_functio
 
     if task == 'valid':
         model.train()
+
+    gc.collect()
+    torch.cuda.empty_cache()
