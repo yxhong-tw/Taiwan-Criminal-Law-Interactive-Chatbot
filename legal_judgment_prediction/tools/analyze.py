@@ -1,0 +1,8 @@
+from legal_judgment_prediction.tools.precedent_analysis.files_analysis import files_analysis
+from legal_judgment_prediction.tools.precedent_analysis.general_analysis import general_analysis
+
+
+def analyze(config):
+    whole_dataset_length_of_fact_in_each_data, whole_dataset_times_appeared_of_relevant_articles, whole_dataset_times_appeared_of_accusations = files_analysis(config)
+    
+    general_analysis(config, whole_dataset_length_of_fact_in_each_data, whole_dataset_times_appeared_of_relevant_articles, whole_dataset_times_appeared_of_accusations)

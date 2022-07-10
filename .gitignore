@@ -2,6 +2,9 @@ venv/
 
 legal_judgment_prediction/data/*.txt
 legal_judgment_prediction/data/*.json
+legal_judgment_prediction/data/precedents/multi_labels/*.json
+legal_judgment_prediction/data/precedents/one_label/*.json
+
 legal_judgment_prediction/bart/pytorch_model.bin
 legal_judgment_prediction/bert/pytorch_model.bin
 legal_judgment_prediction/results/bart/*.pkl

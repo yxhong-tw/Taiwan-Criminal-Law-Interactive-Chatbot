@@ -22,12 +22,17 @@ class BartLJP(BasicFormatter):
         if self.mode == 'serve':
             if 'fact' in datas:
                 one_fact = datas['fact']    
+                print(one_fact)
                 one_fact = self.tokenizer.tokenize(one_fact)
+                print(one_fact)
                 
                 while len(one_fact) < self.max_len:
                     one_fact.append('[PAD]')
 
                 one_fact = one_fact[0:self.max_len]
+                print(one_fact)
+                print(self.tokenizer.convert_tokens_to_ids(one_fact))
+                input()
 
                 return torch.LongTensor(self.tokenizer.convert_tokens_to_ids(one_fact)).cuda()
             else:
