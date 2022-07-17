@@ -16,23 +16,23 @@ class BartLJP(BasicFormatter):
         self.mode = mode
         self.max_len = config.getint('data', 'max_seq_length')
         self.tokenizer = BertTokenizer.from_pretrained(config.get('model', 'bart_path'))
+        self.add_special_tokens = config.getboolean('data', 'add_special_tokens')
 
 
     def process(self, datas, *args, **kwargs):
         if self.mode == 'serve':
             if 'fact' in datas:
-                one_fact = datas['fact']    
-                print(one_fact)
+                one_fact = datas['fact']
                 one_fact = self.tokenizer.tokenize(one_fact)
-                print(one_fact)
+
+                if self.add_special_tokens == True:
+                    one_fact.insert(0, '<s>')
+                    one_fact.append('<\s>')
                 
                 while len(one_fact) < self.max_len:
-                    one_fact.append('[PAD]')
+                    one_fact.append('<pad>')
 
                 one_fact = one_fact[0:self.max_len]
-                print(one_fact)
-                print(self.tokenizer.convert_tokens_to_ids(one_fact))
-                input()
 
                 return torch.LongTensor(self.tokenizer.convert_tokens_to_ids(one_fact)).cuda()
             else:
@@ -46,11 +46,15 @@ class BartLJP(BasicFormatter):
 
             for data in datas:
                 # Process fact
-                one_fact = data['fact']    
+                one_fact = data['fact']
                 one_fact = self.tokenizer.tokenize(one_fact)
+
+                if self.add_special_tokens == True:
+                    one_fact.insert(0, '<s>')
+                    one_fact.append('<\s>')
                 
                 while len(one_fact) < self.max_len:
-                    one_fact.append('[PAD]')
+                    one_fact.append('<pad>')
 
                 one_fact = one_fact[0:self.max_len]
 
@@ -60,8 +64,12 @@ class BartLJP(BasicFormatter):
                 one_charge = data['meta']['accusation']
                 one_charge = self.tokenizer.tokenize(one_charge)
 
+                if self.add_special_tokens == True:
+                    one_charge.insert(0, '<s>')
+                    one_charge.append('<\s>')
+
                 while len(one_charge) < self.max_len:
-                    one_charge.append('[PAD]')
+                    one_charge.append('<pad>')
 
                 one_charge = one_charge[0:self.max_len]
 
@@ -72,8 +80,12 @@ class BartLJP(BasicFormatter):
                     one_article_source = relevant_article[0]
                     one_article_source = self.tokenizer.tokenize(one_article_source)
 
+                    if self.add_special_tokens == True:
+                        one_article_source.insert(0, '<s>')
+                        one_article_source.append('<\s>')
+
                     while len(one_article_source) < self.max_len:
-                        one_article_source.append('[PAD]')
+                        one_article_source.append('<pad>')
 
                     one_article_source = one_article_source[0:self.max_len]
 
@@ -83,8 +95,12 @@ class BartLJP(BasicFormatter):
                     one_article = relevant_article[0] + relevant_article[1]
                     one_article = self.tokenizer.tokenize(one_article)
 
+                    if self.add_special_tokens == True:
+                        one_article.insert(0, '<s>')
+                        one_article.append('<\s>')
+
                     while len(one_article) < self.max_len:
-                        one_article.append('[PAD]')
+                        one_article.append('<pad>')
 
                     one_article = one_article[0:self.max_len]
 
