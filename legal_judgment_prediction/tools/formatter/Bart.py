@@ -26,15 +26,15 @@ class BartLJP(BasicFormatter):
                 one_fact = self.tokenizer.tokenize(one_fact)
 
                 if self.add_special_tokens == True:
-                    one_fact.insert(0, '<s>')
-                    one_fact.append('<\s>')
+                    one_fact.insert(0, '[CLS]')
+                    one_fact.append('[SEP]')
                 
-                # while len(one_fact) < self.max_len:
-                #     one_fact.append('<pad>')
-
                 if len(one_fact) > self.max_len:
                     one_fact = one_fact[0:self.max_len-1]
-                    one_fact.append('<\s>')
+                    one_fact.append('[SEP]')
+                else:
+                    while len(one_fact) < self.max_len:
+                        one_fact.append('[PAD]')
 
                 return torch.LongTensor(self.tokenizer.convert_tokens_to_ids(one_fact)).cuda()
             else:
@@ -52,15 +52,15 @@ class BartLJP(BasicFormatter):
                 one_fact = self.tokenizer.tokenize(one_fact)
 
                 if self.add_special_tokens == True:
-                    one_fact.insert(0, '<s>')
-                    one_fact.append('<\s>')
+                    one_fact.insert(0, '[CLS]')
+                    one_fact.append('[SEP]')
                 
-                # while len(one_fact) < self.max_len:
-                #     one_fact.append('<pad>')
-
                 if len(one_fact) > self.max_len:
                     one_fact = one_fact[0:self.max_len-1]
-                    one_fact.append('<\s>')
+                    one_fact.append('[SEP]')
+                else:
+                    while len(one_fact) < self.max_len:
+                        one_fact.append('[PAD]')
 
                 fact.append(self.tokenizer.convert_tokens_to_ids(one_fact))
 
@@ -69,15 +69,15 @@ class BartLJP(BasicFormatter):
                 one_charge = self.tokenizer.tokenize(one_charge)
 
                 if self.add_special_tokens == True:
-                    one_charge.insert(0, '<s>')
-                    one_charge.append('<\s>')
-
-                # while len(one_charge) < self.max_len:
-                #     one_charge.append('<pad>')
+                    one_charge.insert(0, '[CLS]')
+                    one_charge.append('[SEP]')
 
                 if len(one_charge) > self.max_len:
                     one_charge = one_charge[0:self.max_len-1]
-                    one_charge.append('<\s>')
+                    one_charge.append('[SEP]')
+                else:
+                    while len(one_charge) < self.max_len:
+                        one_charge.append('[PAD]')
 
                 charge.append(self.tokenizer.convert_tokens_to_ids(one_charge))
                 
@@ -87,15 +87,15 @@ class BartLJP(BasicFormatter):
                     one_article_source = self.tokenizer.tokenize(one_article_source)
 
                     if self.add_special_tokens == True:
-                        one_article_source.insert(0, '<s>')
-                        one_article_source.append('<\s>')
-
-                    # while len(one_article_source) < self.max_len:
-                    #     one_article_source.append('<pad>')
+                        one_article_source.insert(0, '[CLS]')
+                        one_article_source.append('[SEP]')
 
                     if len(one_article_source) > self.max_len:
                         one_article_source = one_article_source[0:self.max_len-1]
-                        one_article_source.append('<\s>')
+                        one_article_source.append('[SEP]')
+                    else:
+                        while len(one_article_source) < self.max_len:
+                            one_article_source.append('[PAD]')
 
                     article_source.append(self.tokenizer.convert_tokens_to_ids(one_article_source))
 
@@ -104,15 +104,15 @@ class BartLJP(BasicFormatter):
                     one_article = self.tokenizer.tokenize(one_article)
 
                     if self.add_special_tokens == True:
-                        one_article.insert(0, '<s>')
-                        one_article.append('<\s>')
-
-                    # while len(one_article) < self.max_len:
-                    #     one_article.append('<pad>')
+                        one_article.insert(0, '[CLS]')
+                        one_article.append('[SEP]')
 
                     if len(one_article) > self.max_len:
                         one_article = one_article[0:self.max_len-1]
-                        one_article.append('<\s>')
+                        one_article.append('[SEP]')
+                    else:
+                        while len(one_article) < self.max_len:
+                            one_article.append('[PAD]')
 
                     article.append(self.tokenizer.convert_tokens_to_ids(one_article))
             
