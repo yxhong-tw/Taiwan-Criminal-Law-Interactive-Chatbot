@@ -3,25 +3,20 @@ import datetime
 import os
 import json
 
-from legal_judgment_prediction.tools.precedent_analysis.utils import get_file_list_string, traversal_all_nodes
+from legal_judgment_prediction.tools.analyze.utils import get_file_list_string, traversal_all_nodes
 
 
 logger = logging.getLogger(__name__)
 
 
-def general_analysis(config, whole_dataset_length_of_fact_in_each_data, whole_dataset_times_appeared_of_relevant_article_sources, whole_dataset_times_appeared_of_relevant_articles, whole_dataset_times_appeared_of_accusations):
+def general_analysis(parameters, whole_dataset_length_of_fact_in_each_data, whole_dataset_times_appeared_of_relevant_article_sources, whole_dataset_times_appeared_of_relevant_articles, whole_dataset_times_appeared_of_accusations):
     logger.info('Start to analyze dataset.')
 
-    name = config.get('data', 'name')
-    folder_path = config.get('data', 'folder_path')
-    general_analysis_file_path = config.get('result', 'general_analysis_file_path')
-
-    file_list_strings, number_of_files = get_file_list_string(folder_path)
-
-    any_file_name = os.listdir(folder_path)[0] if os.listdir(folder_path)[0] != 'README.md' else os.listdir(folder_path)[1]
-
+    file_list_strings, number_of_files = get_file_list_string(parameters['folder_path'])
+    any_file_name = os.listdir(parameters['folder_path'])[0] if os.listdir(parameters['folder_path'])[0] != 'README.md' else os.listdir(parameters['folder_path'])[1]
     nodes_list_strings = []
-    with open(str(os.path.join(folder_path, any_file_name)), 'r', encoding='UTF-8') as json_file:
+
+    with open(str(os.path.join(parameters['folder_path'], any_file_name)), 'r', encoding='UTF-8') as json_file:
         line = json_file.readline()
 
         data = json.loads(line)
@@ -73,9 +68,9 @@ def general_analysis(config, whole_dataset_length_of_fact_in_each_data, whole_da
         accusations_times_appeared_strings.append('\t' + '- ' + str(item[0]) + ': ' + str(item[1]) + '\n')
     # -----
 
-    with open(file=general_analysis_file_path, mode='a', encoding='UTF-8') as result_file:
+    with open(file=parameters['general_analysis_file_path'], mode='a', encoding='UTF-8') as result_file:
         result_file.write('----- General Analysis Task -----' + '\n')
-        result_file.write(f'Dataset name: {name}' + '\n')
+        result_file.write(f'Dataset name: ' + parameters['name'] + '\n')
         result_file.write('Current time: ' + str(datetime.datetime.now()) + '\n')
         result_file.write('File list: ' + '\n')
 

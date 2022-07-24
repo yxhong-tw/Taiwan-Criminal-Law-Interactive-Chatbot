@@ -1,0 +1,10 @@
+2022-07-25 00:01:30,062 - root - INFO - .\main.py -c .\precedent_analysis_config.ini -m analyze -l one_label -r top_50_article
+2022-07-25 00:01:30,063 - legal_judgment_prediction.tools.analyze.files_analysis - INFO - Start to analyze files.
+2022-07-25 00:01:35,603 - legal_judgment_prediction.tools.analyze.files_analysis - INFO - Complete files analysis.
+2022-07-25 00:01:35,615 - legal_judgment_prediction.tools.analyze.general_analysis - INFO - Start to analyze dataset.
+2022-07-25 00:01:35,621 - legal_judgment_prediction.tools.analyze.general_analysis - INFO - Complete general analysis.
+2022-07-25 00:02:01,894 - root - INFO - .\main.py -c .\precedent_analysis_config.ini -m analyze -l multi_labels
+2022-07-25 00:02:01,894 - legal_judgment_prediction.tools.analyze.files_analysis - INFO - Start to analyze files.
+2022-07-25 00:02:03,456 - legal_judgment_prediction.tools.analyze.files_analysis - INFO - Complete files analysis.
+2022-07-25 00:02:03,458 - legal_judgment_prediction.tools.analyze.general_analysis - INFO - Start to analyze dataset.
+2022-07-25 00:02:03,460 - legal_judgment_prediction.tools.analyze.general_analysis - INFO - Complete general analysis.

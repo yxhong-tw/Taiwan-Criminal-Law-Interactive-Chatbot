@@ -7,12 +7,8 @@ import datetime
 logger = logging.getLogger(__name__)
 
 
-def files_analysis(config, parameters):
+def files_analysis(parameters, data):
     logger.info('Start to analyze files.')
-
-    name = config.get('data', 'name')
-    folder_path = config.get('data', 'folder_path')
-    files_analysis_file_path = config.get('result', 'files_analysis_file_path')
 
     whole_dataset_length_of_fact_in_each_data = []
     whole_dataset_times_appeared_of_relevant_article_sources = {}
@@ -21,7 +17,7 @@ def files_analysis(config, parameters):
 
     files_concepts_list = []
 
-    for file_name in os.listdir(folder_path):
+    for file_name in os.listdir(parameters['folder_path']):
         if file_name == 'README.md':
             continue
 
@@ -40,7 +36,7 @@ def files_analysis(config, parameters):
 
         file_concepts_strings = []
 
-        with open(str(os.path.join(folder_path, file_name)), 'r', encoding='UTF-8') as json_file:
+        with open(str(os.path.join(parameters['folder_path'], file_name)), 'r', encoding='UTF-8') as json_file:
             lines = json_file.readlines()
 
             for index, line in enumerate(lines):
@@ -239,9 +235,9 @@ def files_analysis(config, parameters):
 
         files_concepts_list.append(file_concepts_strings)
 
-    with open(file=files_analysis_file_path, mode='a', encoding='UTF-8') as result_file:
+    with open(file=parameters['files_analysis_file_path'], mode='a', encoding='UTF-8') as result_file:
         result_file.write('----- Files Analysing Task -----' + '\n')
-        result_file.write(f'Dataset name: {name}' + '\n')
+        result_file.write('Dataset name: ' + parameters['name'] + '\n')
         result_file.write('Current time: ' + str(datetime.datetime.now()) + '\n')
         result_file.write('The concepts of files: ' + '\n')
 
@@ -258,9 +254,9 @@ def files_analysis(config, parameters):
 
     logger.info('Complete files analysis.')
 
-    parameters['whole_dataset_length_of_fact_in_each_data'] = whole_dataset_length_of_fact_in_each_data
-    parameters['whole_dataset_times_appeared_of_relevant_article_sources'] = whole_dataset_times_appeared_of_relevant_article_sources
-    parameters['whole_dataset_times_appeared_of_relevant_articles'] = whole_dataset_times_appeared_of_relevant_articles
-    parameters['whole_dataset_times_appeared_of_accusations'] = whole_dataset_times_appeared_of_accusations
+    data['whole_dataset_length_of_fact_in_each_data'] = whole_dataset_length_of_fact_in_each_data
+    data['whole_dataset_times_appeared_of_relevant_article_sources'] = whole_dataset_times_appeared_of_relevant_article_sources
+    data['whole_dataset_times_appeared_of_relevant_articles'] = whole_dataset_times_appeared_of_relevant_articles
+    data['whole_dataset_times_appeared_of_accusations'] = whole_dataset_times_appeared_of_accusations
 
-    return whole_dataset_length_of_fact_in_each_data, whole_dataset_times_appeared_of_relevant_article_sources, whole_dataset_times_appeared_of_relevant_articles, whole_dataset_times_appeared_of_accusations, parameters
+    return whole_dataset_length_of_fact_in_each_data, whole_dataset_times_appeared_of_relevant_article_sources, whole_dataset_times_appeared_of_relevant_articles, whole_dataset_times_appeared_of_accusations, data

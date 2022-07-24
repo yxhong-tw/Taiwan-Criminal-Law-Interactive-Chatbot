@@ -15,10 +15,10 @@ def top_50_article(parameters):
 
     # It is possible one label is top 50 but another label is not.
     # So if 'data_type' equals to 'multi_labels', use 'all' function no matter what user choose.
-    if parameters['data_type'] == 'multi_labels':
-        logger.info('Because \'data_type\' == \'multi_labels\', changing parameter[\'mode\'] to \'all\'.')
+    if parameters['label'] == 'multi_labels':
+        logger.info('Because \'label\' == \'multi_labels\', changing parameter[\'range\'] to \'all\'.')
 
-        parameters['mode'] = 'all'
+        parameters['range'] = 'all'
         all(parameters)
 
         change_mode_to_all = True
@@ -75,22 +75,22 @@ def write_back_results(parameters, data):
     valid_data, test_data = train_test_split(temp_data, random_state=parameters['random_seed'], train_size=parameters['valid_size'])
 
     logger.info('Start to write train.json.')
-    with open(file=os.path.join(parameters['output_path'], parameters['data_type'], parameters['mode'], 'train.json'), mode='w', encoding='UTF-8') as file:
+    with open(file=os.path.join(parameters['output_path'], parameters['label'], parameters['range'], 'train.json'), mode='w', encoding='UTF-8') as file:
         for data in train_data:
-            file.write(str(data) + '\n')
+            file.write(str(data))
 
         file.close()
 
     logger.info('Start to write valid.json.')
-    with open(file=os.path.join(parameters['output_path'], parameters['data_type'], parameters['mode'], 'valid.json'), mode='w', encoding='UTF-8') as file:
+    with open(file=os.path.join(parameters['output_path'], parameters['label'], parameters['range'], 'valid.json'), mode='w', encoding='UTF-8') as file:
         for data in valid_data:
-            file.write(str(data) + '\n')
+            file.write(str(data))
 
         file.close()
 
     logger.info('Start to write test.json.')
-    with open(file=os.path.join(parameters['output_path'], parameters['data_type'], parameters['mode'], 'test.json'), mode='w', encoding='UTF-8') as file:
+    with open(file=os.path.join(parameters['output_path'], parameters['label'], parameters['range'], 'test.json'), mode='w', encoding='UTF-8') as file:
         for data in test_data:
-            file.write(str(data) + '\n')
+            file.write(str(data))
 
         file.close()

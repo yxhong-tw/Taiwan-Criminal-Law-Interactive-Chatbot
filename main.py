@@ -5,7 +5,8 @@ import configparser
 import torch
 import threading
 
-from legal_judgment_prediction.tools.analyze import analyze
+from legal_judgment_prediction.tools.analyze.analyze import analyze
+from legal_judgment_prediction.tools.generate.generate import generate
 from legal_judgment_prediction.tools.initialize import initialize_all
 from legal_judgment_prediction.tools.train import train
 from legal_judgment_prediction.tools.eval import eval
@@ -17,11 +18,13 @@ information = ' '.join(sys.argv)
 def main(*args, **kwargs):
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', '-c', help='The path of config file', required=True)
-    parser.add_argument('--mode', '-m', help='analyze, train, eval or serve', required=True)
-    parser.add_argument('--gpu', '-g', help='The list of gpu IDs (If mode is not \'analyze\', this is required.)')
-    parser.add_argument('--use_checkpoint', help='Use checkpoint (Ignore if do not use checkpoint)', action='store_true')
-    parser.add_argument('--do_test', help='Do test while training (Ignore if do not test while training)', action='store_true')
-    parser.add_argument('--open_server', help='Open web server while serving (Ignore if do not open web server while serving', action='store_true')
+    parser.add_argument('--mode', '-m', help='analyze, generate, train, eval or serve', required=True)
+    parser.add_argument('--label', '-l', help='one_label or multi_labels (If mode is analyze or generate, this is required.)')
+    parser.add_argument('--range', '-r', help='top_50_article or all (If mode is generate, this is required.)')
+    parser.add_argument('--gpu', '-g', help='The list of gpu IDs (If mode is not analyze or generate, this is required.)')
+    parser.add_argument('--use_checkpoint', '-uc', help='Use checkpoint (Ignore if do not use checkpoint)', action='store_true')
+    parser.add_argument('--do_test', '-dt', help='Do test while training (Ignore if do not test while training)', action='store_true')
+    parser.add_argument('--open_server', '-os', help='Open web server while serving (Ignore if do not open web server while serving', action='store_true')
 
     args = parser.parse_args()
 
@@ -49,7 +52,9 @@ def main(*args, **kwargs):
     logger.info(information)
 
     if args.mode == 'analyze':
-        analyze(config)
+        analyze(config, args.label)
+    elif args.mode == 'generate':
+        generate(config, args.label, args.range)
     else:
         gpu_list = []
         if args.gpu is not None:
