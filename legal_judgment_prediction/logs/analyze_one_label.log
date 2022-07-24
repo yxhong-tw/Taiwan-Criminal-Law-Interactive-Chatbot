@@ -1,5 +1,0 @@
-2022-07-10 15:05:55,413 - root - INFO - .\main.py -c .\one_label_precedent_analysis_config.ini -m analyze
-2022-07-10 15:05:55,414 - legal_judgment_prediction.tools.precedent_analysis.files_analysis - INFO - Start to analyze files.
-2022-07-10 15:06:01,116 - legal_judgment_prediction.tools.precedent_analysis.files_analysis - INFO - Complete files analysis.
-2022-07-10 15:06:01,131 - legal_judgment_prediction.tools.precedent_analysis.general_analysis - INFO - Start to analyze dataset.
-2022-07-10 15:06:01,141 - legal_judgment_prediction.tools.precedent_analysis.general_analysis - INFO - Complete general analysis.

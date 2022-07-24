@@ -9,7 +9,7 @@ from legal_judgment_prediction.tools.precedent_analysis.utils import get_file_li
 logger = logging.getLogger(__name__)
 
 
-def general_analysis(config, whole_dataset_length_of_fact_in_each_data, whole_dataset_times_appeared_of_relevant_articles, whole_dataset_times_appeared_of_accusations):
+def general_analysis(config, whole_dataset_length_of_fact_in_each_data, whole_dataset_times_appeared_of_relevant_article_sources, whole_dataset_times_appeared_of_relevant_articles, whole_dataset_times_appeared_of_accusations):
     logger.info('Start to analyze dataset.')
 
     name = config.get('data', 'name')
@@ -30,6 +30,20 @@ def general_analysis(config, whole_dataset_length_of_fact_in_each_data, whole_da
 
     # The average length of facts in whole dataset
     facts_average_length_string = 'The average length of facts: ' + str(int(sum(whole_dataset_length_of_fact_in_each_data) / len(whole_dataset_length_of_fact_in_each_data))) + '\n'
+
+    # The times appeared of relevant article_sources in whole dataset
+    # -----
+    relevant_article_sources_times_appeared_strings = []
+    relevant_article_sources_times_appeared_strings.append('The times appeared of relevant article_sources: ' + '\n')
+
+    for item in whole_dataset_times_appeared_of_relevant_article_sources:
+        # If the value of this item is 1, all values after this item are all 1
+        if item[1] == 1:
+            relevant_article_sources_times_appeared_strings.append('\t' + '- ' + 'All times appeared of other relevant_article_sources: ' + '1' + '\n')
+            break
+
+        relevant_article_sources_times_appeared_strings.append('\t' + '- ' + str(item[0]) + ': ' + str(item[1]) + '\n')
+    # -----
 
     # The times appeared of relevant articles in whole dataset
     # -----
@@ -76,6 +90,9 @@ def general_analysis(config, whole_dataset_length_of_fact_in_each_data, whole_da
             result_file.write(string)
 
         result_file.write(facts_average_length_string)
+
+        for string in relevant_article_sources_times_appeared_strings:
+            result_file.write(string)
 
         for string in relevant_articles_times_appeared_strings:
             result_file.write(string)

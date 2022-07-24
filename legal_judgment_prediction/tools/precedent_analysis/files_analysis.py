@@ -7,7 +7,7 @@ import datetime
 logger = logging.getLogger(__name__)
 
 
-def files_analysis(config):
+def files_analysis(config, parameters):
     logger.info('Start to analyze files.')
 
     name = config.get('data', 'name')
@@ -15,6 +15,7 @@ def files_analysis(config):
     files_analysis_file_path = config.get('result', 'files_analysis_file_path')
 
     whole_dataset_length_of_fact_in_each_data = []
+    whole_dataset_times_appeared_of_relevant_article_sources = {}
     whole_dataset_times_appeared_of_relevant_articles = {}
     whole_dataset_times_appeared_of_accusations = {}
 
@@ -26,7 +27,8 @@ def files_analysis(config):
 
         length_of_fact_in_each_data = []
         times_cited_of_files = {}
-        times_appeared_of_relevant_articles = {}    # only catch list[0]
+        times_appeared_of_relevant_article_sources = {}    # only catch list[0]
+        times_appeared_of_relevant_articles = {}    # cat all parts of list
         number_of_relevant_articles_in_each_data = []
         times_appeared_of_accusations = {}
         times_appeared_of_criminals = {}
@@ -56,18 +58,28 @@ def files_analysis(config):
                     times_cited_of_files[data['file']] = 1
                 # -----
 
-                # Calculate the times appeared of relevant_articles
+                # Calculate the times appeared of relevant_article_sources and relevant_articles
                 # -----
                 for relevant_article in data['meta']['relevant_articles']:
-                    if relevant_article[0] in times_appeared_of_relevant_articles:
-                        times_appeared_of_relevant_articles[relevant_article[0]] += 1
+                    if relevant_article[0] in times_appeared_of_relevant_article_sources:
+                        times_appeared_of_relevant_article_sources[relevant_article[0]] += 1
                     else:
-                        times_appeared_of_relevant_articles[relevant_article[0]] = 1
+                        times_appeared_of_relevant_article_sources[relevant_article[0]] = 1
 
-                    if relevant_article[0] in whole_dataset_times_appeared_of_relevant_articles:
-                        whole_dataset_times_appeared_of_relevant_articles[relevant_article[0]] += 1
+                    if relevant_article[0] in whole_dataset_times_appeared_of_relevant_article_sources:
+                        whole_dataset_times_appeared_of_relevant_article_sources[relevant_article[0]] += 1
                     else:
-                        whole_dataset_times_appeared_of_relevant_articles[relevant_article[0]] = 1
+                        whole_dataset_times_appeared_of_relevant_article_sources[relevant_article[0]] = 1
+
+                    if (relevant_article[0] + relevant_article[1]) in times_appeared_of_relevant_articles:
+                        times_appeared_of_relevant_articles[(relevant_article[0] + relevant_article[1])] += 1
+                    else:
+                        times_appeared_of_relevant_articles[(relevant_article[0] + relevant_article[1])] = 1
+
+                    if (relevant_article[0] + relevant_article[1]) in whole_dataset_times_appeared_of_relevant_articles:
+                        whole_dataset_times_appeared_of_relevant_articles[(relevant_article[0] + relevant_article[1])] += 1
+                    else:
+                        whole_dataset_times_appeared_of_relevant_articles[(relevant_article[0] + relevant_article[1])] = 1
                 # -----
 
                 # Save the relevant articles number of all data
@@ -116,6 +128,7 @@ def files_analysis(config):
 
         # Sort the items by value
         times_cited_of_files = sorted(times_cited_of_files.items(), key=lambda item:item[1], reverse=True)
+        times_appeared_of_relevant_article_sources = sorted(times_appeared_of_relevant_article_sources.items(), key=lambda item:item[1], reverse=True)
         times_appeared_of_relevant_articles = sorted(times_appeared_of_relevant_articles.items(), key=lambda item:item[1], reverse=True)
         times_appeared_of_accusations = sorted(times_appeared_of_accusations.items(), key=lambda item:item[1], reverse=True)
         times_appeared_of_criminals = sorted(times_appeared_of_criminals.items(), key=lambda item:item[1], reverse=True)
@@ -137,6 +150,19 @@ def files_analysis(config):
         #         break
 
         #     file_concepts_strings.append('\t\t\t' + '- ' + str(item[0]) + ': ' + str(item[1]) + '\n')
+        # -----
+
+        # The times appeared of relevant article_sources in this file
+        # -----
+        file_concepts_strings.append('\t\t' + '- ' + 'The times appeared of relevant article_sources: ' + '\n')
+
+        for item in times_appeared_of_relevant_article_sources:
+            # If the value of this item is 1, all values after this item are all 1
+            if item[1] == 1:
+                file_concepts_strings.append('\t\t\t' + '- ' + 'All times appeared of other relevant_article_sources: ' + '1' + '\n')
+                break
+
+            file_concepts_strings.append('\t\t\t' + '- ' + str(item[0]) + ': ' + str(item[1]) + '\n')
         # -----
 
         # The times appeared of relevant articles in this file
@@ -226,9 +252,15 @@ def files_analysis(config):
         result_file.close()
 
     # Sort the items by value
+    whole_dataset_times_appeared_of_relevant_article_sources = sorted(whole_dataset_times_appeared_of_relevant_article_sources.items(), key=lambda item:item[1], reverse=True)
     whole_dataset_times_appeared_of_relevant_articles = sorted(whole_dataset_times_appeared_of_relevant_articles.items(), key=lambda item:item[1], reverse=True)
     whole_dataset_times_appeared_of_accusations = sorted(whole_dataset_times_appeared_of_accusations.items(), key=lambda item:item[1], reverse=True)
 
     logger.info('Complete files analysis.')
 
-    return whole_dataset_length_of_fact_in_each_data, whole_dataset_times_appeared_of_relevant_articles, whole_dataset_times_appeared_of_accusations
+    parameters['whole_dataset_length_of_fact_in_each_data'] = whole_dataset_length_of_fact_in_each_data
+    parameters['whole_dataset_times_appeared_of_relevant_article_sources'] = whole_dataset_times_appeared_of_relevant_article_sources
+    parameters['whole_dataset_times_appeared_of_relevant_articles'] = whole_dataset_times_appeared_of_relevant_articles
+    parameters['whole_dataset_times_appeared_of_accusations'] = whole_dataset_times_appeared_of_accusations
+
+    return whole_dataset_length_of_fact_in_each_data, whole_dataset_times_appeared_of_relevant_article_sources, whole_dataset_times_appeared_of_relevant_articles, whole_dataset_times_appeared_of_accusations, parameters
