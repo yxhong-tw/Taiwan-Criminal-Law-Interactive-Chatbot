@@ -1,0 +1,22 @@
+2022-07-24 20:53:47,933 - root - INFO - .\generate.py -c .\tvt_data_generation_config.ini -dt one_label -m top_50_article
+2022-07-24 20:53:47,961 - legal_judgment_prediction.tools.generate.utils - INFO - Start to choose the data which article is the top 50.
+2022-07-24 20:54:04,796 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write train.json.
+2022-07-24 20:54:09,599 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write valid.json.
+2022-07-24 20:54:10,274 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write test.json.
+2022-07-24 20:54:38,019 - root - INFO - .\generate.py -c .\tvt_data_generation_config.ini -dt one_label -m all
+2022-07-24 20:54:38,036 - legal_judgment_prediction.tools.generate.utils - INFO - Start to get all data.
+2022-07-24 20:54:44,353 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write train.json.
+2022-07-24 20:54:48,965 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write valid.json.
+2022-07-24 20:54:49,465 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write test.json.
+2022-07-24 20:55:00,221 - root - INFO - .\generate.py -c .\tvt_data_generation_config.ini -dt multi_labels -m top_50_article
+2022-07-24 20:55:00,229 - legal_judgment_prediction.tools.generate.utils - INFO - Start to choose the data which article is the top 50.
+2022-07-24 20:55:00,229 - legal_judgment_prediction.tools.generate.utils - INFO - Because 'data_type' == 'multi_labels', changing parameter['mode'] to 'all'.
+2022-07-24 20:55:00,229 - legal_judgment_prediction.tools.generate.utils - INFO - Start to get all data.
+2022-07-24 20:55:01,656 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write train.json.
+2022-07-24 20:55:02,602 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write valid.json.
+2022-07-24 20:55:02,721 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write test.json.
+2022-07-24 20:55:08,910 - root - INFO - .\generate.py -c .\tvt_data_generation_config.ini -dt multi_labels -m all
+2022-07-24 20:55:08,913 - legal_judgment_prediction.tools.generate.utils - INFO - Start to get all data.
+2022-07-24 20:55:10,337 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write train.json.
+2022-07-24 20:55:11,308 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write valid.json.
+2022-07-24 20:55:11,499 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write test.json.
