@@ -28,8 +28,6 @@
 2022-07-04 11:37:33,789 - legal_judgment_prediction.tools.utils - INFO - 0      train  38001/40707 419:41/29:53  0.004   
 2022-07-04 11:59:34,607 - legal_judgment_prediction.tools.utils - INFO - 0      train  40001/40707 441:42/ 7:47  0.004   
 2022-07-04 12:07:20,129 - legal_judgment_prediction.tools.utils - INFO - 0      train  40707/40707 441:42/ 0:00  0.004   
-2022-07-04 17:19:42,785 - root - INFO - main.py
-2022-07-04 17:20:16,080 - root - INFO - main.py
 2022-07-04 17:21:08,841 - root - INFO - main.py -c bart_config.ini -g GPU-7444f9b3-c077-071d-8496-422656b95fe8 -m train --use_checkpoint
 2022-07-04 17:21:08,843 - root - INFO - CUDA available: True
 2022-07-04 17:21:08,843 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
@@ -159,3 +157,199 @@
 2022-07-06 04:57:33,297 - legal_judgment_prediction.tools.utils - INFO - 4      valid  2001/5055  13:08/20:02    0.000   {"average_loss": "0.00022453434628306508"}
 2022-07-06 05:10:40,278 - legal_judgment_prediction.tools.utils - INFO - 4      valid  4001/5055  26:15/ 6:54    0.000   {"average_loss": "0.00020942280093862707"}
 2022-07-06 05:17:34,371 - legal_judgment_prediction.tools.utils - INFO - 4      valid  5055/5055  33:09/ 0:00    0.000   {"average_loss": "0.00021264835022566223"}
+2022-07-19 00:30:13,806 - root - INFO - .\main.py -c .\bart_config.ini -m serve -g GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --use_checkpoint
+2022-07-19 00:30:13,917 - root - INFO - CUDA available: True
+2022-07-19 00:30:13,917 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-19 00:30:25,559 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-19 00:30:49,753 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-07-19 00:31:26,447 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 小翔喝酒後開車。
+2022-07-19 00:31:37,747 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: 刑 法 第 185 條 之 3 之 4 ，
+2022-07-19 00:32:06,132 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 大明在學校毆打同學。
+2022-07-19 00:32:06,434 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: 刑 法 第 277 條 ， 之 1 之
+2022-07-19 00:32:30,578 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 刑警搶績效，偽造毒品驗尿書騙檢察官。
+2022-07-19 00:32:31,146 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: 刑 法 第 216 條 之 1 在 ，
+2022-07-19 00:34:39,261 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 阿華未經他人同意，在臉書社團上散播他人私密照片。
+2022-07-19 00:34:39,797 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: 刑 法 第 315 條 之 1 之 4 之 2
+2022-07-19 00:34:55,321 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 前總統三普煽動支持者衝撞國會大廈。
+2022-07-19 00:34:55,862 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: 刑 法 第 305 條 之 1 之 4 之
+2022-07-19 00:35:09,440 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: shutdown
+2022-07-20 03:29:03,171 - root - INFO - main.py -c bart_config.ini -m train -g GPU-7444f9b3-c077-071d-8496-422656b95fe8
+2022-07-20 03:29:03,171 - root - INFO - CUDA available: True
+2022-07-20 03:29:03,171 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-20 03:29:06,383 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-20 03:29:10,869 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-07-20 03:29:10,869 - legal_judgment_prediction.tools.train - WARNING - Output path exists. Check whether need to change the name of model.
+2022-07-20 03:29:10,870 - legal_judgment_prediction.tools.train - INFO - Start to Train model.
+2022-07-20 03:29:10,870 - legal_judgment_prediction.tools.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-07-20 03:29:11,889 - legal_judgment_prediction.tools.utils - INFO - 0      train  1/30530     0:01/518:15   12.761  {"average_loss": "12.761262893676758"}
+2022-07-20 03:57:24,332 - legal_judgment_prediction.tools.utils - INFO - 0      train  2001/30530 28:13/402:24   0.057   {"average_loss": "0.05702009365831591"}
+2022-07-20 04:24:49,650 - legal_judgment_prediction.tools.utils - INFO - 0      train  4001/30530 55:38/368:58   0.029   {"average_loss": "0.029146100389505002"}
+2022-07-20 04:51:56,558 - legal_judgment_prediction.tools.utils - INFO - 0      train  6001/30530 82:45/338:17   0.020   {"average_loss": "0.019681105272865505"}
+2022-07-20 05:18:53,988 - legal_judgment_prediction.tools.utils - INFO - 0      train  8001/30530 109:43/308:56  0.015   {"average_loss": "0.014914144792836162"}
+2022-07-20 05:45:43,409 - legal_judgment_prediction.tools.utils - INFO - 0      train  10001/30530 136:32/280:16 0.012   {"average_loss": "0.012027692963110735"}
+2022-07-20 06:11:57,442 - legal_judgment_prediction.tools.utils - INFO - 0      train  12001/30530 162:46/251:19 0.010   {"average_loss": "0.010097538314606361"}
+2022-07-20 06:37:41,877 - legal_judgment_prediction.tools.utils - INFO - 0      train  14001/30530 188:31/222:33 0.009   {"average_loss": "0.008710772289929062"}
+2022-07-20 07:03:08,459 - legal_judgment_prediction.tools.utils - INFO - 0      train  16001/30530 213:57/194:16 0.008   {"average_loss": "0.0076687983138406775"}
+2022-07-20 07:28:40,230 - legal_judgment_prediction.tools.utils - INFO - 0      train  18001/30530 239:29/166:41 0.007   {"average_loss": "0.006856324742123862"}
+2022-07-20 07:53:54,054 - legal_judgment_prediction.tools.utils - INFO - 0      train  20001/30530 264:43/139:21 0.006   {"average_loss": "0.006205834000623089"}
+2022-07-20 08:19:17,637 - legal_judgment_prediction.tools.utils - INFO - 0      train  22001/30530 290:06/112:27 0.006   {"average_loss": "0.005670627182236015"}
+2022-07-20 08:44:33,359 - legal_judgment_prediction.tools.utils - INFO - 0      train  24001/30530 315:22/85:47  0.005   {"average_loss": "0.005224371137965526"}
+2022-07-20 09:09:47,276 - legal_judgment_prediction.tools.utils - INFO - 0      train  26001/30530 340:36/59:19  0.005   {"average_loss": "0.004845952312916277"}
+2022-07-20 09:34:54,761 - legal_judgment_prediction.tools.utils - INFO - 0      train  28001/30530 365:43/33:01  0.005   {"average_loss": "0.004520701097806248"}
+2022-07-20 09:59:56,226 - legal_judgment_prediction.tools.utils - INFO - 0      train  30001/30530 390:45/ 6:53  0.004   {"average_loss": "0.004237673633360926"}
+2022-07-20 10:06:36,391 - legal_judgment_prediction.tools.utils - INFO - 0      train  30530/30530 390:45/ 0:00  0.004   {"average_loss": "0.004237673633360926"}
+2022-07-20 10:06:39,477 - legal_judgment_prediction.tools.utils - INFO - 0      valid  1/3791      0:00/27:32    0.000   {"average_loss": "0.0004250862984918058"}
+2022-07-20 10:20:37,499 - legal_judgment_prediction.tools.utils - INFO - 0      valid  2001/3791  13:58/12:30    0.000   {"average_loss": "0.00021793705762160722"}
+2022-07-20 10:33:07,056 - legal_judgment_prediction.tools.utils - INFO - 0      valid  3791/3791  26:28/ 0:00    0.000   {"average_loss": "0.00021204608965056843"}
+2022-07-20 10:33:08,830 - legal_judgment_prediction.tools.utils - INFO - 1      train  1/30530     0:00/425:22   0.001   {"average_loss": "0.001164221903309226"}
+2022-07-20 10:59:36,807 - legal_judgment_prediction.tools.utils - INFO - 1      train  2001/30530 26:28/377:32   0.000   {"average_loss": "0.0003235170029059403"}
+2022-07-20 11:26:09,854 - legal_judgment_prediction.tools.utils - INFO - 1      train  4001/30530 53:01/351:37   0.000   {"average_loss": "0.000295662038226954"}
+2022-07-20 11:52:46,929 - legal_judgment_prediction.tools.utils - INFO - 1      train  6001/30530 79:38/325:33   0.000   {"average_loss": "0.0002887699273647851"}
+2022-07-20 12:19:43,875 - legal_judgment_prediction.tools.utils - INFO - 1      train  8001/30530 106:35/300:09  0.000   {"average_loss": "0.0002888337801997012"}
+2022-07-20 12:47:05,595 - legal_judgment_prediction.tools.utils - INFO - 1      train  10001/30530 133:57/274:58 0.000   {"average_loss": "0.00027927036100528255"}
+2022-07-20 13:13:37,959 - legal_judgment_prediction.tools.utils - INFO - 1      train  12001/30530 160:29/247:48 0.000   {"average_loss": "0.00027309294074161775"}
+2022-07-20 13:40:13,611 - legal_judgment_prediction.tools.utils - INFO - 1      train  14001/30530 187:05/220:52 0.000   {"average_loss": "0.0002712284404915889"}
+2022-07-20 14:06:53,432 - legal_judgment_prediction.tools.utils - INFO - 1      train  16001/30530 213:45/194:05 0.000   {"average_loss": "0.00033462779230623813"}
+2022-07-20 14:33:18,806 - legal_judgment_prediction.tools.utils - INFO - 1      train  18001/30530 240:10/167:10 0.000   {"average_loss": "0.000326782992843793"}
+2022-07-20 14:59:57,255 - legal_judgment_prediction.tools.utils - INFO - 1      train  20001/30530 266:49/140:27 0.000   {"average_loss": "0.0003171821880473527"}
+2022-07-20 15:26:59,785 - legal_judgment_prediction.tools.utils - INFO - 1      train  22001/30530 293:51/113:55 0.000   {"average_loss": "0.00031046621527578463"}
+2022-07-20 15:54:16,847 - legal_judgment_prediction.tools.utils - INFO - 1      train  24001/30530 321:08/87:21  0.000   {"average_loss": "0.00030362970817477514"}
+2022-07-20 16:21:41,320 - legal_judgment_prediction.tools.utils - INFO - 1      train  26001/30530 348:33/60:42  0.000   {"average_loss": "0.00030007820936232035"}
+2022-07-20 16:49:09,664 - legal_judgment_prediction.tools.utils - INFO - 1      train  28001/30530 376:01/33:57  0.000   {"average_loss": "0.000296493484415296"}
+2022-07-20 17:16:44,216 - legal_judgment_prediction.tools.utils - INFO - 1      train  30001/30530 403:36/ 7:06  0.000   {"average_loss": "0.0002928236827970656"}
+2022-07-20 17:24:05,598 - legal_judgment_prediction.tools.utils - INFO - 1      train  30530/30530 403:36/ 0:00  0.000   {"average_loss": "0.0002928236827970656"}
+2022-07-20 17:24:09,018 - legal_judgment_prediction.tools.utils - INFO - 1      valid  1/3791      0:00/28:18    0.001   {"average_loss": "0.0008095668745227158"}
+2022-07-20 17:39:00,193 - legal_judgment_prediction.tools.utils - INFO - 1      valid  2001/3791  14:51/13:17    0.000   {"average_loss": "0.00018192316845976582"}
+2022-07-20 17:52:01,489 - legal_judgment_prediction.tools.utils - INFO - 1      valid  3791/3791  27:52/ 0:00    0.000   {"average_loss": "0.00017613531179962397"}
+2022-07-20 21:33:49,908 - root - INFO - main.py -c bart_config.ini -m train -g GPU-7444f9b3-c077-071d-8496-422656b95fe8 --use_checkpoint
+2022-07-20 21:33:49,908 - root - INFO - CUDA available: True
+2022-07-20 21:33:49,908 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-20 21:33:54,906 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-20 21:34:00,727 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-07-20 21:34:00,730 - legal_judgment_prediction.tools.train - WARNING - Output path exists. Check whether need to change the name of model.
+2022-07-20 21:34:00,732 - legal_judgment_prediction.tools.train - INFO - Start to Train model.
+2022-07-20 21:34:00,732 - legal_judgment_prediction.tools.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-07-20 21:34:01,647 - legal_judgment_prediction.tools.utils - INFO - 2      train  1/30530     0:00/465:20   0.000   {"average_loss": "2.6231891752104275e-06"}
+2022-07-20 21:59:57,008 - legal_judgment_prediction.tools.utils - INFO - 2      train  2001/30530 25:56/369:48   0.000   {"average_loss": "0.00021919448165455644"}
+2022-07-20 22:26:13,918 - legal_judgment_prediction.tools.utils - INFO - 2      train  4001/30530 52:13/346:14   0.000   {"average_loss": "0.00021456073599424475"}
+2022-07-20 22:52:22,809 - legal_judgment_prediction.tools.utils - INFO - 2      train  6001/30530 78:22/320:19   0.000   {"average_loss": "0.00021259593948239405"}
+2022-07-20 23:18:21,011 - legal_judgment_prediction.tools.utils - INFO - 2      train  8001/30530 104:20/293:47  0.000   {"average_loss": "0.00021256889762427092"}
+2022-07-20 23:43:22,510 - legal_judgment_prediction.tools.utils - INFO - 2      train  10001/30530 129:21/265:32 0.000   {"average_loss": "0.00021072533201529732"}
+2022-07-21 00:09:24,482 - legal_judgment_prediction.tools.utils - INFO - 2      train  12001/30530 155:23/239:55 0.000   {"average_loss": "0.0002123014838034101"}
+2022-07-21 00:34:28,762 - legal_judgment_prediction.tools.utils - INFO - 2      train  14001/30530 180:28/213:03 0.000   {"average_loss": "0.00020970520844500456"}
+2022-07-21 00:59:32,705 - legal_judgment_prediction.tools.utils - INFO - 2      train  16001/30530 205:31/186:37 0.000   {"average_loss": "0.000211660233558722"}
+2022-07-21 01:24:43,314 - legal_judgment_prediction.tools.utils - INFO - 2      train  18001/30530 230:42/160:34 0.000   {"average_loss": "0.00021146233543458125"}
+2022-07-21 01:49:43,432 - legal_judgment_prediction.tools.utils - INFO - 2      train  20001/30530 255:42/134:36 0.000   {"average_loss": "0.00021242175615060054"}
+2022-07-21 02:14:53,358 - legal_judgment_prediction.tools.utils - INFO - 2      train  22001/30530 280:52/108:53 0.000   {"average_loss": "0.00021143744544241443"}
+2022-07-21 02:40:03,430 - legal_judgment_prediction.tools.utils - INFO - 2      train  24001/30530 306:02/83:15  0.000   {"average_loss": "0.00021130449079949208"}
+2022-07-21 03:05:30,878 - legal_judgment_prediction.tools.utils - INFO - 2      train  26001/30530 331:30/57:44  0.000   {"average_loss": "0.00021065391538968738"}
+2022-07-21 03:30:49,296 - legal_judgment_prediction.tools.utils - INFO - 2      train  28001/30530 356:48/32:13  0.000   {"average_loss": "0.00021139977700703207"}
+2022-07-21 03:56:06,602 - legal_judgment_prediction.tools.utils - INFO - 2      train  30001/30530 382:05/ 6:44  0.000   {"average_loss": "0.00020979700589879337"}
+2022-07-21 04:02:42,675 - legal_judgment_prediction.tools.utils - INFO - 2      train  30530/30530 382:05/ 0:00  0.000   {"average_loss": "0.00020979700589879337"}
+2022-07-21 04:02:45,574 - legal_judgment_prediction.tools.utils - INFO - 2      valid  1/3791      0:00/27:51    0.000   {"average_loss": "0.00033104431349784136"}
+2022-07-21 04:16:31,018 - legal_judgment_prediction.tools.utils - INFO - 2      valid  2001/3791  13:45/12:18    0.000   {"average_loss": "0.00018724737360216928"}
+2022-07-21 04:28:47,504 - legal_judgment_prediction.tools.utils - INFO - 2      valid  3791/3791  26:02/ 0:00    0.000   {"average_loss": "0.00017994601438096972"}
+2022-07-21 04:28:49,254 - legal_judgment_prediction.tools.utils - INFO - 3      train  1/30530     0:00/408:48   0.000   {"average_loss": "0.00033343848190270364"}
+2022-07-21 04:55:38,487 - legal_judgment_prediction.tools.utils - INFO - 3      train  2001/30530 26:50/382:34   0.000   {"average_loss": "0.00017757563845887674"}
+2022-07-21 05:22:24,410 - legal_judgment_prediction.tools.utils - INFO - 3      train  4001/30530 53:35/355:23   0.000   {"average_loss": "0.00018106817342865712"}
+2022-07-21 05:49:11,674 - legal_judgment_prediction.tools.utils - INFO - 3      train  6001/30530 80:23/328:34   0.000   {"average_loss": "0.0001791066964327712"}
+2022-07-21 06:16:04,852 - legal_judgment_prediction.tools.utils - INFO - 3      train  8001/30530 107:16/302:03  0.000   {"average_loss": "0.00018065479253963855"}
+2022-07-21 06:42:43,984 - legal_judgment_prediction.tools.utils - INFO - 3      train  10001/30530 133:55/274:54 0.000   {"average_loss": "0.00018191098481894013"}
+2022-07-21 07:09:24,793 - legal_judgment_prediction.tools.utils - INFO - 3      train  12001/30530 160:36/247:58 0.000   {"average_loss": "0.00018005471031919807"}
+2022-07-21 07:36:13,461 - legal_judgment_prediction.tools.utils - INFO - 3      train  14001/30530 187:25/221:15 0.000   {"average_loss": "0.0001786969996501825"}
+2022-07-21 08:02:59,282 - legal_judgment_prediction.tools.utils - INFO - 3      train  16001/30530 214:10/194:28 0.000   {"average_loss": "0.0001813563207821688"}
+2022-07-21 08:29:52,560 - legal_judgment_prediction.tools.utils - INFO - 3      train  18001/30530 241:04/167:47 0.000   {"average_loss": "0.0001833550463846812"}
+2022-07-21 08:56:41,516 - legal_judgment_prediction.tools.utils - INFO - 3      train  20001/30530 267:53/141:01 0.000   {"average_loss": "0.00018251416055443893"}
+2022-07-21 09:23:28,512 - legal_judgment_prediction.tools.utils - INFO - 3      train  22001/30530 294:40/114:13 0.000   {"average_loss": "0.00018194710467774402"}
+2022-07-21 09:50:19,143 - legal_judgment_prediction.tools.utils - INFO - 3      train  24001/30530 321:30/87:27  0.000   {"average_loss": "0.0001823374592735887"}
+2022-07-21 10:17:11,609 - legal_judgment_prediction.tools.utils - INFO - 3      train  26001/30530 348:23/60:41  0.000   {"average_loss": "0.00018154950309472574"}
+2022-07-21 10:43:46,645 - legal_judgment_prediction.tools.utils - INFO - 3      train  28001/30530 374:58/33:51  0.000   {"average_loss": "0.00018203226972529692"}
+2022-07-21 11:10:23,690 - legal_judgment_prediction.tools.utils - INFO - 3      train  30001/30530 401:35/ 7:04  0.000   {"average_loss": "0.00018199059393099614"}
+2022-07-21 11:17:31,113 - legal_judgment_prediction.tools.utils - INFO - 3      train  30530/30530 401:35/ 0:00  0.000   {"average_loss": "0.00018199059393099614"}
+2022-07-21 11:17:34,224 - legal_judgment_prediction.tools.utils - INFO - 3      valid  1/3791      0:00/28:15    0.002   {"average_loss": "0.0018608554964885116"}
+2022-07-21 11:31:13,701 - legal_judgment_prediction.tools.utils - INFO - 3      valid  2001/3791  13:39/12:13    0.000   {"average_loss": "0.00018076720464428798"}
+2022-07-21 11:43:26,911 - legal_judgment_prediction.tools.utils - INFO - 3      valid  3791/3791  25:53/ 0:00    0.000   {"average_loss": "0.00017798847976397615"}
+2022-07-21 11:43:28,678 - legal_judgment_prediction.tools.utils - INFO - 4      train  1/30530     0:00/422:32   0.000   {"average_loss": "1.2028021956211887e-05"}
+2022-07-21 12:10:16,503 - legal_judgment_prediction.tools.utils - INFO - 4      train  2001/30530 26:48/382:15   0.000   {"average_loss": "0.00015143724572627462"}
+2022-07-21 12:37:05,700 - legal_judgment_prediction.tools.utils - INFO - 4      train  4001/30530 53:37/355:36   0.000   {"average_loss": "0.00015559183092946394"}
+2022-07-21 13:03:50,723 - legal_judgment_prediction.tools.utils - INFO - 4      train  6001/30530 80:22/328:33   0.000   {"average_loss": "0.00015437862186832104"}
+2022-07-21 13:30:53,812 - legal_judgment_prediction.tools.utils - INFO - 4      train  8001/30530 107:25/302:30  0.000   {"average_loss": "0.00015663415244971573"}
+2022-07-21 13:58:23,564 - legal_judgment_prediction.tools.utils - INFO - 4      train  10001/30530 134:55/276:58 0.000   {"average_loss": "0.00015825059832552432"}
+2022-07-21 14:25:36,482 - legal_judgment_prediction.tools.utils - INFO - 4      train  12001/30530 162:08/250:20 0.000   {"average_loss": "0.00015734489743218715"}
+2022-07-21 14:52:56,727 - legal_judgment_prediction.tools.utils - INFO - 4      train  14001/30530 189:28/223:41 0.000   {"average_loss": "0.00015940235549215555"}
+2022-07-21 15:20:15,573 - legal_judgment_prediction.tools.utils - INFO - 4      train  16001/30530 216:47/196:51 0.000   {"average_loss": "0.0001608696010493022"}
+2022-07-21 15:47:32,259 - legal_judgment_prediction.tools.utils - INFO - 4      train  18001/30530 244:04/169:52 0.000   {"average_loss": "0.00016191014563059504"}
+2022-07-21 16:14:57,060 - legal_judgment_prediction.tools.utils - INFO - 4      train  20001/30530 271:29/142:55 0.000   {"average_loss": "0.00016163221977367605"}
+2022-07-21 16:42:38,362 - legal_judgment_prediction.tools.utils - INFO - 4      train  22001/30530 299:10/115:58 0.000   {"average_loss": "0.0001633131191079001"}
+2022-07-21 17:10:18,436 - legal_judgment_prediction.tools.utils - INFO - 4      train  24001/30530 326:50/88:54  0.000   {"average_loss": "0.00016342807489133675"}
+2022-07-21 17:37:59,001 - legal_judgment_prediction.tools.utils - INFO - 4      train  26001/30530 354:31/61:45  0.000   {"average_loss": "0.00016403503085591744"}
+2022-07-21 18:05:48,225 - legal_judgment_prediction.tools.utils - INFO - 4      train  28001/30530 382:20/34:31  0.000   {"average_loss": "0.0001634208310422932"}
+2022-07-21 18:33:42,929 - legal_judgment_prediction.tools.utils - INFO - 4      train  30001/30530 410:15/ 7:14  0.000   {"average_loss": "0.0001649953370199381"}
+2022-07-21 18:41:07,423 - legal_judgment_prediction.tools.utils - INFO - 4      train  30530/30530 410:15/ 0:00  0.000   {"average_loss": "0.0001649953370199381"}
+2022-07-21 18:41:10,868 - legal_judgment_prediction.tools.utils - INFO - 4      valid  1/3791      0:00/31:44    0.000   {"average_loss": "0.00035653632949106395"}
+2022-07-21 18:55:12,954 - legal_judgment_prediction.tools.utils - INFO - 4      valid  2001/3791  14:02/12:33    0.000   {"average_loss": "0.0001907843672020367"}
+2022-07-21 19:07:42,252 - legal_judgment_prediction.tools.utils - INFO - 4      valid  3791/3791  26:31/ 0:00    0.000   {"average_loss": "0.000186813298600849"}
+2022-07-22 00:51:01,380 - root - INFO - .\main.py -c .\bart_config.ini -m serve -g GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --use_checkpoint
+2022-07-22 00:51:01,393 - root - INFO - CUDA available: True
+2022-07-22 00:51:01,393 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-22 00:51:13,954 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-22 00:51:52,862 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-07-22 00:51:55,619 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 小翔喝酒後開車。
+2022-07-22 00:52:06,952 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 305 條 [SEP]
+2022-07-22 00:52:09,288 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 大明在學校毆打同學。
+2022-07-22 00:52:09,480 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 277 條 [SEP]
+2022-07-22 00:52:15,144 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 刑警搶績效，偽造毒品驗尿書騙檢察官。
+2022-07-22 00:52:15,372 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 217 條 [SEP]
+2022-07-22 00:52:21,295 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 阿華未經他人同意，在臉書社團上散播他人私密照片。
+2022-07-22 00:52:21,496 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 235 條 [SEP]
+2022-07-22 00:52:26,484 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 前總統三普煽動支持者衝撞國會大廈。
+2022-07-22 00:52:26,666 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 304 條 [SEP]
+2022-07-22 00:53:29,348 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 我喝酒後開車回家。
+2022-07-22 00:53:29,662 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 320 條 [SEP]
+2022-07-22 00:53:45,743 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 我喝酒後開車。
+2022-07-22 00:53:45,919 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 320 條 [SEP]
+2022-07-22 00:53:49,839 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 喝酒後開車。
+2022-07-22 00:53:50,033 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 320 條 [SEP]
+2022-07-22 00:54:37,047 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 未經他人同意，騎走他人的腳踏車。
+2022-07-22 00:54:37,376 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 320 條 [SEP]
+2022-07-22 00:55:05,827 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 為了取得學位，大量抄襲他人論文。
+2022-07-22 00:55:06,155 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 309 條 [SEP]
+2022-07-22 00:56:05,828 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 因心情不好，持刀在捷運站隨機砍人。
+2022-07-22 00:56:06,126 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 321 條 [SEP]
+2022-07-22 00:56:44,338 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 因心情不好，在捷運站隨機砍人。
+2022-07-22 00:56:44,665 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 302 條 [SEP]
+2022-07-22 00:57:26,629 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 酒後開車回家。
+2022-07-22 00:57:26,815 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 320 條 [SEP]
+2022-07-22 00:57:31,909 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 開
+2022-07-22 00:57:32,375 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 185 條 [SEP]
+2022-07-22 00:57:33,805 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 車
+2022-07-22 00:57:34,199 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 185 條 [SEP]
+2022-07-22 00:57:40,157 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 酒
+2022-07-22 00:57:40,493 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 185 條 [SEP]
+2022-07-22 00:57:44,890 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 酒車
+2022-07-22 00:57:45,129 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 320 條 [SEP]
+2022-07-22 00:58:20,909 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 因愛戀學姊，經常秘密尾隨學姊回家。
+2022-07-22 00:58:21,184 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 306 條 [SEP]
+2022-07-22 00:58:58,846 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 在留言區發表性騷擾言論。
+2022-07-22 00:58:59,089 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 性 騷 擾 防 治 法 第 25 條 [SEP]
+2022-07-22 00:59:34,096 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 在留言區發表猥褻言論。
+2022-07-22 00:59:34,456 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 309 條 [SEP]
+2022-07-22 01:01:24,365 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: shutdown
+2022-07-22 01:05:23,126 - root - INFO - .\main.py -c .\bart_config.ini -m serve -g GPU-2cc3a58c-2763-0a39-ac1d-90556a7082f8 --use_checkpoint
+2022-07-22 01:05:23,126 - root - INFO - CUDA available: True
+2022-07-22 01:05:23,126 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize model.
+2022-07-22 01:05:30,150 - legal_judgment_prediction.tools.initialize - INFO - Begin to initialize dataset.
+2022-07-22 01:05:36,030 - legal_judgment_prediction.tools.initialize - INFO - Initialize done.
+2022-07-22 01:05:39,714 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 網路購物匯款後，賣家不出貨
+2022-07-22 01:05:40,529 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 339 條 [SEP]
+2022-07-22 01:06:15,882 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 網路購物匯款後，賣家不出貨。
+2022-07-22 01:06:16,092 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 339 條 [SEP]
+2022-07-22 01:06:34,509 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 在公共場所看A片。
+2022-07-22 01:06:34,889 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 309 條 [SEP]
+2022-07-22 01:07:07,625 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 在網路上留言意淫騷擾文字。
+2022-07-22 01:07:07,812 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 309 條 [SEP]
+2022-07-22 01:10:55,087 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 網路購物匯款後，賣家不出貨。
+2022-07-22 01:10:55,404 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 339 條 [SEP]
+2022-07-22 01:11:00,215 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: 在網路上留言意淫騷擾文字。
+2022-07-22 01:11:00,468 - legal_judgment_prediction.tools.serve.serve - INFO - The article of this fact: [SEP] [CLS] 刑 法 第 309 條 [SEP]
+2022-07-22 01:25:07,060 - legal_judgment_prediction.tools.serve.serve - INFO - The input fact: shutdown

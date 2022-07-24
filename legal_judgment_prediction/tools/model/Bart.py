@@ -30,7 +30,8 @@ class LJPBart(nn.Module):
             tensors = self.bart.module.generate(data)
 
             # TODO: Remove the space in texts            
-            texts = self.tokenizer.batch_decode(tensors, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+            # texts = self.tokenizer.batch_decode(tensors, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+            texts = self.tokenizer.batch_decode(tensors, skip_special_tokens=False, clean_up_tokenization_spaces=False)[0]
 
             return texts
         else:   # mode == 'train', 'eval' or 'test'
