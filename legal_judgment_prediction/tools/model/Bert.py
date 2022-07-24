@@ -15,7 +15,7 @@ class LJPBert(nn.Module):
         self.fc = BertPredictor(config, *args, **kwargs)
 
         self.criterion = {
-            'charge': MultiLabelSoftmaxLoss(config, 80),
+            'charge': MultiLabelSoftmaxLoss(config, 148),
             'article_source': MultiLabelSoftmaxLoss(config, 21),
             'article': MultiLabelSoftmaxLoss(config, 90),
         }

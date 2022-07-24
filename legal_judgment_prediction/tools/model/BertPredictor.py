@@ -6,7 +6,7 @@ class BertPredictor(nn.Module):
         super(BertPredictor, self).__init__()
 
         self.hidden_size = config.getint('model', 'hidden_size')
-        self.charge_fc = nn.Linear(self.hidden_size, 80 * 2)
+        self.charge_fc = nn.Linear(self.hidden_size, 148 * 2)
         self.article_source_fc = nn.Linear(self.hidden_size, 21 * 2)
         self.article_fc = nn.Linear(self.hidden_size, 90 * 2)
 
