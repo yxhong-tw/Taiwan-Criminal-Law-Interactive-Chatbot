@@ -20,3 +20,19 @@
 2022-07-25 00:16:31,240 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write train.json.
 2022-07-25 00:16:31,675 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write valid.json.
 2022-07-25 00:16:31,741 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write test.json.
+2022-07-25 01:20:23,309 - root - INFO - .\main.py -c .\tvt_data_generation_config.ini -m generate -l one_label -r top_50_article
+2022-07-25 01:20:23,325 - legal_judgment_prediction.tools.generate.utils - INFO - Start to choose the data which article is the top 50.
+2022-07-25 01:20:38,484 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write charge.txt.
+2022-07-25 01:20:38,485 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write article.txt.
+2022-07-25 01:20:38,485 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write article_source.txt.
+2022-07-25 01:20:38,588 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write train.json.
+2022-07-25 01:20:40,627 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write valid.json.
+2022-07-25 01:20:40,845 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write test.json.
+2022-07-25 01:23:35,372 - root - INFO - .\main.py -c .\tvt_data_generation_config.ini -m generate -l one_label -r all_article
+2022-07-25 01:23:35,390 - legal_judgment_prediction.tools.generate.utils - INFO - Start to get all data.
+2022-07-25 01:23:39,999 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write charge.txt.
+2022-07-25 01:23:39,999 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write article.txt.
+2022-07-25 01:23:40,000 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write article_source.txt.
+2022-07-25 01:23:40,106 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write train.json.
+2022-07-25 01:23:41,873 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write valid.json.
+2022-07-25 01:23:42,074 - legal_judgment_prediction.tools.generate.utils - INFO - Start to write test.json.

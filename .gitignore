@@ -14,9 +14,11 @@ legal_judgment_prediction/results/precedent_analysis/one_label/*.pkl
 legal_judgment_prediction/results/precedent_analysis/one_label/*.txt
 legal_judgment_prediction/results/precedent_analysis/multi_labels/*.pkl
 legal_judgment_prediction/results/precedent_analysis/multi_labels/*.txt
-legal_judgment_prediction/results/tvt_data/multi_labels/all/*json
-legal_judgment_prediction/results/tvt_data/one_label/all/*json
-legal_judgment_prediction/results/tvt_data/one_label/top_50_article/*json
+legal_judgment_prediction/results/tvt_data/multi_labels/all_article/*.json
+legal_judgment_prediction/results/tvt_data/one_label/all_article/*.json
+legal_judgment_prediction/results/tvt_data/one_label/all_article/*.txt
+legal_judgment_prediction/results/tvt_data/one_label/top_50_article/*.json
+legal_judgment_prediction/results/tvt_data/one_label/top_50_article/*.txt
 
 **/__pycache__/
 

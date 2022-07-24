@@ -20,7 +20,7 @@ def main(*args, **kwargs):
     parser.add_argument('--config', '-c', help='The path of config file', required=True)
     parser.add_argument('--mode', '-m', help='analyze, generate, train, eval or serve', required=True)
     parser.add_argument('--label', '-l', help='one_label or multi_labels (If mode is analyze or generate, this is required.)')
-    parser.add_argument('--range', '-r', help='top_50_article or all (If mode is generate, this is required.)')
+    parser.add_argument('--range', '-r', help='top_50_article or all_article (If mode is generate, this is required.)')
     parser.add_argument('--gpu', '-g', help='The list of gpu IDs (If mode is not analyze or generate, this is required.)')
     parser.add_argument('--use_checkpoint', '-uc', help='Use checkpoint (Ignore if do not use checkpoint)', action='store_true')
     parser.add_argument('--do_test', '-dt', help='Do test while training (Ignore if do not test while training)', action='store_true')
