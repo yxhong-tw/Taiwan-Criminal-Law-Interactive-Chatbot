@@ -8,17 +8,21 @@ legal_judgment_prediction/data/precedents/one_label/*.json
 legal_judgment_prediction/bart/pytorch_model.bin
 legal_judgment_prediction/bert/pytorch_model.bin
 
-legal_judgment_prediction/results/bart/*.pkl
-legal_judgment_prediction/results/bert/*.pkl
-legal_judgment_prediction/results/precedent_analysis/one_label/*.pkl
-legal_judgment_prediction/results/precedent_analysis/one_label/*.txt
+legal_judgment_prediction/results/bart/multi_labels/all/*.pkl
+legal_judgment_prediction/results/bart/one_label/50/*.pkl
+legal_judgment_prediction/results/bart/one_label/top_50_article/*.pkl
+legal_judgment_prediction/results/bert/one_label/top_50_article/*.pkl
+
 legal_judgment_prediction/results/precedent_analysis/multi_labels/*.pkl
 legal_judgment_prediction/results/precedent_analysis/multi_labels/*.txt
-legal_judgment_prediction/results/tvt_data/multi_labels/all_article/*.json
-legal_judgment_prediction/results/tvt_data/one_label/all_article/*.json
-legal_judgment_prediction/results/tvt_data/one_label/all_article/*.txt
-legal_judgment_prediction/results/tvt_data/one_label/top_50_article/*.json
-legal_judgment_prediction/results/tvt_data/one_label/top_50_article/*.txt
+legal_judgment_prediction/results/precedent_analysis/one_label/*.pkl
+legal_judgment_prediction/results/precedent_analysis/one_label/*.txt
+
+legal_judgment_prediction/results/tvt_dataset/multi_labels/all/*.json
+legal_judgment_prediction/results/tvt_dataset/one_label/all/*.json
+legal_judgment_prediction/results/tvt_dataset/one_label/all/*.txt
+legal_judgment_prediction/results/tvt_dataset/one_label/top_50_article/*.json
+legal_judgment_prediction/results/tvt_dataset/one_label/top_50_article/*.txt
 
 **/__pycache__/
 

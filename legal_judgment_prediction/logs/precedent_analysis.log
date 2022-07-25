@@ -1,10 +1,122 @@
-2022-07-25 00:01:30,062 - root - INFO - .\main.py -c .\precedent_analysis_config.ini -m analyze -l one_label -r top_50_article
-2022-07-25 00:01:30,063 - legal_judgment_prediction.tools.analyze.files_analysis - INFO - Start to analyze files.
-2022-07-25 00:01:35,603 - legal_judgment_prediction.tools.analyze.files_analysis - INFO - Complete files analysis.
-2022-07-25 00:01:35,615 - legal_judgment_prediction.tools.analyze.general_analysis - INFO - Start to analyze dataset.
-2022-07-25 00:01:35,621 - legal_judgment_prediction.tools.analyze.general_analysis - INFO - Complete general analysis.
-2022-07-25 00:02:01,894 - root - INFO - .\main.py -c .\precedent_analysis_config.ini -m analyze -l multi_labels
-2022-07-25 00:02:01,894 - legal_judgment_prediction.tools.analyze.files_analysis - INFO - Start to analyze files.
-2022-07-25 00:02:03,456 - legal_judgment_prediction.tools.analyze.files_analysis - INFO - Complete files analysis.
-2022-07-25 00:02:03,458 - legal_judgment_prediction.tools.analyze.general_analysis - INFO - Start to analyze dataset.
-2022-07-25 00:02:03,460 - legal_judgment_prediction.tools.analyze.general_analysis - INFO - Complete general analysis.
+2022-07-26 02:37:00,800 - root - INFO - .\main.py -c .\configs\analyze\multi_labels\config.ini -m analyze
+2022-07-26 02:37:00,801 - legal_judgment_prediction.tools.analyze.initialize - INFO - Start to initialize.
+2022-07-26 02:37:00,801 - legal_judgment_prediction.tools.analyze.initialize - INFO - Initialize successfully.
+2022-07-26 02:37:00,801 - legal_judgment_prediction.tools.analyze.analyze - INFO - Start to analyze precedent dataset.
+2022-07-26 02:37:00,801 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to analyze all precedent files.
+2022-07-26 02:37:00,902 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:00,903 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:01,030 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:01,030 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:01,110 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:01,111 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:01,243 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:01,244 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:01,287 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:01,287 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:01,424 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:01,425 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:01,588 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:01,588 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:01,960 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:01,960 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:02,113 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:02,113 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:02,404 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:02,405 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:02,533 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:02,534 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:02,572 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:02,572 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:02,910 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:02,911 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:03,135 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:03,136 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:03,285 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:03,286 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:03,342 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:03,342 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:03,377 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:03,377 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:03,483 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:03,483 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:03,512 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:03,513 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:03,535 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:03,535 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:03,624 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:03,625 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:03,841 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:03,841 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:03,842 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to write results.
+2022-07-26 02:37:03,857 - legal_judgment_prediction.tools.analyze.utils - INFO - Write results successfully.
+2022-07-26 02:37:03,858 - legal_judgment_prediction.tools.analyze.utils - INFO - Analyze all precedent files successfully.
+2022-07-26 02:37:03,861 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to analyze whole dataset.
+2022-07-26 02:37:03,862 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to traversal the architecture of this data.
+2022-07-26 02:37:03,862 - legal_judgment_prediction.tools.analyze.utils - INFO - Traversal the architecture of this data successfully.
+2022-07-26 02:37:03,862 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:37:03,864 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:37:03,865 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to write results.
+2022-07-26 02:37:03,866 - legal_judgment_prediction.tools.analyze.utils - INFO - Write results successfully.
+2022-07-26 02:37:03,866 - legal_judgment_prediction.tools.analyze.utils - INFO - Analyze whole dataset successfully.
+2022-07-26 02:37:03,869 - legal_judgment_prediction.tools.analyze.analyze - INFO - Analyze precedent dataset successfully.
+2022-07-26 02:39:45,075 - root - INFO - .\main.py -c .\configs\analyze\one_label\config.ini -m analyze
+2022-07-26 02:39:45,076 - legal_judgment_prediction.tools.analyze.initialize - INFO - Start to initialize.
+2022-07-26 02:39:45,076 - legal_judgment_prediction.tools.analyze.initialize - INFO - Initialize successfully.
+2022-07-26 02:39:45,076 - legal_judgment_prediction.tools.analyze.analyze - INFO - Start to analyze precedent dataset.
+2022-07-26 02:39:45,076 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to analyze all precedent files.
+2022-07-26 02:39:45,398 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:45,398 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:45,765 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:45,766 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:45,999 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:45,999 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:46,361 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:46,361 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:46,515 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:46,516 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:46,956 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:46,956 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:47,374 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:47,375 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:48,488 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:48,489 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:48,972 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:48,972 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:50,274 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:50,275 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:50,794 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:50,795 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:50,887 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:50,887 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:52,056 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:52,057 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:52,551 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:52,552 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:53,096 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:53,097 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:53,261 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:53,262 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:53,439 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:53,440 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:53,745 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:53,746 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:53,767 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:53,767 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:53,804 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:53,804 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:54,077 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:54,078 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:54,687 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:54,689 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:54,689 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to write results.
+2022-07-26 02:39:54,692 - legal_judgment_prediction.tools.analyze.utils - INFO - Write results successfully.
+2022-07-26 02:39:54,692 - legal_judgment_prediction.tools.analyze.utils - INFO - Analyze all precedent files successfully.
+2022-07-26 02:39:54,703 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to analyze whole dataset.
+2022-07-26 02:39:54,704 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to traversal the architecture of this data.
+2022-07-26 02:39:54,704 - legal_judgment_prediction.tools.analyze.utils - INFO - Traversal the architecture of this data successfully.
+2022-07-26 02:39:54,704 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to save the infomations that will be written into results.
+2022-07-26 02:39:54,711 - legal_judgment_prediction.tools.analyze.utils - INFO - Save the infomations that will be written into results successfully.
+2022-07-26 02:39:54,712 - legal_judgment_prediction.tools.analyze.utils - INFO - Start to write results.
+2022-07-26 02:39:54,713 - legal_judgment_prediction.tools.analyze.utils - INFO - Write results successfully.
+2022-07-26 02:39:54,713 - legal_judgment_prediction.tools.analyze.utils - INFO - Analyze whole dataset successfully.
+2022-07-26 02:39:54,731 - legal_judgment_prediction.tools.analyze.analyze - INFO - Analyze precedent dataset successfully.
