@@ -42,7 +42,7 @@ class BartLJP(BasicFormatter):
                 raise Exception('The type of datas is invalid.')
         else:
             fact = []
-            charge = []
+            accusation = []
             article_source = []
             article = []
 
@@ -64,22 +64,22 @@ class BartLJP(BasicFormatter):
 
                 fact.append(self.tokenizer.convert_tokens_to_ids(one_fact))
 
-                # Process charge
-                one_charge = data['meta']['accusation']
-                one_charge = self.tokenizer.tokenize(one_charge)
+                # Process accusation
+                one_accusation = data['meta']['accusation']
+                one_accusation = self.tokenizer.tokenize(one_accusation)
 
                 if self.add_special_tokens == True:
-                    one_charge.insert(0, '[CLS]')
-                    one_charge.append('[SEP]')
+                    one_accusation.insert(0, '[CLS]')
+                    one_accusation.append('[SEP]')
 
-                if len(one_charge) > self.max_len:
-                    one_charge = one_charge[0:self.max_len-1]
-                    one_charge.append('[SEP]')
+                if len(one_accusation) > self.max_len:
+                    one_accusation = one_accusation[0:self.max_len-1]
+                    one_accusation.append('[SEP]')
                 else:
-                    while len(one_charge) < self.max_len:
-                        one_charge.append('[PAD]')
+                    while len(one_accusation) < self.max_len:
+                        one_accusation.append('[PAD]')
 
-                charge.append(self.tokenizer.convert_tokens_to_ids(one_charge))
+                accusation.append(self.tokenizer.convert_tokens_to_ids(one_accusation))
                 
                 for relevant_article in data['meta']['relevant_articles']:
                     # Process article_source
@@ -117,8 +117,8 @@ class BartLJP(BasicFormatter):
                     article.append(self.tokenizer.convert_tokens_to_ids(one_article))
             
             fact = torch.LongTensor(fact)
-            charge = torch.LongTensor(charge)
+            accusation = torch.LongTensor(accusation)
             article_source = torch.LongTensor(article_source)
             article = torch.LongTensor(article)
 
-            return {'fact': fact, 'charge': charge, 'article_source': article_source, 'article': article}
+            return {'fact': fact, 'accusation': accusation, 'article_source': article_source, 'article': article}

@@ -12,20 +12,20 @@ is_shutdown = False
 
 
 def get_table(config, mode, model_name, *args, **kwargs):
-    charge_list, article_source_list, article_list = [], [], []
+    accusation_list, article_source_list, article_list = [], [], []
     
-    with open(config.get('data', 'charge_path'), 'r', encoding='UTF-8') as file:
+    with open(file=config.get('data', 'accusations_path'), mode='r', encoding='UTF-8') as file:
         lines = file.readlines()
 
         for index in range(len(lines)):
             if lines[index][-1] == '\n':
-                charge_list.append(lines[index][0:-1])
+                accusation_list.append(lines[index][0:-1])
             else:
-                charge_list.append(lines[index])
+                accusation_list.append(lines[index])
 
         file.close()
 
-    with open(config.get('data', 'article_source_path'), 'r', encoding='UTF-8') as file:
+    with open(config.get('data', 'article_sources_path'), 'r', encoding='UTF-8') as file:
         lines = file.readlines()
 
         for index in range(len(lines)):
@@ -36,7 +36,7 @@ def get_table(config, mode, model_name, *args, **kwargs):
 
         file.close()
 
-    with open(config.get('data', 'article_path'), 'r', encoding='UTF-8') as file:
+    with open(config.get('data', 'articles_path'), 'r', encoding='UTF-8') as file:
         lines = file.readlines()
 
         for index in range(len(lines)):
@@ -47,10 +47,10 @@ def get_table(config, mode, model_name, *args, **kwargs):
 
         file.close()
 
-    charge_table, article_source_table, article_table = {}, {}, {}
+    accusation_table, article_source_table, article_table = {}, {}, {}
 
-    for data in charge_list:
-        charge_table[data] = encode_data(config, {'charge': data}, mode, model_name)
+    for data in accusation_list:
+        accusation_table[data] = encode_data(config, {'accusation': data}, mode, model_name)
 
     for data in article_source_list:
         article_source_table[data] = encode_data(config, {'article_source': data}, mode, model_name)
@@ -58,7 +58,7 @@ def get_table(config, mode, model_name, *args, **kwargs):
     for data in article_list:
         article_table[data] = encode_data(config, {'article': data}, mode, model_name)
 
-    return charge_table, article_source_table, article_table
+    return accusation_table, article_source_table, article_table
 
 
 def encode_data(config, data, mode, model_name, *args, **kwargs):
@@ -180,7 +180,7 @@ class Client_Thread(threading.Thread):
             elif model_name == 'LJPBert':
                 logger.info('Begin to get tables...')
 
-                charge_table, article_source_table, article_table = get_table(self.config, mode='serve', model_name=model_name)
+                accusation_table, article_source_table, article_table = get_table(self.config, mode='serve', model_name=model_name)
 
                 logger.info('Get tables done...')
 
@@ -211,16 +211,15 @@ class Client_Thread(threading.Thread):
 
                         result = model(self.config, fact, mode='serve', acc_result=None)
 
-                        # the size of charge_result = [number_of_class]
-                        charge_result = torch.max(result['charge'], 2)[1]
+                        # the size of accusation_result = [number_of_class]
+                        accusation_result = torch.max(result['accusation'], 2)[1]
                         article_source_result = torch.max(result['article_source'], 2)[1]
                         article_result = torch.max(result['article'], 2)[1]
                 
                         reply_text = ''
 
-                        for key, value in charge_table.items():
-                            if torch.equal(charge_result, value):
-                                # reply_text += (f'The charge of this fact: {key}')
+                        for key, value in accusation_table.items():
+                            if torch.equal(accusation_result, value):
                                 reply_text += (f'可能被起訴罪名: {key}')
                                 break
 

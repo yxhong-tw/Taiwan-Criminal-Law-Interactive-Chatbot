@@ -15,33 +15,33 @@ class BertLJP(BasicFormatter):
         self.max_len = config.getint('data', 'max_seq_length')
         self.tokenizer = BertTokenizer.from_pretrained(config.get('model', 'bert_path'))
 
-        # Process charge
-        self.charge2id = {}
+        # Process accusation
+        self.accusation2id = {}
 
-        charge = open(config.get('data', 'charge_path'), 'r', encoding='UTF-8')
+        accusations = open(config.get('data', 'accusations_path'), 'r', encoding='UTF-8')
 
-        for line in charge:
-            self.charge2id[line.replace('\r', '').replace('\n', '')] = len(self.charge2id)
+        for line in accusations:
+            self.accusation2id[line.replace('\r', '').replace('\n', '')] = len(self.accusation2id)
 
         # Process article_source
         self.article_source2id = {}
 
-        article_source = open(config.get('data', 'article_source_path'), 'r', encoding='UTF-8')
+        article_sources = open(config.get('data', 'article_sources_path'), 'r', encoding='UTF-8')
 
-        for line in article_source:
+        for line in article_sources:
             self.article_source2id[line.replace('\r', '').replace('\n', '')] = len(self.article_source2id)
 
         # Process article
         self.article2id = {}
 
-        article = open(config.get('data', 'article_path'), 'r', encoding='UTF-8')
+        articles = open(config.get('data', 'articles_path'), 'r', encoding='UTF-8')
 
-        for line in article:
+        for line in articles:
             self.article2id[line.replace('\r', '').replace('\n', '')] = len(self.article2id)
 
 
     def process(self, datas, *args, **kwargs):
-        charge = []
+        accusation = []
         article_source = []
         article = []
 
@@ -56,18 +56,18 @@ class BertLJP(BasicFormatter):
                 one_fact = one_fact[0:self.max_len]
 
                 return torch.LongTensor(self.tokenizer.convert_tokens_to_ids(one_fact)).cuda()
-            elif 'charge' in datas:
-                charge_data = datas['charge']
-                one_charge = np.zeros(len(self.charge2id), dtype=np.int)
+            elif 'accusation' in datas:
+                accusation_data = datas['accusation']
+                one_accusation = np.zeros(len(self.accusation2id), dtype=np.int)
 
-                if self.charge2id.get(charge_data):
-                    one_charge[self.charge2id[charge_data]] = 1
+                if self.accusation2id.get(accusation_data):
+                    one_accusation[self.accusation2id[accusation_data]] = 1
                 else:
-                    one_charge[self.charge2id['others']] = 1
+                    one_accusation[self.accusation2id['others']] = 1
 
-                charge.append(one_charge.tolist())
+                accusation.append(one_accusation.tolist())
                     
-                return torch.LongTensor(charge).cuda()
+                return torch.LongTensor(accusation).cuda()
             elif 'article_source' in datas:
                 article_source_data = datas['article_source']
                 one_article_source = np.zeros(len(self.article_source2id), dtype=np.int)
@@ -106,15 +106,15 @@ class BertLJP(BasicFormatter):
                 one_fact = one_fact[0:self.max_len]
                 fact.append(self.tokenizer.convert_tokens_to_ids(one_fact))
 
-                # Process charge
-                one_charge = np.zeros(len(self.charge2id), dtype=np.int)
+                # Process accusation
+                one_accusation = np.zeros(len(self.accusation2id), dtype=np.int)
                 
-                if self.charge2id.get(data['meta']['accusation']):
-                    one_charge[self.charge2id[data['meta']['accusation']]] = 1
+                if self.accusation2id.get(data['meta']['accusation']):
+                    one_accusation[self.accusation2id[data['meta']['accusation']]] = 1
                 else:
-                    one_charge[self.charge2id['others']] = 1
+                    one_accusation[self.accusation2id['others']] = 1
 
-                charge.append(one_charge.tolist())
+                accusation.append(one_accusation.tolist())
                 
                 # Process article_source and article
                 one_article_source = np.zeros(len(self.article_source2id), dtype=np.int)
@@ -135,8 +135,8 @@ class BertLJP(BasicFormatter):
                 article.append(one_article.tolist())
             
             fact = torch.LongTensor(fact)
-            charge = torch.LongTensor(charge)
+            accusation = torch.LongTensor(accusation)
             article_source = torch.LongTensor(article_source)
             article = torch.LongTensor(article)
 
-            return {'fact': fact, 'charge': charge, 'article_source': article_source, 'article': article}
+            return {'fact': fact, 'accusation': accusation, 'article_source': article_source, 'article': article}

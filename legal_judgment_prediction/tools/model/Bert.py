@@ -15,12 +15,12 @@ class LJPBert(nn.Module):
         self.fc = BertPredictor(config, *args, **kwargs)
 
         self.criterion = {
-            'charge': MultiLabelSoftmaxLoss(config, 148),
+            'accusation': MultiLabelSoftmaxLoss(config, 148),
             'article_source': MultiLabelSoftmaxLoss(config, 21),
             'article': MultiLabelSoftmaxLoss(config, 90),
         }
         self.accuracy_function = {
-            'charge': multi_label_accuracy,
+            'accusation': multi_label_accuracy,
             'article_source': multi_label_accuracy,
             'article': multi_label_accuracy
         }
@@ -44,13 +44,13 @@ class LJPBert(nn.Module):
             outputs = self.fc(outputs)
 
             loss = 0
-            for name in ['charge', 'article_source', 'article']:
+            for name in ['accusation', 'article_source', 'article']:
                 loss += self.criterion[name](outputs[name], data[name])
 
             if acc_result is None:
-                acc_result = {'charge': None, 'article_source': None, 'article': None}
+                acc_result = {'accusation': None, 'article_source': None, 'article': None}
 
-            for name in ['charge', 'article_source', 'article']:
+            for name in ['accusation', 'article_source', 'article']:
                 acc_result[name] = self.accuracy_function[name](outputs[name], data[name], config, acc_result[name])
 
             return {'loss': loss, 'acc_result': acc_result, 'output': outputs}

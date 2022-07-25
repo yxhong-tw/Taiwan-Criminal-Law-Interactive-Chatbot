@@ -36,7 +36,7 @@ def serve_simple_IO(parameters, config):
     elif model_name == 'LJPBert':
         logger.info('Begin to get tables...')
 
-        charge_table, article_source_table, article_table = get_table(config, mode='serve', model_name=model_name)
+        accusation_table, article_source_table, article_table = get_table(config, mode='serve', model_name=model_name)
 
         logger.info('Get tables done...')
 
@@ -52,15 +52,15 @@ def serve_simple_IO(parameters, config):
 
             result = model(config, fact, mode='serve', acc_result=None)
 
-            # The size of charge_result = [number_of_class]
-            charge_result = torch.max(result['charge'], 2)[1]
+            # The size of accusation_result = [number_of_class]
+            accusation_result = torch.max(result['accusation'], 2)[1]
             article_source_result = torch.max(result['article_source'], 2)[1]
             article_result = torch.max(result['article'], 2)[1]
 
-            for key, value in charge_table.items():
-                if torch.equal(charge_result, value):
-                    print(f'The charge of this fact: {key}')
-                    logger.info(f'The charge of this fact: {key}')
+            for key, value in accusation_table.items():
+                if torch.equal(accusation_result, value):
+                    print(f'The accusation of this fact: {key}')
+                    logger.info(f'The accusation of this fact: {key}')
                     break
 
             for key, value in article_source_table.items():

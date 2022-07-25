@@ -27,12 +27,12 @@ def bart_output_function(config, total_loss, step, *args, **kwargs):
 
 def bert_output_function(config, data, *args, **kwargs):
     temp = {}
-    temp['charge'] = get_micro_macro_prf(data['charge'])
+    temp['accusation'] = get_micro_macro_prf(data['accusation'])
     temp['article_source'] = get_micro_macro_prf(data['article_source'])
     temp['article'] = get_micro_macro_prf(data['article'])
     
     result = {}
-    for name in ['charge', 'article_source', 'article']:
+    for name in ['accusation', 'article_source', 'article']:
         result[name] = []
 
         for score_type in ['mip', 'mir', 'mif', 'map', 'mar', 'maf']:
