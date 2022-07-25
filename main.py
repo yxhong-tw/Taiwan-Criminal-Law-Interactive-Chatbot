@@ -17,14 +17,16 @@ information = ' '.join(sys.argv)
 
 def main(*args, **kwargs):
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', '-c', help='The path of config file', required=True)
-    parser.add_argument('--mode', '-m', help='analyze, generate, train, eval or serve', required=True)
-    parser.add_argument('--label', '-l', help='one_label or multi_labels (If mode is analyze or generate, this is required.)')
-    parser.add_argument('--range', '-r', help='top_50_article or all_article (If mode is generate, this is required.)')
-    parser.add_argument('--gpu', '-g', help='The list of gpu IDs (If mode is not analyze or generate, this is required.)')
-    parser.add_argument('--use_checkpoint', '-uc', help='Use checkpoint (Ignore if do not use checkpoint)', action='store_true')
-    parser.add_argument('--do_test', '-dt', help='Do test while training (Ignore if do not test while training)', action='store_true')
-    parser.add_argument('--open_server', '-os', help='Open web server while serving (Ignore if do not open web server while serving', action='store_true')
+    parser.add_argument('-c', '--config', help='The path of config file', required=True)
+    parser.add_argument('-m', '--mode', help='analyze, generate, train, eval or serve', required=True)
+    parser.add_argument('-g', '--gpu', help='The list of gpu IDs (If mode is not analyze or generate, this is required.)')
+    parser.add_argument('-cp', '--checkpoint_path', help='The path of checkpoint (Ignore if do not use checkpoint)')
+    parser.add_argument('-bs', '--batch_size', help='The batch size while training and eval')
+    parser.add_argument('-dt', '--do_test', help='Do test while training (Ignore if do not test while training)', action='store_true')
+    parser.add_argument('-os', '--open_server', help='Open web server while serving (Ignore if do not open web server while serving', action='store_true')
+    parser.add_argument('-lcat', '--line_channel_access_token', help='The channel access token of LINE bot')
+    parser.add_argument('-lcs', '--line_channel_secret', help='The channel secret of LINE bot')
+    parser.add_argument('-ssip', '--server_socket_ip', help='The IP of server socket')
 
     args = parser.parse_args()
 
@@ -39,7 +41,6 @@ def main(*args, **kwargs):
     sh.setLevel(logging.DEBUG)
     sh.setFormatter(formatter)
 
-    # precedent_analysis.log or bart.log or bert.log or mT5.log
     fh = logging.FileHandler(f'legal_judgment_prediction/logs/{log_name}', mode='a', encoding='UTF-8')
     fh.setLevel(logging.DEBUG)
     fh.setFormatter(formatter)
@@ -52,9 +53,9 @@ def main(*args, **kwargs):
     logger.info(information)
 
     if args.mode == 'analyze':
-        analyze(config, args.label)
+        analyze(config)
     elif args.mode == 'generate':
-        generate(config, args.label, args.range)
+        generate(config)
     else:
         gpu_list = []
         if args.gpu is not None:
@@ -71,7 +72,7 @@ def main(*args, **kwargs):
             logger.error('CUDA is not available but gpu_list is not empty.')
             raise Exception('CUDA is not available but gpu_list is not empty.')
 
-        parameters = initialize_all(config, gpu_list, args.mode, args.use_checkpoint)
+        parameters = initialize_all(config, gpu_list, args.mode, args.batch_size, args.checkpoint_path, args.line_channel_access_token, args.line_channel_secret, args.server_socket_ip)
 
         if args.mode == 'train':
             train(parameters, config, gpu_list, args.do_test)

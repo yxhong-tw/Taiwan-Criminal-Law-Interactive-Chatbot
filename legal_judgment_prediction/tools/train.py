@@ -19,7 +19,7 @@ def train(parameters, config, gpu_list, do_test):
     output_time = config.getint('output', 'output_time')
     test_time = config.getint('output', 'test_time')
 
-    output_path = os.path.join(config.get('output', 'model_path'), config.get('output', 'model_name'))
+    output_path = os.path.join(config.get('output', 'model_path'), config.get('output', 'model_name'), config.get('data', 'label'), config.get('data', 'range'))
 
     if os.path.exists(output_path):
         warning = 'Output path exists. Check whether need to change the name of model.'
@@ -40,7 +40,7 @@ def train(parameters, config, gpu_list, do_test):
     valid_dataset = parameters['valid_dataset']
 
     if do_test == True:
-        test_dataset = initialize_dataloader(config, task='test', mode='eval')
+        test_dataset = parameters['test_dataset']
 
     step_size = config.getint('train', 'step_size')
     gamma = config.getfloat('train', 'lr_multiplier')

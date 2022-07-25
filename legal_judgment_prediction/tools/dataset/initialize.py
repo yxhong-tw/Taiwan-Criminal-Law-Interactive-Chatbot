@@ -9,18 +9,17 @@ from legal_judgment_prediction.tools.formatter import initialize_formatter
 logger = logging.getLogger(__name__)
 
 
-def initialize_dataloader(config, task, mode, *args, **kwargs):
+def initialize_dataloader(config, task, mode, batch_size, *args, **kwargs):
     dataset_list = {
         'JsonFromFiles': JsonFromFiles
     }
     
-    # dataset_type = config.get('data', '%s_dataset_type' % task)
     dataset_type = config.get('data', f'{task}_dataset_type')
 
     if dataset_type in dataset_list:
         dataset = dataset_list[dataset_type](config, task, *args, **kwargs)
         
-        batch_size = config.getint(mode, 'batch_size')
+        batch_size = batch_size
         shuffle = config.getboolean(mode, 'shuffle')
         num_workers = config.getint(mode, 'num_workers')
 

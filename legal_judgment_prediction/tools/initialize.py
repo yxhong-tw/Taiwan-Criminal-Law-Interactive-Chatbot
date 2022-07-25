@@ -9,7 +9,7 @@ from legal_judgment_prediction.tools.output import initialize_output_function
 logger = logging.getLogger(__name__)
 
 
-def initialize_all(config, gpu_list, mode, use_checkpoint, *args, **kwargs):
+def initialize_all(config, gpu_list, mode, batch_size, checkpoint_path, line_channel_access_token, line_channel_secret, server_socket_ip, *args, **kwargs):
     results = {}
 
     # information = 'Begin to initialize model.'
@@ -27,18 +27,22 @@ def initialize_all(config, gpu_list, mode, use_checkpoint, *args, **kwargs):
     # information = 'Begin to initialize dataset.'
     logger.info('Begin to initialize dataset.')
 
+    if batch_size is not None:
+        batch_size = int(batch_size)
+
     if mode == 'train':
-        results['train_dataset'] = initialize_dataloader(config, task='train', mode='train', *args, **kwargs)
-        results['valid_dataset'] = initialize_dataloader(config, task='valid', mode='eval', *args, **kwargs)
+        results['train_dataset'] = initialize_dataloader(config, task='train', mode='train', batch_size=batch_size, *args, **kwargs)
+        results['valid_dataset'] = initialize_dataloader(config, task='valid', mode='eval', batch_size=batch_size, *args, **kwargs)
+        results['test_dataset'] = initialize_dataloader(config, task='test', mode='eval', batch_size=batch_size, *args, **kwargs)
 
         trained_epoch = -1
         optimizer = initialize_optimizer(config, model, *args, **kwargs)
         global_step = 0
     elif mode == 'eval':
-        results['test_dataset'] = initialize_dataloader(config, task='test', mode='eval', *args, **kwargs)
+        results['test_dataset'] = initialize_dataloader(config, task='test', mode='eval', batch_size=batch_size, *args, **kwargs)
 
-    if use_checkpoint == True:
-        checkpoint_path = config.get('model', 'checkpoint_path')
+    if checkpoint_path is not None:
+        # checkpoint_path = config.get('model', 'checkpoint_path')
 
         try:
             parameters = torch.load(checkpoint_path)
@@ -77,11 +81,14 @@ def initialize_all(config, gpu_list, mode, use_checkpoint, *args, **kwargs):
         results['web_server_IP'] = config.get('server', 'web_server_IP')
         results['web_server_port'] = config.getint('server', 'web_server_port')
 
-        results['server_socket_IP'] = config.get('server', 'server_socket_IP')
+        # results['server_socket_IP'] = config.get('server', 'server_socket_IP')
+        results['server_socket_IP'] = server_socket_ip
         results['server_socket_port'] = config.getint('server', 'server_socket_port')
 
-        results['LINE_CHANNEL_ACCESS_TOKEN'] = config.get('server', 'LINE_CHANNEL_ACCESS_TOKEN')
-        results['CHANNEL_SECRET'] = config.get('server', 'CHANNEL_SECRET')
+        # results['LINE_CHANNEL_ACCESS_TOKEN'] = config.get('server', 'LINE_CHANNEL_ACCESS_TOKEN')
+        # results['CHANNEL_SECRET'] = config.get('server', 'CHANNEL_SECRET')
+        results['LINE_CHANNEL_ACCESS_TOKEN'] = line_channel_access_token
+        results['CHANNEL_SECRET'] = line_channel_secret
         results['rich_menu_ID'] = config.get('server', 'rich_menu_ID')
 
     results['output_function'] = initialize_output_function(config)
