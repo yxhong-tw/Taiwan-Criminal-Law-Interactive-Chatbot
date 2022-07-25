@@ -5,27 +5,26 @@ import pickle
 logger = logging.getLogger(__name__)
 
 
-def initialize_all(config, label, range):
+def initialize_all(config):
+    logger.info('Start to initialize.')
+
     results = {}
-
-    results['label'] = label
-    results['range'] = range
-
-    results['data_path'] = config.get(label, 'data_path')
-    
-    file = open(file=config.get(label, 'parameters'), mode='rb')
-    parameters = pickle.load(file=file)
-    file.close()
-
-    results['whole_dataset_times_appeared_of_relevant_article_sources'] = parameters['whole_dataset_times_appeared_of_relevant_article_sources']
-    results['whole_dataset_times_appeared_of_relevant_articles'] = parameters['whole_dataset_times_appeared_of_relevant_articles']
-    results['whole_dataset_times_appeared_of_accusations'] = parameters['whole_dataset_times_appeared_of_accusations']
-
+    results['label'] = config.get('common', 'label')
+    results['range'] = config.get('common', 'range')
+    results['data_path'] = config.get('common', 'data_path')
     results['output_path'] = config.get('common', 'output_path')
-
     results['train_size'] = config.getfloat('common', 'train_size')
     results['valid_size'] = config.getfloat('common', 'valid_size')
+    results['random_seed'] = config.getint('common', 'random_seed')
     
-    results['random_seed'] = 0
+    with open(file=config.get('common', 'parameters'), mode='rb') as pkl_file:
+        parameters = pickle.load(file=pkl_file)
+        pkl_file.close()
+
+    results['relevant_articles_times_appeared_of_whole_dataset'] = parameters['relevant_articles_times_appeared_of_whole_dataset']
+    results['relevant_article_sources_times_appeared_of_whole_dataset'] = parameters['relevant_article_sources_times_appeared_of_whole_dataset']
+    results['accusations_times_appeared_of_whole_dataset'] = parameters['accusations_times_appeared_of_whole_dataset']
+
+    logger.info('Initialize successfully.')
 
     return results

@@ -4,14 +4,15 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def initialize_all(config, label):
+def initialize_all(config):
+    logger.info('Start to initialize.')
+
     results = {}
 
-    results['label'] = label
-    results['name'] = config.get(label, 'name')
-    results['folder_path'] = config.get(label, 'folder_path')
-    results['files_analysis_file_path'] = config.get(label, 'files_analysis_file_path')
-    results['general_analysis_file_path'] = config.get(label, 'general_analysis_file_path')
-    results['parameters_file_path'] = config.get(label, 'parameters_file_path')
+    results['name'] = config.get('common', 'name')
+    results['data_path'] = config.get('common', 'data_path')
+    results['output_path'] = config.get('common', 'output_path')
+
+    logger.info('Initialize successfully.')
 
     return results

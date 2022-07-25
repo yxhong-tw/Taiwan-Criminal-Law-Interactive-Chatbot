@@ -1,19 +1,22 @@
 import logging
 
 from legal_judgment_prediction.tools.generate.initialize import initialize_all
-from legal_judgment_prediction.tools.generate.utils import top_50_article, all_article
+from legal_judgment_prediction.tools.generate.utils import top_50_article, all
 
 
 logger = logging.getLogger(__name__)
 
 
-# label -> data_type, range -> mode
-def generate(config, label, range):
-    parameters = initialize_all(config, label, range)
+def generate(config):
+    parameters = initialize_all(config)
 
-    if range == 'top_50_article':
+    logger.info(f'Start to generate {parameters["label"]} T.V.T. dataset in {parameters["range"]} range.')
+
+    if parameters['range'] == 'top_50_article':
         top_50_article(parameters)
-    elif range == 'all_article':
-        all_article(parameters)
+    elif parameters['range'] == 'all':
+        all(parameters)
     else:
-        raise Exception(f'There is no range named {range}.')
+        raise Exception('There is no range named' + ' ' + parameters['range'] + '.')
+
+    logger.info(f'Generate {parameters["label"]} T.V.T. dataset in {parameters["range"]} range successfully.')
