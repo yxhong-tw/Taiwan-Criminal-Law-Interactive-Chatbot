@@ -1,6 +1,5 @@
 import socket
 import time
-# import requests
 import re
 import threading
 
@@ -41,15 +40,6 @@ class App_Thread(threading.Thread):
 
         # Channel Secret
         handler = WebhookHandler(config['CHANNEL_SECRET'])
-
-        # Add Rich menu # @shuyu: incomplete
-        # authorization_token = 'Bearer ' + config[LINE_CHANNEL_ACCESS_TOKEN]
-        # headers = {'Authorization': authorization_token, 'Content-Type': 'application/json'}
-
-        # req = requests.request('POST', 'https://api.line.me/v2/bot/user/all/richmenu/'+ config['rich_menu_ID'], headers=headers)
-        # print(req.text)
-
-        # rich_menu_list = line_bot_api.get_rich_menu_list()
 
         # listen all POST request from /callback
         @app.route("/callback", methods=['POST'])

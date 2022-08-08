@@ -1,0 +1,48 @@
+2022-08-08 16:26:58,105 - root - INFO - .\generate.py -c .\configs\generate\summarization\CAIL2020_sfzy\config.ini
+2022-08-08 16:26:58,105 - root - INFO - CUDA available: True
+2022-08-08 16:26:58,105 - data_generation.initialize - INFO - Start to initialize.
+2022-08-08 16:26:58,106 - data_generation.initialize - WARNING - The path of output results/tvt_dataset\summarization\CAIL2020_sfzy does not exist.
+2022-08-08 16:26:58,106 - data_generation.initialize - INFO - Make the directory automatically.
+2022-08-08 16:26:58,107 - data_generation.initialize - INFO - Initialize successfully.
+2022-08-08 16:26:58,107 - root - INFO - Start to generate summarization T.V. dataset.
+2022-08-08 16:26:58,107 - data_generation.utils - INFO - Start to get summarization data.
+2022-08-08 16:26:58,107 - data_generation.utils - INFO - Start to load data.
+2022-08-08 16:26:58,108 - data_generation.utils - INFO - Start to process sfzy_small.json.
+2022-08-08 16:26:58,312 - data_generation.utils - INFO - Process sfzy_small.json successfully.
+2022-08-08 16:26:58,312 - data_generation.utils - INFO - Load data successfully.
+2022-08-08 16:26:58,740 - data_generation.utils - INFO - Start to write back results.
+2022-08-08 16:26:58,742 - data_generation.utils - INFO - Start to write train.json.
+2022-08-08 16:26:58,850 - data_generation.utils - INFO - Write train.json successfully.
+2022-08-08 16:26:58,850 - data_generation.utils - INFO - Start to write valid.json.
+2022-08-08 16:26:58,856 - data_generation.utils - INFO - Write valid.json successfully.
+2022-08-08 16:26:58,856 - data_generation.utils - INFO - Write back results successfully.
+2022-08-08 16:26:58,857 - data_generation.utils - INFO - Get summarization data successfully.
+2022-08-08 16:26:58,864 - root - INFO - Generate summarization T.V. dataset successfully.
+2022-08-08 16:27:05,017 - root - INFO - .\generate.py -c .\configs\generate\summarization\CNewSum_v2\config.ini
+2022-08-08 16:27:05,017 - root - INFO - CUDA available: True
+2022-08-08 16:27:05,018 - data_generation.initialize - INFO - Start to initialize.
+2022-08-08 16:27:05,018 - data_generation.initialize - WARNING - The path of output results/tvt_dataset\summarization\CNewSum_v2 does not exist.
+2022-08-08 16:27:05,018 - data_generation.initialize - INFO - Make the directory automatically.
+2022-08-08 16:27:05,018 - data_generation.initialize - INFO - Initialize successfully.
+2022-08-08 16:27:05,019 - root - INFO - Start to generate summarization T.V. dataset.
+2022-08-08 16:27:05,019 - data_generation.utils - INFO - Start to get summarization data.
+2022-08-08 16:27:05,019 - data_generation.utils - INFO - Start to load data.
+2022-08-08 16:27:05,019 - data_generation.utils - INFO - Start to process dev.simple.label.jsonl.
+2022-08-08 16:27:05,277 - data_generation.utils - INFO - Process dev.simple.label.jsonl successfully.
+2022-08-08 16:27:05,277 - data_generation.utils - INFO - Start to process test.simple.label.jsonl.
+2022-08-08 16:27:05,594 - data_generation.utils - INFO - Process test.simple.label.jsonl successfully.
+2022-08-08 16:27:05,594 - data_generation.utils - INFO - Start to process test2017.simple.label.jsonl.
+2022-08-08 16:27:05,638 - data_generation.utils - INFO - Process test2017.simple.label.jsonl successfully.
+2022-08-08 16:27:05,638 - data_generation.utils - INFO - Start to process test2018.simple.label.jsonl.
+2022-08-08 16:27:05,672 - data_generation.utils - INFO - Process test2018.simple.label.jsonl successfully.
+2022-08-08 16:27:05,673 - data_generation.utils - INFO - Start to process train.simple.label.jsonl.
+2022-08-08 16:27:10,130 - data_generation.utils - INFO - Process train.simple.label.jsonl successfully.
+2022-08-08 16:27:10,130 - data_generation.utils - INFO - Load data successfully.
+2022-08-08 16:27:22,053 - data_generation.utils - INFO - Start to write back results.
+2022-08-08 16:27:22,139 - data_generation.utils - INFO - Start to write train.json.
+2022-08-08 16:27:27,005 - data_generation.utils - INFO - Write train.json successfully.
+2022-08-08 16:27:27,005 - data_generation.utils - INFO - Start to write valid.json.
+2022-08-08 16:27:27,251 - data_generation.utils - INFO - Write valid.json successfully.
+2022-08-08 16:27:27,258 - data_generation.utils - INFO - Write back results successfully.
+2022-08-08 16:27:27,259 - data_generation.utils - INFO - Get summarization data successfully.
+2022-08-08 16:27:27,533 - root - INFO - Generate summarization T.V. dataset successfully.

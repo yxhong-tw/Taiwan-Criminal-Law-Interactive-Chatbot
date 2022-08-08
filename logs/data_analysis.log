@@ -1,0 +1,176 @@
+2022-08-08 00:58:45,280 - root - INFO - .\analyze.py -c .\configs\analyze\CAIL2020_sfzy\config.ini
+2022-08-08 00:58:45,280 - data_analysis.initialize - INFO - Start to initialize.
+2022-08-08 00:58:45,281 - data_analysis.initialize - WARNING - The path of output results/data_analysis/CAIL2020_sfzy does not exist.
+2022-08-08 00:58:45,281 - data_analysis.initialize - INFO - Make the directory automatically.
+2022-08-08 00:58:45,383 - data_analysis.initialize - INFO - Initialize successfully.
+2022-08-08 00:58:45,383 - root - INFO - Start to analyze data.
+2022-08-08 00:58:45,383 - data_analysis.utils - INFO - Start to analyze all files.
+2022-08-08 00:58:46,023 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:58:46,023 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:58:46,030 - data_analysis.utils - INFO - Start to write results.
+2022-08-08 00:58:46,031 - data_analysis.utils - INFO - Write results successfully.
+2022-08-08 00:58:46,031 - data_analysis.utils - INFO - Analyze all files successfully.
+2022-08-08 00:58:46,031 - data_analysis.utils - INFO - Start to analyze whole dataset.
+2022-08-08 00:58:46,032 - data_analysis.utils - INFO - Start to traversal and save the architecture of this data.
+2022-08-08 00:58:46,032 - data_analysis.utils - INFO - Traversal the architecture of this data successfully.
+2022-08-08 00:58:46,032 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:58:46,032 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:58:46,033 - data_analysis.utils - INFO - Start to write results.
+2022-08-08 00:58:46,033 - data_analysis.utils - INFO - Write results successfully.
+2022-08-08 00:58:46,033 - data_analysis.utils - INFO - Analyze whole dataset successfully.
+2022-08-08 00:58:46,034 - root - INFO - Analyze data successfully.
+2022-08-08 00:58:50,924 - root - INFO - .\analyze.py -c .\configs\analyze\CNewSum_v2\config.ini
+2022-08-08 00:58:50,924 - data_analysis.initialize - INFO - Start to initialize.
+2022-08-08 00:58:50,925 - data_analysis.initialize - WARNING - The path of output results/data_analysis/CNewSum_v2 does not exist.
+2022-08-08 00:58:50,925 - data_analysis.initialize - INFO - Make the directory automatically.
+2022-08-08 00:58:50,925 - data_analysis.initialize - INFO - Initialize successfully.
+2022-08-08 00:58:50,925 - root - INFO - Start to analyze data.
+2022-08-08 00:58:50,925 - data_analysis.utils - INFO - Start to analyze all files.
+2022-08-08 00:58:51,930 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:58:51,931 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:58:52,893 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:58:52,893 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:58:53,110 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:58:53,110 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:58:53,276 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:58:53,276 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:09,116 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:09,121 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:09,258 - data_analysis.utils - INFO - Start to write results.
+2022-08-08 00:59:09,259 - data_analysis.utils - INFO - Write results successfully.
+2022-08-08 00:59:09,259 - data_analysis.utils - INFO - Analyze all files successfully.
+2022-08-08 00:59:09,259 - data_analysis.utils - INFO - Start to analyze whole dataset.
+2022-08-08 00:59:09,260 - data_analysis.utils - INFO - Start to traversal and save the architecture of this data.
+2022-08-08 00:59:09,260 - data_analysis.utils - INFO - Traversal the architecture of this data successfully.
+2022-08-08 00:59:09,263 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:09,265 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:09,265 - data_analysis.utils - INFO - Start to write results.
+2022-08-08 00:59:09,266 - data_analysis.utils - INFO - Write results successfully.
+2022-08-08 00:59:09,266 - data_analysis.utils - INFO - Analyze whole dataset successfully.
+2022-08-08 00:59:09,286 - root - INFO - Analyze data successfully.
+2022-08-08 00:59:17,005 - root - INFO - .\analyze.py -c .\configs\analyze\taiwan_indictments\multi_labels\config.ini
+2022-08-08 00:59:17,005 - data_analysis.initialize - INFO - Start to initialize.
+2022-08-08 00:59:17,005 - data_analysis.initialize - WARNING - The path of output results/data_analysis/taiwan_indictments/multi_labels does not exist.
+2022-08-08 00:59:17,005 - data_analysis.initialize - INFO - Make the directory automatically.
+2022-08-08 00:59:17,006 - data_analysis.initialize - INFO - Initialize successfully.
+2022-08-08 00:59:17,006 - root - INFO - Start to analyze data.
+2022-08-08 00:59:17,006 - data_analysis.utils - INFO - Start to analyze all files.
+2022-08-08 00:59:17,058 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:17,058 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:17,112 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:17,112 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:17,141 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:17,142 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:17,247 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:17,248 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:17,287 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:17,288 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:17,382 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:17,382 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:17,515 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:17,516 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:17,870 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:17,871 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:17,948 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:17,948 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:18,154 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:18,154 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:18,252 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:18,252 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:18,260 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:18,260 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:18,628 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:18,628 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:18,802 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:18,802 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:18,931 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:18,932 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:19,043 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:19,054 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:19,097 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:19,097 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:19,196 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:19,197 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:19,221 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:19,221 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:19,229 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:19,229 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:19,283 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:19,283 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:19,486 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:19,487 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:19,491 - data_analysis.utils - INFO - Start to write results.
+2022-08-08 00:59:19,496 - data_analysis.utils - INFO - Write results successfully.
+2022-08-08 00:59:19,497 - data_analysis.utils - INFO - Analyze all files successfully.
+2022-08-08 00:59:19,498 - data_analysis.utils - INFO - Start to analyze whole dataset.
+2022-08-08 00:59:19,499 - data_analysis.utils - INFO - Start to traversal and save the architecture of this data.
+2022-08-08 00:59:19,499 - data_analysis.utils - INFO - Traversal the architecture of this data successfully.
+2022-08-08 00:59:19,500 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:19,503 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:19,504 - data_analysis.utils - INFO - Start to write results.
+2022-08-08 00:59:19,507 - data_analysis.utils - INFO - Write results successfully.
+2022-08-08 00:59:19,507 - data_analysis.utils - INFO - Analyze whole dataset successfully.
+2022-08-08 00:59:19,511 - root - INFO - Analyze data successfully.
+2022-08-08 00:59:24,855 - root - INFO - .\analyze.py -c .\configs\analyze\taiwan_indictments\one_label\config.ini
+2022-08-08 00:59:24,855 - data_analysis.initialize - INFO - Start to initialize.
+2022-08-08 00:59:24,856 - data_analysis.initialize - WARNING - The path of output results/data_analysis/taiwan_indictments/one_label does not exist.
+2022-08-08 00:59:24,856 - data_analysis.initialize - INFO - Make the directory automatically.
+2022-08-08 00:59:24,856 - data_analysis.initialize - INFO - Initialize successfully.
+2022-08-08 00:59:24,857 - root - INFO - Start to analyze data.
+2022-08-08 00:59:24,857 - data_analysis.utils - INFO - Start to analyze all files.
+2022-08-08 00:59:25,035 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:25,035 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:25,402 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:25,402 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:25,556 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:25,556 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:26,218 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:26,219 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:26,337 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:26,337 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:26,817 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:26,818 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:27,222 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:27,222 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:28,197 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:28,198 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:28,758 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:28,758 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:29,599 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:29,601 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:30,623 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:30,624 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:30,706 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:30,706 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:31,526 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:31,528 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:31,930 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:31,931 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:32,334 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:32,335 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:32,470 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:32,470 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:32,608 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:32,608 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:32,827 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:32,828 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:32,845 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:32,845 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:32,858 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:32,859 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:33,015 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:33,016 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:33,530 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:33,531 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:33,541 - data_analysis.utils - INFO - Start to write results.
+2022-08-08 00:59:33,545 - data_analysis.utils - INFO - Write results successfully.
+2022-08-08 00:59:33,545 - data_analysis.utils - INFO - Analyze all files successfully.
+2022-08-08 00:59:33,547 - data_analysis.utils - INFO - Start to analyze whole dataset.
+2022-08-08 00:59:33,549 - data_analysis.utils - INFO - Start to traversal and save the architecture of this data.
+2022-08-08 00:59:33,549 - data_analysis.utils - INFO - Traversal the architecture of this data successfully.
+2022-08-08 00:59:33,549 - data_analysis.utils - INFO - Start to generate the strings that will be written into results.
+2022-08-08 00:59:33,554 - data_analysis.utils - INFO - Generate the strings that will be written into results successfully.
+2022-08-08 00:59:33,554 - data_analysis.utils - INFO - Start to write results.
+2022-08-08 00:59:33,555 - data_analysis.utils - INFO - Write results successfully.
+2022-08-08 00:59:33,555 - data_analysis.utils - INFO - Analyze whole dataset successfully.
+2022-08-08 00:59:33,569 - root - INFO - Analyze data successfully.
