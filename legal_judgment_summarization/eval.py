@@ -5,7 +5,7 @@ import gc
 from timeit import default_timer as timer
 from torch.autograd import Variable
 
-from utils import gen_time_str, output_value
+from utils import gen_time_str, log_results
 
 
 logger = logging.getLogger(__name__)
@@ -46,9 +46,9 @@ def eval_one(
             output_info = output_function(total_loss, step)
             delta_t = timer() - start_time
 
-            output_value(
+            log_results(
                 epoch=epoch
-                , mode=mode
+                , stage=mode
                 , step=f'{(step+1)}/{total_len}'
                 , time=f'{gen_time_str(delta_t)}/\
 {gen_time_str(delta_t*(total_len-step-1)/(step+1))}'
@@ -64,9 +64,9 @@ def eval_one(
     output_info = output_function(total_loss, step)
     delta_t = timer() - start_time
 
-    output_value(
+    log_results(
         epoch=epoch
-        , mode=mode
+        , stage=mode
         , step=f'{(step+1)}/{total_len}'
         , time=f'{gen_time_str(delta_t)}/\
 {gen_time_str(delta_t*(total_len-step-1)/(step+1))}'

@@ -6,7 +6,7 @@ import gc
 from timeit import default_timer as timer
 from torch.autograd import Variable
 
-from utils import gen_time_str, output_value
+from utils import gen_time_str, log_results
 from legal_judgment_summarization.eval import eval_one
 
 
@@ -20,8 +20,8 @@ def train(parameters, *args, **kwargs):
     exp_lr_scheduler = parameters['exp_lr_scheduler']
     trained_epoch = parameters['trained_epoch'] + 1
     # global_step = parameters['global_step']
-    train_dataset = parameters['train_dataloader']
-    valid_dataset = parameters['valid_dataloader']
+    train_dataloader = parameters['train_dataloader']
+    valid_dataloader = parameters['valid_dataloader']
     output_function = parameters['output_function']
     total_epoch = parameters['epoch']
     # step_size = parameters['step_size']
@@ -46,7 +46,7 @@ def train(parameters, *args, **kwargs):
     logger.info(
         'Epoch  Stage  Iterations  Time Usage    Loss    Output Information')
 
-    total_len = len(train_dataset)
+    total_len = len(train_dataloader)
 
     for current_epoch in range(trained_epoch, total_epoch):
         # exp_lr_scheduler.step(current_epoch)
@@ -60,7 +60,7 @@ def train(parameters, *args, **kwargs):
         output_info = ""
         step = -1
 
-        for step, data in enumerate(train_dataset):
+        for step, data in enumerate(train_dataloader):
             for key in data.keys():
                 if isinstance(data[key], torch.Tensor):
                     if len(parameters['gpu_list']) > 0:
@@ -71,6 +71,7 @@ def train(parameters, *args, **kwargs):
             optimizer.zero_grad()
 
             results = model(data, mode='train')
+
             loss = results['loss']
             total_loss += float(loss)
 
@@ -81,9 +82,9 @@ def train(parameters, *args, **kwargs):
                 output_info = output_function(total_loss, step)
                 delta_t = timer() - start_time
 
-                output_value(
+                log_results(
                     epoch=current_epoch
-                    , mode='train'
+                    , stage='train'
                     , step=f'{(step+1)}/{total_len}'
                     , time=f'{gen_time_str(delta_t)}/\
 {gen_time_str(delta_t*(total_len-step-1)/(step+1))}'
@@ -96,9 +97,9 @@ def train(parameters, *args, **kwargs):
 
         exp_lr_scheduler.step()
 
-        output_value(
+        log_results(
             epoch=current_epoch
-            , mode='train'
+            , stage='train'
             , step=f'{(step+1)}/{total_len}'
             , time=f'{gen_time_str(delta_t)}/\
 {gen_time_str(delta_t*(total_len-step-1)/(step+1))}'
@@ -129,10 +130,10 @@ def train(parameters, *args, **kwargs):
                     gpu_list=parameters['gpu_list']
                     , model=model
                     , epoch=current_epoch
-                    , dataset=valid_dataset
+                    , dataset=valid_dataloader
                     , output_function=output_function
                     , output_time=output_time
-                    , mode='eval'
+                    , mode='train'
                 )
 
 
