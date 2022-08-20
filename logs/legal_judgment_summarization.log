@@ -1,118 +1,240 @@
-2022-08-08 14:36:51,748 - root - INFO - summarize.py -c configs/summarize/config.ini -m train -g 0 -bs 5
-2022-08-08 14:36:51,748 - legal_judgment_summarization.initialize - INFO - Start to initialize.
-2022-08-08 14:36:51,748 - legal_judgment_summarization.initialize - INFO - CUDA available: True
-2022-08-08 14:36:51,748 - legal_judgment_summarization.model.initialize - INFO - Start to initialize model.
-2022-08-08 14:36:51,748 - legal_judgment_summarization.model.initialize - INFO - Initialize model successfully.
-2022-08-08 14:36:56,589 - legal_judgment_summarization.initialize - INFO - Start to initialize multiple gpus.
-2022-08-08 14:36:56,591 - legal_judgment_summarization.initialize - INFO - Initialize multiple gpus successfully.
-2022-08-08 14:36:56,591 - legal_judgment_summarization.model.initialize - INFO - Start to initialize optimizer.
-2022-08-08 14:36:56,591 - legal_judgment_summarization.model.initialize - INFO - Initialize optimizer successfully.
-2022-08-08 14:36:56,592 - legal_judgment_summarization.dataset.initialize - INFO - Start to initialize train dataloader.
-2022-08-08 14:36:56,703 - legal_judgment_summarization.formatter.initialize - INFO - Start to initialize formatter.
-2022-08-08 14:36:56,719 - legal_judgment_summarization.formatter.initialize - INFO - Initialize formatter successfully.
-2022-08-08 14:36:56,719 - legal_judgment_summarization.dataset.initialize - INFO - Initialize train dataloader successfully.
-2022-08-08 14:36:56,719 - legal_judgment_summarization.dataset.initialize - INFO - Start to initialize valid dataloader.
-2022-08-08 14:36:56,725 - legal_judgment_summarization.formatter.initialize - INFO - Start to initialize formatter.
-2022-08-08 14:36:56,742 - legal_judgment_summarization.formatter.initialize - INFO - Initialize formatter successfully.
-2022-08-08 14:36:56,742 - legal_judgment_summarization.dataset.initialize - INFO - Initialize valid dataloader successfully.
-2022-08-08 14:36:56,743 - legal_judgment_summarization.output.initialize - INFO - Start to initialize output function.
-2022-08-08 14:36:56,743 - legal_judgment_summarization.output.initialize - INFO - Initialize output function successfully.
-2022-08-08 14:36:56,743 - legal_judgment_summarization.initialize - INFO - Initialize successfully.
-2022-08-08 14:36:56,743 - legal_judgment_summarization.train - INFO - Start to train model.
-2022-08-08 14:36:56,743 - legal_judgment_summarization.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
-2022-08-08 14:36:59,835 - utils - INFO - 0      train  1/769       0:03/39:34    9.780510902404785{"average_loss": "9.780510902404785"}
-2022-08-08 14:44:24,819 - utils - INFO - 0      train  101/769     7:28/49:23    1.2078288817169642{"average_loss": "1.2078288817169642"}
-2022-08-08 14:50:54,580 - utils - INFO - 0      train  201/769    13:57/39:27    0.9707214173985951{"average_loss": "0.9707214173985951"}
-2022-08-08 14:57:07,047 - utils - INFO - 0      train  301/769    20:10/31:21    0.8837077497841908{"average_loss": "0.8837077497841908"}
-2022-08-08 15:03:29,261 - utils - INFO - 0      train  401/769    26:32/24:21    0.8393700629695693{"average_loss": "0.8393700629695693"}
-2022-08-08 15:09:51,258 - utils - INFO - 0      train  501/769    32:54/17:36    0.8049628308671202{"average_loss": "0.8049628308671202"}
-2022-08-08 15:16:23,346 - utils - INFO - 0      train  601/769    39:26/11:01    0.7794282492901046{"average_loss": "0.7794282492901046"}
-2022-08-08 15:22:43,537 - utils - INFO - 0      train  701/769    45:46/ 4:26    0.7583882068516354{"average_loss": "0.7583882068516354"}
-2022-08-08 15:26:58,272 - utils - INFO - 0      train  769/769    45:46/ 0:00    0.7452322334554943{"average_loss": "0.7583882068516354"}
-2022-08-08 15:26:58,272 - legal_judgment_summarization.train - INFO - Current lr: 0.0001
-2022-08-08 15:27:03,341 - utils - INFO - 0      eval   1/41        0:03/ 2:05    0.7944475412368774{"average_loss": "0.7944475412368774"}
-2022-08-08 15:29:30,877 - utils - INFO - 0      eval   41/41       2:30/ 0:00    0.5591127937886773{"average_loss": "0.5591127937886773"}
-2022-08-08 15:29:34,969 - utils - INFO - 1      train  1/769       0:03/51:01    0.4419008791446686{"average_loss": "0.4419008791446686"}
-2022-08-08 15:36:13,495 - utils - INFO - 1      train  101/769     6:42/44:22    0.5242690054496916{"average_loss": "0.5242690054496916"}
-2022-08-08 15:42:38,415 - utils - INFO - 1      train  201/769    13:07/37:05    0.5245340691870125{"average_loss": "0.5245340691870125"}
-2022-08-08 15:49:10,784 - utils - INFO - 1      train  301/769    19:39/30:34    0.519793393306954{"average_loss": "0.519793393306954"}
-2022-08-08 15:55:43,118 - utils - INFO - 1      train  401/769    26:12/24:02    0.5164894742561398{"average_loss": "0.5164894742561398"}
-2022-08-08 16:01:49,809 - utils - INFO - 1      train  501/769    32:18/17:17    0.5140596256403628{"average_loss": "0.5140596256403628"}
-2022-08-08 16:07:51,004 - utils - INFO - 1      train  601/769    38:20/10:42    0.5128797798505838{"average_loss": "0.5128797798505838"}
-2022-08-08 16:13:53,866 - utils - INFO - 1      train  701/769    44:22/ 4:18    0.5104875070137236{"average_loss": "0.5104875070137236"}
-2022-08-08 16:18:03,323 - utils - INFO - 1      train  769/769    44:22/ 0:00    0.5102106780395086{"average_loss": "0.5104875070137236"}
-2022-08-08 16:18:03,323 - legal_judgment_summarization.train - INFO - Current lr: 1e-05
-2022-08-08 16:18:08,895 - utils - INFO - 1      eval   1/41        0:03/ 2:32    0.3901447057723999{"average_loss": "0.3901447057723999"}
-2022-08-08 16:20:24,217 - utils - INFO - 1      eval   41/41       2:19/ 0:00    0.5106664656139002{"average_loss": "0.5106664656139002"}
-2022-08-08 16:20:27,915 - utils - INFO - 2      train  1/769       0:03/45:28    0.5017309784889221{"average_loss": "0.5017309784889221"}
-2022-08-08 16:26:41,094 - utils - INFO - 2      train  101/769     6:16/41:31    0.3927799868996781{"average_loss": "0.3927799868996781"}
-2022-08-08 16:32:58,604 - utils - INFO - 2      train  201/769    12:34/35:31    0.3849535667481114{"average_loss": "0.3849535667481114"}
-2022-08-08 16:39:12,182 - utils - INFO - 2      train  301/769    18:47/29:13    0.3847053164857567{"average_loss": "0.3847053164857567"}
-2022-08-08 16:45:26,711 - utils - INFO - 2      train  401/769    25:02/22:58    0.3827511438928043{"average_loss": "0.3827511438928043"}
-2022-08-08 16:51:43,268 - utils - INFO - 2      train  501/769    31:18/16:45    0.37902205483523194{"average_loss": "0.37902205483523194"}
-2022-08-08 16:57:58,129 - utils - INFO - 2      train  601/769    37:33/10:30    0.3781550259340226{"average_loss": "0.3781550259340226"}
-2022-08-08 17:04:10,127 - utils - INFO - 2      train  701/769    43:45/ 4:14    0.377308193525132{"average_loss": "0.377308193525132"}
-2022-08-08 17:08:20,947 - utils - INFO - 2      train  769/769    43:45/ 0:00    0.37654690469659974{"average_loss": "0.377308193525132"}
-2022-08-08 17:08:20,947 - legal_judgment_summarization.train - INFO - Current lr: 1e-05
-2022-08-08 17:08:25,727 - utils - INFO - 2      eval   1/41        0:03/ 2:02    0.5633031129837036{"average_loss": "0.5633031129837036"}
-2022-08-08 17:10:45,481 - utils - INFO - 2      eval   41/41       2:22/ 0:00    0.4998133429666845{"average_loss": "0.4998133429666845"}
-2022-08-08 17:10:48,424 - utils - INFO - 3      train  1/769       0:02/36:36    0.5367115139961243{"average_loss": "0.5367115139961243"}
-2022-08-08 17:17:04,268 - utils - INFO - 3      train  101/769     6:18/41:44    0.3480703962026256{"average_loss": "0.3480703962026256"}
-2022-08-08 17:23:19,455 - utils - INFO - 3      train  201/769    12:33/35:30    0.3431179161688582{"average_loss": "0.3431179161688582"}
-2022-08-08 17:29:31,106 - utils - INFO - 3      train  301/769    18:45/29:10    0.3425915981348963{"average_loss": "0.3425915981348963"}
-2022-08-08 17:35:46,143 - utils - INFO - 3      train  401/769    25:00/22:57    0.3418170182113338{"average_loss": "0.3418170182113338"}
-2022-08-08 17:42:05,480 - utils - INFO - 3      train  501/769    31:19/16:45    0.34118107511492785{"average_loss": "0.34118107511492785"}
-2022-08-08 17:48:20,946 - utils - INFO - 3      train  601/769    37:35/10:30    0.34141499101619754{"average_loss": "0.34141499101619754"}
-2022-08-08 17:54:29,802 - utils - INFO - 3      train  701/769    43:44/ 4:14    0.34161615278173274{"average_loss": "0.34161615278173274"}
-2022-08-08 17:58:38,524 - utils - INFO - 3      train  769/769    43:44/ 0:00    0.34219183548994275{"average_loss": "0.34161615278173274"}
-2022-08-08 17:58:38,525 - legal_judgment_summarization.train - INFO - Current lr: 1.0000000000000002e-06
-2022-08-08 17:58:44,034 - utils - INFO - 3      eval   1/41        0:03/ 2:32    0.6571482419967651{"average_loss": "0.6571482419967651"}
-2022-08-08 18:01:01,038 - utils - INFO - 3      eval   41/41       2:20/ 0:00    0.5109754833506375{"average_loss": "0.5109754833506375"}
-2022-08-08 18:01:04,783 - utils - INFO - 4      train  1/769       0:03/46:52    0.3666837811470032{"average_loss": "0.3666837811470032"}
-2022-08-08 18:07:16,920 - utils - INFO - 4      train  101/769     6:15/41:25    0.30363939097612214{"average_loss": "0.30363939097612214"}
-2022-08-08 18:13:31,755 - utils - INFO - 4      train  201/769    12:30/35:21    0.30499620468758826{"average_loss": "0.30499620468758826"}
-2022-08-08 18:19:44,926 - utils - INFO - 4      train  301/769    18:43/29:07    0.30897051987061863{"average_loss": "0.30897051987061863"}
-2022-08-08 18:26:02,079 - utils - INFO - 4      train  401/769    25:00/22:57    0.30862163850791435{"average_loss": "0.30862163850791435"}
-2022-08-08 18:32:21,090 - utils - INFO - 4      train  501/769    31:19/16:45    0.3058953882156018{"average_loss": "0.3058953882156018"}
-2022-08-08 18:38:25,144 - utils - INFO - 4      train  601/769    37:24/10:27    0.30475848169374387{"average_loss": "0.30475848169374387"}
-2022-08-08 18:44:33,839 - utils - INFO - 4      train  701/769    43:32/ 4:13    0.3058038098835911{"average_loss": "0.3058038098835911"}
-2022-08-08 18:49:09,020 - utils - INFO - 4      train  769/769    43:32/ 0:00    0.30513034933410166{"average_loss": "0.3058038098835911"}
-2022-08-08 18:49:09,021 - legal_judgment_summarization.train - INFO - Current lr: 1.0000000000000002e-06
-2022-08-08 18:49:14,517 - utils - INFO - 4      eval   1/41        0:03/ 2:21    0.4878002107143402{"average_loss": "0.4878002107143402"}
-2022-08-08 18:51:57,088 - utils - INFO - 4      eval   41/41       2:46/ 0:00    0.5259942245192644{"average_loss": "0.5259942245192644"}
-2022-08-08 18:52:01,554 - utils - INFO - 5      train  1/769       0:04/55:32    0.2963283956050873{"average_loss": "0.2963283956050873"}
-2022-08-08 18:59:18,503 - utils - INFO - 5      train  101/769     7:21/48:38    0.2997748261631125{"average_loss": "0.2997748261631125"}
-2022-08-08 19:06:40,980 - utils - INFO - 5      train  201/769    14:43/41:37    0.29851294431223796{"average_loss": "0.29851294431223796"}
-2022-08-08 19:13:40,520 - utils - INFO - 5      train  301/769    21:43/33:46    0.3025069858049633{"average_loss": "0.3025069858049633"}
-2022-08-08 19:20:59,509 - utils - INFO - 5      train  401/769    29:02/26:38    0.30310880717939864{"average_loss": "0.30310880717939864"}
-2022-08-08 19:28:23,336 - utils - INFO - 5      train  501/769    36:26/19:29    0.3014897413536936{"average_loss": "0.3014897413536936"}
-2022-08-08 19:35:21,720 - utils - INFO - 5      train  601/769    43:24/12:08    0.3009450891103205{"average_loss": "0.3009450891103205"}
-2022-08-08 19:42:42,420 - utils - INFO - 5      train  701/769    50:45/ 4:55    0.29997377055092644{"average_loss": "0.29997377055092644"}
-2022-08-08 19:47:40,315 - utils - INFO - 5      train  769/769    50:45/ 0:00    0.29969076694065633{"average_loss": "0.29997377055092644"}
-2022-08-08 19:47:40,316 - legal_judgment_summarization.train - INFO - Current lr: 1.0000000000000002e-07
-2022-08-08 19:47:46,773 - utils - INFO - 5      eval   1/41        0:04/ 2:41    0.49605703353881836{"average_loss": "0.49605703353881836"}
-2022-08-08 19:50:34,290 - utils - INFO - 5      eval   41/41       2:51/ 0:00    0.5282541062773728{"average_loss": "0.5282541062773728"}
-2022-08-08 19:50:39,023 - utils - INFO - 6      train  1/769       0:04/59:12    0.22735080122947693{"average_loss": "0.22735080122947693"}
-2022-08-08 19:57:27,101 - utils - INFO - 6      train  101/769     6:52/45:29    0.3007040870661783{"average_loss": "0.3007040870661783"}
-2022-08-08 20:05:04,876 - utils - INFO - 6      train  201/769    14:30/40:59    0.2945151227475399{"average_loss": "0.2945151227475399"}
-2022-08-08 20:13:09,976 - utils - INFO - 6      train  301/769    22:35/35:07    0.2961848119762649{"average_loss": "0.2961848119762649"}
-2022-08-08 20:20:21,965 - utils - INFO - 6      train  401/769    29:47/27:20    0.297289939035204{"average_loss": "0.297289939035204"}
-2022-08-08 20:27:39,481 - utils - INFO - 6      train  501/769    37:05/19:50    0.2974249603684077{"average_loss": "0.2974249603684077"}
-2022-08-08 20:34:54,112 - utils - INFO - 6      train  601/769    44:19/12:23    0.2956760568844895{"average_loss": "0.2956760568844895"}
-2022-08-08 20:41:41,038 - utils - INFO - 6      train  701/769    51:06/ 4:57    0.29454229115249425{"average_loss": "0.29454229115249425"}
-2022-08-08 20:46:11,529 - utils - INFO - 6      train  769/769    51:06/ 0:00    0.2945906048633342{"average_loss": "0.29454229115249425"}
-2022-08-08 20:46:11,530 - legal_judgment_summarization.train - INFO - Current lr: 1.0000000000000002e-07
-2022-08-08 20:46:17,015 - utils - INFO - 6      eval   1/41        0:03/ 2:26    0.41537579894065857{"average_loss": "0.41537579894065857"}
-2022-08-08 20:48:48,288 - utils - INFO - 6      eval   41/41       2:34/ 0:00    0.5324204578632261{"average_loss": "0.5324204578632261"}
-2022-08-08 20:48:52,461 - utils - INFO - 7      train  1/769       0:04/52:05    0.2911069989204407{"average_loss": "0.2911069989204407"}
-2022-08-08 20:55:39,030 - utils - INFO - 7      train  101/769     6:50/45:15    0.29084434544686044{"average_loss": "0.29084434544686044"}
-2022-08-08 21:02:21,082 - utils - INFO - 7      train  201/769    13:32/38:16    0.28907719610342336{"average_loss": "0.28907719610342336"}
-2022-08-08 21:09:06,171 - utils - INFO - 7      train  301/769    20:17/31:33    0.2916122336324267{"average_loss": "0.2916122336324267"}
-2022-08-08 21:15:48,109 - utils - INFO - 7      train  401/769    26:59/24:46    0.29296864963083197{"average_loss": "0.29296864963083197"}
-2022-08-08 21:22:28,512 - utils - INFO - 7      train  501/769    33:40/18:00    0.2944047717515104{"average_loss": "0.2944047717515104"}
-2022-08-08 21:29:08,734 - utils - INFO - 7      train  601/769    40:20/11:16    0.29309332998044874{"average_loss": "0.29309332998044874"}
-2022-08-08 21:35:49,742 - utils - INFO - 7      train  701/769    47:01/ 4:33    0.29334678748534854{"average_loss": "0.29334678748534854"}
-2022-08-08 21:40:18,196 - utils - INFO - 7      train  769/769    47:01/ 0:00    0.2940655442339856{"average_loss": "0.29334678748534854"}
-2022-08-08 21:40:18,197 - legal_judgment_summarization.train - INFO - Current lr: 1.0000000000000002e-07
-2022-08-08 21:40:23,418 - utils - INFO - 7      eval   1/41        0:03/ 2:13    0.6058034896850586{"average_loss": "0.6058034896850586"}
-2022-08-08 21:42:56,224 - utils - INFO - 7      eval   41/41       2:36/ 0:00    0.5308705204870643{"average_loss": "0.5308705204870643"}
+2022-08-09 01:42:25,624 - root - INFO - summarize.py -c configs/summarize/CNewSum_v2/config.ini -m train -g 0 -bs 6
+2022-08-09 01:42:25,624 - legal_judgment_summarization.initialize - INFO - Start to initialize.
+2022-08-09 01:42:25,624 - legal_judgment_summarization.initialize - INFO - CUDA available: True
+2022-08-09 01:42:25,624 - legal_judgment_summarization.model.initialize - INFO - Start to initialize model.
+2022-08-09 01:42:25,624 - legal_judgment_summarization.model.initialize - INFO - Initialize model successfully.
+2022-08-09 01:42:28,112 - legal_judgment_summarization.initialize - INFO - Start to initialize multiple gpus.
+2022-08-09 01:42:28,114 - legal_judgment_summarization.initialize - INFO - Initialize multiple gpus successfully.
+2022-08-09 01:42:28,114 - legal_judgment_summarization.model.initialize - INFO - Start to initialize optimizer.
+2022-08-09 01:42:28,114 - legal_judgment_summarization.model.initialize - INFO - Initialize optimizer successfully.
+2022-08-09 01:42:28,115 - legal_judgment_summarization.dataset.initialize - INFO - Start to initialize train dataloader.
+2022-08-09 01:42:30,821 - legal_judgment_summarization.formatter.initialize - INFO - Start to initialize formatter.
+2022-08-09 01:42:30,837 - legal_judgment_summarization.formatter.initialize - INFO - Initialize formatter successfully.
+2022-08-09 01:42:30,837 - legal_judgment_summarization.dataset.initialize - INFO - Initialize train dataloader successfully.
+2022-08-09 01:42:30,837 - legal_judgment_summarization.dataset.initialize - INFO - Start to initialize valid dataloader.
+2022-08-09 01:42:31,118 - legal_judgment_summarization.formatter.initialize - INFO - Start to initialize formatter.
+2022-08-09 01:42:31,133 - legal_judgment_summarization.formatter.initialize - INFO - Initialize formatter successfully.
+2022-08-09 01:42:31,133 - legal_judgment_summarization.dataset.initialize - INFO - Initialize valid dataloader successfully.
+2022-08-09 01:42:31,134 - legal_judgment_summarization.output.initialize - INFO - Start to initialize output function.
+2022-08-09 01:42:31,134 - legal_judgment_summarization.output.initialize - INFO - Initialize output function successfully.
+2022-08-09 01:42:31,134 - legal_judgment_summarization.initialize - INFO - Initialize successfully.
+2022-08-09 01:42:31,134 - legal_judgment_summarization.train - INFO - Start to train model.
+2022-08-09 01:42:31,134 - legal_judgment_summarization.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-08-09 01:42:31,134 - legal_judgment_summarization.train - INFO - Current learning rate: 0.0001
+2022-08-09 01:42:33,861 - utils - INFO - 0      train  1/46246     0:02/2101:08  12.543343544006348{"average_loss": "12.543343544006348"}
+2022-08-09 02:17:18,805 - utils - INFO - 0      train  2001/46246 34:47/769:21   0.15810325991982285{"average_loss": "0.15810325991982285"}
+2022-08-09 02:52:40,394 - utils - INFO - 0      train  4001/46246 70:09/740:43   0.15008483482052223{"average_loss": "0.15008483482052223"}
+2022-08-09 03:23:52,482 - utils - INFO - 0      train  6001/46246 101:21/679:43  0.14277704066409605{"average_loss": "0.14277704066409605"}
+2022-08-09 03:55:03,324 - utils - INFO - 0      train  8001/46246 132:32/633:31  0.13942783391746844{"average_loss": "0.13942783391746844"}
+2022-08-09 04:26:12,715 - utils - INFO - 0      train  10001/46246 163:41/593:14 0.13758990952927413{"average_loss": "0.13758990952927413"}
+2022-08-09 04:57:27,492 - utils - INFO - 0      train  12001/46246 194:56/556:15 0.13692454743250967{"average_loss": "0.13692454743250967"}
+2022-08-09 05:28:41,172 - utils - INFO - 0      train  14001/46246 226:10/520:52 0.13605802942408757{"average_loss": "0.13605802942408757"}
+2022-08-09 06:00:07,939 - utils - INFO - 0      train  16001/46246 257:36/486:56 0.1351011450650446{"average_loss": "0.1351011450650446"}
+2022-08-09 06:31:20,801 - utils - INFO - 0      train  18001/46246 288:49/453:11 0.13434056100130254{"average_loss": "0.13434056100130254"}
+2022-08-09 07:02:44,786 - utils - INFO - 0      train  20001/46246 320:13/420:11 0.13366619674852565{"average_loss": "0.13366619674852565"}
+2022-08-09 07:34:08,188 - utils - INFO - 0      train  22001/46246 351:37/387:28 0.13304322047098882{"average_loss": "0.13304322047098882"}
+2022-08-09 08:05:40,411 - utils - INFO - 0      train  24001/46246 383:09/355:07 0.13251556616983812{"average_loss": "0.13251556616983812"}
+2022-08-09 08:37:10,100 - utils - INFO - 0      train  26001/46246 414:38/322:51 0.13203015485752304{"average_loss": "0.13203015485752304"}
+2022-08-09 09:08:37,090 - utils - INFO - 0      train  28001/46246 446:05/290:40 0.13159793011466586{"average_loss": "0.13159793011466586"}
+2022-08-09 09:40:00,429 - utils - INFO - 0      train  30001/46246 477:29/258:33 0.1312618765795361{"average_loss": "0.1312618765795361"}
+2022-08-09 10:11:19,850 - utils - INFO - 0      train  32001/46246 508:48/226:29 0.13088794297926842{"average_loss": "0.13088794297926842"}
+2022-08-09 10:42:44,725 - utils - INFO - 0      train  34001/46246 540:13/194:33 0.13058783350593078{"average_loss": "0.13058783350593078"}
+2022-08-09 11:14:10,547 - utils - INFO - 0      train  36001/46246 571:39/162:40 0.1303528470859606{"average_loss": "0.1303528470859606"}
+2022-08-09 11:45:31,361 - utils - INFO - 0      train  38001/46246 603:00/130:49 0.13003634686345852{"average_loss": "0.13003634686345852"}
+2022-08-09 12:16:55,218 - utils - INFO - 0      train  40001/46246 634:24/99:02  0.12982490808899486{"average_loss": "0.12982490808899486"}
+2022-08-09 12:48:32,953 - utils - INFO - 0      train  42001/46246 666:01/67:18  0.1295996585540703{"average_loss": "0.1295996585540703"}
+2022-08-09 13:21:56,083 - utils - INFO - 0      train  44001/46246 699:24/35:41  0.12941010093181354{"average_loss": "0.12941010093181354"}
+2022-08-09 13:55:11,946 - utils - INFO - 0      train  46001/46246 732:40/ 3:54  0.12920196273054105{"average_loss": "0.12920196273054105"}
+2022-08-09 13:59:17,057 - utils - INFO - 0      train  46246/46246 732:40/ 0:00  0.12918631543714237{"average_loss": "0.12920196273054105"}
+2022-08-09 13:59:19,654 - utils - INFO - 0      eval   1/5139      0:00/60:44    0.11954614520072937{"average_loss": "0.11954614520072937"}
+2022-08-09 14:22:14,398 - utils - INFO - 0      eval   2001/5139  22:55/35:57    0.1165883732100447{"average_loss": "0.1165883732100447"}
+2022-08-09 14:47:41,649 - utils - INFO - 0      eval   4001/5139  48:22/13:45    0.11611832675804082{"average_loss": "0.11611832675804082"}
+2022-08-09 15:00:32,334 - utils - INFO - 0      eval   5139/5139  61:13/ 0:00    0.11643848278601245{"average_loss": "0.11643848278601245"}
+2022-08-09 15:30:26,393 - root - INFO - summarize.py -c configs/summarize/CNewSum_v2/config.ini -m train -g 0 -cp results/legal_judgment_summarization/CNewSum_v2/checkpoint_0.pkl -bs 6
+2022-08-09 15:30:26,394 - legal_judgment_summarization.initialize - INFO - Start to initialize.
+2022-08-09 15:30:26,394 - legal_judgment_summarization.initialize - INFO - CUDA available: True
+2022-08-09 15:30:26,394 - legal_judgment_summarization.model.initialize - INFO - Start to initialize model.
+2022-08-09 15:30:26,394 - legal_judgment_summarization.model.initialize - INFO - Initialize model successfully.
+2022-08-09 15:30:30,026 - legal_judgment_summarization.initialize - INFO - Start to initialize multiple gpus.
+2022-08-09 15:30:30,028 - legal_judgment_summarization.initialize - INFO - Initialize multiple gpus successfully.
+2022-08-09 15:30:30,028 - legal_judgment_summarization.model.initialize - INFO - Start to initialize optimizer.
+2022-08-09 15:30:30,028 - legal_judgment_summarization.model.initialize - INFO - Initialize optimizer successfully.
+2022-08-09 15:30:30,766 - legal_judgment_summarization.dataset.initialize - INFO - Start to initialize train dataloader.
+2022-08-09 15:30:33,481 - legal_judgment_summarization.formatter.initialize - INFO - Start to initialize formatter.
+2022-08-09 15:30:33,497 - legal_judgment_summarization.formatter.initialize - INFO - Initialize formatter successfully.
+2022-08-09 15:30:33,497 - legal_judgment_summarization.dataset.initialize - INFO - Initialize train dataloader successfully.
+2022-08-09 15:30:33,497 - legal_judgment_summarization.dataset.initialize - INFO - Start to initialize valid dataloader.
+2022-08-09 15:30:33,776 - legal_judgment_summarization.formatter.initialize - INFO - Start to initialize formatter.
+2022-08-09 15:30:33,792 - legal_judgment_summarization.formatter.initialize - INFO - Initialize formatter successfully.
+2022-08-09 15:30:33,792 - legal_judgment_summarization.dataset.initialize - INFO - Initialize valid dataloader successfully.
+2022-08-09 15:30:33,793 - legal_judgment_summarization.output.initialize - INFO - Start to initialize output function.
+2022-08-09 15:30:33,793 - legal_judgment_summarization.output.initialize - INFO - Initialize output function successfully.
+2022-08-09 15:30:33,793 - legal_judgment_summarization.initialize - INFO - Initialize successfully.
+2022-08-09 15:30:33,794 - legal_judgment_summarization.train - INFO - Start to train model.
+2022-08-09 15:30:33,794 - legal_judgment_summarization.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-08-09 15:30:33,794 - legal_judgment_summarization.train - INFO - Current learning rate: 0.0001
+2022-08-09 15:30:34,987 - utils - INFO - 1      train  1/46246     0:01/919:25   0.09457283467054367{"average_loss": "0.09457283467054367"}
+2022-08-09 16:03:54,306 - utils - INFO - 1      train  2001/46246 33:20/737:14   0.1162906275026087{"average_loss": "0.1162906275026087"}
+2022-08-09 16:37:28,879 - utils - INFO - 1      train  4001/46246 66:55/706:33   0.11685525880317872{"average_loss": "0.11685525880317872"}
+2022-08-09 17:11:03,849 - utils - INFO - 1      train  6001/46246 100:30/673:59  0.11783567951597029{"average_loss": "0.11783567951597029"}
+2022-08-09 17:44:38,226 - utils - INFO - 1      train  8001/46246 134:04/640:52  0.11787727243575345{"average_loss": "0.11787727243575345"}
+2022-08-09 18:18:07,891 - utils - INFO - 1      train  10001/46246 167:34/607:17 0.11766166671806605{"average_loss": "0.11766166671806605"}
+2022-08-09 18:51:30,964 - utils - INFO - 1      train  12001/46246 200:57/573:25 0.11798434088399445{"average_loss": "0.11798434088399445"}
+2022-08-09 19:24:43,350 - utils - INFO - 1      train  14001/46246 234:09/539:16 0.11808409016111367{"average_loss": "0.11808409016111367"}
+2022-08-09 19:57:20,681 - utils - INFO - 1      train  16001/46246 266:46/504:16 0.11834762178528578{"average_loss": "0.11834762178528578"}
+2022-08-09 20:29:56,767 - utils - INFO - 1      train  18001/46246 299:22/469:45 0.11850418865878952{"average_loss": "0.11850418865878952"}
+2022-08-09 21:02:32,203 - utils - INFO - 1      train  20001/46246 331:58/435:36 0.1185549117661452{"average_loss": "0.1185549117661452"}
+2022-08-09 21:35:11,717 - utils - INFO - 1      train  22001/46246 364:37/401:49 0.11855813603648248{"average_loss": "0.11855813603648248"}
+2022-08-09 22:07:49,454 - utils - INFO - 1      train  24001/46246 397:15/368:11 0.11860698416745605{"average_loss": "0.11860698416745605"}
+2022-08-09 22:40:25,277 - utils - INFO - 1      train  26001/46246 429:51/334:41 0.11876881768407821{"average_loss": "0.11876881768407821"}
+2022-08-09 23:13:00,194 - utils - INFO - 1      train  28001/46246 462:26/301:19 0.11886534954769691{"average_loss": "0.11886534954769691"}
+2022-08-09 23:45:32,326 - utils - INFO - 1      train  30001/46246 494:58/268:01 0.11891685296611836{"average_loss": "0.11891685296611836"}
+2022-08-10 00:18:02,248 - utils - INFO - 1      train  32001/46246 527:28/234:48 0.11895920965818339{"average_loss": "0.11895920965818339"}
+2022-08-10 00:49:26,988 - utils - INFO - 1      train  34001/46246 558:53/201:16 0.11908452237621316{"average_loss": "0.11908452237621316"}
+2022-08-10 01:20:54,858 - utils - INFO - 1      train  36001/46246 590:21/167:59 0.11918416712849596{"average_loss": "0.11918416712849596"}
+2022-08-10 01:52:19,665 - utils - INFO - 1      train  38001/46246 621:45/134:54 0.1192379303536616{"average_loss": "0.1192379303536616"}
+2022-08-10 02:23:48,530 - utils - INFO - 1      train  40001/46246 653:14/101:59 0.11926739377852205{"average_loss": "0.11926739377852205"}
+2022-08-10 02:55:21,744 - utils - INFO - 1      train  42001/46246 684:47/69:12  0.11935663118127221{"average_loss": "0.11935663118127221"}
+2022-08-10 03:26:46,105 - utils - INFO - 1      train  44001/46246 716:12/36:32  0.1193383078616545{"average_loss": "0.1193383078616545"}
+2022-08-10 03:58:25,986 - utils - INFO - 1      train  46001/46246 747:52/ 3:58  0.11933850030335823{"average_loss": "0.11933850030335823"}
+2022-08-10 04:02:18,686 - utils - INFO - 1      train  46246/46246 747:52/ 0:00  0.11935524708553823{"average_loss": "0.11933850030335823"}
+2022-08-10 04:02:21,078 - utils - INFO - 1      train  1/5139      0:00/52:53    0.12705625593662262{"average_loss": "0.12705625593662262"}
+2022-08-10 04:23:37,366 - utils - INFO - 1      train  2001/5139  21:16/33:22    0.11560065912335053{"average_loss": "0.11560065912335053"}
+2022-08-10 04:44:50,833 - utils - INFO - 1      train  4001/5139  42:30/12:05    0.11535378718519175{"average_loss": "0.11535378718519175"}
+2022-08-10 04:56:58,859 - utils - INFO - 1      train  5139/5139  54:38/ 0:00    0.11553832993859516{"average_loss": "0.11553832993859516"}
+2022-08-10 04:56:58,908 - legal_judgment_summarization.train - INFO - Current learning rate: 1e-05
+2022-08-10 04:56:59,983 - utils - INFO - 2      train  1/46246     0:01/828:44   0.14204788208007812{"average_loss": "0.14204788208007812"}
+2022-08-10 05:28:52,844 - utils - INFO - 2      train  2001/46246 31:53/705:19   0.1066445347921423{"average_loss": "0.1066445347921423"}
+2022-08-10 06:00:33,713 - utils - INFO - 2      train  4001/46246 63:34/671:19   0.10615598100594388{"average_loss": "0.10615598100594388"}
+2022-08-10 06:32:20,445 - utils - INFO - 2      train  6001/46246 95:21/639:30   0.10465923679840156{"average_loss": "0.10465923679840156"}
+2022-08-10 07:03:59,602 - utils - INFO - 2      train  8001/46246 127:00/607:07  0.10382905285193196{"average_loss": "0.10382905285193196"}
+2022-08-10 07:35:46,067 - utils - INFO - 2      train  10001/46246 158:47/575:27 0.10314454966961425{"average_loss": "0.10314454966961425"}
+2022-08-10 08:07:25,251 - utils - INFO - 2      train  12001/46246 190:26/543:25 0.10268852158911565{"average_loss": "0.10268852158911565"}
+2022-08-10 08:39:06,406 - utils - INFO - 2      train  14001/46246 222:07/511:33 0.1024142421469913{"average_loss": "0.1024142421469913"}
+2022-08-10 09:10:43,408 - utils - INFO - 2      train  16001/46246 253:44/479:37 0.10203299767168773{"average_loss": "0.10203299767168773"}
+2022-08-10 09:42:24,908 - utils - INFO - 2      train  18001/46246 285:25/447:52 0.10162372099869228{"average_loss": "0.10162372099869228"}
+2022-08-10 10:14:08,557 - utils - INFO - 2      train  20001/46246 317:09/416:10 0.10143290570987433{"average_loss": "0.10143290570987433"}
+2022-08-10 10:45:49,339 - utils - INFO - 2      train  22001/46246 348:50/384:25 0.10110504645748407{"average_loss": "0.10110504645748407"}
+2022-08-10 11:17:51,594 - utils - INFO - 2      train  24001/46246 380:52/353:00 0.10083853716477656{"average_loss": "0.10083853716477656"}
+2022-08-10 11:51:24,467 - utils - INFO - 2      train  26001/46246 414:25/322:40 0.10058583289529263{"average_loss": "0.10058583289529263"}
+2022-08-10 12:27:44,093 - utils - INFO - 2      train  28001/46246 450:45/293:42 0.1004554781370821{"average_loss": "0.1004554781370821"}
+2022-08-10 13:04:01,055 - utils - INFO - 2      train  30001/46246 487:02/263:43 0.10018907935703751{"average_loss": "0.10018907935703751"}
+2022-08-10 13:37:35,736 - utils - INFO - 2      train  32001/46246 520:36/231:44 0.10001233431742665{"average_loss": "0.10001233431742665"}
+2022-08-10 14:10:58,597 - utils - INFO - 2      train  34001/46246 553:59/199:30 0.09984399830837956{"average_loss": "0.09984399830837956"}
+2022-08-10 14:44:43,297 - utils - INFO - 2      train  36001/46246 587:44/167:15 0.09967219106547129{"average_loss": "0.09967219106547129"}
+2022-08-10 15:18:34,528 - utils - INFO - 2      train  38001/46246 621:35/134:51 0.09949051917247458{"average_loss": "0.09949051917247458"}
+2022-08-10 15:52:37,572 - utils - INFO - 2      train  40001/46246 655:38/102:21 0.09936148121859695{"average_loss": "0.09936148121859695"}
+2022-08-10 16:27:27,122 - utils - INFO - 2      train  42001/46246 690:28/69:47  0.09918419017897132{"average_loss": "0.09918419017897132"}
+2022-08-10 17:01:21,019 - utils - INFO - 2      train  44001/46246 724:22/36:57  0.09903973351270573{"average_loss": "0.09903973351270573"}
+2022-08-10 17:35:19,793 - utils - INFO - 2      train  46001/46246 758:20/ 4:02  0.0989142551907867{"average_loss": "0.0989142551907867"}
+2022-08-10 17:39:28,545 - utils - INFO - 2      train  46246/46246 758:20/ 0:00  0.09888438023721857{"average_loss": "0.0989142551907867"}
+2022-08-10 17:39:31,207 - utils - INFO - 2      train  1/5139      0:00/57:13    0.08364681154489517{"average_loss": "0.08364681154489517"}
+2022-08-10 18:03:18,910 - utils - INFO - 2      train  2001/5139  23:48/37:19    0.1031513649892101{"average_loss": "0.1031513649892101"}
+2022-08-10 18:30:00,335 - utils - INFO - 2      train  4001/5139  50:29/14:21    0.10282482351466242{"average_loss": "0.10282482351466242"}
+2022-08-10 18:44:07,462 - utils - INFO - 2      train  5139/5139  64:36/ 0:00    0.1027494809465415{"average_loss": "0.1027494809465415"}
+2022-08-10 20:03:21,742 - root - INFO - summarize.py -c configs/summarize/CAIL2020_sfzy/config.ini -m train -g 0 -cp results/legal_judgment_summarization/CAIL2020_sfzy/checkpoint_0.pkl -bs 5
+2022-08-10 20:03:21,742 - legal_judgment_summarization.initialize - INFO - Start to initialize.
+2022-08-10 20:03:21,742 - legal_judgment_summarization.initialize - INFO - CUDA available: True
+2022-08-10 20:03:21,742 - legal_judgment_summarization.model.initialize - INFO - Start to initialize model.
+2022-08-10 20:03:21,742 - legal_judgment_summarization.model.initialize - INFO - Initialize model successfully.
+2022-08-10 20:03:25,072 - legal_judgment_summarization.initialize - INFO - Start to initialize multiple gpus.
+2022-08-10 20:03:25,074 - legal_judgment_summarization.initialize - INFO - Initialize multiple gpus successfully.
+2022-08-10 20:03:25,074 - legal_judgment_summarization.model.initialize - INFO - Start to initialize optimizer.
+2022-08-10 20:03:25,074 - legal_judgment_summarization.model.initialize - INFO - Initialize optimizer successfully.
+2022-08-10 20:03:28,059 - legal_judgment_summarization.dataset.initialize - INFO - Start to initialize train dataloader.
+2022-08-10 20:03:28,202 - legal_judgment_summarization.formatter.initialize - INFO - Start to initialize formatter.
+2022-08-10 20:03:28,218 - legal_judgment_summarization.formatter.initialize - INFO - Initialize formatter successfully.
+2022-08-10 20:03:28,218 - legal_judgment_summarization.dataset.initialize - INFO - Initialize train dataloader successfully.
+2022-08-10 20:03:28,218 - legal_judgment_summarization.dataset.initialize - INFO - Start to initialize valid dataloader.
+2022-08-10 20:03:28,225 - legal_judgment_summarization.formatter.initialize - INFO - Start to initialize formatter.
+2022-08-10 20:03:28,242 - legal_judgment_summarization.formatter.initialize - INFO - Initialize formatter successfully.
+2022-08-10 20:03:28,242 - legal_judgment_summarization.dataset.initialize - INFO - Initialize valid dataloader successfully.
+2022-08-10 20:03:28,243 - legal_judgment_summarization.output.initialize - INFO - Start to initialize output function.
+2022-08-10 20:03:28,243 - legal_judgment_summarization.output.initialize - INFO - Initialize output function successfully.
+2022-08-10 20:03:28,243 - legal_judgment_summarization.initialize - INFO - Initialize successfully.
+2022-08-10 20:03:28,244 - legal_judgment_summarization.train - INFO - Start to train model.
+2022-08-10 20:03:28,244 - legal_judgment_summarization.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-08-10 20:03:28,244 - legal_judgment_summarization.train - INFO - Current learning rate: 0.0001
+2022-08-10 20:03:32,228 - utils - INFO - 1      train  1/769       0:03/50:59    0.5875107049942017{"average_loss": "0.5875107049942017"}
+2022-08-10 20:10:03,147 - utils - INFO - 1      train  101/769     6:34/43:31    0.5667117969824536{"average_loss": "0.5667117969824536"}
+2022-08-10 20:16:29,687 - utils - INFO - 1      train  201/769    13:01/36:48    0.5709060752273198{"average_loss": "0.5709060752273198"}
+2022-08-10 20:23:04,128 - utils - INFO - 1      train  301/769    19:35/30:28    0.5686583861560125{"average_loss": "0.5686583861560125"}
+2022-08-10 20:29:34,206 - utils - INFO - 1      train  401/769    26:05/23:57    0.5681236488860741{"average_loss": "0.5681236488860741"}
+2022-08-10 20:36:08,377 - utils - INFO - 1      train  501/769    32:40/17:28    0.5720222193799809{"average_loss": "0.5720222193799809"}
+2022-08-10 20:42:40,821 - utils - INFO - 1      train  601/769    39:12/10:57    0.5675684799767176{"average_loss": "0.5675684799767176"}
+2022-08-10 20:49:11,660 - utils - INFO - 1      train  701/769    45:43/ 4:26    0.5654474099760559{"average_loss": "0.5654474099760559"}
+2022-08-10 20:53:32,055 - utils - INFO - 1      train  769/769    45:43/ 0:00    0.5637863212893626{"average_loss": "0.5654474099760559"}
+2022-08-10 20:53:37,182 - utils - INFO - 1      train  1/41        0:03/ 2:13    0.5608298182487488{"average_loss": "0.5608298182487488"}
+2022-08-10 20:55:53,567 - utils - INFO - 1      train  41/41       2:19/ 0:00    0.5288601619441334{"average_loss": "0.5288601619441334"}
+2022-08-10 20:55:53,656 - legal_judgment_summarization.train - INFO - Current learning rate: 1e-05
+2022-08-10 20:55:57,686 - utils - INFO - 2      train  1/769       0:04/51:34    0.42959657311439514{"average_loss": "0.42959657311439514"}
+2022-08-10 21:02:28,686 - utils - INFO - 2      train  101/769     6:35/43:32    0.46633209096323147{"average_loss": "0.46633209096323147"}
+2022-08-10 21:09:05,438 - utils - INFO - 2      train  201/769    13:11/37:17    0.4779844886034875{"average_loss": "0.4779844886034875"}
+2022-08-10 21:15:30,315 - utils - INFO - 2      train  301/769    19:36/30:29    0.47573464574211854{"average_loss": "0.47573464574211854"}
+2022-08-10 21:21:42,663 - utils - INFO - 2      train  401/769    25:49/23:41    0.47693477440950577{"average_loss": "0.47693477440950577"}
+2022-08-10 21:27:54,799 - utils - INFO - 2      train  501/769    32:01/17:07    0.47797029538306884{"average_loss": "0.47797029538306884"}
+2022-08-10 21:34:06,800 - utils - INFO - 2      train  601/769    38:13/10:41    0.4762143066242808{"average_loss": "0.4762143066242808"}
+2022-08-10 21:40:20,163 - utils - INFO - 2      train  701/769    44:26/ 4:18    0.4754748324439801{"average_loss": "0.4754748324439801"}
+2022-08-10 21:44:28,665 - utils - INFO - 2      train  769/769    44:26/ 0:00    0.47355283527442477{"average_loss": "0.4754748324439801"}
+2022-08-10 21:44:33,661 - utils - INFO - 2      train  1/41        0:03/ 2:12    0.6856885552406311{"average_loss": "0.6856885552406311"}
+2022-08-10 21:46:51,925 - utils - INFO - 2      train  41/41       2:21/ 0:00    0.5052887542945582{"average_loss": "0.5052887542945582"}
+2022-08-10 21:46:52,013 - legal_judgment_summarization.train - INFO - Current learning rate: 1e-05
+2022-08-10 21:46:55,600 - utils - INFO - 3      train  1/769       0:03/45:54    0.3802265226840973{"average_loss": "0.3802265226840973"}
+2022-08-10 21:53:06,984 - utils - INFO - 3      train  101/769     6:14/41:20    0.44968751958101105{"average_loss": "0.44968751958101105"}
+2022-08-10 21:59:20,002 - utils - INFO - 3      train  201/769    12:27/35:13    0.45769875782046154{"average_loss": "0.45769875782046154"}
+2022-08-10 22:05:35,659 - utils - INFO - 3      train  301/769    18:43/29:07    0.45313338514578305{"average_loss": "0.45313338514578305"}
+2022-08-10 22:11:46,473 - utils - INFO - 3      train  401/769    24:54/22:51    0.4518000392842471{"average_loss": "0.4518000392842471"}
+2022-08-10 22:17:54,428 - utils - INFO - 3      train  501/769    31:02/16:36    0.4561578150756821{"average_loss": "0.4561578150756821"}
+2022-08-10 22:24:02,522 - utils - INFO - 3      train  601/769    37:10/10:23    0.45602698304292166{"average_loss": "0.45602698304292166"}
+2022-08-10 22:30:15,881 - utils - INFO - 3      train  701/769    43:23/ 4:12    0.45623630606243853{"average_loss": "0.45623630606243853"}
+2022-08-10 22:34:25,074 - utils - INFO - 3      train  769/769    43:23/ 0:00    0.4568742426652437{"average_loss": "0.45623630606243853"}
+2022-08-10 22:34:29,969 - utils - INFO - 3      train  1/41        0:03/ 2:09    0.7686690092086792{"average_loss": "0.7686690092086792"}
+2022-08-10 22:36:50,467 - utils - INFO - 3      train  41/41       2:23/ 0:00    0.4989746434659493{"average_loss": "0.4989746434659493"}
+2022-08-10 22:36:50,554 - legal_judgment_summarization.train - INFO - Current learning rate: 1.0000000000000002e-06
+2022-08-10 22:36:53,862 - utils - INFO - 4      train  1/769       0:03/42:20    0.6055875420570374{"average_loss": "0.6055875420570374"}
+2022-08-10 22:43:08,246 - utils - INFO - 4      train  101/769     6:17/41:38    0.44654767761136044{"average_loss": "0.44654767761136044"}
+2022-08-10 22:49:25,872 - utils - INFO - 4      train  201/769    12:35/35:34    0.44261714489898873{"average_loss": "0.44261714489898873"}
+2022-08-10 22:55:35,471 - utils - INFO - 4      train  301/769    18:44/29:09    0.4412917970026846{"average_loss": "0.4412917970026846"}
+2022-08-10 23:01:51,821 - utils - INFO - 4      train  401/769    25:01/22:57    0.44404617501910487{"average_loss": "0.44404617501910487"}
+2022-08-10 23:07:57,347 - utils - INFO - 4      train  501/769    31:06/16:38    0.4422705633316687{"average_loss": "0.4422705633316687"}
+2022-08-10 23:14:10,847 - utils - INFO - 4      train  601/769    37:20/10:26    0.4425200086564272{"average_loss": "0.4425200086564272"}
+2022-08-10 23:20:26,564 - utils - INFO - 4      train  701/769    43:36/ 4:13    0.44275146948117844{"average_loss": "0.44275146948117844"}
+2022-08-10 23:24:38,704 - utils - INFO - 4      train  769/769    43:36/ 0:00    0.44212892550795846{"average_loss": "0.44275146948117844"}
+2022-08-10 23:24:44,350 - utils - INFO - 4      train  1/41        0:04/ 2:40    0.420745849609375{"average_loss": "0.420745849609375"}
+2022-08-10 23:27:02,995 - utils - INFO - 4      train  41/41       2:22/ 0:00    0.5019615463367323{"average_loss": "0.5019615463367323"}
+2022-08-10 23:27:03,082 - legal_judgment_summarization.train - INFO - Current learning rate: 1.0000000000000002e-06
+2022-08-10 23:27:07,029 - utils - INFO - 5      train  1/769       0:03/50:31    0.37592652440071106{"average_loss": "0.37592652440071106"}
+2022-08-10 23:33:19,820 - utils - INFO - 5      train  101/769     6:16/41:31    0.42249763026686{"average_loss": "0.42249763026686"}
+2022-08-10 23:39:31,350 - utils - INFO - 5      train  201/769    12:28/35:14    0.4315937616635318{"average_loss": "0.4315937616635318"}
+2022-08-10 23:45:44,896 - utils - INFO - 5      train  301/769    18:41/29:04    0.4375251026149604{"average_loss": "0.4375251026149604"}
+2022-08-10 23:51:59,900 - utils - INFO - 5      train  401/769    24:56/22:53    0.43863021216339004{"average_loss": "0.43863021216339004"}
+2022-08-10 23:58:11,902 - utils - INFO - 5      train  501/769    31:08/16:39    0.4413714102225865{"average_loss": "0.4413714102225865"}
+2022-08-11 00:04:27,438 - utils - INFO - 5      train  601/769    37:24/10:27    0.4408324374980022{"average_loss": "0.4408324374980022"}
+2022-08-11 00:10:40,356 - utils - INFO - 5      train  701/769    43:37/ 4:13    0.43979364295573786{"average_loss": "0.43979364295573786"}
+2022-08-11 00:14:52,841 - utils - INFO - 5      train  769/769    43:37/ 0:00    0.4399625939378813{"average_loss": "0.43979364295573786"}
+2022-08-11 00:14:58,303 - utils - INFO - 5      train  1/41        0:03/ 2:32    0.30611759424209595{"average_loss": "0.30611759424209595"}
+2022-08-11 00:17:20,385 - utils - INFO - 5      train  41/41       2:25/ 0:00    0.5065127691117729{"average_loss": "0.5065127691117729"}
+2022-08-11 00:17:20,472 - legal_judgment_summarization.train - INFO - Current learning rate: 1.0000000000000002e-07
+2022-08-11 00:17:24,018 - utils - INFO - 6      train  1/769       0:03/45:23    0.38807570934295654{"average_loss": "0.38807570934295654"}
+2022-08-11 00:23:40,241 - utils - INFO - 6      train  101/769     6:19/41:51    0.4494469239570127{"average_loss": "0.4494469239570127"}
+2022-08-11 00:30:36,064 - utils - INFO - 6      train  201/769    13:15/37:28    0.43940508439766235{"average_loss": "0.43940508439766235"}
+2022-08-11 00:37:48,435 - utils - INFO - 6      train  301/769    20:27/31:49    0.4427944623750706{"average_loss": "0.4427944623750706"}
+2022-08-11 00:44:57,825 - utils - INFO - 6      train  401/769    27:37/25:20    0.43797247873577394{"average_loss": "0.43797247873577394"}
+2022-08-11 00:51:59,824 - utils - INFO - 6      train  501/769    34:39/18:32    0.4378406191300489{"average_loss": "0.4378406191300489"}
+2022-08-11 00:59:20,087 - utils - INFO - 6      train  601/769    41:59/11:44    0.44015640605507594{"average_loss": "0.44015640605507594"}
+2022-08-11 01:06:30,965 - utils - INFO - 6      train  701/769    49:10/ 4:46    0.43916918875147376{"average_loss": "0.43916918875147376"}
+2022-08-11 01:11:08,307 - utils - INFO - 6      train  769/769    49:10/ 0:00    0.43847703205128485{"average_loss": "0.43916918875147376"}
+2022-08-11 01:11:13,533 - utils - INFO - 6      train  1/41        0:03/ 2:13    0.5545490384101868{"average_loss": "0.5545490384101868"}
+2022-08-11 01:13:57,095 - utils - INFO - 6      train  41/41       2:46/ 0:00    0.5013202734109832{"average_loss": "0.5013202734109832"}
+2022-08-11 01:13:57,204 - legal_judgment_summarization.train - INFO - Current learning rate: 1.0000000000000002e-07
+2022-08-11 01:14:02,279 - utils - INFO - 7      train  1/769       0:05/64:57    0.33600252866744995{"average_loss": "0.33600252866744995"}
+2022-08-11 01:21:15,158 - utils - INFO - 7      train  101/769     7:17/48:16    0.4310050974092861{"average_loss": "0.4310050974092861"}
+2022-08-11 01:28:29,577 - utils - INFO - 7      train  201/769    14:32/41:05    0.4375065470216286{"average_loss": "0.4375065470216286"}
+2022-08-11 01:35:27,839 - utils - INFO - 7      train  301/769    21:30/33:26    0.43800023633776314{"average_loss": "0.43800023633776314"}
+2022-08-11 01:42:35,288 - utils - INFO - 7      train  401/769    28:38/26:16    0.4366355733829841{"average_loss": "0.4366355733829841"}
+2022-08-11 01:49:50,665 - utils - INFO - 7      train  501/769    35:53/19:11    0.43708804844620225{"average_loss": "0.43708804844620225"}
+2022-08-11 01:56:50,198 - utils - INFO - 7      train  601/769    42:52/11:59    0.43872910616501{"average_loss": "0.43872910616501"}
+2022-08-11 02:04:11,497 - utils - INFO - 7      train  701/769    50:14/ 4:52    0.43776861917275334{"average_loss": "0.43776861917275334"}
+2022-08-11 02:09:05,684 - utils - INFO - 7      train  769/769    50:14/ 0:00    0.43814523370817826{"average_loss": "0.43776861917275334"}
+2022-08-11 02:09:12,588 - utils - INFO - 7      train  1/41        0:04/ 3:02    0.2404031753540039{"average_loss": "0.2404031753540039"}
+2022-08-11 02:11:55,361 - utils - INFO - 7      train  41/41       2:47/ 0:00    0.5033786798395762{"average_loss": "0.5033786798395762"}
