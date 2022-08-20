@@ -25,13 +25,17 @@ def files_analyze(parameters):
     files_concepts.append(concepts)
 
     if parameters['type'] == 'CAIL2020_sfzy':
-        results, files_concepts = cail2020_sfzy_file_analyze(parameters, files_concepts)
+        results, files_concepts = cail2020_sfzy_file_analyze(
+            parameters=parameters
+            , files_concepts=files_concepts)
     elif parameters['type'] == 'taiwan_indictments':
-        results, files_concepts = \
-            taiwan_indictments_files_analyze(parameters, files_concepts)
+        results, files_concepts = taiwan_indictments_files_analyze(
+            parameters=parameters
+            , files_concepts=files_concepts)
     elif parameters['type'] == 'CNewSum_v2':
-        results, files_concepts = \
-            cnewsum_v2_files_analyze(parameters, files_concepts)
+        results, files_concepts = cnewsum_v2_files_analyze(
+            parameters=parameters
+            , files_concepts=files_concepts)
 
     logger.info('Start to write results.')
 
@@ -57,7 +61,7 @@ def cail2020_sfzy_file_analyze(parameters, files_concepts):
     text_lengths_of_all_files = []
     summary_lengths_of_all_files = []
 
-    for file_name in os.listdir(parameters['data_path']):
+    for file_name in os.listdir(path=parameters['data_path']):
         if file_name == 'README.md':
             continue
 
@@ -84,7 +88,8 @@ def cail2020_sfzy_file_analyze(parameters, files_concepts):
                     text += sentence['sentence']
 
                 text = string_process(
-                    data=text, adjust_special_chars=True)
+                    data=text
+                    , adjust_special_chars=True)
 
                 # The length of article is 
                 # calculated and saved in this part.
@@ -181,10 +186,13 @@ def taiwan_indictments_files_analyze(parameters, files_concepts):
             for index, line in enumerate(lines):
                 data = json.loads(line)
 
+                fact = data['fact']
+                fact = string_process(data=fact, adjust_special_chars=True)
+
                 # The length of fact is calculated and saved in this part.
                 # -----
-                fact_lengths.append(len(data['fact']))
-                fact_lengths_of_all_files.append(len(data['fact']))
+                fact_lengths.append(len(fact))
+                fact_lengths_of_all_files.append(len(fact))
                 # -----
 
                 # The times cited of source indictment file
@@ -202,6 +210,14 @@ def taiwan_indictments_files_analyze(parameters, files_concepts):
                 for relevant_article in data['meta']['relevant_articles']:
                     article = relevant_article[0] + relevant_article[1]
                     article_source = relevant_article[0]
+
+                    article = string_process(
+                        data=article
+                        , adjust_special_chars=True)
+
+                    article_source = string_process(
+                        data=article_source
+                        , adjust_special_chars=True)
 
                     if article in articles_times_appeared:
                         articles_times_appeared[article] += 1
@@ -231,6 +247,10 @@ def taiwan_indictments_files_analyze(parameters, files_concepts):
                 # in this part.
                 # -----
                 accusation = data['meta']['accusation']
+
+                accusation = string_process(
+                    data=accusation
+                    , adjust_special_chars=True)
 
                 if accusation in accusations_times_appeared:
                     accusations_times_appeared[accusation] += 1
@@ -527,7 +547,8 @@ def cnewsum_v2_files_analyze(parameters, files_concepts):
                     article += string
 
                 article = string_process(
-                    data=article, adjust_special_chars=True)
+                    data=article
+                    , adjust_special_chars=True)
 
                 # The length of article is 
                 # calculated and saved in this part.
@@ -542,8 +563,10 @@ def cnewsum_v2_files_analyze(parameters, files_concepts):
                 article_lengths_of_all_files.append(len(article))
                 # -----
 
+                summary = data['summary']
                 summary = string_process(
-                    data=data['summary'], adjust_special_chars=True)
+                    data=summary
+                    , adjust_special_chars=True)
 
                 # The length of summary is
                 # calculated and saved in this part.

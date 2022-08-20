@@ -8,29 +8,11 @@ from chinese_conversion.utils import chinese_conversion
 
 information = ' '.join(sys.argv)
 
-formatter = logging.Formatter(
-    '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-sh = logging.StreamHandler()
-sh.setLevel(logging.DEBUG)
-sh.setFormatter(formatter)
+def main(*args, **kwargs):
+    logger = set_logger(log_name='chinese_conversion.log')
+    logger.info(information)
 
-fh = logging.FileHandler(
-    filename='logs/chinese_conversion.log'
-    , mode='a'
-    , encoding='UTF-8')
-fh.setLevel(logging.DEBUG)
-fh.setFormatter(formatter)
-
-logger = logging.getLogger()
-logger.setLevel(logging.DEBUG)
-logger.addHandler(sh)
-logger.addHandler(fh)
-
-logger.info(information)
-
-
-def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '-sdp', '--source_directory_path'
@@ -49,9 +31,32 @@ def main():
 
     args = parser.parse_args()
 
-    parameters = initialize_all(args)
+    parameters = initialize_all(args=args)
 
-    chinese_conversion(parameters)
+    chinese_conversion(parameters=parameters)
+
+
+def set_logger(log_name):
+    formatter = logging.Formatter(
+        '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+    sh = logging.StreamHandler()
+    sh.setLevel(logging.DEBUG)
+    sh.setFormatter(formatter)
+
+    fh = logging.FileHandler(
+        filename=f'logs/{log_name}'
+        , mode='a'
+        , encoding='UTF-8')
+    fh.setLevel(logging.DEBUG)
+    fh.setFormatter(formatter)
+
+    logger = logging.getLogger()
+    logger.setLevel(logging.DEBUG)
+    logger.addHandler(sh)
+    logger.addHandler(fh)
+
+    return logger
 
 
 if __name__ == '__main__':

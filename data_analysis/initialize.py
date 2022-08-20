@@ -23,17 +23,17 @@ def initialize_all(config):
         logger.error(f'There is no name called {results["type"]}.')
         raise Exception(f'There is no name called {results["type"]}.')
 
-    if not os.path.exists(results['data_path']):
+    if not os.path.exists(path=results['data_path']):
         logger.error(f'The path of data {results["data_path"]} does not exist.')
         raise Exception(
             f'The path of data {results["data_path"]} does not exist.')
 
-    if not os.path.exists(results['output_path']):
+    if not os.path.exists(path=results['output_path']):
         logger.warn(
             f'The path of output {results["output_path"]} does not exist.')
         logger.info('Make the directory automatically.')
 
-        os.makedirs(results['output_path'])
+        os.makedirs(name=results['output_path'])
 
     logger.info('Initialize successfully.')
 

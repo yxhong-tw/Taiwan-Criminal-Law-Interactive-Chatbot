@@ -25,7 +25,15 @@ def main(*args, **kwargs):
     config.read(args.config)
 
     log_name = config.get('log', 'name')
+    logger = set_logger(log_name=log_name)
+    logger.info(information)
 
+    parameters = initialize_all(config=config)
+
+    analyze(parameters=parameters, logger=logger)
+
+
+def set_logger(log_name, *args, **kwargs):
     formatter = logging.Formatter(
         '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
@@ -44,20 +52,16 @@ def main(*args, **kwargs):
     logger.setLevel(logging.DEBUG)
     logger.addHandler(sh)
     logger.addHandler(fh)
-    
-    logger.info(information)
 
-    parameters = initialize_all(config)
-
-    analyze(parameters, logger)
+    return logger
 
 
-def analyze(parameters, logger):
+def analyze(parameters, logger, *args, **kwargs):
     logger.info('Start to analyze data.')
 
-    results = files_analyze(parameters)
-    general_analyze(parameters, results)
-    write_back_results(parameters, results)
+    results = files_analyze(parameters=parameters)
+    general_analyze(parameters=parameters, results=results)
+    write_back_results(parameters=parameters, results=results)
 
     logger.info('Analyze data successfully.')
 
