@@ -1,4 +1,5 @@
 import logging
+import re
 
 
 logger = logging.getLogger(__name__)
@@ -7,14 +8,72 @@ logger = logging.getLogger(__name__)
 def string_process(
         data
         , adjust_special_chars=False
+        , process_fact=False
         , converter=None):
     if adjust_special_chars == True:
-        data = data.replace(' ', '').replace(',', '，')
+        data = data.replace(' ', '')
+        data = data.replace('\\', '')
+        data = data.replace('`', '')
+        data = data.replace('#', '')
+        data = data.replace(',', '，')
+        data = data.replace('：', ':')
+        data = data.replace('；', ';')
+        data = data.replace('？', '?')
+        data = data.replace('！', '!')
+        data = data.replace('（', '(')
+        data = data.replace('）', ')')
+
+    if process_fact == True:
+        data = get_fact(string=data)
 
     if converter is not None:
         data = converter.convert(data)
 
     return data
+
+
+def get_fact(string):
+    current_index = 0
+    chinese_number = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十']
+    paragraph_list = []
+
+    for index in range(len(string)):
+        if index + 1 < len(string):
+            if string[index] == '。' and string[index + 1] in chinese_number:
+                for temp_index in range(index + 1, len(string)):
+                    if string[temp_index] == '、':
+                        paragraph_list.append(string[current_index:index + 1])
+                        current_index = index + 1
+
+                    if string[temp_index] not in chinese_number:
+                        break
+        else:
+            paragraph_list.append(string[current_index:])
+
+    paragraph_list = paragraph_list[:-1]
+
+    for index in range(len(paragraph_list)):
+        for temp_index in range(len(paragraph_list[index])):
+            if paragraph_list[index][temp_index] == '、':
+                paragraph_list[index] = paragraph_list[index][temp_index + 1:]
+                break
+
+    sentence_list = []
+    for paragraph in paragraph_list:
+        small_sentence_list = re.split(pattern=r'([，。])', string=paragraph)
+
+        for sentence in small_sentence_list:
+            sentence_list.append(sentence)
+
+    for index, sentence in enumerate(iterable=sentence_list):
+        if re.match(pattern=r'讵[^，]+悔', string=sentence) != None:
+            sentence_list = sentence_list[index:]
+
+    fact = ''
+    for sentence in sentence_list:
+        fact += sentence
+
+    return fact
 
 
 def get_tables(config, formatter, *args, **kwargs):
@@ -88,18 +147,13 @@ def gen_time_str(t):
     return '%2d:%02d' % (minute, second)
 
 
-def output_value(epoch, mode, step, time, loss, info, end=None, delimiter=' '):
-    # try:
-    #     delimiter = config.get('output', 'delimiter')
-    # except Exception:
-    #     delimiter = ' '
-
+def log_results(epoch, stage, step, time, loss, info, end=None, delimiter=' '):
     s = (str(epoch) + ' ')
 
     while len(s) < 7:
         s += ' '
 
-    s += (str(mode) + ' ')
+    s += (str(stage) + ' ')
 
     while len(s) < 14:
         s += ' '
