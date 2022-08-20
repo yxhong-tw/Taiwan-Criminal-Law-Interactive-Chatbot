@@ -66,8 +66,16 @@ def get_fact(string):
             sentence_list.append(sentence)
 
     for index, sentence in enumerate(iterable=sentence_list):
-        if re.match(pattern=r'讵[^，]+悔', string=sentence) != None:
-            sentence_list = sentence_list[index:]
+        if re.match(
+                pattern=r'讵[^，:;?!()]*[不未][^，:;?!()]*[悔戒]'
+                , string=sentence) != None:
+            if index + 1 >= len(sentence_list):
+                continue
+
+            if len(sentence_list[index+1]) > 1:
+                sentence_list = sentence_list[index+1:]
+            else:
+                sentence_list = sentence_list[index+2:]
 
     fact = ''
     for sentence in sentence_list:

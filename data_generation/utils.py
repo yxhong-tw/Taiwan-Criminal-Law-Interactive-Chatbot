@@ -90,11 +90,13 @@ def convert_fact_to_summarization(parameters):
 
         logger.info(f'Start to process {file_name}.')
 
+        data = []
+
         with open(
                 file=os.path.join(parameters['data_path'], file_name)
                 , mode='r'
-                , encoding='UTF-8') as jsonl_file:
-            lines = jsonl_file.readlines()
+                , encoding='UTF-8') as json_file:
+            lines = json_file.readlines()
 
             for line in tqdm(lines):
                 item = json.loads(line)
@@ -110,13 +112,25 @@ def convert_fact_to_summarization(parameters):
                     data=fact_tensor
                     , mode='serve')
 
-                item['fact'] = result
+                item['fact'] = string_process(
+                    data=result
+                    , adjust_special_chars=True)
 
-                data.append(str(item))
+                # data.append(str(item))
+                data.append(json.dumps(item, ensure_ascii=False) + '\n')
+
+            json_file.close()
+
+        with open(
+                file=os.path.join(parameters['output_path'], file_name)
+                , mode='w'
+                , encoding='UTF-8') as json_file:
+            for one_data in data:
+                json_file.write(one_data)
+
+            json_file.close()
 
         logger.info(f'Process {file_name} successfully.')
-
-    write_back_results(parameters, data)
 
     logger.info('Convert fact to summarization successfully.')
 
