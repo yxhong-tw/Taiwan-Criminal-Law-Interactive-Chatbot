@@ -3,21 +3,17 @@ import threading
 import time
 import torch
 
-# from legal_judgment_prediction.utils import get_tables
-from utils import get_tables
-
 
 logger = logging.getLogger(__name__)
 is_shutdown = False
 
 
 class ServerThread(threading.Thread):
-    def __init__(self, server_socket, parameters, config, *args, **kwargs):
-        threading.Thread.__init__(self)
+    def __init__(self, server_socket, parameters, *args, **kwargs):
+        super(ServerThread, self).__init__()
 
         self.server_socket = server_socket
         self.parameters = parameters
-        self.config = config
 
 
     def run(self, *args, **kwargs):
@@ -32,8 +28,7 @@ class ServerThread(threading.Thread):
             client_thread = ClientThread(
                 client_socket
                 , client_index
-                , self.parameters
-                , self.config)
+                , self.parameters)
 
             counter = 0
 
@@ -52,7 +47,7 @@ class ServerThread(threading.Thread):
 
                 if counter < 3:
                     counter += 1
-                    time.sleep(3)
+                    time.sleep(secs=3)
                 else:
                     raise Exception('Failed to launch client thread.')
 
@@ -70,43 +65,37 @@ class ClientThread(threading.Thread):
             , client_socket
             , client_index
             , parameters
-            , config
             , *args
             , **kwargs):
-        threading.Thread.__init__(self)
+        super(ClientThread, self).__init__()
 
         self.client_socket = client_socket
         self.client_index = client_index
         self.parameters = parameters
-        self.config = config
 
 
     def run(self, *args, **kwargs):
         global is_shutdown
         
         if self.client_index == 0:
-            model_name = self.parameters['model_name']
             model = self.parameters['model']
+            model_name = self.parameters['model_name']
 
             if model_name == 'LJPBart':
                 counter = 0
 
                 while is_shutdown == False:
                     try:
-                        logger.info('Start to receive client message.')
-
                         client_message = \
                             str(self.client_socket.recv(1024), encoding='UTF-8')
 
                         counter = 0
-
-                        logger.info('Receive client message successfully.')
                     except:
                         logger.error('Failed to receive client message.')
 
                         if counter < 3:
                             counter += 1
-                            time.sleep(3)
+                            time.sleep(secs=3)
 
                             continue
                         else:
@@ -117,36 +106,20 @@ class ClientThread(threading.Thread):
                     else:
                         logger.info(f'The received message: {client_message}')
 
-                        # fact = encode_data(
-                        #     self.config
-                        #     , data={'fact': client_message}
-                        #     , mode='serve'
-                        #     , model_name=model_name)
+                        fact = self.parameters['formatter'](data=client_message)
 
-                        fact = self.parameters['formatter'](
-                            {'fact': client_message})
-
-                        result = model(
-                            self.config
-                            , fact
-                            , mode='serve'
-                            , acc_result=None)
+                        result = model(data=fact, mode='serve', acc_result=None)
                 
                         reply_text = ''
                         reply_text += (f'可能觸犯的法條: {result}')
                         
-                        if reply_text == '':
-                            reply_text = '無相應結果，請以更完整的敘述再試一次！'
-
                         logger.info(f'The return message: {reply_text}')
                         
                         self.client_socket.sendall(reply_text.encode())
             elif model_name == 'LJPBert':
-                # accusation_table, article_source_table, article_table = \
-                #     get_tables(self.config, mode='serve', model_name=model_name)
-
-                accusation_table, article_source_table, article_table = \
-                    get_tables(self.config, self.parameters['formatter'])
+                articles_table = self.parameters['articles_table']
+                article_sources_table = self.parameters['article_sources_table']
+                accusations_table = self.parameters['accusations_table']
 
                 counter = 0
 
@@ -161,7 +134,7 @@ class ClientThread(threading.Thread):
 
                         if counter < 3:
                             counter += 1
-                            time.sleep(3)
+                            time.sleep(secs=3)
 
                             continue
                         else:
@@ -172,58 +145,72 @@ class ClientThread(threading.Thread):
                     else:
                         logger.info(f'The received message: {client_message}')
 
-                        # fact = encode_data(
-                        #     self.config
-                        #     , data={'fact': client_message}
-                        #     , mode='serve'
-                        #     , model_name=model_name)
+                        fact = self.parameters['formatter'](data=client_message)
 
-                        fact = self.parameters['formatter'](
-                            {'fact': client_message})
+                        result = model(data=fact, mode='serve', acc_result=None)
 
-                        result = model(
-                            self.config
-                            , fact
-                            , mode='serve'
-                            , acc_result=None)
-
-                        # the size of accusation_result = [number_of_class]
-                        article_result = \
-                            torch.max(result['article'], 2)[1]
-                        article_source_result = \
-                            torch.max(result['article_source'], 2)[1]
-                        accusation_result = \
-                            torch.max(result['accusation'], 2)[1]
+                        # The size of accusation_result is [number_of_class].
+                        article_result = torch.max(
+                            input=result['article']
+                            , dim=2)[1]
+                        article_source_result = torch.max(
+                            input=result['article_source']
+                            , dim=2)[1]
+                        accusation_result = torch.max(
+                            input=result['accusation']
+                            , dim=2)[1]
                 
                         reply_text = ''
-
-                        for key, value in accusation_table.items():
-                            if torch.equal(accusation_result, value):
-                                reply_text += (f'可能被起訴罪名: {key}')
-                                break
-
-                        for key, value in article_source_table.items():
-                            if torch.equal(article_source_result, value):
-                                reply_text += '\n' + (f'可能觸犯的法源: {key}')
-                                break
-
-                        for key, value in article_table.items():
-                            if torch.equal(article_result, value):
-                                reply_text += '\n' + (f'可能觸犯的法條: {key}')
-                                break
-                        
-                        if reply_text == '':
-                            reply_text = '無相應結果，請以更完整的敘述再試一次！'
+                        reply_text = process_ljpbert_output_text(
+                            output_text=reply_text
+                            , table=articles_table
+                            , table_name='article'
+                            , result=article_result)
+                        reply_text = process_ljpbert_output_text(
+                            output_text=reply_text
+                            , table=article_sources_table
+                            , table_name='article_source'
+                            , result=article_source_result)
+                        reply_text = process_ljpbert_output_text(
+                            output_text=reply_text
+                            , table=accusations_table
+                            , table_name='accusation'
+                            , result=accusation_result)
 
                         logger.info(f'The return message: {reply_text}')
 
                         self.client_socket.sendall(reply_text.encode())
-            else:
-                logger.error(f'There is no model_name called {model_name}.')
-                raise Exception(f'There is no model_name called {model_name}.')
 
             self.client_socket.close()
         else:
             logger.error(f'The index of client {self.client_index} is invalid.')
             raise Exception(
                 f'The index of client {self.client_index} is invalid.')
+
+
+def process_ljpbert_output_text(output_text, table, table_name, result):
+    table_name2chinese = {
+        'article': '法條'
+        , 'article_source': '法源'
+        , 'accusation': '罪名'
+    }
+
+    already_output = False
+
+    output_text += f'可能觸犯的{table_name2chinese[table_name]}: '
+
+    for key, value in table.items():
+        if torch.equal(input=result, other=value):
+            if already_output == False:
+                output_text += key
+                already_output = True
+                continue
+
+            output_text += f'、{key}'
+
+    if already_output == False:
+        output_text += '無'
+
+    output_text += '\n'
+
+    return output_text

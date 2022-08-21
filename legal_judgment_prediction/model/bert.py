@@ -11,13 +11,25 @@ class LJPBert(nn.Module):
     def __init__(self, config, *args, **kwargs):
         super(LJPBert, self).__init__()
 
-        self.bert = BertEncoder(config)
-        self.fc = BertPredictor(config)
+        model_path = config.get('model', 'model_path')
+        hidden_size = config.getint('model', 'hidden_size')
+        articles_number = config.getint('data', 'articles_number')
+        article_sources_number = config.getint('data', 'article_sources_number')
+        accusations_number = config.getint('data', 'accusations_number')
+
+        self.bert = BertEncoder(model_path=model_path)
+        self.fc = BertPredictor(
+            hidden_size=hidden_size
+            , articles_number=articles_number
+            , article_sources_number=article_sources_number
+            , accusations_number=accusations_number)
 
         self.criterion = {
-            'article': MultiLabelSoftmaxLoss(config, 90),
-            'article_source': MultiLabelSoftmaxLoss(config, 21),
-            'accusation': MultiLabelSoftmaxLoss(config, 148)
+            'article': MultiLabelSoftmaxLoss(task_number=articles_number)
+            , 'article_source': MultiLabelSoftmaxLoss(
+                task_number=article_sources_number)
+            , 'accusation': MultiLabelSoftmaxLoss(
+                task_number=accusations_number)
         }
         self.accuracy_function = {
             'article': multi_label_accuracy,
@@ -26,26 +38,28 @@ class LJPBert(nn.Module):
         }
 
 
-    def initialize_multiple_gpus(self, device, *args, **kwargs):
-        self.bert = nn.DataParallel(self.bert, device_ids=device)
-        self.fc = nn.DataParallel(self.fc, device_ids=device)
+    def initialize_multiple_gpus(self, gpus, *args, **kwargs):
+        self.bert = nn.DataParallel(module=self.bert, device_ids=gpus)
+        self.fc = nn.DataParallel(module=self.fc, device_ids=gpus)
 
 
-    def forward(self, config, data, mode, acc_result):
+    def forward(self, data, mode, acc_result):
         if mode == 'generate' or mode == 'serve':
-            data = torch.unsqueeze(data, 0)
-            output = self.bert(data)
-            output = self.fc(output)
+            data = torch.unsqueeze(input=data, dim=0)
+            output = self.bert(input=data)
+            output = self.fc(tensor=output)
 
             return output
         else:
             fact = data['fact']
-            output = self.bert(fact)
-            output = self.fc(output)
+            output = self.bert(input=fact)
+            output = self.fc(tensor=output)
 
             loss = 0
             for name in ['article', 'article_source', 'accusation']:
-                loss += self.criterion[name](output[name], data[name])
+                loss += self.criterion[name](
+                    outputs=output[name]
+                    , labels=data[name])
 
             if acc_result is None:
                 acc_result = {
@@ -56,9 +70,8 @@ class LJPBert(nn.Module):
 
             for name in ['article', 'article_source', 'accusation']:
                 acc_result[name] = self.accuracy_function[name](
-                    output[name]
-                    , data[name]
-                    , config
-                    , acc_result[name])
+                    outputs=output[name]
+                    , label=data[name]
+                    , result=acc_result[name])
 
-            return {'output': output, 'loss': loss, 'acc_result': acc_result}
+            return {'loss': loss, 'output': output, 'acc_result': acc_result}

@@ -2,23 +2,31 @@ import torch.nn as nn
 
 
 class BertPredictor(nn.Module):
-    def __init__(self, config, *args, **kwargs):
+    def __init__(
+            self
+            , hidden_size
+            , articles_number
+            , article_sources_number
+            , accusations_number
+            , *args
+            , **kwargs):
         super(BertPredictor, self).__init__()
 
-        self.hidden_size = config.getint('model', 'hidden_size')
-        self.article_fc = nn.Linear(self.hidden_size, 90*2)
-        self.article_source_fc = nn.Linear(self.hidden_size, 21*2)
-        self.accusation_fc = nn.Linear(self.hidden_size, 148*2)
-
-
-    def initialize_multiple_gpus(self, device, *args, **kwargs):
-        pass
+        self.article_fc = nn.Linear(
+            in_features=hidden_size
+            , out_features=articles_number*2)
+        self.article_source_fc = nn.Linear(
+            in_features=hidden_size
+            , out_features=article_sources_number*2)
+        self.accusation_fc = nn.Linear(
+            in_features=hidden_size
+            , out_features=accusations_number*2)
 
 
     def forward(self, tensor):
-        article = self.article_fc(tensor)
-        article_source = self.article_source_fc(tensor)
-        accusation = self.accusation_fc(tensor)
+        article = self.article_fc(input=tensor)
+        article_source = self.article_source_fc(input=tensor)
+        accusation = self.accusation_fc(input=tensor)
         
         batch = tensor.size()[0]
         article = article.view(batch, -1, 2)

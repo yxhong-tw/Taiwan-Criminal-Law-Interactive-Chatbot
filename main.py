@@ -2,7 +2,6 @@ import sys
 import argparse
 import configparser
 import logging
-import torch
 import threading
 
 from legal_judgment_prediction.initialize import initialize_all
@@ -67,8 +66,42 @@ def main(*args, **kwargs):
     config = configparser.ConfigParser()
     config.read(args.config)
 
-    log_name = config.get('log', 'name')
+    logger = set_logger(log_name=config.get('log', 'name'))
+    logger.info(information)
 
+    parameters = initialize_all(
+        config=config
+        , mode=args.mode
+        , device_str=args.gpu
+        , checkpoint_path=args.checkpoint_path
+        , batch_size=args.batch_size
+        , do_test=args.do_test
+        , line_channel_access_token=args.line_channel_access_token
+        , line_channel_secret=args.line_channel_secret
+        , server_socket_ip=args.server_socket_ip)
+
+    if args.mode == 'train':
+        train(parameters, args.do_test)
+    elif args.mode == 'eval':  
+        eval(parameters)
+    elif args.mode == 'serve':
+        if args.open_server == True:
+            ljp_thread = threading.Thread(
+                target=serve_socket, args=(parameters))
+            ljp_thread.start()
+
+            line_bot_thread = App_Thread(parameters=parameters)
+            line_bot_thread.start()
+
+            ljp_thread.join()
+
+            line_bot_thread.shutdown()
+            line_bot_thread.join()
+        else:
+            serve_simple_IO(parameters=parameters)
+
+
+def set_logger(log_name, *args, **kwargs):
     formatter = logging.Formatter(
         '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
@@ -77,7 +110,7 @@ def main(*args, **kwargs):
     sh.setFormatter(formatter)
 
     fh = logging.FileHandler(
-        filename=f'legal_judgment_prediction/logs/{log_name}'
+        filename=f'logs/{log_name}'
         , mode='a'
         , encoding='UTF-8')
     fh.setLevel(logging.DEBUG)
@@ -87,57 +120,8 @@ def main(*args, **kwargs):
     logger.setLevel(logging.DEBUG)
     logger.addHandler(sh)
     logger.addHandler(fh)
-    
-    logger.info(information)
 
-    gpu_list = []
-
-    if args.gpu is not None:
-        device_list = args.gpu.replace(' ', '').split(',')
-
-        for device in range(0, len(device_list)):
-            gpu_list.append(int(device))
-
-    cuda_available = torch.cuda.is_available()
-
-    logger.info(f'CUDA available: {str(cuda_available)}')
-
-    if not cuda_available and len(gpu_list) > 0:
-        logger.error('CUDA is not available but gpu_list is not empty.')
-        raise Exception('CUDA is not available but gpu_list is not empty.')
-
-    parameters = initialize_all(
-        config
-        , gpu_list
-        , args.mode
-        , args.batch_size
-        , args.checkpoint_path
-        , args.line_channel_access_token
-        , args.line_channel_secret
-        , args.server_socket_ip)
-
-    if args.mode == 'train':
-        train(parameters, config, gpu_list, args.do_test)
-    elif args.mode == 'eval':  
-        eval(parameters, config, gpu_list)
-    elif args.mode == 'serve':
-        if args.open_server == True:
-            ljp_thread = threading.Thread(
-                target=serve_socket, args=(parameters, config))
-            ljp_thread.start()
-
-            line_bot_thread = App_Thread(parameters)
-            line_bot_thread.start()
-
-            ljp_thread.join()
-
-            line_bot_thread.shutdown()
-            line_bot_thread.join()
-        else:
-            serve_simple_IO(parameters, config)
-    else:
-        logger.error('Invalid mode, please check again.')
-        raise Exception('Invalid mode, please check again.')
+    return logger
 
 
 if __name__ == '__main__':

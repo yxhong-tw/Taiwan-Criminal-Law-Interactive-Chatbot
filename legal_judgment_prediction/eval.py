@@ -5,124 +5,101 @@ import gc
 from timeit import default_timer as timer
 from torch.autograd import Variable
 
-from legal_judgment_prediction.utils import gen_time_str, output_value
+from utils import log_results, gen_time_str
 
 
 logger = logging.getLogger(__name__)
 
 
-def eval(parameters, config, gpu_list, *args, **kwargs):
-    model_name = parameters['model_name']
+def eval(parameters, *args, **kwargs):
     model = parameters['model']
+    test_dataloader = parameters['test_dataloader']
     output_function = parameters['output_function']
-    test_dataset = parameters['test_dataset']
 
     eval_one(
-        model_name
-        , model
-        , test_dataset
-        , 0, config
-        , gpu_list
-        , output_function
+        model=model
+        , dataset=test_dataloader
+        , output_time=1
+        , output_function=output_function
+        , current_epoch=0
         , task='test'
     )
 
 
 def eval_one(
-        model_name
-        , model
+        model
         , dataset
-        , epoch
-        , config
-        , gpu_list
+        , output_time
         , output_function
+        , current_epoch
         , task
+        , from_train=False
         , *args
         , **kwargs):
     model.eval()
 
-    acc_result = None
-    total_loss = 0
     total_len = len(dataset)
+
     start_time = timer()
+    total_loss = 0
+    acc_result = None
     output_info = ''
-    output_time = config.getint('output', 'output_time')
     step = -1
 
     for step, data in enumerate(dataset):
         for key in data.keys():
-            if isinstance(data[key], torch.Tensor):
-                if len(gpu_list) > 0:
-                    data[key] = Variable(data[key].cuda())
-                else:
-                    data[key] = Variable(data[key])
+            # if isinstance(data[key], torch.Tensor):
+            #     data[key] = Variable(data[key].cuda())
+            data[key] = Variable(data[key].cuda())
 
-        results = model(config, data, 'eval', acc_result)
-
-        if model_name == 'LJPBert':
-            acc_result = results['acc_result']
+        results = model(data=data, mode='eval', acc_result=acc_result)
 
         loss = results['loss']
         total_loss += float(loss)
 
+        acc_result = results['acc_result']
+
         if step % output_time == 0:
-            if model_name == 'LJPBart':
-                output_info = output_function(config, total_loss, step)
-            elif model_name == 'LJPBert':
-                output_info = output_function(config, acc_result)
+            output_info = output_function(
+                total_loss=total_loss
+                , step=step
+                , data=acc_result)
 
-            delta_t = timer() - start_time
+            delta_t = (timer() - start_time)
 
-            # output_value(
-            #     epoch
-            #     , task
-            #     , '%d/%d' % (step + 1, total_len)
-            #     , '%s/%s' % (gen_time_str(delta_t)
-            #     , gen_time_str(delta_t * (total_len - step - 1) / (step + 1)))
-            #     , '%.3lf' % (total_loss / (step + 1))
-            #     , output_info
-            #     , '\r'
-            #     , config
-            # )
-
-            output_value(
-                epoch
-                , task
-                , f'{(step+1)}/{total_len}'
-                , f'{gen_time_str(delta_t)}/\
-{gen_time_str(delta_t*(total_len-step-1)/(step+1))}'
-                , f'{(total_loss/(step+1))}'
-                , output_info
-                , '\r'
-                , config
+            log_results(
+                epoch=current_epoch
+                , stage=task
+                , step=f'{(step+1)}/{total_len}'
+                , time=f'{gen_time_str(t=delta_t)}/\
+{gen_time_str(t=(delta_t*(total_len-step-1)/(step+1)))}'
+                , loss=f'{(total_loss/(step+1))}'
+                , info=output_info
+                , end='\r'
             )
+
+    output_info = output_function(
+        total_loss=total_loss
+        , step=step
+        , data=acc_result)
+
+    delta_t = (timer() - start_time)
+
+    log_results(
+        epoch=current_epoch
+        , stage=task
+        , step=f'{(step+1)}/{total_len}'
+        , time=f'{gen_time_str(t=delta_t)}/\
+{gen_time_str(t=(delta_t*(total_len-step-1)/(step+1)))}'
+        , loss=f'{(total_loss/(step+1))}'
+        , info=output_info
+    )
 
     if step == -1:
         logger.error('There is no data in this dataset.')
         raise Exception('There is no data in this dataset.')
 
-    if model_name == 'LJPBart':
-        output_info = output_function(config, total_loss, step)
-    elif model_name == 'LJPBert':
-        output_info = output_function(config, acc_result)
-
-    delta_t = timer() - start_time
-
-    # output_value(epoch, task, '%d/%d' % (step + 1, total_len), '%s/%s' % (gen_time_str(delta_t), gen_time_str(delta_t * (total_len - step - 1) / (step + 1))), '%.3lf' % (total_loss / (step + 1)), output_info, None, config)
-
-    output_value(
-        epoch
-        , task
-        , f'{(step+1)}/{total_len}'
-        , f'{gen_time_str(delta_t)}/\
-{gen_time_str(delta_t*(total_len-step-1)/(step+1))}'
-        , f'{(total_loss/(step+1))}'
-        , output_info
-        , None
-        , config
-    )
-
-    if task == 'valid':
+    if from_train == True:
         model.train()
 
     gc.collect()

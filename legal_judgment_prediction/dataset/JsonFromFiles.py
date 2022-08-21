@@ -1,41 +1,25 @@
-import random
-import os
 import json
+import random
 
 from torch.utils.data import Dataset
 
 
 class JsonFromFiles(Dataset):
     def __init__(self, config, task, encoding='UTF-8', *args, **kwargs):
-        self.file = os.path.join(
-            config.get('data', f'{task}_file_path')
-            , config.get('data', f'{task}_file_name'))
+        self.file = config.get('data', f'{task}_file_path')
         self.data = []
 
         with open(file=self.file, mode='r', encoding=encoding) as json_file:
             for line in json_file:
                 self.data.append(json.loads(line))
 
-        self.reduce = config.getboolean('data', 'reduce')
-
         if task == 'train':
-            random.shuffle(self.data)
-        else:
-            self.reduce = False
-
-        if self.reduce:
-            self.reduce_ratio = config.getfloat('data', 'reduce_ratio')
+            random.shuffle(x=self.data)
 
 
-    def __getitem__(self, item):
-        if self.reduce:
-            return self.data[random.randint(0, len(self.data)-1)]
-
-        return self.data[item]
+    def __getitem__(self, index):
+        return self.data[index]
 
 
     def __len__(self):
-        if self.reduce:
-            return int(self.reduce_ratio*len(self.data))
-
         return len(self.data)
