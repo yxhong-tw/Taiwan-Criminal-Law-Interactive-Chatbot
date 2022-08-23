@@ -17,7 +17,7 @@ def initialize_all(config, device_str, checkpoint_path):
 
     check_table = {
         'tasks': ['legal_judgment_prediction', 'text_summarization']
-        , 'summarizations': ['before', 'after']
+        , 'summarizations': ['none', 'bart', 'lead_3']
         , 'model_names': ['LJSBart']
         , 'types': [
             'one_label'
@@ -50,7 +50,7 @@ def initialize_all(config, device_str, checkpoint_path):
                 f'There is no summarization called {results["summarization"]}.')
             raise Exception(
                 f'There is no summarization called {results["summarization"]}.')
-        elif results['summarization'] == 'before':
+        elif results['summarization'] == 'none':
             results['article_lowerbound'] = \
                 config.getint('common', 'article_lowerbound')
             results['parameters'] = config.get('common', 'parameters')
@@ -67,7 +67,7 @@ def initialize_all(config, device_str, checkpoint_path):
                 parameters['article_sources_times_appeared_of_all_files']
             results['accusations_times_appeared_of_all_files'] = \
                 parameters['accusations_times_appeared_of_all_files']
-        elif results['summarization'] == 'after':
+        elif results['summarization'] == 'bart':
             gpus = check_and_set_gpus(device_str=device_str)
 
             results['model_name'] = config.get('model', 'model_name')

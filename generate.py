@@ -5,7 +5,7 @@ import logging
 
 from data_generation.initialize import initialize_all
 from data_generation.utils import \
-    get_common_data, convert_fact_to_summarization, get_summarization_data
+    get_common_data, get_bart_summary, get_lead_3_summary, get_summarization_data
 
 
 information = ' '.join(sys.argv)
@@ -68,10 +68,12 @@ def generate(parameters, logger):
     logger.info(f'Start to generate data.')
 
     if parameters['task'] == 'legal_judgment_prediction':
-        if parameters['summarization'] == 'before':
+        if parameters['summarization'] == 'none':
             get_common_data(parameters=parameters)
-        else:
-            convert_fact_to_summarization(parameters)
+        elif parameters['summarization'] == 'bart':
+            get_bart_summary(parameters)
+        elif parameters['summarization'] == 'lead_3':
+            get_lead_3_summary(parameters)
     elif parameters['task'] == 'text_summarization':
         get_summarization_data(parameters)
 

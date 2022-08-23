@@ -1,6 +1,7 @@
 import logging
 import os
 import json
+import re
 
 from tqdm import tqdm
 from sklearn.model_selection import train_test_split
@@ -70,7 +71,7 @@ def get_common_data(parameters):
     logger.info(f'Get common data successfully.')
 
 
-def convert_fact_to_summarization(parameters):
+def get_bart_summary(parameters):
     logger.info('Start to convert fact to summarization.')
 
     formatter = parameters['formatter']
@@ -115,6 +116,71 @@ def convert_fact_to_summarization(parameters):
                 item['fact'] = string_process(
                     data=result
                     , adjust_special_chars=True)
+
+                # data.append(str(item))
+                data.append(json.dumps(item, ensure_ascii=False) + '\n')
+
+            json_file.close()
+
+        with open(
+                file=os.path.join(parameters['output_path'], file_name)
+                , mode='w'
+                , encoding='UTF-8') as json_file:
+            for one_data in data:
+                json_file.write(one_data)
+
+            json_file.close()
+
+        logger.info(f'Process {file_name} successfully.')
+
+    logger.info('Convert fact to summarization successfully.')
+
+
+def get_lead_3_summary(parameters):
+    logger.info('Start to use lead-3 method to get summaries.')
+
+    data = []
+
+    exclusion_file_names = [
+        'README.md'
+        , 'articles.txt'
+        , 'article_sources.txt'
+        , 'accusations.txt'
+    ]
+
+    for file_name in os.listdir(path=parameters['data_path']):
+        if file_name in exclusion_file_names:
+            continue
+
+        logger.info(f'Start to process {file_name}.')
+
+        data = []
+
+        with open(
+                file=os.path.join(parameters['data_path'], file_name)
+                , mode='r'
+                , encoding='UTF-8') as json_file:
+            lines = json_file.readlines()
+
+            for line in tqdm(lines):
+                item = json.loads(line)
+                fact = item['fact']
+                fact = string_process(
+                    data=fact
+                    , adjust_special_chars=True)
+
+                fact = re.split(r'([。，；])', fact)
+                summary = ''
+
+                for counter in range(0, len(fact)):
+                    if counter >= 5:
+                        break
+
+                    summary += fact[counter]
+
+                summary += '。'
+
+                item['fact'] = summary
 
                 # data.append(str(item))
                 data.append(json.dumps(item, ensure_ascii=False) + '\n')
