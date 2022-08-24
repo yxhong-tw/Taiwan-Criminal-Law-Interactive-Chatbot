@@ -159,3 +159,16 @@
 2022-08-21 16:01:07,763 - data_generation.utils - INFO - Process 7_train.json successfully.
 2022-08-21 16:01:07,764 - data_generation.utils - INFO - Convert fact to summarization successfully.
 2022-08-21 16:01:07,771 - root - INFO - Generate data successfully.
+2022-08-24 01:18:11,241 - root - INFO - .\generate.py -c .\configs\generate\for_legal_judgment_prediction_model\lead_3\one_label\config.ini
+2022-08-24 01:18:11,241 - data_generation.initialize - INFO - Start to initialize.
+2022-08-24 01:18:11,241 - data_generation.initialize - INFO - Initialize successfully.
+2022-08-24 01:18:11,241 - root - INFO - Start to generate data.
+2022-08-24 01:18:11,242 - data_generation.utils - INFO - Start to use lead-3 method to get summaries.
+2022-08-24 01:18:11,242 - data_generation.utils - INFO - Start to process test.json.
+2022-08-24 01:18:12,814 - data_generation.utils - INFO - Process test.json successfully.
+2022-08-24 01:18:12,814 - data_generation.utils - INFO - Start to process train.json.
+2022-08-24 01:18:26,457 - data_generation.utils - INFO - Process train.json successfully.
+2022-08-24 01:18:26,457 - data_generation.utils - INFO - Start to process valid.json.
+2022-08-24 01:18:28,038 - data_generation.utils - INFO - Process valid.json successfully.
+2022-08-24 01:18:28,038 - data_generation.utils - INFO - Convert fact to summarization successfully.
+2022-08-24 01:18:28,058 - root - INFO - Generate data successfully.
