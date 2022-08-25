@@ -400,3 +400,74 @@
 2022-08-24 18:41:48,315 - utils - INFO - 2      valid  1/3815      0:00/15:41    6.886096000671387{"accusation": [0.667, 0.5, 0.571, 0.973, 0.966, 0.968], "article": [0.667, 0.5, 0.571, 0.961, 0.959, 0.957], "article_source": [0.875, 0.875, 0.875, 0.976, 0.993, 0.98]}
 2022-08-24 18:49:57,810 - utils - INFO - 2      valid  2001/3815   8:09/ 7:23    2.3327647616499396{"accusation": [0.869, 0.801, 0.833, 0.536, 0.488, 0.5], "article": [0.889, 0.825, 0.856, 0.514, 0.403, 0.43], "article_source": [0.971, 0.97, 0.971, 0.793, 0.686, 0.727]}
 2022-08-24 18:57:22,370 - utils - INFO - 2      valid  3815/3815  15:34/ 0:00    2.281277316639769{"accusation": [0.872, 0.804, 0.837, 0.446, 0.393, 0.406], "article": [0.892, 0.829, 0.859, 0.506, 0.394, 0.422], "article_source": [0.973, 0.972, 0.972, 0.835, 0.7, 0.739]}
+2022-08-24 20:47:27,838 - root - INFO - main.py -c configs/bert/lead_3/one_label/config.ini -m train -g 0 -cp results/legal_judgment_prediction/bert/lead_3/one_label/checkpoint_2.pkl -bs 8
+2022-08-24 20:47:27,839 - legal_judgment_prediction.initialize - INFO - Start to initialize.
+2022-08-24 20:47:27,839 - legal_judgment_prediction.initialize - INFO - CUDA available: True
+2022-08-24 20:47:27,839 - legal_judgment_prediction.model.initialize - INFO - Start to initialize model.
+2022-08-24 20:47:27,839 - pytorch_pretrained_bert.modeling - INFO - loading archive file models/bert-base-chinese
+2022-08-24 20:47:27,839 - pytorch_pretrained_bert.modeling - INFO - Model config {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "directionality": "bidi",
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "type_vocab_size": 2,
+  "vocab_size": 21128
+}
+
+2022-08-24 20:47:28,974 - legal_judgment_prediction.model.initialize - INFO - Initialize model successfully.
+2022-08-24 20:47:28,974 - legal_judgment_prediction.initialize - INFO - Start to initialize multiple gpus.
+2022-08-24 20:47:30,369 - legal_judgment_prediction.initialize - INFO - Initialize multiple gpus successfully.
+2022-08-24 20:47:30,369 - legal_judgment_prediction.model.initialize - INFO - Start to initialize optimizer.
+2022-08-24 20:47:30,369 - pytorch_pretrained_bert.optimization - WARNING - t_total value of -1 results in schedule not being applied
+2022-08-24 20:47:30,370 - legal_judgment_prediction.model.initialize - INFO - Initialize optimizer successfully.
+2022-08-24 20:47:31,008 - legal_judgment_prediction.dataset.initialize - INFO - Start to initialize train dataloader.
+2022-08-24 20:47:34,525 - legal_judgment_prediction.formatter.initialize - INFO - Start to initialize formatter.
+2022-08-24 20:47:34,541 - legal_judgment_prediction.formatter.initialize - INFO - Initialize formatter successfully.
+2022-08-24 20:47:34,541 - legal_judgment_prediction.dataset.initialize - INFO - Initialize train dataloader successfully.
+2022-08-24 20:47:34,541 - legal_judgment_prediction.dataset.initialize - INFO - Start to initialize valid dataloader.
+2022-08-24 20:47:34,803 - legal_judgment_prediction.formatter.initialize - INFO - Start to initialize formatter.
+2022-08-24 20:47:34,818 - legal_judgment_prediction.formatter.initialize - INFO - Initialize formatter successfully.
+2022-08-24 20:47:34,818 - legal_judgment_prediction.dataset.initialize - INFO - Initialize valid dataloader successfully.
+2022-08-24 20:47:34,818 - legal_judgment_prediction.output.initialize - INFO - Start to initialize output function.
+2022-08-24 20:47:34,819 - legal_judgment_prediction.output.initialize - INFO - Initialize output function successfully.
+2022-08-24 20:47:34,821 - legal_judgment_prediction.initialize - INFO - Initialize successfully.
+2022-08-24 20:47:34,822 - legal_judgment_prediction.train - INFO - Start to train model.
+2022-08-24 20:47:34,822 - legal_judgment_prediction.train - INFO - Epoch  Stage  Iterations  Time Usage    Loss    Output Information
+2022-08-24 20:47:34,822 - legal_judgment_prediction.train - INFO - Current learning rate: 1e-05
+2022-08-24 20:47:35,564 - utils - INFO - 3      train  1/30524     0:00/377:33   2.47625470161438{"accusation": [0.857, 0.75, 0.8, 0.98, 0.98, 0.98], "article": [0.857, 0.75, 0.8, 0.967, 0.967, 0.967], "article_source": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]}
+2022-08-24 21:09:19,016 - utils - INFO - 3      train  2001/30524 21:44/309:50   2.0095421689702593{"accusation": [0.891, 0.808, 0.847, 0.554, 0.499, 0.515], "article": [0.912, 0.831, 0.87, 0.546, 0.401, 0.441], "article_source": [0.976, 0.974, 0.975, 0.832, 0.71, 0.759]}
+2022-08-24 21:30:54,580 - utils - INFO - 3      train  4001/30524 43:19/287:14   2.0363323139280483{"accusation": [0.888, 0.804, 0.844, 0.48, 0.409, 0.428], "article": [0.911, 0.829, 0.868, 0.566, 0.4, 0.443], "article_source": [0.976, 0.974, 0.975, 0.849, 0.715, 0.767]}
+2022-08-24 21:52:28,407 - utils - INFO - 3      train  6001/30524 64:53/265:11   2.0340466547162683{"accusation": [0.888, 0.806, 0.845, 0.433, 0.355, 0.373], "article": [0.911, 0.83, 0.869, 0.578, 0.402, 0.448], "article_source": [0.976, 0.974, 0.975, 0.849, 0.704, 0.758]}
+2022-08-24 22:14:07,935 - utils - INFO - 3      train  8001/30524 86:33/243:38   2.0473879273399316{"accusation": [0.888, 0.805, 0.845, 0.404, 0.327, 0.346], "article": [0.911, 0.83, 0.869, 0.588, 0.407, 0.454], "article_source": [0.976, 0.974, 0.975, 0.856, 0.714, 0.768]}
+2022-08-24 22:35:41,109 - utils - INFO - 3      train  10001/30524 108:06/221:50 2.037933182238947{"accusation": [0.889, 0.808, 0.846, 0.381, 0.307, 0.326], "article": [0.911, 0.831, 0.869, 0.593, 0.407, 0.455], "article_source": [0.977, 0.974, 0.975, 0.852, 0.714, 0.765]}
+2022-08-24 22:57:13,340 - utils - INFO - 3      train  12001/30524 129:38/200:05 2.0459808390832794{"accusation": [0.889, 0.808, 0.846, 0.381, 0.306, 0.325], "article": [0.91, 0.831, 0.868, 0.588, 0.407, 0.454], "article_source": [0.976, 0.974, 0.975, 0.851, 0.714, 0.764]}
+2022-08-24 23:18:45,621 - utils - INFO - 3      train  14001/30524 151:10/178:24 2.0482635762274817{"accusation": [0.889, 0.807, 0.846, 0.374, 0.292, 0.312], "article": [0.91, 0.83, 0.868, 0.588, 0.404, 0.452], "article_source": [0.976, 0.974, 0.975, 0.847, 0.716, 0.765]}
+2022-08-24 23:40:41,573 - utils - INFO - 3      train  16001/30524 173:06/157:07 2.0549329727960046{"accusation": [0.888, 0.807, 0.845, 0.341, 0.252, 0.271], "article": [0.909, 0.83, 0.868, 0.6, 0.404, 0.453], "article_source": [0.976, 0.974, 0.975, 0.893, 0.718, 0.768]}
+2022-08-25 00:02:44,142 - utils - INFO - 3      train  18001/30524 195:09/135:45 2.0506853596580252{"accusation": [0.888, 0.808, 0.846, 0.334, 0.246, 0.264], "article": [0.909, 0.83, 0.868, 0.61, 0.403, 0.452], "article_source": [0.976, 0.974, 0.975, 0.886, 0.718, 0.766]}
+2022-08-25 00:24:26,536 - utils - INFO - 3      train  20001/30524 216:51/114:05 2.057011561443751{"accusation": [0.888, 0.807, 0.845, 0.332, 0.245, 0.264], "article": [0.909, 0.829, 0.867, 0.613, 0.403, 0.452], "article_source": [0.976, 0.974, 0.975, 0.882, 0.716, 0.765]}
+2022-08-25 00:46:00,464 - utils - INFO - 3      train  22001/30524 238:25/92:21  2.058029592462711{"accusation": [0.888, 0.807, 0.845, 0.325, 0.238, 0.257], "article": [0.909, 0.829, 0.867, 0.613, 0.403, 0.452], "article_source": [0.976, 0.974, 0.975, 0.872, 0.719, 0.768]}
+2022-08-25 01:07:52,009 - utils - INFO - 3      train  24001/30524 260:17/70:44  2.057420110991818{"accusation": [0.888, 0.807, 0.845, 0.307, 0.219, 0.237], "article": [0.909, 0.83, 0.867, 0.612, 0.403, 0.453], "article_source": [0.976, 0.974, 0.975, 0.869, 0.72, 0.771]}
+2022-08-25 01:29:27,660 - utils - INFO - 3      train  26001/30524 281:52/49:02  2.0567594453437263{"accusation": [0.888, 0.807, 0.846, 0.294, 0.206, 0.225], "article": [0.909, 0.83, 0.868, 0.613, 0.404, 0.454], "article_source": [0.975, 0.974, 0.975, 0.873, 0.722, 0.774]}
+2022-08-25 01:51:03,195 - utils - INFO - 3      train  28001/30524 303:28/27:20  2.05658454240101{"accusation": [0.888, 0.807, 0.846, 0.307, 0.206, 0.225], "article": [0.909, 0.83, 0.868, 0.61, 0.403, 0.454], "article_source": [0.975, 0.974, 0.975, 0.873, 0.721, 0.773]}
+2022-08-25 02:12:39,012 - utils - INFO - 3      train  30001/30524 325:04/ 5:40  2.054337509054874{"accusation": [0.888, 0.808, 0.846, 0.295, 0.199, 0.218], "article": [0.909, 0.831, 0.868, 0.611, 0.404, 0.455], "article_source": [0.975, 0.974, 0.974, 0.868, 0.722, 0.774]}
+2022-08-25 02:18:17,730 - utils - INFO - 3      train  30524/30524 330:42/ 0:00  2.055773924040918{"accusation": [0.888, 0.808, 0.846, 0.295, 0.199, 0.218], "article": [0.909, 0.831, 0.868, 0.611, 0.403, 0.454], "article_source": [0.975, 0.974, 0.974, 0.869, 0.721, 0.774]}
+2022-08-25 02:18:19,238 - utils - INFO - 3      valid  1/3815      0:00/15:46    6.233367443084717{"accusation": [0.5, 0.375, 0.429, 0.966, 0.963, 0.964], "article": [0.833, 0.625, 0.714, 0.972, 0.974, 0.972], "article_source": [0.857, 0.75, 0.8, 0.976, 0.986, 0.976]}
+2022-08-25 02:26:35,173 - utils - INFO - 3      valid  2001/3815   8:16/ 7:29    2.2583223616574957{"accusation": [0.866, 0.797, 0.83, 0.546, 0.493, 0.505], "article": [0.899, 0.823, 0.859, 0.589, 0.429, 0.467], "article_source": [0.968, 0.971, 0.97, 0.839, 0.693, 0.747]}
+2022-08-25 02:34:05,727 - utils - INFO - 3      valid  3815/3815  15:46/ 0:00    2.2019740990322783{"accusation": [0.87, 0.802, 0.834, 0.454, 0.399, 0.41], "article": [0.9, 0.826, 0.862, 0.574, 0.421, 0.452], "article_source": [0.97, 0.972, 0.971, 0.878, 0.708, 0.753]}
