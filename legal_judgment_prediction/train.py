@@ -110,7 +110,7 @@ def train(parameters, do_test, *args, **kwargs):
             model=model
             , optimizer_name=optimizer_name
             , optimizer=optimizer
-            , trained_epoch=trained_epoch
+            , trained_epoch=current_epoch
             , exp_lr_scheduler=exp_lr_scheduler
             , file=os.path.join(output_path, f'checkpoint_{current_epoch}.pkl')
         )
