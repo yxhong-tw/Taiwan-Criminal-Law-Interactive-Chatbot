@@ -1,12 +1,16 @@
-venv/
-
-legal_judgment_prediction/data/*.txt
-legal_judgment_prediction/data/*.json
-legal_judgment_prediction/bart/pytorch_model.bin
-legal_judgment_prediction/bert/pytorch_model.bin
-legal_judgment_prediction/results/bart/*.pkl
-legal_judgment_prediction/results/bert/*.pkl
-
 **/__pycache__/
+
+data/*
+!data/README.md
+
+models/*
+!models/README.md
+
+ngrok/
+
+results/*
+!results/README.md
+
+venv/
 
 Taiwan-Criminal-Law-Interactive-Chatbot.code-workspace

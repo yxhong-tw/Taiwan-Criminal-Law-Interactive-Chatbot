@@ -1,0 +1,222 @@
+2022-08-20 16:45:35,435 - root - INFO - .\generate.py -c .\configs\generate\for_legal_judgment_prediction_model\before_summarizing\one_label\config.ini
+2022-08-20 16:45:35,436 - data_generation.initialize - INFO - Start to initialize.
+2022-08-20 16:45:35,466 - data_generation.initialize - INFO - Initialize successfully.
+2022-08-20 16:45:35,478 - root - INFO - Start to generate data.
+2022-08-20 16:45:35,478 - data_generation.utils - INFO - Start to get common data.
+2022-08-20 16:45:40,289 - data_generation.utils - INFO - Start to write back results.
+2022-08-20 16:45:40,290 - data_generation.utils - INFO - Start to write articles.txt.
+2022-08-20 16:45:40,290 - data_generation.utils - INFO - Write articles.txt successfully.
+2022-08-20 16:45:40,290 - data_generation.utils - INFO - Start to write article_sources.txt.
+2022-08-20 16:45:40,291 - data_generation.utils - INFO - Write article_sources.txt successfully.
+2022-08-20 16:45:40,291 - data_generation.utils - INFO - Start to write accusations.txt.
+2022-08-20 16:45:40,292 - data_generation.utils - INFO - Write accusations.txt successfully.
+2022-08-20 16:45:40,394 - data_generation.utils - INFO - Start to write train.json.
+2022-08-20 16:45:43,216 - data_generation.utils - INFO - Write train.json successfully.
+2022-08-20 16:45:43,216 - data_generation.utils - INFO - Start to write valid.json.
+2022-08-20 16:45:43,411 - data_generation.utils - INFO - Write valid.json successfully.
+2022-08-20 16:45:43,412 - data_generation.utils - INFO - Start to write test.json.
+2022-08-20 16:45:43,627 - data_generation.utils - INFO - Write test.json successfully.
+2022-08-20 16:45:43,634 - data_generation.utils - INFO - Write back results successfully.
+2022-08-20 16:45:43,634 - data_generation.utils - INFO - Get common data successfully.
+2022-08-20 16:45:43,732 - root - INFO - Generate data successfully.
+2022-08-20 16:46:44,814 - root - INFO - .\generate.py -c .\configs\generate\for_legal_judgment_prediction_model\before_summarizing\multi_labels\config.ini
+2022-08-20 16:46:44,814 - data_generation.initialize - INFO - Start to initialize.
+2022-08-20 16:46:44,909 - data_generation.initialize - WARNING - The path of output results/tvt_dataset/for_legal_judgment_prediction_model/before_summarizing/multi_labels does not exist.
+2022-08-20 16:46:44,909 - data_generation.initialize - INFO - Make the directory automatically.
+2022-08-20 16:46:44,910 - data_generation.initialize - INFO - Initialize successfully.
+2022-08-20 16:46:44,910 - root - INFO - Start to generate data.
+2022-08-20 16:46:44,910 - data_generation.utils - INFO - Start to get common data.
+2022-08-20 16:46:48,169 - data_generation.utils - INFO - Start to write back results.
+2022-08-20 16:46:48,169 - data_generation.utils - INFO - Start to write articles.txt.
+2022-08-20 16:46:48,178 - data_generation.utils - INFO - Write articles.txt successfully.
+2022-08-20 16:46:48,178 - data_generation.utils - INFO - Start to write article_sources.txt.
+2022-08-20 16:46:48,178 - data_generation.utils - INFO - Write article_sources.txt successfully.
+2022-08-20 16:46:48,179 - data_generation.utils - INFO - Start to write accusations.txt.
+2022-08-20 16:46:48,179 - data_generation.utils - INFO - Write accusations.txt successfully.
+2022-08-20 16:46:48,195 - data_generation.utils - INFO - Start to write train.json.
+2022-08-20 16:46:48,636 - data_generation.utils - INFO - Write train.json successfully.
+2022-08-20 16:46:48,636 - data_generation.utils - INFO - Start to write valid.json.
+2022-08-20 16:46:48,697 - data_generation.utils - INFO - Write valid.json successfully.
+2022-08-20 16:46:48,698 - data_generation.utils - INFO - Start to write test.json.
+2022-08-20 16:46:48,760 - data_generation.utils - INFO - Write test.json successfully.
+2022-08-20 16:46:48,761 - data_generation.utils - INFO - Write back results successfully.
+2022-08-20 16:46:48,761 - data_generation.utils - INFO - Get common data successfully.
+2022-08-20 16:46:48,784 - root - INFO - Generate data successfully.
+2022-08-20 16:49:35,400 - root - INFO - .\generate.py -c .\configs\generate\for_text_summarization_model\CAIL2020_sfzy\config.ini
+2022-08-20 16:49:35,401 - data_generation.initialize - INFO - Start to initialize.
+2022-08-20 16:49:35,401 - data_generation.initialize - WARNING - The path of output results/tvt_dataset/for_text_summarization_model/CAIL2020_sfzy does not exist.
+2022-08-20 16:49:35,401 - data_generation.initialize - INFO - Make the directory automatically.
+2022-08-20 16:49:35,402 - data_generation.initialize - INFO - Initialize successfully.
+2022-08-20 16:49:35,402 - root - INFO - Start to generate data.
+2022-08-20 16:49:35,402 - data_generation.utils - INFO - Start to get summarization data.
+2022-08-20 16:49:35,402 - data_generation.utils - INFO - Start to load data.
+2022-08-20 16:49:35,402 - data_generation.utils - INFO - Start to process sfzy_small.json.
+2022-08-20 16:49:35,611 - data_generation.utils - INFO - Process sfzy_small.json successfully.
+2022-08-20 16:49:35,611 - data_generation.utils - INFO - Load data successfully.
+2022-08-20 16:49:36,267 - data_generation.utils - INFO - Start to write back results.
+2022-08-20 16:49:36,273 - data_generation.utils - INFO - Start to write train.json.
+2022-08-20 16:49:36,454 - data_generation.utils - INFO - Write train.json successfully.
+2022-08-20 16:49:36,454 - data_generation.utils - INFO - Start to write valid.json.
+2022-08-20 16:49:36,464 - data_generation.utils - INFO - Write valid.json successfully.
+2022-08-20 16:49:36,465 - data_generation.utils - INFO - Write back results successfully.
+2022-08-20 16:49:36,465 - data_generation.utils - INFO - Get summarization data successfully.
+2022-08-20 16:49:36,480 - root - INFO - Generate data successfully.
+2022-08-20 16:50:10,640 - root - INFO - .\generate.py -c .\configs\generate\for_text_summarization_model\CNewSum_v2\config.ini
+2022-08-20 16:50:10,640 - data_generation.initialize - INFO - Start to initialize.
+2022-08-20 16:50:10,640 - data_generation.initialize - WARNING - The path of output results/tvt_dataset/for_text_summarization_model/CNewSum_v2 does not exist.
+2022-08-20 16:50:10,641 - data_generation.initialize - INFO - Make the directory automatically.
+2022-08-20 16:50:10,641 - data_generation.initialize - INFO - Initialize successfully.
+2022-08-20 16:50:10,641 - root - INFO - Start to generate data.
+2022-08-20 16:50:10,641 - data_generation.utils - INFO - Start to get summarization data.
+2022-08-20 16:50:10,641 - data_generation.utils - INFO - Start to load data.
+2022-08-20 16:50:10,642 - data_generation.utils - INFO - Start to process dev.simple.label.jsonl.
+2022-08-20 16:50:11,651 - data_generation.utils - INFO - Process dev.simple.label.jsonl successfully.
+2022-08-20 16:50:11,652 - data_generation.utils - INFO - Start to process test.simple.label.jsonl.
+2022-08-20 16:50:12,534 - data_generation.utils - INFO - Process test.simple.label.jsonl successfully.
+2022-08-20 16:50:12,534 - data_generation.utils - INFO - Start to process test2017.simple.label.jsonl.
+2022-08-20 16:50:12,603 - data_generation.utils - INFO - Process test2017.simple.label.jsonl successfully.
+2022-08-20 16:50:12,603 - data_generation.utils - INFO - Start to process test2018.simple.label.jsonl.
+2022-08-20 16:50:12,731 - data_generation.utils - INFO - Process test2018.simple.label.jsonl successfully.
+2022-08-20 16:50:12,732 - data_generation.utils - INFO - Start to process train.simple.label.jsonl.
+2022-08-20 16:50:20,880 - data_generation.utils - INFO - Process train.simple.label.jsonl successfully.
+2022-08-20 16:50:20,880 - data_generation.utils - INFO - Load data successfully.
+2022-08-20 16:50:36,336 - data_generation.utils - INFO - Start to write back results.
+2022-08-20 16:50:36,424 - data_generation.utils - INFO - Start to write train.json.
+2022-08-20 16:50:39,478 - data_generation.utils - INFO - Write train.json successfully.
+2022-08-20 16:50:39,479 - data_generation.utils - INFO - Start to write valid.json.
+2022-08-20 16:50:40,041 - data_generation.utils - INFO - Write valid.json successfully.
+2022-08-20 16:50:40,049 - data_generation.utils - INFO - Write back results successfully.
+2022-08-20 16:50:40,049 - data_generation.utils - INFO - Get summarization data successfully.
+2022-08-20 16:50:40,291 - root - INFO - Generate data successfully.
+2022-08-20 18:13:38,530 - root - INFO - .\generate.py -c .\configs\generate\for_legal_judgment_prediction_model\before_summarizing\combination\config.ini
+2022-08-20 18:13:38,531 - data_generation.initialize - INFO - Start to initialize.
+2022-08-20 18:13:38,552 - data_generation.initialize - WARNING - The path of output results/tvt_dataset/for_legal_judgment_prediction_model/before_summarizing/combination does not exist.
+2022-08-20 18:13:38,552 - data_generation.initialize - INFO - Make the directory automatically.
+2022-08-20 18:13:38,553 - data_generation.initialize - INFO - Initialize successfully.
+2022-08-20 18:13:38,557 - root - INFO - Start to generate data.
+2022-08-20 18:13:38,557 - data_generation.utils - INFO - Start to get common data.
+2022-08-20 18:13:44,675 - data_generation.utils - INFO - Start to write back results.
+2022-08-20 18:13:44,676 - data_generation.utils - INFO - Start to write articles.txt.
+2022-08-20 18:13:44,676 - data_generation.utils - INFO - Write articles.txt successfully.
+2022-08-20 18:13:44,676 - data_generation.utils - INFO - Start to write article_sources.txt.
+2022-08-20 18:13:44,677 - data_generation.utils - INFO - Write article_sources.txt successfully.
+2022-08-20 18:13:44,677 - data_generation.utils - INFO - Start to write accusations.txt.
+2022-08-20 18:13:44,677 - data_generation.utils - INFO - Write accusations.txt successfully.
+2022-08-20 18:13:44,804 - data_generation.utils - INFO - Start to write train.json.
+2022-08-20 18:13:47,540 - data_generation.utils - INFO - Write train.json successfully.
+2022-08-20 18:13:47,540 - data_generation.utils - INFO - Start to write valid.json.
+2022-08-20 18:13:47,847 - data_generation.utils - INFO - Write valid.json successfully.
+2022-08-20 18:13:47,848 - data_generation.utils - INFO - Start to write test.json.
+2022-08-20 18:13:48,108 - data_generation.utils - INFO - Write test.json successfully.
+2022-08-20 18:13:48,119 - data_generation.utils - INFO - Write back results successfully.
+2022-08-20 18:13:48,119 - data_generation.utils - INFO - Get common data successfully.
+2022-08-20 18:13:48,248 - root - INFO - Generate data successfully.
+2022-08-21 02:48:48,949 - root - INFO - generate.py -c configs/generate/for_legal_judgment_prediction_model/after_summarizing/combination/config.ini -g 0 -cp results/legal_judgment_summarization/CNewSum_v2/checkpoint_2.pkl
+2022-08-21 02:48:48,949 - data_generation.initialize - INFO - Start to initialize.
+2022-08-21 02:48:48,949 - data_generation.initialize - INFO - CUDA available: True
+2022-08-21 02:48:48,949 - legal_judgment_summarization.model.initialize - INFO - Start to initialize model.
+2022-08-21 02:48:48,949 - legal_judgment_summarization.model.initialize - INFO - Initialize model successfully.
+2022-08-21 02:48:51,522 - data_generation.initialize - INFO - Start to initialize multiple gpus.
+2022-08-21 02:48:51,524 - data_generation.initialize - INFO - Initialize multiple gpus successfully.
+2022-08-21 02:48:52,237 - legal_judgment_summarization.formatter.initialize - INFO - Start to initialize formatter.
+2022-08-21 02:48:52,251 - legal_judgment_summarization.formatter.initialize - INFO - Initialize formatter successfully.
+2022-08-21 02:48:52,251 - data_generation.initialize - INFO - Initialize successfully.
+2022-08-21 02:48:52,252 - root - INFO - Start to generate data.
+2022-08-21 02:48:52,252 - data_generation.utils - INFO - Start to convert fact to summarization.
+2022-08-21 02:48:52,252 - data_generation.utils - INFO - Start to process 4_train.json.
+2022-08-21 05:22:14,134 - data_generation.utils - INFO - Process 4_train.json successfully.
+2022-08-21 05:22:14,134 - data_generation.utils - INFO - Start to process 0_train.json.
+2022-08-21 07:57:20,832 - data_generation.utils - INFO - Process 0_train.json successfully.
+2022-08-21 07:57:20,832 - data_generation.utils - INFO - Start to process 2_train.json.
+2022-08-21 10:41:33,418 - data_generation.utils - INFO - Process 2_train.json successfully.
+2022-08-21 10:41:33,418 - data_generation.utils - INFO - Start to process 3_train.json.
+2022-08-21 13:23:13,807 - data_generation.utils - INFO - Process 3_train.json successfully.
+2022-08-21 13:23:13,807 - data_generation.utils - INFO - Start to process 1_train.json.
+2022-08-21 15:58:29,450 - data_generation.utils - INFO - Process 1_train.json successfully.
+2022-08-21 15:58:29,450 - data_generation.utils - INFO - Convert fact to summarization successfully.
+2022-08-21 15:58:29,457 - root - INFO - Generate data successfully.
+2022-08-21 02:52:47,534 - root - INFO - generate.py -c configs/generate/for_legal_judgment_prediction_model/after_summarizing/combination/config.ini -g 0 -cp results/legal_judgment_summarization/CNewSum_v2/checkpoint_2.pkl
+2022-08-21 02:52:47,534 - data_generation.initialize - INFO - Start to initialize.
+2022-08-21 02:52:47,539 - data_generation.initialize - INFO - CUDA available: True
+2022-08-21 02:52:47,539 - legal_judgment_summarization.model.initialize - INFO - Start to initialize model.
+2022-08-21 02:52:47,539 - legal_judgment_summarization.model.initialize - INFO - Initialize model successfully.
+2022-08-21 02:52:50,625 - data_generation.initialize - INFO - Start to initialize multiple gpus.
+2022-08-21 02:52:50,628 - data_generation.initialize - INFO - Initialize multiple gpus successfully.
+2022-08-21 02:52:51,384 - legal_judgment_summarization.formatter.initialize - INFO - Start to initialize formatter.
+2022-08-21 02:52:51,400 - legal_judgment_summarization.formatter.initialize - INFO - Initialize formatter successfully.
+2022-08-21 02:52:51,400 - data_generation.initialize - INFO - Initialize successfully.
+2022-08-21 02:52:51,401 - root - INFO - Start to generate data.
+2022-08-21 02:52:51,401 - data_generation.utils - INFO - Start to convert fact to summarization.
+2022-08-21 02:52:51,401 - data_generation.utils - INFO - Start to process 5_train.json.
+2022-08-21 05:27:07,666 - data_generation.utils - INFO - Process 5_train.json successfully.
+2022-08-21 05:27:07,666 - data_generation.utils - INFO - Start to process valid.json.
+2022-08-21 08:01:40,899 - data_generation.utils - INFO - Process valid.json successfully.
+2022-08-21 08:01:40,899 - data_generation.utils - INFO - Start to process test.json.
+2022-08-21 10:45:39,728 - data_generation.utils - INFO - Process test.json successfully.
+2022-08-21 10:45:39,728 - data_generation.utils - INFO - Start to process 6_train.json.
+2022-08-21 13:27:02,854 - data_generation.utils - INFO - Process 6_train.json successfully.
+2022-08-21 13:27:02,854 - data_generation.utils - INFO - Start to process 7_train.json.
+2022-08-21 16:01:07,763 - data_generation.utils - INFO - Process 7_train.json successfully.
+2022-08-21 16:01:07,764 - data_generation.utils - INFO - Convert fact to summarization successfully.
+2022-08-21 16:01:07,771 - root - INFO - Generate data successfully.
+2022-08-24 01:18:11,241 - root - INFO - .\generate.py -c .\configs\generate\for_legal_judgment_prediction_model\lead_3\one_label\config.ini
+2022-08-24 01:18:11,241 - data_generation.initialize - INFO - Start to initialize.
+2022-08-24 01:18:11,241 - data_generation.initialize - INFO - Initialize successfully.
+2022-08-24 01:18:11,241 - root - INFO - Start to generate data.
+2022-08-24 01:18:11,242 - data_generation.utils - INFO - Start to use lead-3 method to get summaries.
+2022-08-24 01:18:11,242 - data_generation.utils - INFO - Start to process test.json.
+2022-08-24 01:18:12,814 - data_generation.utils - INFO - Process test.json successfully.
+2022-08-24 01:18:12,814 - data_generation.utils - INFO - Start to process train.json.
+2022-08-24 01:18:26,457 - data_generation.utils - INFO - Process train.json successfully.
+2022-08-24 01:18:26,457 - data_generation.utils - INFO - Start to process valid.json.
+2022-08-24 01:18:28,038 - data_generation.utils - INFO - Process valid.json successfully.
+2022-08-24 01:18:28,038 - data_generation.utils - INFO - Convert fact to summarization successfully.
+2022-08-24 01:18:28,058 - root - INFO - Generate data successfully.
+2022-08-25 02:55:48,766 - root - INFO - generate.py -c configs/generate/for_legal_judgment_prediction_model/bart/one_label/config.ini -g 0 -cp results/legal_judgment_summarization/CNewSum_v2/checkpoint_2.pkl
+2022-08-25 02:55:48,766 - data_generation.initialize - INFO - Start to initialize.
+2022-08-25 02:55:48,766 - data_generation.initialize - INFO - CUDA available: True
+2022-08-25 02:55:48,766 - legal_judgment_summarization.model.initialize - INFO - Start to initialize model.
+2022-08-25 02:55:48,766 - legal_judgment_summarization.model.initialize - INFO - Initialize model successfully.
+2022-08-25 02:55:52,647 - data_generation.initialize - INFO - Start to initialize multiple gpus.
+2022-08-25 02:55:52,649 - data_generation.initialize - INFO - Initialize multiple gpus successfully.
+2022-08-25 02:55:53,433 - legal_judgment_summarization.formatter.initialize - INFO - Start to initialize formatter.
+2022-08-25 02:55:53,450 - legal_judgment_summarization.formatter.initialize - INFO - Initialize formatter successfully.
+2022-08-25 02:55:53,450 - data_generation.initialize - INFO - Initialize successfully.
+2022-08-25 02:55:53,452 - root - INFO - Start to generate data.
+2022-08-25 02:55:53,452 - data_generation.utils - INFO - Start to convert fact to summarization.
+2022-08-25 02:55:53,452 - data_generation.utils - INFO - Start to process 4_train.json.
+2022-08-25 05:09:58,771 - data_generation.utils - INFO - Process 4_train.json successfully.
+2022-08-25 05:09:58,771 - data_generation.utils - INFO - Start to process 0_train.json.
+2022-08-25 07:22:09,016 - data_generation.utils - INFO - Process 0_train.json successfully.
+2022-08-25 07:22:09,016 - data_generation.utils - INFO - Start to process 2_train.json.
+2022-08-25 09:34:50,611 - data_generation.utils - INFO - Process 2_train.json successfully.
+2022-08-25 09:34:50,611 - data_generation.utils - INFO - Start to process 3_train.json.
+2022-08-25 11:47:09,542 - data_generation.utils - INFO - Process 3_train.json successfully.
+2022-08-25 11:47:09,542 - data_generation.utils - INFO - Start to process 1_train.json.
+2022-08-25 13:59:50,949 - data_generation.utils - INFO - Process 1_train.json successfully.
+2022-08-25 13:59:50,949 - data_generation.utils - INFO - Convert fact to summarization successfully.
+2022-08-25 13:59:50,955 - root - INFO - Generate data successfully.
+2022-08-25 02:56:23,782 - root - INFO - generate.py -c configs/generate/for_legal_judgment_prediction_model/bart/one_label/config.ini -g 0 -cp results/legal_judgment_summarization/CNewSum_v2/checkpoint_2.pkl
+2022-08-25 02:56:23,782 - data_generation.initialize - INFO - Start to initialize.
+2022-08-25 02:56:23,787 - data_generation.initialize - INFO - CUDA available: True
+2022-08-25 02:56:23,788 - legal_judgment_summarization.model.initialize - INFO - Start to initialize model.
+2022-08-25 02:56:23,788 - legal_judgment_summarization.model.initialize - INFO - Initialize model successfully.
+2022-08-25 02:56:28,907 - data_generation.initialize - INFO - Start to initialize multiple gpus.
+2022-08-25 02:56:28,910 - data_generation.initialize - INFO - Initialize multiple gpus successfully.
+2022-08-25 02:56:29,783 - legal_judgment_summarization.formatter.initialize - INFO - Start to initialize formatter.
+2022-08-25 02:56:29,801 - legal_judgment_summarization.formatter.initialize - INFO - Initialize formatter successfully.
+2022-08-25 02:56:29,801 - data_generation.initialize - INFO - Initialize successfully.
+2022-08-25 02:56:29,802 - root - INFO - Start to generate data.
+2022-08-25 02:56:29,802 - data_generation.utils - INFO - Start to convert fact to summarization.
+2022-08-25 02:56:29,802 - data_generation.utils - INFO - Start to process 5_train.json.
+2022-08-25 05:10:21,174 - data_generation.utils - INFO - Process 5_train.json successfully.
+2022-08-25 05:10:21,174 - data_generation.utils - INFO - Start to process valid.json.
+2022-08-25 07:22:58,386 - data_generation.utils - INFO - Process valid.json successfully.
+2022-08-25 07:22:58,386 - data_generation.utils - INFO - Start to process test.json.
+2022-08-25 09:35:18,864 - data_generation.utils - INFO - Process test.json successfully.
+2022-08-25 09:35:18,864 - data_generation.utils - INFO - Start to process 6_train.json.
+2022-08-25 11:47:38,959 - data_generation.utils - INFO - Process 6_train.json successfully.
+2022-08-25 11:47:38,959 - data_generation.utils - INFO - Start to process 7_train.json.
+2022-08-25 13:59:58,812 - data_generation.utils - INFO - Process 7_train.json successfully.
+2022-08-25 13:59:58,812 - data_generation.utils - INFO - Convert fact to summarization successfully.
+2022-08-25 13:59:58,818 - root - INFO - Generate data successfully.
