@@ -14,3 +14,7 @@ results/*
 venv/
 
 Taiwan-Criminal-Law-Interactive-Chatbot.code-workspace
+
+legal_judgment_prediction/bert/
+legal_judgment_prediction/data/
+legal_judgment_prediction/results/
