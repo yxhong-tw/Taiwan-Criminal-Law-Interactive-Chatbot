@@ -1,17 +1,19 @@
 # Taiwan-Criminal-Law-Interactive-Chatbot
-This project is made by WIDM Lab. (Web Intelligence and Data Mining Laboratory) undergraduate students of CSIE dept. (Computer Science and Information Engineering department) of NCU (National Central University).
+This project is made by undergraduate students from the WIDM Lab. (Web Intelligence and Data Mining Laboratory), and is the result of NCU (National Central University) CSIE dept. (Computer Science and Information Engineering department) 2023 project competition.
 
-## Before running
-### Download data, model and checkpoint
-Due to the size of data, model and checkpoint files are too large, you need to download those files and put them into the correct paths, and the program can execute correctly.
-- [data](https://drive.google.com/drive/folders/1YJBfh5gQGuS58Gqrz4M4BqX1vaThK4kj?usp=sharing): put all files into `./legal_judgment_prediction/data`
-- [pytorch_model.bin](https://drive.google.com/file/d/1LcY1eFmhTcYDHm_7_9s4DOyPgGyQ5QOy/view?usp=sharing): put file into `./legal_judgment_prediction/bert/`
-- [checkpoints](https://drive.google.com/drive/folders/1RVYQWsdZHHymqGQ87SEXDnv-c92ECIFc?usp=sharing): download the checkpoint you want and put the file into `./legal_judgment_prediction/results/Bert`
+It has won the Outstanding Performance Award (4th place) in the department-level project competition and the Excellent Award (2nd place) in the college-level project competition.
 
-### Install the modules
-Run `pip install -r requirements.txt` to install all needed modules.
+## Before using
+### Download data, pre-trained model and checkpoints
+Due to the size of data, model and checkpoints files are too large, you need to download those files and put them into the correct paths manually, and the program can execute correctly.
+- [data](https://drive.google.com/drive/folders/1XnbdK3c1cuUHfc3YEQh6q6abtk8Jq1Ab?usp=sharing): put all files into `./legal_judgment_prediction/data`
+- [pytorch_model.bin](https://drive.google.com/file/d/1_Zd5-TLNk2Brbk62d0X2Z2mor5KW-lhY/view?usp=sharing): put file into `./legal_judgment_prediction/bert/`
+- [checkpoints](https://drive.google.com/drive/folders/1Y18gkLOfDRfqCbNKsmLSCD3lrYmKNoc8?usp=sharing): download the checkpoint you want and put the file into `./legal_judgment_prediction/results/Bert`
 
-## How to run LJP model
+### Install the required modules
+Run `pip install -r requirements.txt` to install all required modules.
+
+## How to run LJP (Legal Judgment Prediction) model?
 This program has three mode: train, eval, serve.
 
 All execution messages are saved in `legal_judgment_prediction/log/Bert.log`.
@@ -24,7 +26,7 @@ python main.py --config [config_file_path] --gpu [gpu IDs] --mode [mode] \
 
 ### Detail of parameters
 - --config, -c [config_file_path]: The path of config file. You can use default config `./config.ini`
-- --gpu, -g [gpu_IDs]: The list of gpu ID. You can find gpu IDs with command `nvidia-smi -L`
+- --gpu, -g [gpu_IDs]: The list of gpu ID. The first gpu ID starts from 0.
 - --mode, -m [mode]: There are three mode: train, eval or serve.
 - --checkpoint: The path of checkpoint. (eval, serve mode required)
 - --do_test: If you want to do test when training, add this parameter into instruction.
@@ -77,20 +79,20 @@ If you add `--open_server` into instruction, program will open Flask web server.
 ## Demo
 ### Serve (simple_IO)
 #### Event Prediction
-![Demo_simple_IO](https://drive.google.com/uc?export=view&id=1MbOXoALHHaV2n3TMUku2jXzTaCReyY11)
+![Demo_simple_IO](https://drive.google.com/uc?export=view&id=1es_Zejjt5cmiIjL3Pi1N7lisyTTAT5vv)
 > Enter `shutdown` in chatroom to close whole system safely.
 
 ### Serve (open_server)
 #### How to Use
-![Demo_Line_Bot_How_to_Use](https://drive.google.com/uc?export=view&id=1KrvaAUrKeorUjc3FDBEFCBDD_t3lPzl3)
+![Demo_Line_Bot_How_to_Use](https://drive.google.com/uc?export=view&id=1fzwK6Qiw410nyMu1Urnwl-2rZDwan6Uq)
 
 #### Today News
-![Demo_Line_Bot_Today_News](https://drive.google.com/uc?export=view&id=1Ks7zFX44TGoBl5j8PH5cHQaKNVWkWJRK)
+![Demo_Line_Bot_Today_News](https://drive.google.com/uc?export=view&id=1g-XObt9kId2HrGfnVHCUeR5m8nOIxxsp)
 
 #### Event Prediction
-![Demo_Line_Bot_Event_Prediction](https://drive.google.com/uc?export=view&id=1KsUZ1RQ7u-3mcSBSprOb6IQF7sSdRIkZ)
+![Demo_Line_Bot_Event_Prediction](https://drive.google.com/uc?export=view&id=1g-OE3rRpFWDXXa6R0JykIohaVnk4ghKu)
 
 #### Law Search
-![Demo_Line_Bot_Law_Search](https://drive.google.com/uc?export=view&id=1KsZpXjaUE6RXAJnzQikLlSNRXlLEt2Uk)
+![Demo_Line_Bot_Law_Search](https://drive.google.com/uc?export=view&id=1g-BnGFPD4zEsJgqvGS6fU6lHQ7-CzEmP)
 
 > Enter `shutdown` in chatroom to close whole system safely (Same as Serve (simple_IO)).
