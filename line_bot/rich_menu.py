@@ -20,6 +20,7 @@ token = 'UmN0XsFJwcHP8lL7cPrvu30LXwqhMfni5+cTHdjrHKfOGW3DdgNh04ZmflN74CzwyhcRqiD
 headers = {"Authorization":"Bearer UmN0XsFJwcHP8lL7cPrvu30LXwqhMfni5+cTHdjrHKfOGW3DdgNh04ZmflN74CzwyhcRqiDCSzbnGDXhKxRwzXeYmO/1ELsnZFZnKJneME5cWq+hmbUjCongPvcsaSVOI1Ml6KfKoHybjIGM67pFXQdB04t89/1O/w1cDnyilFU=" , "Content-Type":"application/json"}
 
 # ====================================================
+
 # '''
 # Step 1 : 設定一次就可以註解掉了
 # '''
@@ -55,12 +56,13 @@ headers = {"Authorization":"Bearer UmN0XsFJwcHP8lL7cPrvu30LXwqhMfni5+cTHdjrHKfOG
 # print(req.text)
 # 在這裡要記起 rich_menu_id
 
-
 # ====================================================
+
 '''
 Step 2 : import 要的東西
 這段也不能刪掉
 '''
+
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -80,15 +82,14 @@ rich_menu_id = 'richmenu-1fd5ca3d00e7c206b31818f7baf36101'
     
 # ====================================================
 
-
 req = requests.request('POST', 'https://api.line.me/v2/bot/user/all/richmenu/'+rich_menu_id,
                        headers=headers)
 print(req.text)
 
 rich_menu_list = line_bot_api.get_rich_menu_list()
 
-
 # ====================================================
+
 """
 上面要重新設定的話要把 ID 刪掉重來
 """

@@ -5,4 +5,3 @@ class BasicFormatter:
 
     def process(self, data, config, mode, *args, **params):
         return data
-

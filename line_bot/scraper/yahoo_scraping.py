@@ -1,12 +1,14 @@
 # Yahoo news
-# coding=utf-8
+# coding=UTF-8
+
 # 1. pick raw text excluding link and figure
 # 2. exclude first <p> with ".*報導$"
-# 3.
-# remove "【《〈()""
+# 3. remove "【《〈()""
+
 from bs4 import BeautifulSoup
 import requests
 import re
+
 
 def get_news_content(url):
     # get html page and parse to soup
@@ -17,15 +19,18 @@ def get_news_content(url):
     content = soup.find('div', class_='caas-body')
     with open('page2.html', 'w') as f:
         f.write(content.prettify())
+
     print(content.text)
+
     # get all <p>
     # all_paragraph = content.select("p[")
     # law_detail = ''
+
     # for idx, a in enumerate(content):
     # 	if idx == 0: continue
     # 	law_detail += f'{idx}. {a.text}'
     # 	law_detail += '\n' if idx != len(content) - 1 else ''
-    # # print(law_detail)
+
     # return law_detail
 
 if __name__ == '__main__':

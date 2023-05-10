@@ -1,7 +1,7 @@
-#這些是LINE官方開放的套件組合透過import來套用這個檔案上
 from linebot import (LineBotApi, WebhookHandler)
 from linebot.exceptions import (InvalidSignatureError)
 from linebot.models import *
+
 
 #ImagemapSendMessage(組圖訊息)
 def imagemap_message():
@@ -47,6 +47,7 @@ def imagemap_message():
             )
         ]
     )
+
     return message
 
 #TemplateSendMessage - ButtonsTemplate (按鈕介面訊息)
@@ -77,7 +78,9 @@ def buttons_message():
             ]
         )
     )
+
     return message
+
 
 #TemplateSendMessage - ConfirmTemplate(確認介面訊息)
 def Confirm_Template():
@@ -99,10 +102,11 @@ def Confirm_Template():
             ]
         )
     )
+
     return message
 
-#旋轉木馬按鈕訊息介面
 
+#旋轉木馬按鈕訊息介面
 def Carousel_Template():
     message = TemplateSendMessage(
         alt_text='一則旋轉木馬按鈕訊息',
@@ -168,7 +172,9 @@ def Carousel_Template():
             ]
         )
     )
+
     return message
+
 
 #TemplateSendMessage - ImageCarouselTemplate(圖片旋轉木馬)
 def image_carousel_message1():
@@ -207,6 +213,5 @@ def image_carousel_message1():
             ]
         )
     )
-    return message
 
-#關於LINEBOT聊天內容範例
+    return message
